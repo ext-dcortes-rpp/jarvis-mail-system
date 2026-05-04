@@ -1,0 +1,18 @@
+/* ============================================
+   KV: TURBO
+   ============================================
+   Reglas extraídas de los comentarios del HTML base.
+   ============================================ */
+
+body {
+    background-color: #040404;
+}
+
+.gradmobile-turbo {
+    background-image: url(https://lh3.googleusercontent.com/d/1H9gJ5jNpxyIlg7jPve-VafvLZhWDOeSF) !important;
+}
+
+.banner-turbo {
+    background: rgba(0, 58, 52, 0.4);
+    /* Sin background-image */
+}

@@ -1,0 +1,390 @@
+<style type="text/css">
+body, p, div {
+    font-family: arial, helvetica, sans-serif;
+    font-size: 14px;
+}
+body {
+    color: #E2E2E2;
+    padding: 0px;
+    margin: 0px;
+    background-color: #040404;
+	/* 
+	
+si Tipo de Kv = Pro background-color debe ser #ECEFF3
+	
+si Tipo de Kv = ProBlack bbackground-color debe ser #2A2B2B
+
+*/
+
+}
+h1 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 50px;
+    line-height: 50px;
+    word-break: break-word;
+    font-family: arial, helvetica, sans-serif;
+}
+h2 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 35px;
+    line-height: 37px;
+    word-break: break-word;
+    font-family: arial, helvetica, sans-serif;
+}
+h3 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 27px;
+    line-height: 28px;
+    word-break: break-word;
+    font-family: arial, helvetica, sans-serif;
+}
+h4 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 19px;
+    word-break: break-word;
+    font-family: arial, helvetica, sans-serif;
+}
+h5 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    color: rgb(255, 68, 31);
+    font-size: 16px;
+    line-height: 17px;
+    word-break: break-word;
+    font-family: arial, helvetica, sans-serif;
+}
+h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 15px;
+    word-break: break-word;
+    font-family: arial, helvetica, sans-serif;
+}
+.txts {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 12px;
+    word-break: break-word;
+    font-family: arial, helvetica, sans-serif;
+}
+table.wrapper {
+    width: 100% !important;
+    table-layout: fixed;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+img.max-width {
+    max-width: 100% !important;
+}
+.separador {
+    height: 16px;
+}
+.separador-M {
+    height: 10px;
+}
+.separador-S {
+    height: 4px;
+}
+
+@media (max-width:480px) {
+.preheader .rightColumnContent, .footer .rightColumnContent {
+    text-align: left !important;
+}
+.preheader .rightColumnContent div, .preheader .rightColumnContent span, .footer .rightColumnContent div, .footer .rightColumnContent span {
+    text-align: left !important;
+}
+.preheader .rightColumnContent, .preheader .leftColumnContent {
+    font-size: 80% !important;
+    padding: 5px 0;
+}
+table.wrapper-mobile {
+    width: 100% !important;
+    table-layout: fixed;
+}
+img.max-width {
+    height: auto !important;
+    max-width: 100% !important;
+}
+a.bulletproof-button {
+    display: block !important;
+    width: auto !important;
+    font-size: 80%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+.columns {
+    width: 100% !important;
+}
+.column {
+    width: 100% !important;
+    padding: 0px 0px 0px 0px !important;
+    height: auto !important;
+}
+.cintillonew {
+    width: 90% !important;
+    max-width: 250px !important;
+    min-height: auto !important;
+    max-height: inherit !important;
+    height: auto !important;
+}
+.gradmobile {
+    background-image: url(https://lh3.googleusercontent.com/d/1rIa4_gp0V6xLfA1K3ipSWBFiTCWhuIb3)!important;
+}
+	
+/* si Tipo de Kv = Generico background-image debe ser https://lh3.googleusercontent.com/d/1rIa4_gp0V6xLfA1K3ipSWBFiTCWhuIb3
+
+si Tipo de Kv = Turbo background-image debe ser https://lh3.googleusercontent.com/d/1H9gJ5jNpxyIlg7jPve-VafvLZhWDOeSF
+
+si Tipo de Kv = Neutro background-image debe ser https://lh3.googleusercontent.com/d/1cxWexOAmboGIZePNaw43T_STs395wS8K
+	
+si Tipo de Kv = Pro background-image debe ser https://lh3.googleusercontent.com/d/1ii-QN0RVxteKuS2cHWUr22ZyOZXZ2-JE
+	
+y agregar a la clase .gradmobile el estilo 
+	background-size: 100% 100% !important;
+	
+si Tipo de Kv = ProBlack background-image debe ser https://lh3.googleusercontent.com/d/1x630cZMTzzkDMhebuUutPEkWvL1ppPfW
+	
+y agregar a la clase .gradmobile el estilo 
+	background-size: 100% 100% !important;
+
+*/
+
+.header-logo {
+    height: 22px !important;
+    max-height: 22px !important;
+    min-height: 22px !important;
+}
+.header-logoturbo {
+    height: 28px !important;
+    max-height: 28px !important;
+    min-height: 28px !important;
+}
+.header-logopro {
+    height: 20px !important;
+    max-height: 20px !important;
+    min-height: 20px !important;
+}
+.header-tag {
+    max-width: 120px !important;
+    width: auto !important;
+    max-height: 22px !important;
+}
+.header-logo1-1 {
+    width: 35px !important;
+}
+.header-tag-pro {
+    max-width: 120px !important;
+    width: auto !important;
+    max-height: 20px !important;
+}
+.header-logo1-1-pro {
+    width: 35px !important;
+}		
+.banner-logo1-1 {
+    width: 67px !important;
+}
+.banner-logo-multi {
+    width: 50px !important;
+}
+.altobanner1 {
+    height: 75vw !important;
+}
+.alto-auto {
+    height: auto !important;
+}
+.alineado-center {
+    text-align: center !important;
+	margin: 0 auto !important;
+}
+.txtbigbanner {
+    padding: 15px 0px !important;
+}
+h1 {
+    font-size: 48px!important;
+    line-height: 49px!important;
+}
+h2 {
+    font-size: 35px!important;
+    line-height: 37px!important;
+}
+h3 {
+    font-size: 27px!important;
+    line-height: 28px!important;
+}
+h4 {
+    font-size: 16px!important;
+    line-height: 18px!important;
+}
+h5 {
+    font-size: 15px!important;
+    line-height: 16px!important;
+}
+h6 {
+    font-size: 13px!important;
+    line-height: 14px!important;
+}
+.txts {
+    font-size: 10px!important;
+    line-height: 11px!important;
+}
+}
+
+@media (max-width:620px) {
+.preheader .rightColumnContent, .footer .rightColumnContent {
+    text-align: left !important;
+}
+.preheader .rightColumnContent div, .preheader .rightColumnContent span, .footer .rightColumnContent div, .footer .rightColumnContent span {
+    text-align: left !important;
+}
+.preheader .rightColumnContent, .preheader .leftColumnContent {
+    font-size: 80% !important;
+    padding: 5px 0;
+}
+table.wrapper-mobile {
+    width: 100% !important;
+    table-layout: fixed;
+}
+img.max-width {
+    height: auto !important;
+    max-width: 100% !important;
+}
+a.bulletproof-button {
+    display: block !important;
+    width: auto !important;
+    font-size: 80%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+.columns {
+    width: 100% !important;
+}
+.column {
+    width: 100% !important;
+    padding: 0px 0px 0px 0px !important;
+    height: auto !important;
+}
+.cintillonew {
+    width: 90% !important;
+    max-width: 250px !important;
+    min-height: auto !important;
+    max-height: inherit !important;
+    height: auto !important;
+}
+.gradmobile {
+    background-image: url(https://lh3.googleusercontent.com/d/1rIa4_gp0V6xLfA1K3ipSWBFiTCWhuIb3)!important;
+}
+	
+/* si Tipo de Kv = Generico background-image debe ser https://lh3.googleusercontent.com/d/1rIa4_gp0V6xLfA1K3ipSWBFiTCWhuIb3
+
+si Tipo de Kv = Turbo background-image debe ser https://lh3.googleusercontent.com/d/1H9gJ5jNpxyIlg7jPve-VafvLZhWDOeSF
+
+si Tipo de Kv = Neutro background-image debe ser https://lh3.googleusercontent.com/d/1cxWexOAmboGIZePNaw43T_STs395wS8K
+	
+si Tipo de Kv = Pro background-image debe ser https://lh3.googleusercontent.com/d/1ii-QN0RVxteKuS2cHWUr22ZyOZXZ2-JE
+	
+y agregar a la clase .gradmobile el estilo 
+	background-size: 100% 100% !important;
+	
+si Tipo de Kv = ProBlack background-image debe ser https://lh3.googleusercontent.com/d/1x630cZMTzzkDMhebuUutPEkWvL1ppPfW
+	
+y agregar a la clase .gradmobile el estilo 
+	background-size: 100% 100% !important;
+
+*/
+
+.header-logo {
+    height: 22px !important;
+    max-height: 22px !important;
+    min-height: 22px !important;
+}
+.header-logoturbo {
+    height: 28px !important;
+    max-height: 28px !important;
+    min-height: 28px !important;
+}
+.header-logopro {
+    height: 20px !important;
+    max-height: 20px !important;
+    min-height: 20px !important;
+}
+.header-tag {
+    max-width: 120px !important;
+    width: auto !important;
+    max-height: 22px !important;
+}
+.header-logo1-1 {
+    width: 35px !important;
+}
+.header-tag-pro {
+    max-width: 120px !important;
+    width: auto !important;
+    max-height: 20px !important;
+}
+.header-logo1-1-pro {
+    width: 35px !important;
+}	
+.banner-logo1-1- {
+    width: 67px !important;
+}
+.banner-logo-multi {
+    width: 50px !important;
+}
+.altobanner1 {
+    height: 75vw !important;
+}
+.alto-auto {
+    height: auto !important;
+}
+.alineado-center {
+    text-align: center !important;
+	margin: 0 auto !important;
+}
+.txtbigbanner {
+    padding: 15px 0px !important;
+}
+h1 {
+    font-size: 48px!important;
+    line-height: 49px!important;
+}
+h2 {
+    font-size: 35px!important;
+    line-height: 37px!important;
+}
+h3 {
+    font-size: 27px!important;
+    line-height: 28px!important;
+}
+h4 {
+    font-size: 16px!important;
+    line-height: 18px!important;
+}
+h5 {
+    font-size: 15px!important;
+    line-height: 16px!important;
+}
+h6 {
+    font-size: 13px!important;
+    line-height: 14px!important;
+}
+.txts {
+    font-size: 10px!important;
+    line-height: 11px!important;
+}
+}
+</style>

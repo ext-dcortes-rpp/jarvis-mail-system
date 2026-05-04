@@ -1,0 +1,21 @@
+/* ============================================
+   KV: GENÉRICO (default)
+   ============================================
+   Aplicado por defecto. Estos son los valores que ya
+   están hardcodeados en el HTML base.
+   ============================================ */
+
+body {
+    background-color: #040404;
+}
+
+/* Background del wrapper */
+.gradmobile-generico {
+    background-image: url(https://lh3.googleusercontent.com/d/1rIa4_gp0V6xLfA1K3ipSWBFiTCWhuIb3) !important;
+}
+
+/* Banner background */
+.banner-generico {
+    background: rgba(254, 63, 35, 0.5);
+    background-image: url(https://lh3.googleusercontent.com/d/1qztlsmSfPI2eNsQ_ej-Y6oE7U94MGLSn);
+}

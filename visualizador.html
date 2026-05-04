@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vision — Visualizador de Mails</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#080808;--panel:#101010;--card:#171717;--card2:#1e1e1e;
+  --border:#252525;--border2:#333;
+  --text:#e2e2e2;--muted:#666;--subtle:#3a3a3a;
+  --rappi:#fe3f23;
+}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);
+  height:100vh;overflow:hidden;display:flex;flex-direction:column;font-size:13px;}
+::-webkit-scrollbar{width:4px;height:4px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:#252525;border-radius:4px;}
+
+/* ── TOPBAR ── */
+.topbar{height:48px;background:var(--panel);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;padding:0 16px;gap:14px;flex-shrink:0;z-index:10;}
+.brand-name{font-size:14px;font-weight:700;color:var(--rappi);letter-spacing:2px;}
+.brand-sub{font-size:11px;color:#444;letter-spacing:.5px;}
+.sep{width:1px;height:20px;background:var(--border);}
+.kv-label{font-size:10px;color:#444;text-transform:uppercase;letter-spacing:1px;flex-shrink:0;}
+.kv-pills{display:flex;gap:4px;}
+.kv-pill{padding:3px 10px;border-radius:20px;border:1px solid var(--border);background:transparent;
+  color:#555;font-size:11px;cursor:pointer;font-family:inherit;transition:all .15s;}
+.kv-pill:hover{border-color:#444;color:#888;}
+.kv-pill.active{border-color:var(--rappi);color:var(--rappi);background:rgba(254,63,35,.1);}
+.top-right{margin-left:auto;display:flex;gap:8px;}
+
+/* ── LAYOUT ── */
+.layout{display:grid;grid-template-columns:248px 1fr 368px;flex:1;overflow:hidden;min-height:0;}
+
+/* ── LIBRARY ── */
+.library{background:var(--panel);border-right:1px solid var(--border);overflow-y:auto;padding:10px 8px;}
+.lib-header{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:#383838;padding:4px 6px 10px;}
+.category{margin-bottom:4px;}
+.cat-trigger{display:flex;align-items:center;gap:7px;padding:6px 8px;border-radius:7px;
+  cursor:pointer;user-select:none;transition:background .12s;}
+.cat-trigger:hover{background:var(--card2);}
+.cat-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.cat-name{font-size:12px;font-weight:700;flex:1;}
+.cat-count{font-size:10px;color:#383838;}
+.cat-chev{font-size:9px;color:#383838;transition:transform .15s;}
+.cat-chev.open{transform:rotate(90deg);}
+.cat-items{display:none;flex-direction:column;gap:2px;padding:3px 4px 3px 14px;}
+.cat-items.open{display:flex;}
+.lib-card{display:flex;align-items:center;gap:8px;padding:7px 8px;border-radius:6px;
+  cursor:pointer;border:1px solid transparent;transition:all .12s;position:relative;}
+.lib-card:hover{background:var(--card2);border-color:var(--border);}
+.lib-thumb{width:44px;height:32px;border-radius:4px;overflow:hidden;flex-shrink:0;
+  background:#111;display:flex;align-items:center;justify-content:center;}
+.lib-info{flex:1;min-width:0;}
+.lib-name{font-size:11px;font-weight:600;color:#d0d0d0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lib-desc{font-size:10px;color:#484848;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lib-add{width:20px;height:20px;border-radius:50%;background:#1a1a1a;border:1px solid #2a2a2a;
+  color:#777;font-size:14px;line-height:1;opacity:0;transition:all .12s;flex-shrink:0;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.lib-card:hover .lib-add{opacity:1;}
+.lib-add:hover{background:var(--rappi)!important;border-color:var(--rappi)!important;color:#fff;}
+
+/* ── CANVAS ── */
+.canvas{display:flex;flex-direction:column;overflow:hidden;background:var(--bg);}
+.canvas-bar{padding:10px 16px;border-bottom:1px solid var(--border);display:flex;
+  align-items:center;gap:10px;flex-shrink:0;background:var(--panel);}
+.canvas-title{font-size:11px;font-weight:700;color:#666;letter-spacing:1px;}
+.canvas-count{font-size:11px;color:#444;background:#151515;border:1px solid var(--border);
+  padding:2px 8px;border-radius:10px;}
+.canvas-btns{margin-left:auto;display:flex;gap:6px;}
+.btn{padding:5px 12px;border-radius:6px;border:none;font-family:inherit;font-size:11px;
+  font-weight:600;cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:5px;}
+.btn-ghost{background:transparent;border:1px solid #252525;color:#555;}
+.btn-ghost:hover{border-color:#3a3a3a;color:#888;}
+.btn-primary{background:var(--rappi);color:#fff;}
+.btn-primary:hover{background:#e63620;}
+.canvas-body{flex:1;overflow-y:auto;padding:18px;}
+.aw{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:5px;}
+
+/* ── SLOTS ── */
+.slot{border:1.5px dashed #1e1e1e;border-radius:10px;padding:10px;transition:all .15s;}
+.slot.filled{border-style:solid;}
+.slot-lbl{font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:#383838;
+  display:flex;align-items:center;gap:5px;margin-bottom:7px;}
+.slot-ldot{width:5px;height:5px;border-radius:50%;}
+.slot-empty{display:flex;align-items:center;justify-content:center;padding:12px;
+  color:#282828;font-size:11px;gap:6px;}
+.slot-item{display:flex;align-items:center;gap:10px;padding:8px 10px;
+  background:var(--card);border-radius:7px;border:1px solid var(--border);}
+.si-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.si-name{font-size:12px;font-weight:600;flex:1;}
+.si-cat{font-size:10px;color:#444;}
+.si-rm{width:22px;height:22px;border-radius:50%;border:1px solid #252525;background:transparent;
+  color:#444;cursor:pointer;font-size:11px;display:flex;align-items:center;justify-content:center;transition:all .12s;}
+.si-rm:hover{background:rgba(255,37,38,.15);border-color:#FF2526;color:#FF2526;}
+
+/* ── BODY SLOT ── */
+.body-slot{border:1.5px dashed #191919;border-radius:10px;}
+.body-header{display:flex;align-items:center;gap:6px;padding:8px 12px;
+  font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:#383838;
+  border-bottom:1px solid #191919;}
+.body-items{padding:6px;display:flex;flex-direction:column;gap:3px;min-height:48px;}
+.body-empty{display:flex;align-items:center;justify-content:center;padding:14px;
+  color:#252525;font-size:11px;}
+.body-item{display:flex;align-items:center;gap:8px;padding:7px 10px;
+  background:var(--card);border-radius:6px;border:1px solid var(--border);
+  cursor:grab;transition:all .12s;}
+.body-item:hover{border-color:#333;background:var(--card2);}
+.body-item.dragging{opacity:.4;border-style:dashed;}
+.body-item.drag-over{border-color:var(--rappi);background:rgba(254,63,35,.06);}
+.dh{color:#2a2a2a;font-size:12px;cursor:grab;}
+
+/* ── WARNINGS ── */
+.warn-bar{background:#1a1100;border:1px solid #332200;border-radius:7px;
+  padding:7px 12px;font-size:11px;color:#996600;display:flex;gap:6px;align-items:flex-start;}
+
+/* ── RIGHT PANEL ── */
+.rpanel{border-left:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;}
+.ptabs{display:flex;border-bottom:1px solid var(--border);flex-shrink:0;}
+.ptab{padding:11px 16px;font-size:11px;font-weight:600;color:#444;cursor:pointer;
+  border-bottom:2px solid transparent;transition:all .12s;white-space:nowrap;}
+.ptab.active{color:var(--text);border-bottom-color:var(--rappi);}
+.ptab:hover:not(.active){color:#777;}
+.pbody{flex:1;overflow:hidden;display:flex;flex-direction:column;}
+
+/* ── PREVIEW ── */
+.prev-scroll{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;align-items:center;gap:10px;}
+.device{width:272px;border:2px solid #222;border-radius:18px;overflow:hidden;background:#080808;}
+.prev-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:40px 20px;gap:10px;color:#2a2a2a;text-align:center;flex:1;}
+
+/* ── CODE ── */
+.code-wrap{flex:1;display:flex;flex-direction:column;overflow:hidden;}
+.code-bar{padding:8px 12px;border-bottom:1px solid #111;display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.code-meta{font-size:10px;color:#383838;flex:1;}
+.code-block{flex:1;overflow-y:auto;padding:12px 14px;font-family:'Courier New',monospace;
+  font-size:10.5px;line-height:1.65;background:#060606;color:#7a8fab;white-space:pre-wrap;word-break:break-word;}
+.code-empty{flex:1;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:8px;color:#2a2a2a;font-size:12px;}
+
+/* ── DOCS ── */
+.docs-scroll{flex:1;overflow-y:auto;padding:16px;}
+.doc-h{font-size:10px;font-weight:700;color:var(--rappi);text-transform:uppercase;
+  letter-spacing:1px;margin-bottom:8px;margin-top:18px;}
+.doc-h:first-child{margin-top:0;}
+.doc-flow{background:#0b0b0b;border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:8px;}
+.doc-flow-row{display:flex;align-items:center;gap:8px;font-size:11px;color:#666;}
+.doc-fdot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.doc-rule{padding:6px 0;border-bottom:1px solid #141414;font-size:11px;color:#666;
+  display:flex;gap:8px;}
+.doc-rn{color:#333;flex-shrink:0;width:16px;}
+.kv-row{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid #141414;}
+.kv-swatch{width:28px;height:14px;border-radius:3px;flex-shrink:0;}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);
+  background:#0e2a1a;color:#48C78E;border:1px solid #1a4a2a;padding:10px 20px;
+  border-radius:8px;font-size:12px;font-weight:600;transition:transform .3s ease;z-index:1000;}
+.toast.show{transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <span class="brand-name">VISION</span>
+  <span class="brand-sub">Mail System · Visualizador</span>
+  <div class="sep"></div>
+  <span class="kv-label">KV:</span>
+  <div class="kv-pills" id="kvPills">
+    <button class="kv-pill active" data-kv="generico">Genérico</button>
+    <button class="kv-pill" data-kv="turbo">Turbo</button>
+    <button class="kv-pill" data-kv="neutro">Neutro</button>
+    <button class="kv-pill" data-kv="pro">Pro</button>
+    <button class="kv-pill" data-kv="proBlack">Pro Black</button>
+  </div>
+  <div class="top-right">
+    <button class="btn btn-ghost" id="btnClear">Limpiar</button>
+    <button class="btn btn-primary" id="btnCopy">↗ Copiar HTML</button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="library" id="library"></aside>
+  <section class="canvas">
+    <div class="canvas-bar">
+      <span class="canvas-title">ENSAMBLAJE</span>
+      <span class="canvas-count" id="cvCount">0 componentes</span>
+      <div class="canvas-btns">
+        <button class="btn btn-ghost" id="btnDocs" style="font-size:10px;">Reglas ↗</button>
+      </div>
+    </div>
+    <div class="canvas-body"><div class="aw" id="aw"></div></div>
+  </section>
+  <aside class="rpanel">
+    <div class="ptabs">
+      <div class="ptab active" data-tab="preview">Vista previa</div>
+      <div class="ptab" data-tab="code">Código HTML</div>
+      <div class="ptab" data-tab="docs">Reglas</div>
+    </div>
+    <div class="pbody" id="pbody"></div>
+  </aside>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ════════════════════════════════════════════════
+// KV VARIANTS
+// ════════════════════════════════════════════════
+const KV = {
+  generico: {label:'Genérico',bg:'#040404',bannerBg:'rgba(254,63,35,0.55)',grad:true,
+    tc:'#fff',card:'#202020',accent:'#FF7A4D',h5:'#ff441f',light:false},
+  turbo:    {label:'Turbo',bg:'#040404',bannerBg:'rgba(0,58,52,0.75)',grad:false,
+    tc:'#fff',card:'#0e1f1d',accent:'#00C49A',h5:'#00C49A',light:false},
+  neutro:   {label:'Neutro',bg:'#040404',bannerBg:'rgba(0,0,0,0.65)',grad:false,
+    tc:'#fff',card:'#1a1a1a',accent:'#E2E2E2',h5:'#aaa',light:false},
+  pro:      {label:'Pro',bg:'#ECEFF3',bannerBg:'rgba(224,228,231,1)',grad:false,
+    tc:'#040404',card:'#E4E8EE',accent:'#DAA868',h5:'#888',light:true},
+  proBlack: {label:'Pro Black',bg:'#2A2B2B',bannerBg:'rgba(42,43,43,1)',grad:false,
+    tc:'#FBFBFB',card:'#333434',accent:'#DAA868',h5:'#DAA868',light:false},
+};
+
+// ════════════════════════════════════════════════
+// CATEGORIES
+// ════════════════════════════════════════════════
+const CATS = {
+  headers: {label:'Headers', color:'#FF7A4D', slot:'header'},
+  banners: {label:'Banners', color:'#FF2526', slot:'banner'},
+  ctas:    {label:'CTAs',    color:'#FF4583', slot:'body'},
+  deals:   {label:'Deals',   color:'#B87AFF', slot:'body'},
+  modules: {label:'Módulos', color:'#4D9EFF', slot:'body'},
+  closing: {label:'Cierre',  color:'#48C78E', slot:'closing'},
+  footer:  {label:'Footer',  color:'#FFD166', slot:'footer'},
+};
+
+// ════════════════════════════════════════════════
+// PREVIEW GENERATORS
+// ════════════════════════════════════════════════
+const P = {
+  header(label, accent, kv) {
+    const v=KV[kv], bg=v.light?'#e8ecf0':'#121212';
+    return `<div style="background:${bg};padding:10px;display:flex;align-items:center;justify-content:center;gap:6px;min-height:44px;">
+      <div style="width:54px;height:10px;border-radius:4px;background:${accent};opacity:.9;"></div>
+      <div style="color:#444;font-size:9px;">|</div>
+      <div style="width:26px;height:10px;border-radius:3px;background:#333;"></div>
+    </div>`;
+  },
+  bannerH(kv) {
+    const v=KV[kv];
+    const bg=v.grad?`linear-gradient(135deg,rgba(254,63,35,.65),rgba(0,0,0,.25))`:`${v.bannerBg}`;
+    return `<div style="background:${bg};border-radius:10px;margin:8px;overflow:hidden;display:flex;min-height:82px;">
+      <div style="flex:1;padding:10px;display:flex;flex-direction:column;gap:5px;justify-content:center;">
+        <div style="width:30px;height:14px;border-radius:3px;background:${v.tc};opacity:.9;"></div>
+        <div style="width:56px;height:8px;border-radius:3px;background:${v.tc};opacity:.55;"></div>
+        <div style="width:44px;height:7px;border-radius:3px;background:${v.tc};opacity:.35;"></div>
+      </div>
+      <div style="width:42%;background:rgba(0,0,0,.28);background-image:repeating-linear-gradient(45deg,transparent,transparent 4px,rgba(255,255,255,.04) 4px,rgba(255,255,255,.04) 8px);display:flex;align-items:center;justify-content:center;">
+        <span style="color:rgba(255,255,255,.18);font-size:20px;">🖼</span>
+      </div>
+    </div>`;
+  },
+  bannerV(kv) {
+    const v=KV[kv];
+    const bg=v.grad?`linear-gradient(180deg,rgba(254,63,35,.6),rgba(0,0,0,.3))`:`${v.bannerBg}`;
+    return `<div style="background:${bg};border-radius:10px;margin:8px;overflow:hidden;min-height:100px;">
+      <div style="padding:10px 12px;display:flex;flex-direction:column;gap:5px;">
+        <div style="width:30px;height:14px;border-radius:3px;background:${v.tc};opacity:.9;"></div>
+        <div style="width:62px;height:8px;border-radius:3px;background:${v.tc};opacity:.55;"></div>
+        <div style="width:48px;height:7px;border-radius:3px;background:${v.tc};opacity:.35;"></div>
+      </div>
+      <div style="background:rgba(0,0,0,.3);background-image:repeating-linear-gradient(45deg,transparent,transparent 4px,rgba(255,255,255,.04) 4px,rgba(255,255,255,.04) 8px);height:55px;display:flex;align-items:center;justify-content:center;">
+        <span style="color:rgba(255,255,255,.18);font-size:18px;">🖼</span>
+      </div>
+    </div>`;
+  },
+  bannerE(kv) {
+    const v=KV[kv];
+    const bg=v.grad?`linear-gradient(135deg,rgba(254,63,35,.6),rgba(0,0,0,.3))`:`${v.bannerBg}`;
+    return `<div style="background:${bg};border-radius:10px;margin:8px;overflow:hidden;">
+      <div style="padding:12px;display:flex;flex-direction:column;gap:4px;">
+        <div style="width:28px;height:14px;border-radius:3px;background:${v.tc};opacity:.9;"></div>
+        <div style="width:70px;height:8px;border-radius:3px;background:${v.tc};opacity:.55;"></div>
+        <div style="width:54px;height:7px;border-radius:3px;background:${v.tc};opacity:.35;"></div>
+      </div>
+      <div style="background:rgba(0,0,0,.25);background-image:repeating-linear-gradient(45deg,transparent,transparent 4px,rgba(255,255,255,.04) 4px,rgba(255,255,255,.04) 8px);height:52px;display:flex;align-items:center;justify-content:center;">
+        <span style="color:rgba(255,255,255,.2);font-size:11px;font-family:Arial;">Imagen full width</span>
+      </div>
+    </div>`;
+  },
+  cta(kv) {
+    const v=KV[kv];
+    const btn=kv==='turbo'?'#00C49A':kv==='pro'||kv==='proBlack'?'#DAA868':'#fe3f23';
+    return `<div style="padding:12px;text-align:center;">
+      <div style="display:inline-block;background:${btn};border-radius:25px;padding:7px 22px;">
+        <div style="width:60px;height:8px;border-radius:4px;background:rgba(255,255,255,.85);"></div>
+      </div>
+    </div>`;
+  },
+  deal(size, kv) {
+    const v=KV[kv], sm=size==='S';
+    return `<div style="background:${v.card};border-radius:10px;margin:6px 8px;overflow:hidden;display:flex;min-height:${sm?60:74}px;">
+      <div style="width:${sm?54:64}px;background:rgba(0,0,0,.35);background-image:repeating-linear-gradient(45deg,transparent,transparent 4px,rgba(255,255,255,.04) 4px,rgba(255,255,255,.04) 8px);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <span style="color:rgba(255,255,255,.15);font-size:16px;">📦</span>
+      </div>
+      <div style="flex:1;padding:8px;display:flex;flex-direction:column;gap:4px;justify-content:center;">
+        <div style="background:#ff441f;border-radius:3px;padding:1px 5px;display:inline-flex;width:fit-content;">
+          <div style="width:28px;height:6px;border-radius:2px;background:rgba(255,255,255,.8);"></div>
+        </div>
+        <div style="width:52px;height:7px;border-radius:3px;background:${v.tc};opacity:.65;"></div>
+        <div style="width:68px;height:5px;border-radius:3px;background:${v.tc};opacity:.35;"></div>
+        <div style="background:${v.accent};border-radius:10px;padding:3px 8px;display:inline-flex;width:fit-content;">
+          <div style="width:30px;height:5px;border-radius:2px;background:rgba(0,0,0,.45);"></div>
+        </div>
+      </div>
+    </div>`;
+  },
+  titulo(kv) {
+    const v=KV[kv];
+    return `<div style="padding:12px;text-align:center;display:flex;flex-direction:column;gap:4px;align-items:center;">
+      <div style="width:120px;height:8px;border-radius:3px;background:${v.h5};opacity:.8;"></div>
+    </div>`;
+  },
+  contenido(kv) {
+    const v=KV[kv];
+    return `<div style="background:${v.card};border-radius:10px;margin:6px 8px;padding:10px;display:flex;flex-direction:column;gap:5px;">
+      <div style="width:70px;height:7px;border-radius:3px;background:${v.h5};opacity:.75;"></div>
+      <div style="width:92px;height:5px;border-radius:3px;background:${v.tc};opacity:.45;"></div>
+      <div style="width:78px;height:5px;border-radius:3px;background:${v.tc};opacity:.3;"></div>
+      <div style="width:62px;height:5px;border-radius:3px;background:${v.tc};opacity:.2;"></div>
+    </div>`;
+  },
+  col2(kv) {
+    const v=KV[kv];
+    return `<div style="background:${v.card};border-radius:10px;margin:6px 8px;overflow:hidden;display:flex;min-height:64px;">
+      <div style="flex:1;padding:8px;display:flex;flex-direction:column;gap:4px;justify-content:center;">
+        <div style="width:56px;height:7px;border-radius:3px;background:${v.h5};opacity:.8;"></div>
+        <div style="width:70px;height:5px;border-radius:3px;background:${v.tc};opacity:.4;"></div>
+        <div style="width:58px;height:5px;border-radius:3px;background:${v.tc};opacity:.25;"></div>
+      </div>
+      <div style="width:40%;background:rgba(0,0,0,.3);background-image:repeating-linear-gradient(45deg,transparent,transparent 4px,rgba(255,255,255,.04) 4px,rgba(255,255,255,.04) 8px);display:flex;align-items:center;justify-content:center;">
+        <span style="color:rgba(255,255,255,.15);font-size:14px;">🖼</span>
+      </div>
+    </div>`;
+  },
+  col3(kv) {
+    const v=KV[kv];
+    return `<div style="margin:6px 8px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;">
+      ${[1,2,3].map(()=>`<div style="background:${v.card};border-radius:8px;overflow:hidden;">
+        <div style="padding:5px 6px;"><div style="width:100%;height:6px;border-radius:2px;background:${v.tc};opacity:.45;margin-bottom:3px;"></div><div style="width:70%;height:5px;border-radius:2px;background:${v.tc};opacity:.28;"></div></div>
+        <div style="height:28px;background:rgba(0,0,0,.32);background-image:repeating-linear-gradient(45deg,transparent,transparent 3px,rgba(255,255,255,.04) 3px,rgba(255,255,255,.04) 6px);"></div>
+      </div>`).join('')}
+    </div>`;
+  },
+  logos(kv) {
+    const v=KV[kv];
+    return `<div style="background:${v.card};border-radius:10px;margin:6px 8px;overflow:hidden;display:flex;min-height:60px;">
+      <div style="flex:1;padding:8px;display:flex;flex-direction:column;gap:4px;justify-content:center;">
+        <div style="width:56px;height:7px;border-radius:3px;background:${v.h5};opacity:.7;"></div>
+        <div style="width:72px;height:5px;border-radius:3px;background:${v.tc};opacity:.28;"></div>
+      </div>
+      <div style="width:50%;padding:6px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;align-content:center;">
+        ${[1,2,3,4,5,6].map(()=>`<div style="background:rgba(0,0,0,.4);border-radius:4px;height:20px;display:flex;align-items:center;justify-content:center;"><span style="color:rgba(255,255,255,.18);font-size:8px;">◉</span></div>`).join('')}
+      </div>
+    </div>`;
+  },
+  cierre(kv) {
+    const v=KV[kv];
+    return `<div style="padding:10px;text-align:center;">
+      <div style="display:inline-flex;align-items:center;gap:6px;background:${v.card};padding:8px 18px;border-radius:25px;">
+        <div style="width:42px;height:8px;border-radius:4px;background:#FF7A4D;opacity:.8;"></div>
+        <span style="font-size:10px;color:rgba(255,255,255,.25);">Pide</span>
+      </div>
+    </div>`;
+  },
+  footer(kv) {
+    const v=KV[kv], tc=v.light?'#999':'#383838';
+    return `<div style="padding:10px 12px;display:flex;flex-direction:column;gap:4px;align-items:center;">
+      <div style="width:100px;height:5px;border-radius:3px;background:${tc};"></div>
+      <div style="width:140px;height:4px;border-radius:3px;background:${tc};opacity:.7;"></div>
+      <div style="width:118px;height:4px;border-radius:3px;background:${tc};opacity:.5;"></div>
+      <div style="width:80px;height:4px;border-radius:3px;background:${tc};opacity:.35;"></div>
+    </div>`;
+  },
+};
+
+// ════════════════════════════════════════════════
+// COMPONENTS
+// ════════════════════════════════════════════════
+const COMPONENTS = [
+  {id:'header-rappi',     cat:'headers', name:'Rappi',             desc:'Logo Rappi + cobranding',      file:'03-components/headers/rappi.html',               prev:kv=>P.header('Rappi','#FF7A4D',kv)},
+  {id:'header-pro',       cat:'headers', name:'Rappi Pro',         desc:'Logo Pro + cobranding',        file:'03-components/headers/rappi-pro.html',           prev:kv=>P.header('Pro','#DAA868',kv)},
+  {id:'header-pro-black', cat:'headers', name:'Rappi Pro Black',   desc:'Logo Pro sobre fondo oscuro',  file:'03-components/headers/rappi-pro-black.html',     prev:kv=>P.header('ProBlack','#DAA868',kv)},
+  {id:'header-turbo',     cat:'headers', name:'Rappi Turbo',       desc:'Logo Turbo + cobranding',      file:'03-components/headers/rappi-turbo.html',         prev:kv=>P.header('Turbo','#00C49A',kv)},
+  {id:'header-turbo-r',   cat:'headers', name:'Rappi Turbo Rest.', desc:'Logo Turbo para restaurantes', file:'03-components/headers/rappi-turbo-rest.html',    prev:kv=>P.header('Turbo Rest','#00C49A',kv)},
+  {id:'header-travel',    cat:'headers', name:'Rappi Travel',      desc:'Logo Travel',                  file:'03-components/headers/rappi-travel.html',        prev:kv=>P.header('Travel','#4D9EFF',kv)},
+
+  {id:'banner-h',  cat:'banners', name:'Big Banner Horizontal', desc:'Texto izq. + imagen der.',   file:'03-components/banners/big-banner-horizontal.html', prev:kv=>P.bannerH(kv)},
+  {id:'banner-v',  cat:'banners', name:'Big Banner Vertical',   desc:'Texto arriba + imagen abajo', file:'03-components/banners/big-banner-vertical.html',   prev:kv=>P.bannerV(kv)},
+  {id:'banner-ed', cat:'banners', name:'Banner Editorial',      desc:'Texto + imagen full width',   file:'03-components/banners/banner-editorial.html',      prev:kv=>P.bannerE(kv)},
+
+  {id:'cta', cat:'ctas', name:'CTA', desc:'Botón de llamada a la acción', file:'03-components/ctas/cta-template.html', prev:kv=>P.cta(kv), multi:true},
+
+  {id:'deal-l', cat:'deals', name:'Deal Grande', desc:'Tarjeta de producto completa', file:'03-components/deals/deal-large.html', prev:kv=>P.deal('L',kv), multi:true},
+  {id:'deal-s', cat:'deals', name:'Deal Small',  desc:'Tarjeta de producto compacta', file:'03-components/deals/deal-small.html',  prev:kv=>P.deal('S',kv), multi:true},
+
+  {id:'mod-tit',  cat:'modules', name:'Módulo Título',     desc:'Heading centrado de sección',    file:'03-components/content-modules/modulo-titulo.html',     prev:kv=>P.titulo(kv),    multi:true},
+  {id:'mod-cont', cat:'modules', name:'Módulo Contenido',  desc:'Bloque de texto enriquecido',    file:'03-components/content-modules/modulo-contenido.html',  prev:kv=>P.contenido(kv), multi:true},
+  {id:'mod-2col', cat:'modules', name:'Módulo 2 Columnas', desc:'Texto + imagen en columnas',     file:'03-components/content-modules/modulo-2-columnas.html', prev:kv=>P.col2(kv),      multi:true},
+  {id:'mod-3col', cat:'modules', name:'Módulo 3 Columnas', desc:'Tres tarjetas de categorías',   file:'03-components/content-modules/modulo-3-columnas.html', prev:kv=>P.col3(kv),      multi:true},
+  {id:'mod-log',  cat:'modules', name:'Módulo Logos',      desc:'Grid de logos de marcas',        file:'03-components/content-modules/modulo-logos.html',      prev:kv=>P.logos(kv),     multi:true},
+
+  {id:'cierre', cat:'closing', name:'Cierre',  desc:'Imagen de firma Rappi',      file:'03-components/closing/cierre.html',       prev:kv=>P.cierre(kv)},
+  {id:'footer', cat:'footer',  name:'Footer',  desc:'Footer con legales y links', file:'03-components/footer/footer.html',         prev:kv=>P.footer(kv)},
+];
+
+const getC = id => COMPONENTS.find(c=>c.id===id);
+
+// ════════════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════════════
+let kv = 'generico';
+let asm = {header:null, banner:null, body:[], closing:null, footer:null};
+let tab = 'preview';
+let dragSrc = null;
+
+const totalCount = () =>
+  (asm.header?1:0)+(asm.banner?1:0)+asm.body.length+(asm.closing?1:0)+(asm.footer?1:0);
+
+const orderedComps = () => {
+  const r=[];
+  if(asm.header)  r.push(getC(asm.header));
+  if(asm.banner)  r.push(getC(asm.banner));
+  asm.body.forEach(x=>r.push(getC(x.id)));
+  if(asm.closing) r.push(getC(asm.closing));
+  if(asm.footer)  r.push(getC(asm.footer));
+  return r;
+};
+
+// ════════════════════════════════════════════════
+// ACTIONS
+// ════════════════════════════════════════════════
+function add(id) {
+  const c=getC(id); if(!c) return;
+  const slot=CATS[c.cat].slot;
+  if(slot==='header')       asm.header=id;
+  else if(slot==='banner')  asm.banner=id;
+  else if(slot==='closing') asm.closing=id;
+  else if(slot==='footer')  asm.footer=id;
+  else asm.body.push({id, uid:Date.now()+Math.random()});
+  render();
+}
+
+function rmSlot(s) {
+  if(s==='header')       asm.header=null;
+  else if(s==='banner')  asm.banner=null;
+  else if(s==='closing') asm.closing=null;
+  else if(s==='footer')  asm.footer=null;
+  render();
+}
+
+function rmBody(uid) {
+  asm.body=asm.body.filter(x=>x.uid!==uid);
+  render();
+}
+
+function clearAll() {
+  asm={header:null,banner:null,body:[],closing:null,footer:null};
+  render();
+}
+
+// ════════════════════════════════════════════════
+// THUMB SVGs
+// ════════════════════════════════════════════════
+function thumbSVG(cat) {
+  const c=CATS[cat].color;
+  const t={
+    headers:`<svg width="44" height="32"><rect x="4" y="13" width="36" height="7" rx="3" fill="${c}" opacity=".7"/><rect x="13" y="14.5" width="18" height="4" rx="2" fill="white" opacity=".4"/></svg>`,
+    banners:`<svg width="44" height="32"><rect x="2" y="2" width="40" height="28" rx="5" fill="${c}" opacity=".25"/><rect x="4" y="6" width="15" height="5" rx="2" fill="white" opacity=".5"/><rect x="4" y="13" width="11" height="3" rx="1.5" fill="white" opacity=".3"/><rect x="24" y="2" width="18" height="28" rx="5" fill="white" opacity=".08"/></svg>`,
+    ctas:   `<svg width="44" height="32"><rect x="7" y="11" width="30" height="10" rx="5" fill="${c}" opacity=".8"/><rect x="13" y="14" width="18" height="4" rx="2" fill="white" opacity=".5"/></svg>`,
+    deals:  `<svg width="44" height="32"><rect x="2" y="4" width="40" height="24" rx="5" fill="${c}" opacity=".18"/><rect x="2" y="4" width="13" height="24" rx="4" fill="${c}" opacity=".22"/><rect x="19" y="8" width="18" height="4" rx="2" fill="${c}" opacity=".65"/><rect x="19" y="14" width="14" height="3" rx="1.5" fill="white" opacity=".2"/><rect x="19" y="20" width="12" height="4" rx="2" fill="${c}" opacity=".5"/></svg>`,
+    modules:`<svg width="44" height="32"><rect x="2" y="4" width="40" height="24" rx="5" fill="${c}" opacity=".14"/><rect x="8" y="9" width="28" height="4" rx="2" fill="${c}" opacity=".6"/><rect x="6" y="15" width="32" height="3" rx="1.5" fill="white" opacity=".18"/><rect x="6" y="20" width="24" height="3" rx="1.5" fill="white" opacity=".12"/></svg>`,
+    closing:`<svg width="44" height="32"><rect x="8" y="10" width="28" height="12" rx="4" fill="${c}" opacity=".4"/><rect x="14" y="13" width="16" height="6" rx="3" fill="${c}" opacity=".65"/></svg>`,
+    footer: `<svg width="44" height="32"><rect x="6" y="8" width="32" height="3" rx="1.5" fill="${c}" opacity=".5"/><rect x="6" y="13" width="24" height="2.5" rx="1.25" fill="${c}" opacity=".3"/><rect x="6" y="18" width="28" height="2.5" rx="1.25" fill="${c}" opacity=".2"/><rect x="6" y="23" width="18" height="2.5" rx="1.25" fill="${c}" opacity=".14"/></svg>`,
+  };
+  return t[cat]||'';
+}
+
+// ════════════════════════════════════════════════
+// RENDER LIBRARY
+// ════════════════════════════════════════════════
+function renderLibrary() {
+  const grouped={};
+  COMPONENTS.forEach(c=>{ if(!grouped[c.cat]) grouped[c.cat]=[]; grouped[c.cat].push(c); });
+  const lib=document.getElementById('library');
+  lib.innerHTML=`<div class="lib-header">Biblioteca de componentes</div>`+
+    Object.entries(grouped).map(([cat,comps])=>{
+      const ci=CATS[cat];
+      return `<div class="category">
+        <div class="cat-trigger" data-cat="${cat}">
+          <div class="cat-dot" style="background:${ci.color};"></div>
+          <span class="cat-name" style="color:${ci.color};">${ci.label}</span>
+          <span class="cat-count">${comps.length}</span>
+          <span class="cat-chev open" id="chev-${cat}">▶</span>
+        </div>
+        <div class="cat-items open" id="ci-${cat}">
+          ${comps.map(c=>`
+            <div class="lib-card" data-id="${c.id}" title="${c.desc}">
+              <div class="lib-thumb">${thumbSVG(c.cat)}</div>
+              <div class="lib-info">
+                <div class="lib-name">${c.name}</div>
+                <div class="lib-desc">${c.desc}</div>
+              </div>
+              <div class="lib-add" data-add="${c.id}" style="color:${ci.color};background:rgba(${h2r(ci.color)},.12);border-color:rgba(${h2r(ci.color)},.25);">+</div>
+            </div>`).join('')}
+        </div>
+      </div>`;
+    }).join('');
+
+  lib.querySelectorAll('.cat-trigger').forEach(el=>{
+    el.addEventListener('click',()=>{
+      const cat=el.dataset.cat;
+      document.getElementById(`ci-${cat}`).classList.toggle('open');
+      document.getElementById(`chev-${cat}`).classList.toggle('open');
+    });
+  });
+  lib.querySelectorAll('[data-add]').forEach(el=>{
+    el.addEventListener('click',e=>{e.stopPropagation(); add(el.dataset.add);});
+  });
+  lib.querySelectorAll('.lib-card').forEach(el=>{
+    el.addEventListener('click',()=>add(el.dataset.id));
+  });
+}
+
+// ════════════════════════════════════════════════
+// RENDER CANVAS
+// ════════════════════════════════════════════════
+function renderCanvas() {
+  document.getElementById('cvCount').textContent=`${totalCount()} componente${totalCount()!==1?'s':''}`;
+  const aw=document.getElementById('aw');
+
+  // Warnings
+  const warns=[];
+  if((kv==='pro'||kv==='proBlack') && asm.closing) warns.push('En variante '+KV[kv].label+' el Cierre debe omitirse.');
+  const warnHtml=warns.length?`<div class="warn-bar">⚠ ${warns.join(' ')}</div>`:'';
+
+  aw.innerHTML=warnHtml+
+    slotHtml('header','HEADER','headers','Solo uno · requerido')+
+    slotHtml('banner','BANNER','banners','Solo uno · requerido')+
+    bodySlotHtml()+
+    slotHtml('closing','CIERRE','closing','Opcional · no en Pro ni ProBlack')+
+    slotHtml('footer','FOOTER','footer','Solo uno · siempre presente');
+
+  aw.querySelectorAll('[data-rms]').forEach(b=>b.addEventListener('click',()=>rmSlot(b.dataset.rms)));
+  aw.querySelectorAll('[data-rmb]').forEach(b=>b.addEventListener('click',()=>rmBody(parseFloat(b.dataset.rmb))));
+  setupDnd();
+}
+
+function slotHtml(slot, label, cat, hint) {
+  const color=CATS[cat].color;
+  const val=asm[slot];
+  if(val) {
+    const c=getC(val);
+    return `<div class="slot filled" style="border-color:${color}25;">
+      <div class="slot-lbl"><div class="slot-ldot" style="background:${color};"></div>${label}</div>
+      <div class="slot-item">
+        <div class="si-dot" style="background:${color};"></div>
+        <div style="flex:1;">
+          <div class="si-name">${c.name}</div>
+          <div class="si-cat" style="color:${color}aa;">${c.file}</div>
+        </div>
+        <button class="si-rm" data-rms="${slot}">✕</button>
+      </div>
+    </div>`;
+  }
+  return `<div class="slot">
+    <div class="slot-lbl">
+      <div class="slot-ldot" style="background:${color}44;"></div>
+      <span style="color:${color}66;">${label}</span>
+      <span style="color:#282828;font-size:9px;margin-left:4px;">${hint}</span>
+    </div>
+    <div class="slot-empty">
+      <span style="color:#222;font-size:16px;">+</span>
+      Selecciona de la biblioteca →
+    </div>
+  </div>`;
+}
+
+function bodySlotHtml() {
+  const color='#4D9EFF';
+  return `<div class="body-slot">
+    <div class="body-header">
+      <div class="slot-ldot" style="background:${color};width:5px;height:5px;border-radius:50%;"></div>
+      <span style="color:${color};">CUERPO DEL MAIL</span>
+      <span style="color:#2a2a2a;font-size:9px;margin-left:4px;">CTAs · Deals · Módulos · arrastrar para reordenar</span>
+    </div>
+    <div class="body-items" id="bodyItems">
+      ${asm.body.length===0
+        ? `<div class="body-empty">Agrega CTAs, deals y módulos desde la biblioteca</div>`
+        : asm.body.map(item=>{
+            const c=getC(item.id), col=CATS[c.cat].color;
+            return `<div class="body-item" draggable="true" data-uid="${item.uid}">
+              <span class="dh" title="Arrastrar">⠿</span>
+              <div class="si-dot" style="background:${col};width:7px;height:7px;border-radius:50%;"></div>
+              <div style="flex:1;">
+                <div class="si-name">${c.name}</div>
+                <div class="si-cat" style="color:${col}aa;">${c.file}</div>
+              </div>
+              <button class="si-rm" data-rmb="${item.uid}">✕</button>
+            </div>`;
+          }).join('')}
+    </div>
+  </div>`;
+}
+
+function setupDnd() {
+  document.querySelectorAll('.body-item').forEach(el=>{
+    el.addEventListener('dragstart',e=>{
+      dragSrc=el; el.classList.add('dragging'); e.dataTransfer.effectAllowed='move';
+    });
+    el.addEventListener('dragend',()=>{
+      el.classList.remove('dragging');
+      document.querySelectorAll('.body-item').forEach(i=>i.classList.remove('drag-over'));
+    });
+    el.addEventListener('dragover',e=>{
+      e.preventDefault();
+      if(el!==dragSrc){
+        document.querySelectorAll('.body-item').forEach(i=>i.classList.remove('drag-over'));
+        el.classList.add('drag-over');
+      }
+    });
+    el.addEventListener('drop',e=>{
+      e.preventDefault();
+      if(dragSrc&&dragSrc!==el){
+        const su=parseFloat(dragSrc.dataset.uid), du=parseFloat(el.dataset.uid);
+        const si=asm.body.findIndex(x=>x.uid===su), di=asm.body.findIndex(x=>x.uid===du);
+        if(si!==-1&&di!==-1){const[m]=asm.body.splice(si,1); asm.body.splice(di,0,m); render();}
+      }
+    });
+  });
+}
+
+// ════════════════════════════════════════════════
+// RENDER PANEL
+// ════════════════════════════════════════════════
+function renderPanel() {
+  const pb=document.getElementById('pbody');
+  if(tab==='preview') renderPreview(pb);
+  else if(tab==='code') renderCode(pb);
+  else renderDocs(pb);
+}
+
+function renderPreview(pb) {
+  const comps=orderedComps(), v=KV[kv];
+  if(comps.length===0){
+    pb.innerHTML=`<div class="prev-empty" style="flex:1;"><div style="font-size:40px;opacity:.15;">📧</div><div style="font-size:12px;color:#2a2a2a;">Agrega componentes<br>para ver la vista previa</div></div>`;
+    return;
+  }
+  pb.innerHTML=`<div class="prev-scroll">
+    <div style="font-size:10px;color:#383838;text-align:center;margin-bottom:10px;">
+      Vista previa · <strong style="color:${v.accent||'#FF7A4D'};">${v.label}</strong>
+    </div>
+    <div class="device" style="background:${v.bg};">
+      ${comps.map(c=>`<div style="background:${v.bg};">${c.prev(kv)}</div>`).join('')}
+    </div>
+    <div style="font-size:10px;color:#2a2a2a;text-align:center;margin-top:12px;">${comps.length} componente${comps.length!==1?'s':''}</div>
+  </div>`;
+}
+
+function renderCode(pb) {
+  const comps=orderedComps();
+  if(comps.length===0){
+    pb.innerHTML=`<div class="code-empty"><div style="font-size:28px;opacity:.2;">{ }</div><div>Agrega componentes para generar el código</div></div>`;
+    return;
+  }
+  const code=genCode(comps);
+  pb.innerHTML=`<div class="code-wrap">
+    <div class="code-bar">
+      <div class="code-meta">${comps.length} componentes · variante ${KV[kv].label}</div>
+      <button class="btn btn-ghost" id="cpBtn" style="font-size:10px;padding:4px 10px;">Copiar</button>
+    </div>
+    <pre class="code-block">${esc(code)}</pre>
+  </div>`;
+  document.getElementById('cpBtn').addEventListener('click',()=>{
+    navigator.clipboard.writeText(code).then(()=>toast('✓ HTML copiado'));
+  });
+}
+
+function genCode(comps) {
+  const v=KV[kv];
+  return [
+    `<!-- ═══════════════════════════════════════════════════════ -->`,
+    `<!-- VISION MAIL SYSTEM — Receta de ensamblaje               -->`,
+    `<!-- Variante KV: ${v.label.padEnd(10)} | Componentes: ${comps.length}              -->`,
+    `<!-- ═══════════════════════════════════════════════════════ -->`,
+    ``,
+    `<!-- PASO 1 ▸ Pega el contenido de: 02-base-template/opening.html -->`,
+    ``,
+    `<!-- PASO 2 ▸ Dentro del <tbody> principal, pega estos componentes en orden: -->`,
+    ``,
+    ...comps.map((c,i)=>`<!-- [${i+1}] ${c.name.toUpperCase()}\n     Archivo: ${c.file}\n     → Copia el bloque completo desde INICIO hasta FIN\n`),
+    `<!-- PASO 3 ▸ Pega el contenido de: 02-base-template/closing.html -->`,
+    ``,
+    `<!-- ─────────────────────────────────────────────────────── -->`,
+    `<!-- NOTAS PARA VARIANTE ${v.label.toUpperCase()}:`,
+    ...kvNotes(kv),
+    `-->`,
+  ].join('\n');
+}
+
+function kvNotes(k) {
+  const notes={
+    generico:['  • Body background: #040404','  • Banner background: rgba(254,63,35,0.5) + imagen de fondo','  • Textos del banner: color #FFFFFF','  • Gradiente mobile: url de imagen genérico'],
+    turbo:   ['  • Body background: #040404','  • Banner background: rgba(0,58,52,0.4) — SIN background-image','  • Textos del banner: color #FFFFFF','  • Gradiente mobile: url de imagen turbo'],
+    neutro:  ['  • Body background: #040404','  • Banner background: rgba(0,0,0,0.4) — SIN background-image','  • Textos del banner: color #FFFFFF','  • Gradiente mobile: url de imagen neutro'],
+    pro:     ['  • Body background: #ECEFF3','  • Banner background: rgba(224,228,231,1.0) — SIN background-image','  • Textos del banner: color #040404','  • Separador Pro: borde #DAA868','  • NO incluir Cierre (Pro)'],
+    proBlack:['  • Body background: #2A2B2B','  • Banner background: rgba(42,43,43,1.0) — SIN background-image','  • Textos del banner: color #FBFBFB','  • Separador Pro: borde #DAA868','  • NO incluir Cierre (ProBlack)'],
+  };
+  return notes[k]||[];
+}
+
+function renderDocs(pb) {
+  pb.innerHTML=`<div class="docs-scroll">
+    <div class="doc-h">Orden del mail</div>
+    <div class="doc-flow">
+      ${[
+        {c:'#FF7A4D',l:'02-base-template/opening.html (siempre)'},
+        {c:'#FF7A4D',l:'Header — uno de los 6 disponibles'},
+        {c:'#FF2526',l:'Banner — horizontal, vertical o editorial'},
+        {c:'#4D9EFF',l:'[CTAs · Deals · Módulos] — en el orden que definas'},
+        {c:'#48C78E',l:'Cierre — excepto en KV Pro y Pro Black'},
+        {c:'#FFD166',l:'Footer — siempre presente'},
+        {c:'#FF7A4D',l:'02-base-template/closing.html (siempre)'},
+      ].map(x=>`<div class="doc-flow-row"><div class="doc-fdot" style="background:${x.c};"></div><span>${x.l}</span></div>`).join('')}
+    </div>
+
+    <div class="doc-h">Reglas de oro</div>
+    ${[
+      'Cero Inserción Autónoma — nunca inventar módulos que no existan en el repo.',
+      'Los componentes no se modifican — solo se combinan y se eligen.',
+      'Los comentarios INICIO / FIN y las instrucciones internas se conservan siempre.',
+      'Las skins (KV) se aplican encima, no se mezclan dentro de los componentes.',
+      'Entre módulos de contenido se agrega <div class="separador"></div>.',
+      'Los deals tienen su propia área de respeto — no necesitan separador entre ellos.',
+      'El Cierre se omite cuando KV = Pro o KV = Pro Black.',
+      'El Footer nunca se omite, aunque no venga en la fuente.',
+    ].map((r,i)=>`<div class="doc-rule"><span class="doc-rn">${i+1}.</span><span>${r}</span></div>`).join('')}
+
+    <div class="doc-h">Separadores entre bloques</div>
+    ${[
+      ['Módulo → Módulo', '<div class="separador"></div>'],
+      ['Módulo → CTA', '<div class="separador"></div>'],
+      ['CTA → CTA', '<div class="separador"></div>'],
+      ['CTA → Cierre', 'Sin separador'],
+      ['Deal → Deal', 'Sin separador (los deals tienen área propia)'],
+      ['Deal → CTA', 'Sin separador'],
+    ].map(([ctx,rule])=>`<div class="doc-rule"><span style="color:#555;flex:1;">${ctx}</span><code style="color:#FF7A4D;font-size:10px;">${rule}</code></div>`).join('')}
+
+    <div class="doc-h">Variantes KV</div>
+    ${Object.entries(KV).map(([k,v])=>`
+      <div class="kv-row">
+        <div class="kv-swatch" style="background:${v.bannerBg};border:1px solid #333;"></div>
+        <div style="flex:1;">
+          <div style="font-size:11px;font-weight:700;color:${v.accent||'#aaa'};">${v.label}</div>
+          <div style="font-size:10px;color:#444;">bg: ${v.bg} · acento: ${v.accent}</div>
+        </div>
+        ${(k==='pro'||k==='proBlack')?`<span style="font-size:10px;color:#555;">sin cierre</span>`:''}
+      </div>`).join('')}
+  </div>`;
+}
+
+// ════════════════════════════════════════════════
+// UTILS
+// ════════════════════════════════════════════════
+function h2r(hex) {
+  const r=parseInt(hex.slice(1,3),16), g=parseInt(hex.slice(3,5),16), b=parseInt(hex.slice(5,7),16);
+  return `${r},${g},${b}`;
+}
+function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function toast(msg) {
+  const el=document.getElementById('toast');
+  el.textContent=msg; el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'),2400);
+}
+
+// ════════════════════════════════════════════════
+// MASTER RENDER
+// ════════════════════════════════════════════════
+function render(){ renderCanvas(); renderPanel(); }
+
+// ════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded',()=>{
+  renderLibrary();
+  render();
+
+  // KV
+  document.getElementById('kvPills').addEventListener('click',e=>{
+    const b=e.target.closest('.kv-pill'); if(!b) return;
+    document.querySelectorAll('.kv-pill').forEach(p=>p.classList.remove('active'));
+    b.classList.add('active'); kv=b.dataset.kv; render();
+  });
+
+  // Tabs
+  document.querySelectorAll('.ptab').forEach(t=>{
+    t.addEventListener('click',()=>{
+      document.querySelectorAll('.ptab').forEach(x=>x.classList.remove('active'));
+      t.classList.add('active'); tab=t.dataset.tab; renderPanel();
+    });
+  });
+
+  // Clear
+  document.getElementById('btnClear').addEventListener('click',()=>{ if(totalCount()>0) clearAll(); });
+
+  // Copy HTML
+  document.getElementById('btnCopy').addEventListener('click',()=>{
+    const comps=orderedComps();
+    if(comps.length===0){ toast('⚠ No hay componentes en el ensamblaje'); return; }
+    navigator.clipboard.writeText(genCode(comps)).then(()=>{
+      toast('✓ HTML copiado al portapapeles');
+      tab='code';
+      document.querySelectorAll('.ptab').forEach(x=>x.classList.remove('active'));
+      document.querySelector('[data-tab="code"]').classList.add('active');
+      renderPanel();
+    });
+  });
+
+  // Docs shortcut
+  document.getElementById('btnDocs').addEventListener('click',()=>{
+    tab='docs';
+    document.querySelectorAll('.ptab').forEach(x=>x.classList.remove('active'));
+    document.querySelector('[data-tab="docs"]').classList.add('active');
+    renderPanel();
+  });
+});
+</script>
+</body>
+</html>

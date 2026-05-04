@@ -1,0 +1,28 @@
+/* ============================================
+   KV: PRO BLACK (oscuro)
+   ============================================ */
+
+body {
+    background-color: #2A2B2B;
+}
+
+.gradmobile-pro-black {
+    background-image: url(https://lh3.googleusercontent.com/d/1x630cZMTzzkDMhebuUutPEkWvL1ppPfW) !important;
+    background-size: 100% 100% !important;
+}
+
+.banner-pro-black {
+    background: rgba(42, 43, 43, 1.0);
+    /* Sin background-image */
+}
+
+.modulo-titulo-pro-black {
+    padding: 15px;
+    background-color: #2A2B2B;
+}
+
+.separador-pro-black {
+    border-top: 1px solid #DAA868;
+    width: 50px;
+    margin: 0 auto;
+}

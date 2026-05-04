@@ -1,0 +1,36 @@
+/* ============================================
+   KV: PRO (claro)
+   ============================================
+   Cambios principales:
+   - Background del body claro (#ECEFF3)
+   - Banner con fondo gris claro
+   - Sin tabla de cierre
+   - Footer con font_style_look = 'pro'
+   ============================================ */
+
+body {
+    background-color: #ECEFF3;
+}
+
+.gradmobile-pro {
+    background-image: url(https://lh3.googleusercontent.com/d/1ii-QN0RVxteKuS2cHWUr22ZyOZXZ2-JE) !important;
+    background-size: 100% 100% !important;
+}
+
+.banner-pro {
+    background: rgba(224, 228, 231, 1.0);
+    /* Sin background-image */
+}
+
+/* Módulos de contenido en Pro: padding + bg gris claro */
+.modulo-titulo-pro {
+    padding: 15px;
+    background-color: #E4E8EE;
+}
+
+/* Separador dorado debajo de subtítulos en Pro */
+.separador-pro {
+    border-top: 1px solid #DAA868;
+    width: 50px;
+    margin: 0 auto;
+}
