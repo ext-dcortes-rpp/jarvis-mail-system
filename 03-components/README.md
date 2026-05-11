@@ -8,129 +8,123 @@ Esta es la carpeta más importante del repositorio. Aquí viven todos los bloque
 
 ### `headers/` — La identidad del remitente
 
-6 variantes de header, una por marca. **Solo se usa UNO por mail.**
+6 variantes de header, una por marca:
 
-| Archivo | Cuándo usarlo |
-|---------|--------------|
-| `rappi.html` | Mails de la marca Rappi en general |
+| Archivo | Cuándo se usa |
+|---------|---------------|
+| `rappi.html` | Logo Rappi (la marca general) |
 | `rappi-travel.html` | Mails de RappiTravel |
 | `rappi-turbo.html` | Mails de RappiTurbo |
 | `rappi-turbo-rest.html` | Mails de RappiTurbo Restaurantes |
-| `rappi-pro.html` | Mails de RappiPro (fondo claro) |
-| `rappi-pro-black.html` | Mails de RappiPro Black (fondo oscuro) |
+| `rappi-pro-black.html` | Mails de RappiPro Black (KV oscuro) |
+| `rappi-pro.html` | Mails de RappiPro (KV claro) |
 
-El archivo `_header-wrapper.html` es la envoltura común que se pega alrededor del header elegido. Todos los headers van dentro de ella.
+**Solo se usa UNO por mail.** El archivo `_header-wrapper.html` es la envolvente común a todos.
 
-Cada header soporta tres modos:
-- **Sin cobranding** — solo el logo de la marca
-- **Con cobranding tipo "Tag"** — el logo de la marca + una imagen tipo etiqueta de un partner
-- **Con cobranding tipo "1:1"** — el logo de la marca + el logo cuadrado de un partner
+Cada header soporta tres modos según la fuente: sin cobranding (solo logo), con cobranding tipo "Tag", o con cobranding tipo "1:1". Las instrucciones de cuál mostrar están comentadas dentro de cada archivo.
 
-Las instrucciones de qué mostrar en cada caso están escritas como comentarios dentro de cada archivo.
+### `banners/` — La cabecera visual del mail
 
----
+3 formatos. **Se usa solo UNO por mail.**
 
-### `banners/` — La imagen principal del mail
-
-3 formatos disponibles. **Solo se usa UNO por mail.**
-
-| Archivo | Cuándo usarlo |
-|---------|--------------|
-| `big-banner-horizontal.html` | Mails que tienen módulos de contenido en el cuerpo (además del CTA y el cierre) |
+| Archivo | Cuándo se usa |
+|---------|---------------|
+| `big-banner-horizontal.html` | Mails con módulos de contenido en el body además de cierre y CTA |
 | `big-banner-vertical.html` | Mails que solo tienen CTA y cierre, o banners con logos |
-| `banner-editorial.html` | Imagen a todo el ancho, sin bloques de texto encima |
+| `banner-editorial.html` | Banner estilo editorial (full image) |
 
-Dentro de cada banner hay sub-piezas que puedes conservar o eliminar según la fuente:
-- **TAG** — etiqueta pequeña encima del banner (opcional)
-- **BLOQUE DE TEXTOS** — título principal, subtítulo, textos de apoyo
-- **LOGO** — logo dentro del banner (opcional)
-- **TEXTO DE REFUERZO** — texto pequeño de apoyo (opcional)
-
-Las reglas de cuándo conservar o eliminar cada sub-pieza están escritas como comentarios dentro del archivo.
-
----
+Cada banner contiene piezas internas (TAG, CONTENEDOR DE TEXTOS, LOGO, TEXTO DE REFUERZO) cuyas reglas de inclusión/omisión están en los comentarios internos.
 
 ### `ctas/` — El botón de acción
 
 | Archivo | Descripción |
 |---------|-------------|
-| `cta-template.html` | El bloque del botón de acción. Las variables (texto del botón, link de destino, estilo visual) se completan según la fuente. |
+| `cta-template.html` | Bloque Liquid del CTA con sus variables (`text_cta`, `deeplink_cta`, `style_Look`) |
 
-Un mail puede tener varios CTAs. Se pegan en el cuerpo del mail según el orden de la fuente.
-
----
+Un mail puede tener varios CTAs. Se insertan a lo largo del body según el orden de la fuente.
 
 ### `deals/` — Promociones de productos
 
 | Archivo | Descripción |
 |---------|-------------|
-| `deal-large.html` | Deal grande: imagen prominente con texto a la derecha |
-| `deal-small.html` | Deal pequeño: formato compacto |
+| `deal-large.html` | Deal grande (formato horizontal con imagen prominente) |
+| `deal-small.html` | Deal small (formato compacto) |
 
 **Máximo 4 deals por mail.** Si hay más, se sugiere convertir algunos a módulos de contenido.
 
----
-
-### `content-modules/` — Los bloques combinables del cuerpo
-
-Los bricks más versátiles. Se combinan libremente según las necesidades del mail.
+### `coupons/` — Módulo de cupones · NUEVO
 
 | Archivo | Descripción |
 |---------|-------------|
-| `modulo-titulo.html` | Solo un título destacado. Es el único módulo que va SIN envoltura contenedora. |
-| `modulo-3-columnas.html` | Tres columnas: imagen arriba + texto abajo (en celular se apilan verticalmente) |
-| `modulo-2-columnas.html` | Dos columnas: imagen + subtítulo + texto |
-| `modulo-logos.html` | Grilla de logos: se puede armar en grupos de 3, 4 o 6 logos |
-| `modulo-contenido.html` | El más versátil: imagen + sub-componentes combinables |
+| `cupones-modulo.html` | Tabla completa con 2 celdas (cupón title + cupón normal, o 2 cupones normales) |
 
-#### Sub-piezas dentro del módulo de contenido
+**Reglas importantes:**
+- Los cupones siempre vienen en **pares**. Por cada 2 cupones se inserta la tabla completa.
+- Cuando hay cantidad impar de cupones, se usa la celda **Cupón Title** (`role="title"`) en lugar del segundo cupón. Esa celda lleva ícono + título y reemplaza a un cupón normal.
+- Cada cupón puede tener: imagen top, tag (día/horario), vertical, value prop (mandatorio), complemento (opcional), y legal (opcional).
+- El value prop usa color `#DAA868` para KV Pro/ProBlack y el color destacado por defecto para los demás KVs.
+- Los legales van en un `<tr>` separado debajo de la fila de cupones.
 
-El archivo `modulo-contenido.html` contiene sub-piezas internas que se pueden mezclar:
-- **BULLET LOGO** — imagen de logo + texto al lado
-- **BULLET ICONO** — ícono pequeño + texto al lado
-- **BULLET NUMERADO** — número en círculo + texto al lado
-- **IMAGEN FULL** — imagen a todo el ancho del contenedor
+### `benefits/` — Módulo de beneficios · NUEVO
 
-Estas sub-piezas están dentro del mismo archivo para mantener su contexto visual.
+| Archivo | Descripción |
+|---------|-------------|
+| `modulo-beneficios.html` | Card con dos columnas: imagen a la izquierda + ícono/subtítulo/texto a la derecha |
 
----
+**Reglas importantes:**
+- Puede haber **varios módulos de beneficios seguidos**. Por cada beneficio se inserta una tabla nueva.
+- La card tiene fondo `#202020` con un background-image decorativo encima.
+- Contiene tres componentes que se pueden omitir individualmente: imagen del beneficio, ícono, subtítulo, y texto descriptivo.
+
+### `content-modules/` — Los bloques combinables del cuerpo
+
+Aquí viven los bricks más versátiles. Se combinan libremente según las necesidades del mail.
+
+| Archivo | Descripción |
+|---------|-------------|
+| `modulo-titulo.html` | Único módulo que se usa SIN contenedor. Solo título destacado. |
+| `modulo-3-columnas.html` | Tres columnas con imagen + texto |
+| `modulo-2-columnas.html` | Dos columnas con imagen + subtítulo + texto. Incluye versión escritorio y mobile (con `mobile_hide` y `desktop_hide`) |
+| `modulo-logos.html` | Grid de logos en bloques de 3, 4 o 6 |
+| `modulo-contenido.html` | El más versátil: imagen + componentes (bullet logo, bullet icono, bullet numerado) |
+
+#### Componentes internos del `modulo-contenido`
+
+Dentro de `modulo-contenido.html` viven sub-piezas que se identifican con `role="componente"`:
+- **BULLET LOGO** — Logo + subtítulo + texto al lado
+- **BULLET ICONO** — Ícono pequeño + subtítulo + texto
+- **BULLET NUMERADO** — Número grande + subtítulo + texto
+
+Estos componentes están dentro del archivo `modulo-contenido.html` para mantener su contexto. Se pueden combinar libremente dentro del módulo, separados por `<div class="separador-M">`.
 
 ### `closing/` — La imagen de cierre
 
 | Archivo | Descripción |
 |---------|-------------|
-| `cierre.html` | Imagen de cierre del mail. Se omite en ciertos casos (ver reglas abajo). |
+| `cierre.html` | Tabla de imagen de cierre. Se OMITE si KV es Pro, ProBlack, o si la fuente dice "sin cierre". |
 
-**Cuándo se omite el cierre:**
-- Si el tipo de KV es Pro o Pro Black
-- Si la fuente dice explícitamente "sin cierre"
-
-En cualquier otro caso, se conserva. La imagen específica depende del tipo de KV (Genérico, Turbo, Neutro) y se elige desde la base de assets.
-
----
+Las URLs de las imágenes de cierre dependen del KV (Genérico, Turbo, Neutro). Se eligen desde la base de datos de assets.
 
 ### `footer/` — El pie del mail
 
 | Archivo | Descripción |
 |---------|-------------|
-| `footer.html` | El pie de mail con legales. Las variables (tipo de legales a mostrar, estilo visual) se completan según la fuente. |
+| `footer.html` | Bloque Liquid del footer con sus variables (`cond`, `font_style_look`, `show_legal_*`) |
 
-**El footer SIEMPRE se conserva completo.** Nunca se omite. Solo cambian los valores de las variables según lo que indique la fuente del mail.
-
----
+**El footer SIEMPRE se conserva completo.** Nunca se omite. Solo cambian los valores de las variables Liquid según la fuente.
 
 ## Reglas comunes a todos los componentes
 
-1. **No se modifica la estructura interna de las piezas.** Solo se cambian las URLs de imágenes y los textos.
-2. **No se cambian los tamaños ni espaciados internos.** El padding, los márgenes, el ancho y el alto de cada pieza son fijos por diseño.
-3. **Los comentarios de INICIO y FIN se conservan siempre.** Son la firma del componente.
-4. **Los comentarios con instrucciones internas también se conservan.** Le dicen al siguiente diseñador qué hacer con esa pieza.
+1. **No se modifica la estructura HTML interna.** Solo se cambian las URLs de imágenes y los textos.
+2. **No se cambian estilos inline.** El padding, margin, width, height, border-radius son fijos.
+3. **Los comentarios INICIO/FIN se conservan SIEMPRE.** Son la firma del componente.
+4. **Las instrucciones internas (los `<!-- ... -->` con reglas) también se conservan.** Le dicen al siguiente diseñador qué hacer.
 
 ## Cómo proponer un nuevo componente
 
-Si necesitas un bloque que no existe en el sistema, no lo agregues directamente. El proceso es:
+Si necesitas un brick que no existe, no lo agregues directo. El proceso es:
 
-1. Describe el caso de uso y súbelo como issue en GitHub.
-2. Adjunta el diseño en Figma (archivo `MAILS_NEON_DESIGN_SYSTEM`).
-3. El equipo evalúa si amerita ser un componente del sistema o si puede resolverse combinando los existentes.
-4. Si se aprueba, se crea el archivo, se documenta aquí y se actualiza el Gem de Gemini.
+1. Abre un issue en GitHub describiendo el caso de uso.
+2. Sube el diseño en Figma (file `MAILS_NEON_DESIGN_SYSTEM`).
+3. Se discute en equipo si amerita ser un componente del sistema o si es algo que se resuelve combinando los existentes.
+4. Si se aprueba, se crea el archivo, se documenta, y se actualiza la guía del Gem de Gemini.

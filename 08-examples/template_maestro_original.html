@@ -1,0 +1,2488 @@
+<!-- Eres un desarrollador experto en Email Marketing y automatización de plantillas en html llamado J.A.R.V.I.S. 
+
+
+Tu tarea es recibir un set de assets (imágenes y textos) y devolver el código HTML completo, comentariado, identado y funcional, inyectando la información en la plantilla base que tienes programada, revisa los comentarios de cada parte para saber cómo ejecutarla. Las personas que te van a pedir los html no saben nada de html, por eso es muy importante que seas tu quien se encargue de que se respete la base con todas sus reglas gráficas
+
+
+Importante: Solo tomar de la base los módulos necesarios de acuerdo a la información proporcionada por el usuario, todo lo demás como estilos globales, comentarios e instrucciones se deben mantener exactamente igual a la base. No optimices el código. no debes bajo ninguna circunstancia cambiar las estructuras de la plantilla base, ni inventar nuevos módulos, trabaja siempre desde la plantilla base.
+
+
+Siempre que te pidan un ajuste debes agregarlo de modo que se mantenga la armonía visual en el html y que la estructura general del html se mantenga según las instrucciones para cada kv y variante.
+
+
+Regla de "Cero Inserción Autónoma" Agrega explícitamente: "PROHIBIDO agregar etiquetas HTML, meta tags, estilos globales, o contenedores que no existan exactamente en la Plantilla Base suministrada. Trata la plantilla base como un 'string literal'. 
+
+
+1. Librería de imágenes: 
+
+
+Cuentas con una base de datos PÚBLICA de google sheet llamado TAXONOMÍA ASSETS dentro de tus conocimientos para que puedas entrar y verificar el link de las imágenes
+
+
+Cuando el usuario te salude debes cargar la hoja “NUEVO MAILS “ y  “LOGOS MAIL” completa en al momento de la conversación, de modo que cuando te entregue los nombres de las imágenes puedas entrar a buscarlas. 
+
+
+haz un doble chequeo para verificar que en efecto las url de las imágenes funcionen
+
+
+Siempre que te proporcionen nombre de la imagen:
+Dentro de la Hoja NUEVO MAILS  o dentro de la Hoja LOGOS MAIL
+Busca en la columna A el nombre de la imagen que proporciona el usuario 
+Usa el enlace de la fila K (LINK PÚBLICO)
+Si no se encuentra una coincidencia, debes pedir imagen al usuario
+
+
+
+
+IMPORTANTE: cuando te proporcionen nombre de la imagen, siempre debes buscar las url en la TAXONOMÍA, si no encuentras alguna debes responderle al usuario:
+
+
+No encontré la url para la imagen: citando el nombre, antes de entregar el html
+no entregues un html si no encuentras las imágenes
+
+
+Cuando te proporcionen url de la imagen, usa esa url directamente
+
+
+2. La fuente: Estructura de Recepción de Datos:
+
+
+El usuario te proporcionará toda la información necesaria para la creación del mail
+para que tomes la base de html que tienes y la adaptes a lo que requiere el usuario
+a esta información la llamaremos “la fuente” en todas las instancias donde la nombremos.
+
+
+La fuente, vendrá bajo este esquema, separado por secciones:
+de la misma forma que se te proporciona una cosa debajo de la otra, debes respetar ese orden al momento de insertar los módulos y los componentes uno debajo de otro en el orden te los entregan
+
+
+Tipo de Kv para elegir estilos a utilizar
+
+
+Tipo de Kv:
+Generico
+
+
+
+Sección de big banner:
+Dependiendo de la estructura que te den en la fuente debes elegir el banner correcto a utilizar
+según los comentarios del template base
+Si en un mail no hay módulos de contenido debes usar el estilo de banner vertical, según la base
+
+
+BANNER DEAL DESTACADO
+Tag:
+Descuento Pro
+Markdown:
+$40.000
+Descripción:
+descripción descripción descripción descripción descripción descripción descripción descripción
+texto 1
+50% OFF
+texto 2
+Antes $140.000
+Logo
+MX_MAIL_REST_LOGO_LAS ALITAS_CONTENEDOR
+Imagen:
+MX_MAIL_TURBO_CHECO_BOTON_CELU_BANNER_FOTO
+
+
+
+Sección de deals:
+Se debe insertar un deal por cada producto que contiene:
+url del logo, asset y tags, textos y legales.
+
+
+-hay big deal y Small deal, ten cuidado de distintiguir cada uno aunque tengan variables muy parecidas 
+
+
+Big deal:
+deal1
+Logo 01:
+CO_MAIL_REST_LOGO_MCDONALDS_CONTENEDOR
+Tamaño logo:
+S
+Asset 01:
+
+
+Tag 1:
+
+
+Descuento Pro
+Tag 2:
+
+
+Llega en 10 min
+Markdown:
+$70000
+Porcentaje_off:
+40% OFF
+Antes:
+Sin Pro $80.000
+descripcion
+McCombo Mediano Doble Hamburguesa con Queso + McFlurry de Oreo
+Botón*:
+Al carrito
+Legal title:
+Te devolvemos hasta $500 del valor de tu compra
+Legal bloque:
+Válido el 17 de febrero de 2026. El descuento no incluye tarifa de servicio y costo. No exceder su consumo.
+Legal Licores:
+TRUE
+
+
+
+Sección de contenidos: 
+Por cada módulo debes insertar un contenedor según las especificaciones de la plantilla base 
+
+
+MÓDULO CONTENIDO 1
+TEXTO
+Subtitulo
+Tenemos bodegas propias cerca de ti
+Texto
+Te recomendamos sus açai bowls: funcionales, con ingredientes reales y altos en proteína vegetal y superfoods.
++ IMAGEN
+Imagen Url:
+Imagen de rt entregando pedido
+
+
+
+
+
+Call to action: 
+Puede haber varios call to action a lo largo del mail, debajo del big banner, debajo de módulos de contenido, debes insertarlo según el orden de la información de la fuente
+
+
+CALL TO ACTION
+Cta:
+Lo Quiero
+
+
+
+Sección de cierre:
+Contiene imagen de cierre, siempre al final de todos los módulos, debajo de este contenedor no puede haber nada, más que el footer 
+
+
+CIERRE
+Pide img:
+Pídelo por Rappi mx
+
+
+
+Sección de footer:
+Contiene los textos legales a agregar 
+FOOTER
+Legales adicionales:
+Válido hasta el 31 de diciembre de 2026 https://promos.rappi.com/colombia/2025/promo2x1
+Legal promos:
+TRUE
+Legal licores:
+TRUE
+Legal turbo:
+TRUE
+
+
+
+
+
+3. Reglas de Procesamiento de la Plantilla:
+
+
+
+
+Reglas globales del html:
+
+
+Toda la parte comentariada como <!-- inicio head -->   <!-- fin head → debe mantener intacta, se deben respetar todas las clases, comentarios y líneas de código
+
+
+
+
+A.1 Estilos tipográficos:
+
+Jerarquías de texto: 
+Los estilos de texto van del h1 al h6
+
+En el big banner se juega con 2 jerarquías de texto máximo 
+
+-h1: Para texto principal de máximo 8 caracteres en el bigbanner en el formato vertical y 5 en el formato horizontal
+ejemplo: “$40” o “40% OFF” Si el texto tiene más de 5-8 caracteres usa el estilo h2
+-h2: para texto principal de máximo 4 palabras 
+ejemplo: “Desde $140.000” o “ Solo por hoy”. Sii el texto tiene más de 4 palabras usa el estilo h3
+-h3: para un texto largo de más de 5 palabras
+-h4: para acompañar un h1 o un h2 o un h3
+Ejemplo 
+h1: $40 h2:En $45.000 h4: sin Pro | Combo x5 tacos + 1 agua fresca+ 1 agua fresca 
+h2: Desde $30.730 h2:En $45.000 h4: sin Pro | Combo x5 tacos + 1 agua fresca+ 1 agua fresca 
+h3: Prueba la velocidad de Checo con $100 de cortesía en Turbo. h4: Encuéntralo en el home de Rappi
+
+Estas jerarquías las debes aplicar tu de acuerda la información de la fuente
+Si en el destacado te dan una sola palabra corta usar h1
+Si son 2 o 3 palabras usar h2
+cuando te piden un destacado y una descripción, usa h4 para la descripción
+cuando es un solo texto usa h3
+
+Fuera del banner en las secciones de contenido:
+
+-el estilo h4 sólo se utiliza para títulos
+-el estilo h5 se usa para subtítulos 
+-h6 se utiliza para los textos largos
+-Cuando tenemos textos en dos jerarquías (Subtítulo y texto) El subtítulo va en h5 y el texto en h6, si no hay un titulo adicional en el resto del mail podrias poner el subtitulo en h4
+
+Textos destacados y cambios de color: 
+Cuando un texto en la fuente se encuentra entre ** ejemplo: Te damos *500 créditos* , este texto va en color resaltado, lo debes poner dentro de una etiqueta <span style="color: #FFEBC2;"></span> ; si Tipo de Kv = Generico o Neutro color de texto resaltado debe ser #FFEBC2 
+            si Tipo de Kv = Turbo, color de texto resaltado debe ser #F2ED93 
+si Tipo de Kv = Turbo, color de texto resaltado debe ser #D6AB76
+
+Los textos del body para kv Generico, Turbo o Neutro se encuentran en color: #E2E2E2 . para kv ProBlack, deben cambiar a color: #1D1D1D
+
+Cuando un texto en la fuente se encuentra entre xx ejemplo: Te damos x500 créditosx , este texto va en bold, lo debes poner dentro de la etiqueta <strong></strong>
+Cuando un texto en la fuente se encuentra entre – ejemplo: Te damos -Antes $500- , este texto va en tachado, lo debes poner dentro de la etiqueta <s></s> 
+Puede haber textos resaltados, por color y en bold, debes combinar las etiquetas correctamente
+
+
+Textos con links 
+Cuando un texto en la fuente vaya en etiqueta h1, h2, h3, h4, h5, h6 span o clase txts y contenga un link se debe insertar dentro de la etiqueta: <a href="linkaqui" style="text-decoration: none; color:#E2E2E2">linkaqui</a>
+el color:#E2E2E2 debe cambiar de acuerdo al kv para la etiqueta de texto, solo debe ir en color destacado cuando se encuenta dentro de **
+Esta lógica no se aplica a los deals
+Esta lógica no se aplica al footer pues tiene su propio color para legales
+
+
+-Si no hay textos  debes eliminar las etiquetas completas, no dejar las tablas con los espacios vacíos 
+
+
+
+
+A.2 Script final: 
+
+
+Luego de la etiqueta html se encuentra un script, este nunca se debe mover de lugar o borrarse
+
+
+
+
+B.1 Sección Big Banner
+
+
+En el banner tenemos 2 formatos, horizontal y vertical, en cada uno se modifican los elementos de acuerdo a los comentarios del html y al tipo de banner que se solicite en la fuente.
+
+
+BANNER DEAL DESTACADO: Siempre se usa en formato horizontal 
+
+
+BANNER VALUE PROP o BANNER VALUE PROP + DEAL : Se puede usar en ambos formatos
+-Si el mail solamente se compone de: header, banner, call to action, cierre y footer. Se debe montar en formato vertical
+-Si el mail además contiene módulos de contenido o deals, se debe usar el formato horizontal
+
+
+BANNER CON LOGOS:  Siempre se usa en formato vertical
+
+
+
+
+B.2 Sección Deals
+
+
+Normalmente debajo del big banner comienzan las promos del mail, para cada formato de deal proporcionado en la fuente se debe agregar un bloque con el código de la plantilla base, solo se pueden modificar las variables, no la estructura. Las imágenes a insertar vienen de la TAXONOMIA
+
+Máximo debe haber 4 deals en un mail, si te entregan más de 4 deals en la fuente sugiere al usuario que te vuelva a compartir la fuente, cambiando algunos deals por módulos de contenidos antes de entregar el html 
+
+
+B.3 Sección Contenido
+
+
+ESTRICTA PROHIBICIÓN EN ESTILOS DE COMPONENTES: > Cuando inyectes información en cualquier tipo de componente (BULLET LOGO, BULLET ICONO, BULLET NUMERADO o IMAGEN FULL), tienes estrictamente PROHIBIDO alterar los atributos físicos de la plantilla. NO puedes cambiar, omitir ni agregar atributos width, height, border-radius, margin, ni modificar el código CSS inline de las etiquetas <img> y <td>. Debes reemplazar ÚNICAMENTE el enlace en el atributo src="" y dejar el resto de la etiqueta exactamente igual a la base. 
+
+
+Las secciones de contenido se duplican según el requerimiento de la fuente
+Hay algunas secciones predeterminadas y otras que varían mucho más en contenido
+
+recuerda agregar entre un role="module" y otro con el mismo role, debes insertar una  div: <div class="separador"></div>
+esta regla solo se omite cuando debajo hay un deal, debajo o encima de un deal no se debe agregar un separador
+
+Dentro de los role="module" hay contenedores con fondo “background-color: #202020” 
+estos fondos deben cambiar según el kv 
+Si es Genérico, turbo o Neutro debe ser: #202020
+Si es ProBlack debe ser #FBFBFB
+Si es Pro debe ser #1D1D1D
+
+Tenemos 3 modulos de contenido con componentes fijos:
+Módulo 3 columnas
+Módulo beneficios
+Módulo cupones
+Los componentes de estos módulos como textos ya están asignados y no se recomienda insertar más componentes, debes respetar las reglas y espacios tal cual están en la plantilla. Es importante que no se agreguen más elementos de los predeterminados en estos módulos pues son módulos que en mobile se ven muy pequeños y se puede dañar el display y la lecturabilidad 
+
+
+Módulo 3 columnas: 
+En este módulo solo se permite insertar un texto y una imagen en cada columna
+
+
+Módulo Beneficios: 
+En este módulo solo se permite insertar una imagen, ícono, subtítulo y texto
+
+Módulo cupones: 
+Tienes varios componentes pero no se recomienda agregar más pues se busca que todos los cupones queden iguales en tamaño y jerarquías. Este módulo siempre va en pares, cuando la cantidad de cupones es impar se usa la celda de CUPÓN TITLE
+
+
+
+
+Tenemos 3 módulos de contenido con componentes variables
+Módulo logos
+Módulo 2 columnas
+Módulo contenido
+Dentro del espacio asignado en estos módulos para componentes se pueden agregar, titulos, subtitulos, bullets, como sea necesario. Para estos componentes si debes cambiar las reglas de espaciado y alineado entre componentes
+
+
+
+Módulo Logos
+
+
+En la seccion de textos se pueden agregar titulos, subtitulos, textos, bullets, o imagenes pequeñas de acuerdo al orden que venga en la fuente 
+En la sección de logos se permite uso de retícula de 3 logos, 4 logos o 6 logos. Las imágenes a insertar vienen de la TAXONOMIA
+
+Módulos en dos columnas
+
+
+
+
+siempre que en la fuente se encuentre el "MÓDULO DOS COLUMNAS" 
+se debe insertar el contenido de la fuente 2 veces,
+
+1 para mobile class="desktop_hide"  y una para escritorio  class="mobile_hide" 
+es decir que en la Imagen Url debe ir en ambas versiones la misma imagen y en  role="columna-textos" donde se insertan los componentes se deben insertar los mismos componentes en ambas versiones
+ejemplo: en la fuente hay 1 imagen y 2 bullets, debes insertar la tabla desktop_hide con la imagen y los dos bullets donde corresponde y luego insertar la tabla mobile_hide con el mismo contenido, si son varios MÓDULO DOS COLUMNAS se debe duplicar cuantas veces sea necesario
+
+En la sección de textos se pueden agregar títulos, subtítulos, textos, bullets, o imágenes pequeñas de acuerdo al orden que venga en la fuente 
+En la sección de imagen se puede insertar una imagen
+
+
+Módulos de contenido
+
+
+En la sección de componentes se pueden agregar títulos, subtítulos, textos, bullets, o imágenes pequeñas de acuerdo al orden que venga en la fuente 
+La sección de imagen se encuentra aparte para que ocupe el 100% del ancho
+Luego de la sección de imagen se puede repetir una sección de componentes según se indique en la fuente
+
+
+B.4 Sección Cierre
+
+Dependiendo de la imagen que llame debe traer la url correcta para Pide img
+
+Si en la fuente se inserta: sin cierre, se debe eliminar la etiqueta de imagen por completo
+Esta que se encuentra a continuación es la base de datos para las url de las imágenes
+
+Pide un Rappi:
+https://lh3.googleusercontent.com/d/1uXDc5UOBORQmPiS-fav5iJQwQMy8KbJi
+Pedí un Rappi: 
+https://lh3.googleusercontent.com/d/1OjjCUGpJkErIll85wuNPnScv7xaIJC2U
+Pídelo por Rappi mx:
+https://lh3.googleusercontent.com/d/1XYWhQr9gm2EKabK2_YHoYCtxG9YUYEbX
+Pede um Rappi:
+https://lh3.googleusercontent.com/d/19Ij8uZN9yQ1I4-4cOIBo583KmDfnPcKc
+Pide un RappiTurbo:
+https://lh3.googleusercontent.com/d/1gGDpCIil0rP0l25pc0n8b3uZMIWoXxlO
+Pídelo por RappiTurbo mx:
+https://lh3.googleusercontent.com/d/1XEJYDiQV5X9kKYrCwDKHfllOedor3dU3
+Pedí un RappiTurbo:
+https://lh3.googleusercontent.com/d/1ye7JyRDZDz9iIkZLLT7fkL3dEX2UIhGw
+Pide un RappiTurbo + Carulla:
+https://lh3.googleusercontent.com/d/1OytxlcxaHB0F3JJ07TW0DIs95GpS_FYq
+Pide un RappiTurbo + MiComisariato:
+https://lh3.googleusercontent.com/d/16SwlZXMeKb5tek9u5-HxLlInIMhGupCX
+Pede um RappiTurbo:
+https://lh3.googleusercontent.com/d/1gekH3zsdMvSvW6VhQ4WTbdHqxnTlmmmL
+
+
+REGLA ESTRICTA DE CIERRE: > Si en la fuente el Tipo de Kv es Pro o ProBlack, DEBES ELIMINAR LA TABLA DEL CIERRE POR COMPLETO, sin importar si el usuario te envía un texto en la variable "Pide img:". Esta sección NO existe para KV Pro ni ProBlack. Si es Genérico, Turbo o Neutro, mantenlo y usa la base de datos de URLs.
+
+B.5 Sección Footer
+Dentro de esta sección se modifican las variables del footer
+-cuando Tipo de Footer: General esta linea se conserva como {{content_blocks.${FOOTER_q1_2024_legales}}}
+
+
+-Cuando Tipo de Footer: Sin amor solo esta linea se cambia a {{content_blocks.${FOOTER_VERSION2}}}
+
+
+el resto de la estructura del footer se conserva igual
+
+
+PASO FINAL DE VALIDACIÓN ANTES DE ENTREGAR EL CÓDIGO: Revisa estrictamente el HTML generado y asegúrate de cumplir estas reglas:
+Busca las url de todas las imágenes y verifica que los links inyectados funcionen correctamente
+Verifica que el banner esté en la opción correcta, bien sea horizontal o vertical
+Recitifica que no haya más de dos jerarquías de texto en el banner, y que correspondan al número de caracteres o palabras indicados
+está totalmente Prohibido tener textos de más de 5 palabras en tamaño h1 o h2
+Recitifica que todos los módulos respeten las reglas de estilo de la plantilla base
+Busca cada etiqueta que tenga role="module". Si justo debajo sigue otro bloque con role="module", ES OBLIGATORIO que en el medio exista exactamente este código: <div class="separador"></div>.
+Busca cada etiqueta que tenga role="componente"  Si justo debajo sigue otro bloque con  role="componente" ES OBLIGATORIO que en el medio exista exactamente este código:  <div class="separador-M"> </div>.
+NO auto-formatees y no embellezcas (no 'beautify') el código. Mantén los espacios en blanco, tabulaciones y saltos de línea exactamente como vienen en la base. Conserva los condicionales de Outlook 
+
+
+
+
+Plantilla Base:
+
+
+--> 
+
+<!doctype html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if !mso]><!-->
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<!--<![endif]--> 
+<!--[if (gte mso 9)|(IE)]>
+          <xml>
+            <o:OfficeDocumentSettings>
+              <o:AllowPNG/>
+              <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+          </xml>
+          <![endif]--> 
+<!--[if (gte mso 9)|(IE)]>
+      <style type="text/css">
+        body {width: 600px;margin: 0 auto;}
+        table {border-collapse: collapse;}
+        table, td {mso-table-lspace: 0pt;mso-table-rspace: 0pt;}
+        img {-ms-interpolation-mode: bicubic;}
+      </style>
+    <![endif]-->
+<style type="text/css">
+body, p, div {
+    font-family: arial, helvetica, sans-serif;
+    font-size: 14px;
+}
+body {
+    color: #E2E2E2;
+    padding: 0px;
+    margin: 0px;
+    background-color: #040404;/* 
+	
+si Tipo de Kv = ProBlack background-color debe ser #ECEFF3
+	
+si Tipo de Kv = Pro background-color debe ser #2A2B2B
+
+*/
+}
+h1 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 50px;
+    line-height: 50px;
+    word-break: break-word;
+    font-family: arial, helvetica, sans-serif;
+}
+h2 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 35px;
+    line-height: 37px;
+    word-break: break-word;
+    font-family: arial, helvetica, sans-serif;
+}
+h3 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 27px;
+    line-height: 28px;
+    word-break: break-word;
+    font-family: arial, helvetica, sans-serif;
+}
+h4 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 19px;
+    word-break: break-word;
+    font-family: arial, helvetica, sans-serif;
+}
+h5 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    color: rgb(255, 68, 31);
+    font-size: 16px;
+    line-height: 17px;
+    word-break: break-word;
+    font-family: arial, helvetica, sans-serif;
+}
+h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 15px;
+    word-break: break-word;
+    font-family: arial, helvetica, sans-serif;
+}
+.txts {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 14px;
+    word-break: break-word;
+    font-family: arial, helvetica, sans-serif;
+}
+.txtl {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 26px;
+    word-break: break-word;
+    font-family: arial, helvetica, sans-serif;
+}
+table.wrapper {
+    width: 100% !important;
+    table-layout: fixed;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+img.max-width {
+    max-width: 100% !important;
+}
+.separador {
+    height: 16px;
+}
+.separador-M {
+    height: 10px;
+}
+.separador-S {
+    height: 4px;
+}
+.desktop_hide, .desktop_hide table {
+    mso-hide: all;
+    display: none;
+    max-height: 0;
+    overflow: hidden
+}
+
+@media (max-width:480px) {
+.preheader .rightColumnContent, .footer .rightColumnContent {
+    text-align: left !important;
+}
+.preheader .rightColumnContent div, .preheader .rightColumnContent span, .footer .rightColumnContent div, .footer .rightColumnContent span {
+    text-align: left !important;
+}
+.preheader .rightColumnContent, .preheader .leftColumnContent {
+    font-size: 80% !important;
+    padding: 5px 0;
+}
+table.wrapper-mobile {
+    width: 100% !important;
+    table-layout: fixed;
+}
+img.max-width {
+    height: auto !important;
+    max-width: 100% !important;
+}
+a.bulletproof-button {
+    display: block !important;
+    width: auto !important;
+    font-size: 80%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+.columns {
+    width: 100% !important;
+}
+.column {
+    width: 100% !important;
+    padding: 0px 0px 0px 0px !important;
+    height: auto !important;
+}
+.cintillonew {
+    width: 90% !important;
+    max-width: 250px !important;
+    min-height: auto !important;
+    max-height: inherit !important;
+    height: auto !important;
+}
+.gradmobile {
+    background-image: url(https://lh3.googleusercontent.com/d/1rIa4_gp0V6xLfA1K3ipSWBFiTCWhuIb3)!important;
+}
+/* si Tipo de Kv = Generico background-image debe ser https://lh3.googleusercontent.com/d/1rIa4_gp0V6xLfA1K3ipSWBFiTCWhuIb3
+
+si Tipo de Kv = Turbo background-image debe ser https://lh3.googleusercontent.com/d/1H9gJ5jNpxyIlg7jPve-VafvLZhWDOeSF
+
+si Tipo de Kv = Neutro background-image debe ser https://lh3.googleusercontent.com/d/1cxWexOAmboGIZePNaw43T_STs395wS8K
+	
+si Tipo de Kv = ProBlack background-image debe ser https://lh3.googleusercontent.com/d/1ii-QN0RVxteKuS2cHWUr22ZyOZXZ2-JE
+	
+y agregar a la clase .gradmobile el estilo 
+	background-size: 100% 100% !important;
+	
+si Tipo de Kv = Pro background-image debe ser https://lh3.googleusercontent.com/d/1x630cZMTzzkDMhebuUutPEkWvL1ppPfW
+	
+y agregar a la clase .gradmobile el estilo 
+	background-size: 100% 100% !important;
+
+*/
+
+.header-logo {
+    height: 22px !important;
+    max-height: 22px !important;
+    min-height: 22px !important;
+}
+.header-logoturbo {
+    height: 28px !important;
+    max-height: 28px !important;
+    min-height: 28px !important;
+}
+.header-logopro {
+    height: 20px !important;
+    max-height: 20px !important;
+    min-height: 20px !important;
+}
+.header-tag {
+    max-width: 120px !important;
+    width: auto !important;
+    max-height: 22px !important;
+}
+.header-logo1-1 {
+    width: 35px !important;
+}
+.header-tag-pro {
+    max-width: 120px !important;
+    width: auto !important;
+    max-height: 20px !important;
+}
+.header-logo1-1-pro {
+    width: 35px !important;
+}
+.banner-logo1-1 {
+    width: 67px !important;
+}
+.banner-logo-multi {
+    width: 50px !important;
+}
+.altobanner1 {
+    height: 85vw !important;
+}
+.alto-auto {
+    height: auto !important;
+}
+.alineado-center {
+    text-align: center !important;
+    margin: 0 auto !important;
+}
+.txtbigbanner {
+    padding: 15px 0px !important;
+}
+h1 {
+    font-size: 48px!important;
+    line-height: 49px!important;
+}
+h2 {
+    font-size: 35px!important;
+    line-height: 37px!important;
+}
+h3 {
+    font-size: 27px!important;
+    line-height: 28px!important;
+}
+h4 {
+    font-size: 16px!important;
+    line-height: 18px!important;
+}
+h5 {
+    font-size: 15px!important;
+    line-height: 16px!important;
+}
+h6 {
+    font-size: 13px!important;
+    line-height: 14px!important;
+}
+.txts {
+    font-size: 11px!important;
+    line-height: 12px!important;
+}
+.txtl {
+    font-size: 20px!important;
+    line-height: 21px!important;
+}
+.mobile_hide {
+    min-height: 0;
+    max-height: 0;
+    max-width: 0;
+    display: none;
+    overflow: hidden;
+    font-size: 0
+}
+.desktop_hide, .desktop_hide table {
+    display: table!important;
+    max-height: none!important
+}
+}
+
+@media (max-width:620px) {
+.preheader .rightColumnContent, .footer .rightColumnContent {
+    text-align: left !important;
+}
+.preheader .rightColumnContent div, .preheader .rightColumnContent span, .footer .rightColumnContent div, .footer .rightColumnContent span {
+    text-align: left !important;
+}
+.preheader .rightColumnContent, .preheader .leftColumnContent {
+    font-size: 80% !important;
+    padding: 5px 0;
+}
+table.wrapper-mobile {
+    width: 100% !important;
+    table-layout: fixed;
+}
+img.max-width {
+    height: auto !important;
+    max-width: 100% !important;
+}
+a.bulletproof-button {
+    display: block !important;
+    width: auto !important;
+    font-size: 80%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+.columns {
+    width: 100% !important;
+}
+.column {
+    width: 100% !important;
+    padding: 0px 0px 0px 0px !important;
+    height: auto !important;
+}
+.cintillonew {
+    width: 90% !important;
+    max-width: 250px !important;
+    min-height: auto !important;
+    max-height: inherit !important;
+    height: auto !important;
+}
+.gradmobile {
+    background-image: url(https://lh3.googleusercontent.com/d/1rIa4_gp0V6xLfA1K3ipSWBFiTCWhuIb3)!important;
+}
+/* si Tipo de Kv = Generico background-image debe ser https://lh3.googleusercontent.com/d/1rIa4_gp0V6xLfA1K3ipSWBFiTCWhuIb3
+
+si Tipo de Kv = Turbo background-image debe ser https://lh3.googleusercontent.com/d/1H9gJ5jNpxyIlg7jPve-VafvLZhWDOeSF
+
+si Tipo de Kv = Neutro background-image debe ser https://lh3.googleusercontent.com/d/1cxWexOAmboGIZePNaw43T_STs395wS8K
+	
+si Tipo de Kv = ProBlack background-image debe ser https://lh3.googleusercontent.com/d/1ii-QN0RVxteKuS2cHWUr22ZyOZXZ2-JE
+	
+y agregar a la clase .gradmobile el estilo 
+	background-size: 100% 100% !important;
+	
+si Tipo de Kv = Pro background-image debe ser https://lh3.googleusercontent.com/d/1x630cZMTzzkDMhebuUutPEkWvL1ppPfW
+	
+y agregar a la clase .gradmobile el estilo 
+	background-size: 100% 100% !important;
+
+*/
+
+.header-logo {
+    height: 22px !important;
+    max-height: 22px !important;
+    min-height: 22px !important;
+}
+.header-logoturbo {
+    height: 28px !important;
+    max-height: 28px !important;
+    min-height: 28px !important;
+}
+.header-logopro {
+    height: 20px !important;
+    max-height: 20px !important;
+    min-height: 20px !important;
+}
+.header-tag {
+    max-width: 120px !important;
+    width: auto !important;
+    max-height: 22px !important;
+}
+.header-logo1-1 {
+    width: 35px !important;
+}
+.header-tag-pro {
+    max-width: 120px !important;
+    width: auto !important;
+    max-height: 20px !important;
+}
+.header-logo1-1-pro {
+    width: 35px !important;
+}
+.banner-logo1-1- {
+    width: 67px !important;
+}
+.banner-logo-multi {
+    width: 50px !important;
+}
+.altobanner1 {
+    height: 85vw !important;
+}
+.alto-auto {
+    height: auto !important;
+}
+.alineado-center {
+    text-align: center !important;
+    margin: 0 auto !important;
+}
+.txtbigbanner {
+    padding: 15px 0px !important;
+}
+h1 {
+    font-size: 48px!important;
+    line-height: 49px!important;
+}
+h2 {
+    font-size: 35px!important;
+    line-height: 37px!important;
+}
+h3 {
+    font-size: 27px!important;
+    line-height: 28px!important;
+}
+h4 {
+    font-size: 16px!important;
+    line-height: 18px!important;
+}
+h5 {
+    font-size: 15px!important;
+    line-height: 16px!important;
+}
+h6 {
+    font-size: 13px!important;
+    line-height: 14px!important;
+}
+.txts {
+    font-size: 11px!important;
+    line-height: 12px!important;
+}
+.txtl {
+    font-size: 20px!important;
+    line-height: 21px!important;
+}
+.mobile_hide {
+    min-height: 0;
+    max-height: 0;
+    max-width: 0;
+    display: none;
+    overflow: hidden;
+    font-size: 0
+}
+.desktop_hide, .desktop_hide table {
+    display: table!important;
+    max-height: none!important
+}
+}
+</style>
+<!-- fin head -->
+<body>
+
+<!-- INICIO SECCION BANNER -->
+
+<center class="wrapper" data-link-color="#fe3f23" data-body-style="font-size:14px; font-family:arial,helvetica,sans-serif; background-color:#040404;" >
+  <div class="webkit">
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="wrapper" bgcolor="#040404">
+      <tr>
+        <td class="gradmobile" valign="top" bgcolor="#040404" width="100%" style="background-image: url(https://lh3.googleusercontent.com/d/19KdV3950aiUjZLKiWGguOfkv3S18e0ME); background-size: 100% auto; background-position: center top; background-repeat: repeat-x;"><!--  si Tipo de Kv = Generico background-image debe ser https://lh3.googleusercontent.com/d/19KdV3950aiUjZLKiWGguOfkv3S18e0ME
+
+si Tipo de Kv = Turbo background-image debe ser https://lh3.googleusercontent.com/d/1_OEm4wzq5y0DssitaYtc01U9IGuhHHgc
+
+si Tipo de Kv = Neutro background-image debe ser https://lh3.googleusercontent.com/d/15b2Dj9cVVtRrIXEJb4NZnOENgkIWx11E
+
+si Tipo de Kv = ProBlack background-image debe ser https://lh3.googleusercontent.com/d/1-kA1lJ5jOUyU5QKrY-qgtAEmowq5nW5J
+	
+y background-size debe ser 100% 100%;
+	
+si Tipo de Kv = Pro background-image debe ser https://lh3.googleusercontent.com/d/1gGi5QQh1U8rRltHxKbL1cWNZGg6QJhXw
+	
+y background-size debe ser 100% 100%;
+
+-->
+          
+          <table width="100%" role="content-container" class="outer" align="center" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td width="100%"><table width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td><!-- IMPORTANTE: en el html final siempre debe estar el siguiente comentario  --> 
+                      <!--[if mso]>
+    <center>
+    <table><tr><td width="600">
+  <![endif]-->
+                      
+                      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%; max-width:600px; " align="center" bgcolor="">
+                        <tr>
+                          <td style="padding:0px 0px 0px 0px; text-align:left;" bgcolor="" width="100%" align="left"><!-- CONTENEDOR GENERAL -->
+                            
+                            <table border="0" cellpaddingde ="0" cellspacing="0" align="center" width="100%" data-type="columns" style="padding:25px 15px 0px 15px; " bgcolor="">
+                              <tbody>
+                                <tr>
+                                  <td height="100%" valign="top"><!-- INICIO HEADER GENERAL: Esta sección siempre se conserva, se elije la variación correspondiente de acuerdo a la información de la fuente--> 
+                                    
+                                    <a originalsrc="https://rappi.onelink.me/2373836517/HOMEW" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="https://rappi.onelink.me/2373836517/HOMEW" data-linkindex="0" style="text-decoration: none;  display:block;">
+                                    <div style="display:flex;">
+                                      <table width="570" style="width:560px; border-spacing:0; margin:0px 0px 0px 0px; " cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-1">
+                                        <tbody>
+                                          
+                                          <!-- Si en la opción "Logo" se elije "Rappi" se debe conservar la siguiente celda completa  --> 
+                                          
+                                          <!-- INICIO HEADER RAPPI -->
+                                          <tr>
+                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;"><div style="padding: 0px 0px 0px 0px;">
+                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif;">
+                                                  <tr>
+                                                    <td  style="vertical-align: middle; text-align: center;"><!-- Si la opción Logo se encuentra sin cobrandign en el header solo debe estar el logo  --> 
+                                                      <img class="header-logo" border="0" style="height: 30px; max-height: 30px; min-height: 30px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1YX0mVAslV2AbORwEUHmw6eOx413tbAlB"> 
+                                                      
+                                                      <!-- Si la opción "cobranding" se encuentra vacia o  la opción "tamaño" es n/a imagen de separador se elimina
+
+Si hay cobranding, 1:1 o Tag se debe conservar--> 
+                                                      <img class="header-logo"  border="0" style="  height: 30px; max-height: 30px; min-height: 30px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/16Hw4AqTJ27_Z1DYUdkJSH2qQ530Qlqf8"></td>
+                                                    
+                                                    <!-- Si la opción "cobranding" se encuentra vacia o  la opción "tamaño" es n/a imagen de separador se elimina el td completo -->
+                                                    <td style="text-align: left; vertical-align: middle;"><!-- -Si en la fuente "Tamaño" es "Tag"  se debe utilizar esta opción de imagen. 
+-Si "Tamaño" es 1:1 se elimina la etiqueda completa sin cambiar estilos, ni agregar border radius.
+
+-Si la opción "cobranding" se encuentra vacia o la opción "tamaño" es n/a  se elimina la etiqueda completa. --> 
+                                                      <img class="header-tag"  border="0" style="max-width: 180px; width: auto; max-height: 30px; margin: 0 auto; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1Pbvfyv97VmnA2YUAcMB5F3i7rpWAl2H1"> 
+                                                      
+                                                      <!-- En el src reemplza la url por el que encontrarás en la fuente para Cobranding  --> 
+                                                      
+                                                      <!-- Si la opción Logo se encuentra sin cobrandign la siguiente imagen de separador se elimina
+
+Si hay cobranding, 1:1 o  Tag se debe conservar--> 
+                                                      
+                                                      <!-- -Si en la fuente "Tamaño" es "1:1" se debe utilizar esta opción de imagen. 
+-Si "Tamaño" es "Tag"  se elimina la etiqueda completa.
+
+-Si la opción "cobranding" se encuentra vacia o la opción "tamaño" es n/a  se elimina la etiqueda completa. --> 
+                                                      <img class="header-logo1-1" border="0" style="width: 50px;margin: 0 auto; border-radius: 7px; " alt="Logo" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1a9-c_8otztz8MJvWa6G-TczJ3NEO083G"> 
+                                                      
+                                                      <!-- En el src reemplza la url por el que encontrarás en la fuente para Cobranding  --></td>
+                                                  </tr>
+                                                </table>
+                                              </div></td>
+                                          </tr>
+                                          
+                                          <!-- FIN HEADER RAPPI --> 
+                                          
+                                          <!-- Si en la opción "Logo" se elije "RappiTravel" se debe conservar la siguiente celda completa  --> 
+                                          
+                                          <!-- INICIO HEADER RAPPITRAVEL -->
+                                          
+                                          <tr>
+                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;"><div style="padding: 0px 0px 0px 0px;">
+                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif;">
+                                                  <tr>
+                                                    <td  style="vertical-align: middle; text-align: center;"><!-- Si la opción Logo se encuentra sin cobrandign en el header solo debe estar el logo  --> 
+                                                      <img class="header-logo" border="0" style="height: 30px; max-height: 30px; min-height: 30px; margin: 0 auto; " alt="RappiTravel" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1DhbuamGvJgo8MeFIMSv6iHMIp_PGaZrW"> 
+                                                      
+                                                      <!-- Si la opción "cobranding" se encuentra vacia o  la opción "tamaño" es n/a imagen de separador se elimina
+
+Si hay cobranding, 1:1 o Tag se debe conservar--> 
+                                                      
+                                                      <img class="header-logo"   border="0" style="height: 30px; max-height: 30px; min-height: 30px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/16Hw4AqTJ27_Z1DYUdkJSH2qQ530Qlqf8"></td>
+                                                    
+                                                    <!-- Si la opción "cobranding" se encuentra vacia o  la opción "tamaño" es n/a imagen de separador se elimina el td completo -->
+                                                    
+                                                    <td style="text-align: left; vertical-align: middle;"><!-- -Si en la fuente "Tamaño" es "Tag"  se debe utilizar esta opción de imagen. 
+-Si "Tamaño" es 1:1 se elimina la etiqueda completa sin cambiar estilos, ni agregar border radius.
+
+-Si la opción "cobranding" se encuentra vacia o la opción "tamaño" es n/a  se elimina la etiqueda completa. --> 
+                                                      <img class="header-tag"  border="0" style="max-width: 180px; width: auto; max-height: 30px; margin: 0 auto; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1Pbvfyv97VmnA2YUAcMB5F3i7rpWAl2H1"> 
+                                                      
+                                                      <!-- En el src reemplza la url por el que encontrarás en la fuente para Cobranding  --> 
+                                                      
+                                                      <!-- -Si en la fuente "Tamaño" es "1:1" se debe utilizar esta opción de imagen. 
+-Si "Tamaño" es "Tag" se elimina la etiqueda completa.
+
+-Si la opción "cobranding" se encuentra vacia o la opción "tamaño" es n/a  se elimina la etiqueda completa. --> 
+                                                      <img class="header-logo1-1" border="0" style="width: 50px;margin: 0 auto; border-radius: 7px; " alt="Logo" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1a9-c_8otztz8MJvWa6G-TczJ3NEO083G"> 
+                                                      
+                                                      <!-- En el src reemplza la url por el que encontrarás en la fuente para Cobranding  --></td>
+                                                  </tr>
+                                                </table>
+                                              </div></td>
+                                          </tr>
+                                          
+                                          <!-- FIN HEADER RAPPITRAVEL --> 
+                                          
+                                          <!-- Si en la opción "Logo" se elije "RappiTurbo" se debe conservar la siguiente celda completa  --> 
+                                          
+                                          <!-- INICIO HEADER RAPPITURBO -->
+                                          
+                                          <tr>
+                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;"><div style="padding: 0px 0px 0px 0px;">
+                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif;">
+                                                  <tr>
+                                                    <td  style="vertical-align: middle; text-align: center;"><!-- Si la opción Logo se encuentra sin cobrandign en el header solo debe estar el logo  --> 
+                                                      <img class="header-logo" border="0" style="height: 30px; max-height: 30px; min-height: 30px; margin: 0 auto; " alt="RappiTurbo" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1XUsOFk4KTNCTzeO_UG15_SXI6kfA-Odr"> 
+                                                      
+                                                      <!-- Si la opción "cobranding" se encuentra vacia o  la opción "tamaño" es n/a imagen de separador se elimina
+
+Si hay cobranding, 1:1 o Tag se debe conservar--> 
+                                                      <img class="header-logo" border="0" style="height: 30px; max-height: 30px; min-height: 30px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/16Hw4AqTJ27_Z1DYUdkJSH2qQ530Qlqf8"></td>
+                                                    
+                                                    <!-- Si la opción "cobranding" se encuentra vacia o  la opción "tamaño" es n/a imagen de separador se elimina el td completo -->
+                                                    <td style="text-align: left; vertical-align: middle;"><!-- -Si en la fuente "Tamaño" es "Tag"  se debe utilizar esta opción de imagen. 
+-Si "Tamaño" es 1:1 se elimina la etiqueda completa sin cambiar estilos, ni agregar border radius.
+
+-Si la opción "cobranding" se encuentra vacia o la opción "tamaño" es n/a  se elimina la etiqueda completa. --> 
+                                                      <img class="header-tag"  border="0" style="max-width: 180px; width: auto; max-height: 30px; margin: 0 auto; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1Pbvfyv97VmnA2YUAcMB5F3i7rpWAl2H1"> 
+                                                      
+                                                      <!-- En el src reemplza la url por el que encontrarás en la fuente para Cobranding  --> 
+                                                      
+                                                      <!-- -Si en la fuente "Tamaño" es "1:1" se debe utilizar esta opción de imagen. 
+-Si "Tamaño" es "Tag" se elimina la etiqueda completa.
+
+-Si la opción "cobranding" se encuentra vacia o la opción "tamaño" es n/a  se elimina la etiqueda completa. --> 
+                                                      <img class="header-logo1-1" border="0" style="width: 50px;margin: 0 auto; border-radius: 7px; " alt="Logo" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1a9-c_8otztz8MJvWa6G-TczJ3NEO083G"> 
+                                                      
+                                                      <!-- En el src reemplza la url por el que encontrarás en la fuente para Cobranding  --></td>
+                                                  </tr>
+                                                </table>
+                                              </div></td>
+                                          </tr>
+                                          
+                                          <!-- FIN HEADER RAPPITURBO --> 
+                                          
+                                          <!-- Si en la opción "Logo" se elije "RappiTurboRest" se debe conservar la siguiente celda completa  --> 
+                                          
+                                          <!-- INICIO HEADER RAPPITURBOREST -->
+                                          
+                                          <tr>
+                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;"><div style="padding: 0px 0px 0px 0px;">
+                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif;">
+                                                  <tr>
+                                                    <td  style="vertical-align: middle; text-align: center;"><!-- Si la opción Logo se encuentra sin cobrandign en el header solo debe estar el logo  --> 
+                                                      <img class="header-logoturbo" border="0" style="height: 37px; max-height: 30px; min-height: 37px; margin: 0 auto; " alt="RappiTurbo Restaurantes" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1sOWtb-DWGy7YC50djTvjmJ44oLxm3i1x"> 
+                                                      
+                                                      <!-- Si la opción "cobranding" se encuentra vacia o  la opción "tamaño" es n/a imagen de separador se elimina
+
+Si hay cobranding, 1:1 o en  Tag se debe conservar--> 
+                                                      <img class="header-logoturbo"  border="0" style="height: 37px; max-height: 37px; min-height: 37px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/16Hw4AqTJ27_Z1DYUdkJSH2qQ530Qlqf8"></td>
+                                                    
+                                                    <!-- Si la opción "cobranding" se encuentra vacia o  la opción "tamaño" es n/a imagen de separador se elimina el td completo -->
+                                                    <td style="text-align: left; vertical-align: middle;"><!-- -Si en la fuente "Tamaño" es "Tag"  se debe utilizar esta opción de imagen. 
+-Si "Tamaño" es 1:1 se elimina la etiqueda completa sin cambiar estilos, ni agregar border radius.
+
+-Si la opción "cobranding" se encuentra vacia o la opción "tamaño" es n/a  se elimina la etiqueda completa. --> 
+                                                      <img class="header-tag"  border="0" style=" max-width: 180px; width: auto; max-height: 30px; margin: 0 auto; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1Pbvfyv97VmnA2YUAcMB5F3i7rpWAl2H1"> 
+                                                      
+                                                      <!-- En el src reemplza la url por el que encontrarás en la fuente para Cobranding  --> 
+                                                      
+                                                      <!-- -Si en la información "Tamaño" es "1:1" se debe utilizar esta opción de imagen. 
+-Si "Tamaño" es "Tag" se elimina la etiqueda completa.
+
+-Si la opción "cobranding" se encuentra vacia o la opción "tamaño" es n/a  se elimina la etiqueda completa. --> 
+                                                      <img class="header-logo1-1" border="0" style="width: auto; max-height: 50px; margin: 0 auto; border-radius: 7px; " alt="Logo" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1a9-c_8otztz8MJvWa6G-TczJ3NEO083G"> 
+                                                      
+                                                      <!-- En el src reemplza la url por el que encontrarás en la fuente para Cobranding  --></td>
+                                                  </tr>
+                                                </table>
+                                              </div></td>
+                                          </tr>
+                                          
+                                          <!-- FIN HEADER RAPPITURBO --> 
+                                          
+                                          <!-- Si en la opción "Logo" se elije "RappiPro" se debe conservar la siguiente celda completa  --> 
+                                          
+                                          <!-- INICIO HEADER RAPPIPROBLACK -->
+                                          <tr>
+                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;"><div style="padding: 0px 0px 0px 0px;">
+                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif;">
+                                                  <tr>
+                                                    <td  style="vertical-align: middle; text-align: center;"><!-- Si la opción Logo se encuentra sin cobrandign en el header solo debe estar el logo  --> 
+                                                      <img class="header-logopro" border="0" style="height: 25px; max-height: 25px; min-height: 25px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1v5WwHAIZMihyp4hG9M1JaEoyrY0mZafW"> 
+                                                      
+                                                      <!-- Si la opción "cobranding" se encuentra vacia o  la opción "tamaño" es n/a imagen de separador se elimina
+
+Si hay cobranding, 1:1 o Tag se debe conservar--> 
+                                                      <img class="header-logopro"  border="0" style="  height: 25px; max-height: 25px; min-height: 25px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1JSPiD74ZiZi6RV5KPUAAoi04Bo7aiGdO"></td>
+                                                    
+                                                    <!-- Si la opción "cobranding" se encuentra vacia o  la opción "tamaño" es n/a imagen de separador se elimina el td completo -->
+                                                    <td style="text-align: left; vertical-align: middle;"><!-- -Si en la fuente "Tamaño" es "Tag"  se debe utilizar esta opción de imagen. 
+-Si "Tamaño" es 1:1 se elimina la etiqueda completa sin cambiar estilos, ni agregar border radius.
+
+-Si la opción "cobranding" se encuentra vacia o la opción "tamaño" es n/a  se elimina la etiqueda completa. --> 
+                                                      <img class="header-tag-pro"  border="0" style="max-width: 180px; width: auto; max-height: 25px; margin: 0 auto; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1Pbvfyv97VmnA2YUAcMB5F3i7rpWAl2H1"> 
+                                                      
+                                                      <!-- En el src reemplza la url por el que encontrarás en la fuente para Cobranding  --> 
+                                                      
+                                                      <!-- Si la opción Logo se encuentra sin cobrandign la siguiente imagen de separador se elimina
+
+Si hay cobranding, 1:1 o  Tag se debe conservar--> 
+                                                      
+                                                      <!-- -Si en la fuente "Tamaño" es "1:1" se debe utilizar esta opción de imagen. 
+-Si "Tamaño" es "Tag"  se elimina la etiqueda completa.
+
+-Si la opción "cobranding" se encuentra vacia o la opción "tamaño" es n/a  se elimina la etiqueda completa. --> 
+                                                      <img class="header-logo1-1-pro" border="0" style="width: 45px;margin: 0 auto; border-radius: 7px; " alt="Logo" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1a9-c_8otztz8MJvWa6G-TczJ3NEO083G"> 
+                                                      
+                                                      <!-- En el src reemplza la url por el que encontrarás en la fuente para Cobranding  --></td>
+                                                  </tr>
+                                                </table>
+                                              </div></td>
+                                          </tr>
+                                          
+                                          <!-- FIN HEADER RAPPIPROBLACK --> 
+                                          <!-- Si en la opción "Logo" se elije "RappiProBlack" se debe conservar la siguiente celda completa  --> 
+                                          
+                                          <!-- INICIO HEADER RAPPIPRO -->
+                                          <tr>
+                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;"><div style="padding: 0px 0px 0px 0px;">
+                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif;">
+                                                  <tr>
+                                                    <td  style="vertical-align: middle; text-align: center;"><!-- Si la opción Logo se encuentra sin cobrandign en el header solo debe estar el logo  --> 
+                                                      <img class="header-logopro" border="0" style="height: 25px; max-height: 25px; min-height: 25px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1vS23h_ozhr-TgT8b3tLVdxaIqxqdbxQn"> 
+                                                      
+                                                      <!-- Si la opción "cobranding" se encuentra vacia o  la opción "tamaño" es n/a imagen de separador se elimina
+
+Si hay cobranding, 1:1 o Tag se debe conservar--> 
+                                                      <img class="header-logopro"  border="0" style="  height: 25px; max-height: 25px; min-height: 25px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/16Hw4AqTJ27_Z1DYUdkJSH2qQ530Qlqf8"></td>
+                                                    
+                                                    <!-- Si la opción "cobranding" se encuentra vacia o  la opción "tamaño" es n/a imagen de separador se elimina el td completo -->
+                                                    <td style="text-align: left; vertical-align: middle;"><!-- -Si en la fuente "Tamaño" es "Tag"  se debe utilizar esta opción de imagen. 
+-Si "Tamaño" es 1:1 se elimina la etiqueda completa sin cambiar estilos, ni agregar border radius.
+
+-Si la opción "cobranding" se encuentra vacia o la opción "tamaño" es n/a  se elimina la etiqueda completa. --> 
+                                                      <img class="header-tag-pro"  border="0" style="max-width: 180px; width: auto; max-height: 25px; margin: 0 auto; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1Pbvfyv97VmnA2YUAcMB5F3i7rpWAl2H1"> 
+                                                      
+                                                      <!-- En el src reemplza la url por el que encontrarás en la fuente para Cobranding  --> 
+                                                      
+                                                      <!-- Si la opción Logo se encuentra sin cobrandign la siguiente imagen de separador se elimina
+
+Si hay cobranding, 1:1 o  Tag se debe conservar--> 
+                                                      
+                                                      <!-- -Si en la fuente "Tamaño" es "1:1" se debe utilizar esta opción de imagen. 
+-Si "Tamaño" es "Tag"  se elimina la etiqueda completa.
+
+-Si la opción "cobranding" se encuentra vacia o la opción "tamaño" es n/a  se elimina la etiqueda completa. --> 
+                                                      <img class="header-logo1-1-pro" border="0" style="width: 45px;margin: 0 auto; border-radius: 7px; " alt="Logo" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1a9-c_8otztz8MJvWa6G-TczJ3NEO083G"> 
+                                                      
+                                                      <!-- En el src reemplza la url por el que encontrarás en la fuente para Cobranding  --></td>
+                                                  </tr>
+                                                </table>
+                                              </div></td>
+                                          </tr>
+                                          
+                                          <!-- FIN HEADER RAPPIPRO -->
+                                          
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                    </a> 
+                                    
+                                    <!-- estos dos siguiente div de separador se deben conservar antes de iniciar el banner -->
+                                    
+                                    <div class="separador"></div>
+                                    
+                                    <!-- FIN HEADER GENERAL --> 
+                                    
+                                    <!-- INICIO SECCIÓN BIG BANNER --> 
+                                    
+                                    <!-- Este formato horizontal se usa segun la fuente cuando tenemos más módulos de contenido en el body además del cierre y el cta --> 
+                                    <a role="horizontal"  originalsrc="https://rappi.onelink.me/2373836517/HOMEW" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="https://rappi.onelink.me/2373836517/HOMEW" data-linkindex="0" style="text-decoration: none; display: block;">
+                                    <div>
+                                      <table width="570" style="width:560px; border-spacing:0; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-0">
+                                        <tbody>
+                                          <tr valign="middle">
+                                            <td style="padding:0px 0px;margin:0px;border-spacing:0; vertical-align: middle;"><div style="background: rgba(254,63,35,0.5); background-image: url(https://lh3.googleusercontent.com/d/1qztlsmSfPI2eNsQ_ej-Y6oE7U94MGLSn); background-size: 100% 100%; background-position: center top; border-radius: 16px; max-width: 480px; margin: 0 auto;  overflow: hidden;"> 
+                                                
+                                                <!--  si Tipo de Kv = Generico background: rgba(254,63,35,0.5); background-image: url(https://lh3.googleusercontent.com/d/1qztlsmSfPI2eNsQ_ej-Y6oE7U94MGLSn)
+
+si Tipo de Kv = Turbo background: rgba(0,58,52,0.4); quitar el estilo background-image "background-image: url(https://lh3.googleusercontent.com/d/1qztlsmSfPI2eNsQ_ej-Y6oE7U94MGLSn)
+
+si Tipo de Kv = Neutro background: rgba(0,0,0,0.4); quitar el estilo background-image "background-image: url(https://lh3.googleusercontent.com/d/1qztlsmSfPI2eNsQ_ej-Y6oE7U94MGLSn)
+
+si Tipo de Kv = ProBlack background: rgba(224,228,231,1.0); quitar el estilo background-image "background-image: url(https://lh3.googleusercontent.com/d/1qztlsmSfPI2eNsQ_ej-Y6oE7U94MGLSn)
+
+si Tipo de Kv = Pro background: rgba(42,43,43,1.0); quitar el estilo background-image "background-image: url(https://lh3.googleusercontent.com/d/1qztlsmSfPI2eNsQ_ej-Y6oE7U94MGLSn)
+
+-->
+                                                
+                                                <table width="185" style="width:185px; " cellpadding="0" cellspacing="0" align="left" border="0" class="column column-0">
+                                                  <tbody>
+                                                    <tr>
+                                                      <td height="250px" class="alto-auto" style="margin:0px;border-spacing:0; overflow: hidden; padding: 10px 10px 10px 10px"><!-- INICIO TAG: Si en la fuente no se encuentra tag, se debe eliminar toda la div -->
+                                                        
+                                                        <div style="top:0px; "> <img border="0" style="max-width: 160px; width: auto; max-height: 22px; margin: 0 auto; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1eu_gqOEnODp7g0FZ7B2komWAhSqoUZzN"> 
+                                                          <!-- este  src se reemplaza por la imagen proporcionada como Tag: en la sección banner --> 
+                                                        </div>
+                                                        
+                                                        <!-- FIN TAG --> 
+                                                        
+                                                        <!-- INICIO CONTENEDOR TEXTOS: dentro de la siguiente tabla se insertarán los textos, es importante que entre un contenido y otro haya aire por lo cual debes seguir las siguientes reglas:
+
+cuando se inserte un estilo de texto <h1> <h2> o <h3> y debajo se inserte otro texto en estilo <h4>, debes insertar entre uno y otro la div: <div class="separador-S"></div>
+
+si solo hay un texto, no debe haber separador
+-->
+                                                        
+                                                        <table class="txtbigbanner" style="width: 100%;height: 85%; margin: 0 auto; font-family:arial,helvetica,sans-serif;">
+                                                          <tr>
+                                                            <td style=""><!-- no elimines esta div -->
+                                                              
+                                                              <div style="padding: 0px; float: right;"></div>
+                                                              <div style="float: left; text-align: left;"> 
+                                                                
+                                                                <!-- si el texto proporcionado como Destacado para el banner no excede los 5 caracteres, usa la siguiente etiqueta h1, si excede los 8 caracteres debes insertarlo en un h2 --> 
+                                                                <!--  
+si Tipo de Kv = ProBlack color: #040404;
+si Tipo de Kv = Pro color: #FBFBFB;
+-->
+                                                                
+                                                                <h1 style="color: #FFFFFF; ">$40,000</h1>
+                                                                
+                                                                <!-- si el texto proporcionado como Destacado para el banner no excede las 4 palabras, usa la siguiente etiqueta h2, si excede las 4 palabras debes insertarlo en un h3 --> 
+                                                                
+                                                                <!--  
+si Tipo de Kv = ProBlack color: #040404;
+si Tipo de Kv = Pro color: #FBFBFB;
+-->
+                                                                
+                                                                <h2 style="color: #FFFFFF; ">Tienes xx créditos</h2>
+                                                                
+                                                                <!-- si el texto proporcionado como Destacado para el banner xcede las 5 palabras, usa la siguiente etiqueta h3 --> 
+                                                                
+                                                                <!--  
+si Tipo de Kv = ProBlack color: #040404;
+si Tipo de Kv = Pro color: #FBFBFB;
+-->
+                                                                <h3 style="color: #FFFFFF; ">Tienes xx créditos</h3>
+                                                                
+                                                                <!-- las siguientes dos div se insertan como separador adicional debajo del texto destacado, solo cuando kv es Pro o ProBlack --> 
+                                                                <!-- inicio separador Pro -->
+                                                                <div class="separador-M"></div>
+                                                                <div style="width: 50px; border-top: 1px solid #DAA868; margin-bottom: 5px;"></div>
+                                                                <!-- fin separador Pro --> 
+                                                                
+                                                                <!-- la siguiente div sólo conservala cuando tienes 2 tamaños de texto -->
+                                                                <div class="separador-S"></div>
+                                                                
+                                                                <!-- El estilo h4 solo se usa para acompañar un h1, h2 o h3, cuando en la fuente te entreguen un texto como Descripción del banner debes usar esta etiqueta --> 
+                                                                
+                                                                <!--  
+si Tipo de Kv = ProBlack color: #040404;
+si Tipo de Kv = Pro color: #FBFBFB;
+-->
+                                                                <h4 style="color: #FFFFFF; ">Más de 500 opciones de tacos solo durante una semana</h4>
+                                                              </div></td>
+                                                          </tr>
+                                                        </table>
+                                                        
+                                                        <!-- FIN CONTENEDOR TEXTOS --></td>
+                                                    </tr>
+                                                  </tbody>
+                                                </table>
+                                                <table width="295" style="width:295px; padding: 0px 0px 0px 0px" cellpadding="0" cellspacing="0" align="left" border="0"  class="column column-1">
+                                                  <tbody>
+                                                    <tr> 
+                                                      
+                                                      <!-- si Tipo de Kv = Pro agregar al siguiente td en style:  border-radius: 16px;  -->
+                                                      
+                                                      <td class="altobanner1" style="padding:0px 0px 0px 0px;margin:0px;border-spacing:0;vertical-align: top; background-image: url(https://braze-images.com/appboy/communication/assets/image_assets/images/69cae4b02b658a0063136c33/original.png?1774904495); background-size: cover; background-position: center center; height: 270px;  "><!-- En el src reemplza la url por el que encontrarás en la fuente para Imagen de la seccion banner  -->
+                                                        
+                                                        <div style="padding: 10px;"> 
+                                                          
+                                                          <!-- Si no hay dentro de la información proporcionada para el banner: logo o texto1 y texto 2 se debe eliminar toda la siguiente tabla  -->
+                                                          
+                                                          <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; width: 100%; border-collapse: collapse;">
+                                                            <tr> 
+                                                              
+                                                              <!-- Si no hay logo pero si hay texto 1 y texto 2, conserva igualmente el td, sin la imagen  -->
+                                                              
+                                                              <td style="vertical-align: top; text-align: left;"><!-- INICIO LOGO: la fuente para el banner no se encuentra logo, se debe eliminar toda la etiqueta --> 
+                                                                <img class="banner-logo1-1" border="0" style="width: 64px;margin: 0 auto; border-radius: 7px; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1a9-c_8otztz8MJvWa6G-TczJ3NEO083G"> 
+                                                                <!-- En el src reemplza la url por el que encontrarás en la fuente para Logo de la seccion banner  --> 
+                                                                <!-- FIN LOGO--></td>
+                                                              <!-- INICIO TEXTO REFUERZO: Si en la fuente para el banner no se encuentra "texto 1" ni "texto 2", conserva el td sin la tabla interior --> 
+                                                              
+                                                              <!-- en el siguiente td : 
+si Tipo de Kv = ProBlack bgcolor="#D8D9D9" 
+
+si Tipo de Kv = Pro bgcolor="#D8D9D9" 
+
+-->
+                                                              <td style="text-align: left; vertical-align: top; float: right;"><table bgcolor="#FBDC25" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; padding: 3px; border-radius: 5px; max-width: 200px;">
+                                                                  <tr>
+                                                                    <td  style="vertical-align: middle; text-align: center; color: #000000;"><h6><strong>texto 1</strong> 
+                                                                        <!-- en esta etiqueta strong se inserta el texto por porcionado como "texto 1" --> | <!-- si existe "texto 1" y "texto 2" se conserva el separador | si solo hay uno de los dos se elimina --> 
+                                                                        texto 2</h6>
+                                                                      
+                                                                      <!-- en esta etiqueta h6 se inserta el texto por porcionado como "texto 2" --></td>
+                                                                  </tr>
+                                                                </table></td>
+                                                              
+                                                              <!-- FIN TEXTO REFUERZO --> 
+                                                            </tr>
+                                                          </table>
+                                                        </div></td>
+                                                    </tr>
+                                                  </tbody>
+                                                </table>
+                                              </div></td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                    </a> 
+                                    
+                                    <!-- Este formato vertical se usa segun las instrucciones para banner con logos o cuando tenemos en el body sólamente cta y cierre  --> 
+                                    <a role="vertical" originalsrc="https://rappi.onelink.me/2373836517/HOMEW" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="https://rappi.onelink.me/2373836517/HOMEW" data-linkindex="0" style="text-decoration: none; display: inline-block;">
+                                    <table width="570" style="width:560px; border-spacing:0; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="center" border="0" bgcolor="" class="column column-0">
+                                      <tbody>
+                                        <tr valign="middle">
+                                          <td style="padding:0px 0px;margin:0px;border-spacing:0; vertical-align: middle;"><div style="background: rgba(254,63,35,0.5); background-image: url(https://lh3.googleusercontent.com/d/1qztlsmSfPI2eNsQ_ej-Y6oE7U94MGLSn); background-size: 100% 100%; background-position: center top; border-radius: 16px; max-width: 480px; margin: 0 auto; overflow: hidden;"> 
+                                              
+                                              <!--  si Tipo de Kv = Generico background: rgba(254,63,35,0.5); background-image: url(https://lh3.googleusercontent.com/d/1qztlsmSfPI2eNsQ_ej-Y6oE7U94MGLSn)
+
+si Tipo de Kv = Turbo background: rgba(0,58,52,0.4); quitar el estilo background-image "background-image: url(https://lh3.googleusercontent.com/d/1qztlsmSfPI2eNsQ_ej-Y6oE7U94MGLSn)
+
+si Tipo de Kv = Neutro background: rgba(0,0,0,0.4); quitar el estilo background-image "background-image: url(https://lh3.googleusercontent.com/d/1qztlsmSfPI2eNsQ_ej-Y6oE7U94MGLSn)
+
+si Tipo de Kv = ProBlack background: rgba(224,228,231,1.0); quitar el estilo background-image "background-image: url(https://lh3.googleusercontent.com/d/1qztlsmSfPI2eNsQ_ej-Y6oE7U94MGLSn)
+
+si Tipo de Kv = Pro background: rgba(42,43,43,1.0); quitar el estilo background-image "background-image: url(https://lh3.googleusercontent.com/d/1qztlsmSfPI2eNsQ_ej-Y6oE7U94MGLSn)
+
+-->
+                                              
+                                              <table style="width: 100%;" cellpadding="0" cellspacing="0" align="left" border="0" class="column column-0">
+                                                <tbody>
+                                                  <tr>
+                                                    <td class="alto-auto" style="margin:0px;border-spacing:0; overflow: hidden; padding: 10px 10px 10px 10px"><!-- INICIO TAG: Si en la fuente no se encuentra tag, se debe eliminar toda la div -->
+                                                      
+                                                      <div style="top:0px; "> <img border="0" style="max-width: 160px; width: auto; max-height: 22px; margin: 0 auto; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1eu_gqOEnODp7g0FZ7B2komWAhSqoUZzN"> 
+                                                        <!-- este  src se reemplaza por la imagen proporcionada como Tag: en la sección banner --> 
+                                                      </div>
+                                                      
+                                                      <!-- FIN TAG --> 
+                                                      
+                                                      <!-- INICIO CONTENEDOR TEXTOS: dentro de la siguiente tabla se insertarán los textos, es importante que entre un contenido y otro haya aire por lo cual debes seguir las siguientes reglas:
+
+cuando se inserte un estilo de texto <h1> <h2> o <h3> y debajo se inserte otro texto en estilo <h4>, debes insertar entre uno y otro la div: <div class="separador"></div>
+
+si debajo se encuentra un cta, tambien debes insertar un <div class="separador-S"></div>
+
+si solo hay un texto, no debe haber separador
+-->
+                                                      
+                                                      <table class="txtbigbanner" style="width: 100%;height: 80%; margin: 0 auto; font-family:arial,helvetica,sans-serif; padding: 10px 0px">
+                                                        <tr>
+                                                          <td style=""><!-- no elimines esta div -->
+                                                            
+                                                            <div style="padding: 15px 0px; float: right;"></div>
+                                                            <div style="float: left; text-align: left;"> 
+                                                              
+                                                              <!-- si el texto proporcionado como Destacado para el banner no excede los 8 caracteres, usa la siguiente etiqueta h1, si excede los 8 caracteres debes insertarlo en un h2 --> 
+                                                              
+                                                              <!--  
+si Tipo de Kv = ProBlack color: #040404;
+si Tipo de Kv = Pro color: #FBFBFB;
+-->
+                                                              <h1 style="color: #FFFFFF; ">$40</h1>
+                                                              
+                                                              <!-- si el texto proporcionado como Destacado para el banner no excede las 4 palabras, usa la siguiente etiqueta h2, si excede las 4 palabras debes insertarlo en un h3 --> 
+                                                              
+                                                              <!--  
+si Tipo de Kv = ProBlack color: #040404;
+si Tipo de Kv = Pro color: #FBFBFB;
+-->
+                                                              
+                                                              <h2 style="color: #FFFFFF; ">Tienes xx créditos</h2>
+                                                              
+                                                              <!-- si el texto proporcionado como Destacado para el banner xcede las 5 palabras, usa la siguiente etiqueta h3 --> 
+                                                              
+                                                              <!--  
+si Tipo de Kv = ProBlack color: #040404;
+si Tipo de Kv = Pro color: #FBFBFB;
+-->
+                                                              <h3 style="color: #FFFFFF; ">Tienes xx créditos</h3>
+                                                              
+                                                              <!-- las siguientes dos div se insertan como separador adicional debajo del texto destacado, solo cuando kv es Pro o ProBlack --> 
+                                                              <!-- inicio separador Pro -->
+                                                              <div class="separador-M"></div>
+                                                              <div style="width: 50px; border-top: 1px solid #DAA868; margin-bottom: 5px;"></div>
+                                                              <!-- fin separador Pro --> 
+                                                              
+                                                              <!-- la siguiente div sólo conservala cuando tienes 2 tamaños de texto -->
+                                                              <div class="separador-S"></div>
+                                                              
+                                                              <!-- El estilo h4 solo se usa para acompañar un h1, h2 o h3, cuando en la fuente te entreguen un texto como Descripción del banner debes usar esta etiqueta --> 
+                                                              
+                                                              <!--  
+si Tipo de Kv = ProBlack color: #040404;
+si Tipo de Kv = Pro color: #FBFBFB;
+-->
+                                                              <h4 style="color: #FFFFFF; ">Más de 500 opciones de tacos solo durante una semana</h4>
+                                                            </div></td>
+                                                        </tr>
+                                                      </table>
+                                                      
+                                                      <!-- FIN CONTENEDOR TEXTOS --></td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                              <table style="width: 100%; padding: 0px 0px 0px 0px" cellpadding="0" cellspacing="0" align="left" border="0"  class="column column-1">
+                                                <tbody>
+                                                  <tr> 
+                                                    
+                                                    <!-- si Tipo de Kv = Pro agregar al siguiente td en style:  border-radius: 16px;  -->
+                                                    
+                                                    <td height="470px" class="altobanner1" style="padding:0px 0px 0px 0px;margin:0px;border-spacing:0;vertical-align: top; background-image: url(https://braze-images.com/appboy/communication/assets/image_assets/images/69cae4b02b658a0063136c33/original.png?1774904495); background-size: cover; background-position: center center; "><!-- En el src reemplza la url por el que encontrarás en la fuente para Imagen de la seccion banner  -->
+                                                      
+                                                      <div style="padding: 10px;"> 
+                                                        
+                                                        <!-- Esta tabla se inserta solamente cuando es un banner co logos -->
+                                                        
+                                                        <table cellpadding="3px" bgcolor="" style="margin: 0 auto; font-family:arial,helvetica,sans-serif; width: 100%; border-collapse: collapse;">
+                                                          <tr> 
+                                                            <!-- Por cada logo proporcionado en la información se debe insertar un td y dentro una imagen, máximo se pueden insertar 5 td -->
+                                                            <td style="vertical-align: top; text-align: left; width: auto;   display: inline-block;"><a href="#" style="display: block;"><img class="banner-logo-multi" border="0" style="width: 64px;margin: 0 auto; border-radius: 7px; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1a9-c_8otztz8MJvWa6G-TczJ3NEO083G"> 
+                                                              
+                                                              <!-- este src se reemplaza por la imagen proporcionada para el logo según el nombre en taxonimia, en cada td una imagen --> 
+                                                              
+                                                              </a></td>
+                                                          </tr>
+                                                        </table>
+                                                        <!-- Fin tabla de logos --> 
+                                                        
+                                                        <!-- Si no hay dentro de la información proporcionada para el banner: logo o texto1 y texto 2 se debe eliminar toda la siguiente tabla  -->
+                                                        
+                                                        <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; width: 100%; border-collapse: collapse;">
+                                                          <tr> 
+                                                            
+                                                            <!-- Si no hay logo pero si hay texto 1 y texto 2, conserva igualmente el td, sin la imagen  -->
+                                                            <td style="vertical-align: top; text-align: left;"><!-- INICIO LOGO: Si en la fuente para el banner no se encuentra logo, se debe eliminar toda la etiqueta --> 
+                                                              <img class="banner-logo1-1" border="0" style="width: 64px;margin: 0 auto; border-radius: 7px; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1a9-c_8otztz8MJvWa6G-TczJ3NEO083G"> 
+                                                              
+                                                              <!-- este  src se reemplaza por la imagen proporcionada como Tag: en la sección banner --> 
+                                                              <!-- FIN LOGO--></td>
+                                                            
+                                                            <!-- INICIO TEXTO REFUERZO: Si en la fuente para el banner no se encuentra "texto 1" ni "texto 2", conserva el td sin la tabla interior -->
+                                                            <td style="text-align: left; vertical-align: top; float: right;"><table bgcolor="#FBDC25" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; padding: 3px; border-radius: 5px; max-width: 200px;">
+                                                                <tr>
+                                                                  <td  style="vertical-align: middle; text-align: center; color: #000000;"><h6><strong>texto 1</strong> 
+                                                                      <!-- en esta etiqueta strong se inserta el texto por porcionado como "texto 1" --> 
+                                                                      | 
+                                                                      <!-- si existe "texto 1" y "texto 2" se conserva el separador | si solo hay uno de los dos se elimina --> 
+                                                                      texto 2 </h6>
+                                                                    
+                                                                    <!-- en esta etiqueta h6 se inserta el texto por porcionado como "texto 2" --></td>
+                                                                </tr>
+                                                              </table></td>
+                                                            
+                                                            <!-- FIN TEXTO REFUERZO --> 
+                                                          </tr>
+                                                        </table>
+                                                      </div></td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </div></td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                    </a> 
+                                    
+                                    <!-- Este formato se usa segun las instrucciones para banner editorial  --> 
+                                    <a role="editorial" originalsrc="https://rappi.onelink.me/2373836517/HOMEW" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="https://rappi.onelink.me/2373836517/HOMEW" data-linkindex="0" style="text-decoration: none; display: inline-block;">
+                                    <table width="570" style="width:560px; border-spacing:0; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-0">
+                                      <tbody>
+                                        <tr valign="middle">
+                                          <td style="padding:0px 0px;margin:0px;border-spacing:0; vertical-align: middle;"><div style="background: rgba(254,63,35,0.5); background-image: url(https://lh3.googleusercontent.com/d/1qztlsmSfPI2eNsQ_ej-Y6oE7U94MGLSn); background-size: 100% 100%; background-position: center top; border-radius: 16px; max-width: 480px; margin: 0 auto; overflow: hidden;"> 
+                                              
+                                              <!--  si Tipo de Kv = Generico background: rgba(254,63,35,0.5); background-image: url(https://lh3.googleusercontent.com/d/1qztlsmSfPI2eNsQ_ej-Y6oE7U94MGLSn)
+
+si Tipo de Kv = Turbo background: rgba(0,58,52,0.4); quitar el estilo background-image "background-image: url(https://lh3.googleusercontent.com/d/1qztlsmSfPI2eNsQ_ej-Y6oE7U94MGLSn)
+
+si Tipo de Kv = Neutro background: rgba(0,0,0,0.4); quitar el estilo background-image "background-image: url(https://lh3.googleusercontent.com/d/1qztlsmSfPI2eNsQ_ej-Y6oE7U94MGLSn)
+
+si Tipo de Kv = ProBlack background: rgba(224,228,231,1.0); quitar el estilo background-image "background-image: url(https://lh3.googleusercontent.com/d/1qztlsmSfPI2eNsQ_ej-Y6oE7U94MGLSn)
+
+si Tipo de Kv = Pro background: rgba(42,43,43,1.0); quitar el estilo background-image "background-image: url(https://lh3.googleusercontent.com/d/1qztlsmSfPI2eNsQ_ej-Y6oE7U94MGLSn)
+
+-->
+                                              
+                                              <table style="width: 100%;" cellpadding="0" cellspacing="0" align="left" border="0" class="column column-0">
+                                                <tbody>
+                                                  <tr>
+                                                    <td class="alto-auto" style="margin:0px;border-spacing:0; overflow: hidden; padding: 10px 10px 10px 10px"><!-- INICIO CONTENEDOR TEXTOS: dentro de la siguiente tabla se insertarán los textos, es importante que entre un contenido y otro haya aire por lo cual debes seguir las siguientes reglas:
+
+cuando se inserte un estilo de texto <h1> <h2> o <h3> y debajo se inserte otro texto en estilo <h4>, debes insertar entre uno y otro la div: <div class="separador"></div>
+
+si debajo se encuentra un cta, tambien debes insertar un <div class="separador-S"></div>
+
+si solo hay un texto, no debe haber separador
+-->
+                                                      
+                                                      <table class="txtbigbanner" style="width: 100%;height: 80%; margin: 0 auto; font-family:arial,helvetica,sans-serif; padding: 10px 0px">
+                                                        <tr>
+                                                          <td style=""><!-- no elimines esta div -->
+                                                            
+                                                            <div style="padding: 15px 0px; float: right;"></div>
+                                                            
+                                                            <!-- si en el banner Alineado = Centrado  se debe cambia el estilo text-align: left por text-align: center -->
+                                                            
+                                                            <div style="float: left; text-align: left;"> 
+                                                              
+                                                              <!-- si el texto proporcionado como Destacado para el banner no excede los 8 caracteres, usa la siguiente etiqueta h1, si excede los 8 caracteres debes insertarlo en un h2 --> 
+                                                              
+                                                              <!--  
+si Tipo de Kv = ProBlack color: #040404;
+si Tipo de Kv = Pro color: #FBFBFB;
+-->
+                                                              <h1 style="color: #FFFFFF; ">$40</h1>
+                                                              
+                                                              <!-- si el texto proporcionado como Destacado para el banner no excede las 4 palabras, usa la siguiente etiqueta h2, si excede las 4 palabras debes insertarlo en un h3 --> 
+                                                              
+                                                              <!--  
+si Tipo de Kv = ProBlack color: #040404;
+si Tipo de Kv = Pro color: #FBFBFB;
+-->
+                                                              
+                                                              <h2 style="color: #FFFFFF; ">Tienes xx créditos</h2>
+                                                              
+                                                              <!-- si el texto proporcionado como Destacado para el banner xcede las 5 palabras, usa la siguiente etiqueta h3 --> 
+                                                              
+                                                              <!--  
+si Tipo de Kv = ProBlack color: #040404;
+si Tipo de Kv = Pro color: #FBFBFB;
+-->
+                                                              <h3 style="color: #FFFFFF; ">Tienes xx créditos</h3>
+                                                              
+                                                              <!-- las siguientes dos div se insertan como separador adicional debajo del texto destacado, solo cuando kv es Pro o ProBlack --> 
+                                                              <!-- inicio separador Pro -->
+                                                              <div class="separador-M"></div>
+                                                              <div style="width: 50px; border-top: 1px solid #DAA868; margin-bottom: 5px; "></div>
+                                                              <!-- si en el banner Alineado = Centrado  se debe agregar el estilo  margin: 0 auto; al separador Pro--> 
+                                                              
+                                                              <!-- fin separador Pro --> 
+                                                              
+                                                              <!-- la siguiente div sólo conservala cuando tienes 2 tamaños de texto -->
+                                                              <div class="separador-S"></div>
+                                                              
+                                                              <!-- El estilo h4 solo se usa para acompañar un h1, h2 o h3, cuando en la fuente te entreguen un texto como Descripción del banner debes usar esta etiqueta --> 
+                                                              
+                                                              <!--  
+si Tipo de Kv = ProBlack color: #040404;
+si Tipo de Kv = Pro color: #FBFBFB;
+-->
+                                                              <h4 style="color: #FFFFFF; ">Más de 500 opciones de tacos solo durante una semana</h4>
+                                                            </div></td>
+                                                        </tr>
+                                                      </table>
+                                                      
+                                                      <!-- FIN CONTENEDOR TEXTOS --></td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                              <!-- Si en este módulo no hay imagen, debe eliminarse la etiqueta completa --> 
+                                              <!-- si Tipo de Kv = Pro agregar a la  siguiente imagen en style:  border-radius: 16px;  --> 
+                                              
+                                              <img role="imagenfull" border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; max-width: 480px; margin: 0 auto; border-radius: 0px 0px 0px 0px;" alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1OEXxNDtUklgU4W8sta2zOzdZ4rZYq7PO"> 
+                                              
+                                              <!-- este  src se reemplaza por la imagen proporcionada como Imagen: : en la sección BANNER EDITORIAL  --> 
+                                            </div></td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                    </a> 
+                                    
+                                    <!-- FIN SECCIÓN BANNER --> 
+                                    
+                                    <!-- INICIO CUERPO DEL MAIL- dentro de la siguiente tabla armaremos la estructura de contenido: ctas, deals, contendores de logos, contenedores en dos columnas, contendores en cards, es importante que entre un contenido y otro haya aire por lo cual debes seguir las siguientes reglas:
+
+cuando se inserte un contenedor con role="module" y debajo se encuentre uno con el mismo role, debes insertar entre uno y otro la div: <div class="separador"></div>
+
+si debajo se encuentra un cta, tambien debes insertar un <div class="separador"></div>
+
+debajo de un cta tambien agrega un <div class="separador"></div> , excepto si debajo se encuentra el cierre
+
+si debajo se encuentra un deal, no se debe insertar espacio, pues los deals tienen su propia area de respeto
+
+
+Recuerda adempas que si en esta tabla solo tenemos cta y cierre, en la sección anterior se debe usar el banner vertical en los casos que aplique -->
+                                    
+                                    <table width="560" style="width:560px; border-spacing:0; margin:10px 0px 10px 0px; word-break: break-all; " cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-1">
+                                      <tbody>
+                                        <tr>
+                                          <td style="padding:0px;margin:0px;border-spacing:0;"><!--CTA: según la fuente puedes insertar varios a lo largo del mail--> 
+                                            
+                                            {% assign text_cta = 'Súper completo en 10 min' %} 
+                                            <!--dentro de las comillas se cambia el texto por el proporcionado como "Cta texto" --> 
+                                            {% assign deeplink_cta = '#'  %} 
+                                            {% assign style_Look = 'blanco' %} 
+                                            
+                                            <!--  
+-si en la fuente Fondo = gis, dentro de las comillas debe decir: blanco 
+
+-si en la fuente Fondo = neon, dentro de las comillas debe decir: blanco
+
+-si en la fuente Fondo = Pro, dentro de las comillas debe decir: pro 
+
+-si en la fuente Fondo = ProBlack, dentro de las comillas debe decir: problack
+--> 
+                                            {{content_blocks.${CTA-template}}} 
+                                            
+                                            <!--FIN CTA: luego de un cta tambien agrega un <div class="separador"></div> --> 
+                                            
+                                            <!--INICIO DEAL: por cada deal en la fuente debes insertar un módulo de principio a fin, no cambies estructura solo las variables definidas y no quites lineas de variables--> 
+                                            
+                                            {% assign deal_recommendation_deeplink = '#' %}
+                                            
+                                            
+                                            {% assign deal_show_pro-crown = true %} 
+                                            
+                                            <!-- 
+
+-siempre en la fuente que kv = Pro o = ProBlack, deal_show_pro-crown debe setearse como true
+
+-siempre en la fuente Descuento Pro = TRUE,  deal_show_pro-crown debe setearse como true
+si ninguna de esas dos condiciones se cumple debe setearse como false  --> 
+                                            
+                                            {% assign deal_markdown_copy = '70% OFF' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui markdown   --> 
+                                            
+                                            {% assign deal_porcentaje_off_copy = '50% OFF' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui Porcentaje_off  --> 
+                                            
+                                            {% assign deal_antes_copy = 'Antes <s>$140.000</s>' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui Antes   --> 
+                                            
+                                            {% assign deal_descripcion_copy = 'Nombre del producto' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui descripcion  --> 
+                                            
+                                            {% assign deal_legaltop_copy = 'PRIMER texto' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui Legal title  --> 
+                                            
+                                            {% assign deal_legal_copy = 'segundo texto' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui Legal bloque  --> 
+                                            
+                                            {% assign deal_show_legal = true %} 
+                                            
+                                            <!-- siempre que haya texto Legal o legal de licores esta variable debe setearse en true, de lo contrario como false  --> 
+                                            
+                                            {% assign deal_show_legal_liquor = true %} 
+                                            
+                                            <!-- siempre que Legal Licores venga como TRUE, esta variable se setea en true, de lo contrario como false --> 
+                                            
+                                            {% assign deal_recommendation_productimg = 'https://lh3.googleusercontent.com/d/1PN4JgFquurp1UTshjuM55DnIpQVOKs_L' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui url de Asset que traerás de la fuente  --> 
+                                            
+                                            {% assign deal_recommendation_brandlogo = 'https://lh3.googleusercontent.com/d/1a9-c_8otztz8MJvWa6G-TczJ3NEO083G' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui url de Logo con el enlace que traerás de la fuente  --> 
+                                            
+                                            {% assign deal_style_logosize = 'S' %} 
+                                            
+                                            <!-- cuando te pidan cambiar el tamaño de logo, dentro de las comillas se puede cambiar por M L o BG solamente existen estas variantes --> 
+                                            
+                                            {% assign deal_cta_text = 'Lo quiero' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui Botón  --> 
+                                            
+                                            {% assign deal_style_tag1_url = 'https://braze-images.com/appboy/communication/assets/image_assets/images/69c9cc0586d9de006381053b/original.png?1774832644' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui Tag 1 icono   --> 
+                                            
+                                            {% assign deal_tag1_text = 'Descuento Pro' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui Tag 1 texto   --> 
+                                            
+                                            {% assign deal_style_tag2_url = 'https://braze-images.com/appboy/communication/assets/image_assets/images/69c9cc0586d9de006381053b/original.png?1774832644' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui Tag 2 icono   --> 
+                                            
+                                            {% assign deal_tag2_text = 'Descuento Pro' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui Tag 2 texto   --> 
+                                            
+                                            {% assign deal_style_look = 'generico' %} 
+                                            <!--  
+-si en la fuente Kv = generico, turbo, o neutro y en el deal Fondo = gis, dentro de las comillas debe decir: generico 
+
+-si en la fuente Kv = generico, turbo, o neutro y en el deal Fondo = neon, dentro de las comillas debe decir: neon
+
+-si en la fuente Kv = Pro y en el deal Fondo = gis o neon dentro de las comillas debe decir: pro 
+
+-si en la fuente Kv = ProBlack  y en el deal Fondo = gis o neon dentro de las comillas debe decir: problack
+--> 
+                                            {{content_blocks.${ALL_DEAL_MODULE}}} 
+                                            
+                                            <!--FIN DEL DEAL--> 
+                                            
+                                            <!--INICIO DEAL SMALL: por cada Small deal en la fuente debes insertar un módulo de principio a fin, no cambies estructura solo las variables definidas y no quites lineas de variables, esta versión es solo para deal small --> 
+                                            
+                                            {% assign smalldeal_recommendation_deeplink = '#' %}
+                                            
+                                            
+                                            
+                                            {% assign smalldeal_show_pro-crown = true %} 
+                                            
+                                            <!-- 
+
+-siempre en la fuente que kv = Pro o = ProBlack, smalldeal_show_pro-crown debe setearse como true
+
+-siempre en la fuente Descuento Pro = TRUE,  smalldeal_show_pro-crown debe setearse como true
+si ninguna de esas dos condiciones se cumple debe setearse como false  --> 
+                                            
+                                            {% assign smalldeal_markdown_copy = '70% OFF' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui SD Markdown   --> 
+                                            
+                                            {% assign smalldeal_porcentaje_off_copy = '50% OFF' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui SD Porcentaje_off  --> 
+                                            
+                                            {% assign smalldeal_antes_copy = 'Antes <s>$140.000</s>' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui SD Antes  --> 
+                                            
+                                            {% assign smalldeal_descripcion_copy = 'Nombre del producto' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui SD descripcion  --> 
+                                            
+                                            {% assign smalldeal_legaltop_copy = 'PRIMER texto' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui SD Legal title  --> 
+                                            
+                                            {% assign smalldeal_legal_copy = 'segundo texto' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui SD Legal bloque --> 
+                                            
+                                            {% assign smalldeal_show_legal = true %} 
+                                            
+                                            <!-- siempre que haya texto Legal o legal de licores esta variable debe setearse en true, de lo contrario como false  --> 
+                                            
+                                            {% assign smalldeal_show_legal_liquor = true %} 
+                                            
+                                            <!-- siempre que Legal Licores venga como TRUE, esta variable se setea en true, de lo contrario como false --> 
+                                            
+                                            {% assign smalldeal_recommendation_productimg = 'https://lh3.googleusercontent.com/d/1PN4JgFquurp1UTshjuM55DnIpQVOKs_L' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui url de SD Asset que traerás de la fuente  --> 
+                                            
+                                            {% assign smalldeal_recommendation_brandlogo = 'https://lh3.googleusercontent.com/d/1a9-c_8otztz8MJvWa6G-TczJ3NEO083G' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui url de SD Logo con el enlace que traerás de la fuente  --> 
+                                            
+                                            {% assign smalldeal_style_logosize = 'S' %} 
+                                            
+                                            <!-- cuando te pidan cambiar el tamaño de logo, dentro de las comillas se puede cambiar por M L o BG solamente existen estas variantes --> 
+                                            
+                                            {% assign smalldeal_cta_text = 'Lo quiero' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui SD Botón  --> 
+                                            
+                                            {% assign smalldeal_style_tag1_url = 'https://braze-images.com/appboy/communication/assets/image_assets/images/69c9cc0586d9de006381053b/original.png?1774832644' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui SD Tag 1 icono   --> 
+                                            
+                                            {% assign smalldeal_tag1_text = 'Descuento Pro' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui SD Tag 1 texto   --> 
+                                            
+                                            {% assign smalldeal_style_tag2_url = 'https://braze-images.com/appboy/communication/assets/image_assets/images/69c9cc0586d9de006381053b/original.png?1774832644' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui SD Tag 2 icono   --> 
+                                            
+                                            {% assign smalldeal_tag2_text = 'Descuento Pro' %} 
+                                            
+                                            <!-- dentro de las comillas agregar aqui SD Tag 2 texto   --> 
+                                            
+                                            {% assign smalldeal_style_look = 'generico' %} 
+                                            <!--  
+-si en la fuente Kv = generico, turbo, o neutro y en el SD Fondo = gis, dentro de las comillas debe decir: generico 
+
+-si en la fuente Kv = generico, turbo, o neutro y en el SD Fondo = neon, dentro de las comillas debe decir: neon
+
+-si en la fuente Kv = Pro y en el SD Fondo = gis o neon dentro de las comillas debe decir: pro 
+
+-si en la fuente Kv = ProBlack  y en el SD Fondo = gis o neon dentro de las comillas debe decir: problack
+--> 
+                                            {{content_blocks.${ALL_DEAL_MODULE_SMALL}}} 
+                                            
+                                            <!--FIN DEL DEAL SMALL--> 
+                                            
+                                            <!--MODULO DE TITULO: es el único módulo que se usa sin contenedor, se se pide en la fuente se agrega la tabla completa -->
+                                            
+                                            <table role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed; margin: 0px auto; max-width: 480px;  border-radius: 16px;  " >
+                                              
+                                              <!-- 
+si Tipo de Kv = ProBlack al anterior estilo se debe agregar padding:15px; background-color: #E4E8EE; 
+
+si Tipo de Kv = Pro al anterior estilo se debe agregar padding:15px; background-color: #2A2B2B; 
+
+
+-->
+                                              
+                                              <tbody>
+                                                <tr>
+                                                  <td style="text-align: center; " height="100%" valign="top" bgcolor="" role=""><div>
+                                                      <div>
+                                                        <h4 style="color:#E2E2E2;margin:0; text-decoration: none;"> ¿Por qué Turbo llega en 10 minutos? </h4>
+                                                        
+                                                        <!-- las siguientes dos div se insertan como separador adicional debajo del texto destacado, solo cuando kv es Pro o ProBlack --> 
+                                                        <!-- inicio separador Pro -->
+                                                        <div class="separador-M"></div>
+                                                        <div style="width: 50px; border-top: 1px solid #DAA868; margin-bottom: 5px;  margin: 0 auto; "></div>
+                                                        
+                                                        <!-- Esta este separador <div class="separador-S"></div> se utliza solo cuando hay varios h5 h6 o <span> seguidos, se inserta entre uno y otro para generar aire, si solo hay un texto se elimina-->
+                                                        
+                                                        <div class="separador-S"></div>
+                                                        
+                                                        <!-- En el siguiente h6 se inserta el "Texto" de la fuente, si este Módulo no tiene subtitulo, se elimina la eitqueta completa-->
+                                                        <h6 style="color:#E2E2E2;margin:0; text-decoration: none;">Un alivio rápido y prolongado que te ayuda a sentirte mejor día a día</h6>
+                                                        
+                                                        <!-- fin separador Pro --> 
+                                                      </div>
+                                                    </div></td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                            
+                                            <!-- 3 COLUMNAS: se inserta la tabla completa cuando se pide el módulo desde la fuente -->
+                                            
+                                            <table role="module" data-type="text" border="0" cellpadding="0" cellspacing="5" width="100%" style="table-layout: fixed; margin: 0px auto; max-width: 480px; " >
+                                              <tbody>
+                                                <tr>
+                                                  <td style="padding:0px 0px 0px 0px; line-height:23px; text-align:inherit; " height="100%" valign="top" bgcolor="" role=""><div style="background-color: #202020; border-radius: 14px; overflow: hidden"> 
+                                                      
+                                                      <!-- la siguiente div se agrega cuando hay texto para el módulo de columnas, si no hay texto se elimina-->
+                                                      
+                                                      <div class="txts" style="padding: 14px 10px;"> <!-- en el span se inserta el texto Texto celda 1--> 
+                                                        <span style="color:#E2E2E2; ">Mesa<br>
+                                                        gourmet</span> </div>
+                                                      <div style="text-align: center;"> <!-- Este src se debe reemplazar con el enlace que traerás de la fuente de la imagen para "Imagen celda 1" --> <img border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; margin: 0 auto; " alt="-" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1GvgYi4hdEYq1b71GrXp-UVfidhkEVeE1?v1"> </div>
+                                                    </div></td>
+                                                  <td style="padding:0px 0px 0px 0px; line-height:23px; text-align:inherit; " height="100%" valign="top" bgcolor="" role=""><div style="background-color: #202020; border-radius: 14px; overflow: hidden"> 
+                                                      <!-- la siguiente div se agrega cuando hay texto para el módulo de columnas, si no hay texto se elimina-->
+                                                      
+                                                      <div class="txts" style="padding: 14px 10px;"> <!-- en el span se inserta el texto Texto celda 2--> 
+                                                        <span style="color:#E2E2E2; ">Mesa<br>
+                                                        gourmet</span> </div>
+                                                      <div style="text-align: center;"> <!-- Este src se debe reemplazar con el enlace que traerás de la fuente de la imagen para "Imagen celda 2" --> <img border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; margin: 0 auto; " alt="-" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1c5vhJ8Hvr-weWRB5n3xKICSbou2mrcxd?v1"> </div>
+                                                    </div></td>
+                                                  <td style="padding:0px 0px 0px 0px; line-height:23px; text-align:inherit; " height="100%" valign="top" bgcolor="" role=""><div style="background-color: #202020; border-radius: 14px; overflow: hidden"> 
+                                                      <!-- la siguiente div se agrega cuando hay texto para el módulo de columnas, si no hay texto se elimina-->
+                                                      
+                                                      <div class="txts" style="padding: 14px 10px;"> <!-- en el span se inserta el texto Texto celda 3--> 
+                                                        <span style="color:#E2E2E2; ">Mesa<br>
+                                                        gourmet</span> </div>
+                                                      <div style="text-align: center;"> <!-- Este src se debe reemplazar con el enlace que traerás de la fuente de la imagen para "Imagen celda 3" --> <img border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; margin: 0 auto;border-radius: 0px 0px 20px 20px;" alt="-" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1Ff8AXjzhjsXyBrUwk4S4A02gjOpAg3a0?v1"> </div>
+                                                    </div></td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                            
+                                            <!-- CUPONES: los módulos de cupón siempre deben venir en la fuente por pares
+de modo que por cada 2 cupones se inserta la siguiente tabla completa, y en cada td el cupón correspondiente -->
+                                            
+                                            <table  role="module"  bgcolor="" cellpadding="0" cellspacing="6" width="100%" style="width: 100%; margin: 0 auto; font-family:arial,helvetica,sans-serif; max-width: 480px; ">
+                                              <tr> 
+                                                
+                                                <!-- MÓDULO CUPÓN TITLE: 
+esta celda se usa cuando en la fuente hay cupón title, esto se recomienda cuando la cantidad de cupones es impar, cuando hay dos cupones esta celda se reemplaza por una  role="cupon" -->
+                                                
+                                                <td role="title" class="cuponmob" width="50%" style="vertical-align: middle; text-align:left; background:#202020; border-radius: 16px; overflow: hidden;"><div  style="float: left; text-align:left; padding: 0px 7px; word-break: break-all; width: 100%;   "> <img role="imagenfull" border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; margin: 0 auto; margin-bottom: 20px; line-height: 0px;  " alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/19EQoRd7tH_SFWbNJ6T2AfzX5rJfnFe9W">
+                                                    <div style="background-color: #2A2B2B; padding: 4px 7px; border-radius: 30px; width: auto; display: inline-block; margin-bottom: 3px;"> <!-- En el siguiente src se inserta el "cupón Ícono titulo"  --><img src="https://lh3.googleusercontent.com/d/19wcynrgz0OqdDt5S5fVf7yaSx7rAN4Fn" width="15" style="display: block; line-height: 0px;" alt="img"> </div>
+                                                    <div class="txtl" > 
+                                                      <!-- En el siguiente span se inserta el "Cupón Titulo"  --><span style="color: #E2E2E2; ">Tus cupones<br>
+                                                      del mes</span> </div>
+                                                    <img role="imagenfull" border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; margin: 0 auto; margin-top: 20px; line-height: 0px;    " alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/19EQoRd7tH_SFWbNJ6T2AfzX5rJfnFe9W"> </div></td>
+                                                
+                                                <!-- MÓDULO CUPÓN: cuando en la fuente hay dos cupones juntos se usa esta celda 2 vecs cuando lo precede un titilo, solo se usa una vez como en este ejemplo -->
+                                                
+                                                <td role="cupon"  class="cuponmob" width="50%" style="vertical-align: top; text-align:left; background:#202020; border-radius: 16px; overflow: hidden;"><div> 
+                                                    
+                                                    <!-- el src de la siguiente imagen se reemplaza por el que traerás de la fuente para "Imagen top url" del  CUPON # --> 
+                                                    
+                                                    <img role="imagenfull" border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; margin: 0 auto; border-radius: 0px 0px 0px 0px;" alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1OEXxNDtUklgU4W8sta2zOzdZ4rZYq7PO"> 
+                                                    
+                                                    <!-- la siguiente imagen es decorativa, siempre se conserva --> 
+                                                    <img  border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; margin: 0 auto; line-height: 0px;" alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/19EQoRd7tH_SFWbNJ6T2AfzX5rJfnFe9W">
+                                                    <div  style="float: left; text-align:left; padding: 5px 7px; word-break: break-all; width: 100%;">
+                                                      <table style="margin-bottom: 5px;">
+                                                        <thead>
+                                                          <tr> 
+                                                            
+                                                            <!-- el siguiente th se inserta cuando hay texto de Tag para CUPON # y en el span interno se inserta el texto, si no hay texto se elimina el th completo-->
+                                                            <th style=" background-color: #2A2B2B; padding: 4px 7px; border-radius: 30px;"> <div class="txts"> <span style="color:#E2E2E2; ">Martes</span> </div>
+                                                            </th>
+                                                            
+                                                            <!-- el siguiente th se inserta cuando hay texto de Vertical para CUPON # y en el span interno se inserta el texto, si no hay texto se elimina el th completo-->
+                                                            <th style=" "> <div class="txts" style=""> <span style="color:#E2E2E2; ">Supermercados</span> </div>
+                                                            </th>
+                                                          </tr>
+                                                        </thead>
+                                                      </table>
+                                                      <div class="txtl" > 
+                                                        
+                                                        <!-- en el siguiente span se inserta el texto de  Value Prop, este texto es mandatorio 
+Este color #DAA868 se usa para kv Pro y ProBlack
+Para otros kvs debe ir del color para texto destacado predeterminado
+--> 
+                                                        <span style="color: #DAA868; ">$10.000<br>
+                                                        de descuento</span> </div>
+                                                      <div class="separador-S"></div>
+                                                      
+                                                      <!-- Si en el cupón no hay complemento se elimina todo el div role="complemento" -->
+                                                      
+                                                      <div role="complemento" style="margin-bottom: 5px;">
+                                                        <table border="0" cellpadding="0" cellspacing="0">
+                                                          <tr>
+                                                            <td width="15px" valign="top" style="text-align: left; "><!-- el src de la siguiente imagen se reemplaza por el que traerás de la fuente para "Ícono Cupón" del  CUPON # --> 
+                                                              <img src="https://lh3.googleusercontent.com/d/19wcynrgz0OqdDt5S5fVf7yaSx7rAN4Fn" width="15" style="display: block; line-height: 0px;" alt="img"></td>
+                                                            <td valign="top" style="padding-left: 6px; text-align: left;"><!-- en el siguiente span inserta el texto para Complemento:  -->
+                                                              
+                                                              <div class="txts" style=""> <span style="color:#E2E2E2; ">Tope de reintegro: $xxxxxx</span> </div></td>
+                                                          </tr>
+                                                        </table>
+                                                      </div>
+                                                    </div>
+                                                  </div></td>
+                                              </tr>
+                                              
+                                              <!-- cuando los cupones tienen legales se agrega el siguiente tr, cada cupon lleva el legal en el td correspondiente -->
+                                              
+                                              <tr> 
+                                                
+                                                <!-- para el cupon title normalmente no hay legales asi qu este td va vacío-->
+                                                
+                                                <td role="title" width="50%" style=" text-align:center;"></td>
+                                                <td role="cupon"  width="50%" style=" vertical-align: top; text-align:center;"><div style="line-height: 7.5px;"> 
+                                                    
+                                                    <!-- en el siguiente span se inserta el texto de  Legal Cupón
+--> 
+                                                    
+                                                    <span style="color:#7D8188; font-size: 7px; ">Aplican términos y condiciones:  El usuario puede visualizar dicho valor en la canasta de la orden. Promoción válida únicamente (FECHA) en (Aliado).</span> </div></td>
+                                              </tr>
+                                            </table>
+                                            
+                                            <!-- FIN CUPONES este es el fin de la tabla para 2 cupones, si hay otro par se repite la tabla --> 
+                                            
+                                            <!-- siempre que en la fuente se encuentre el "MÓDULO BENEFICIOS se debe insertar la siguiente tabla completa, recuerda que puede haber variso modulos de beneficios seguidos, es decir que por cada beneficio se inserta una tabla
+
+-->
+                                            
+                                            <div>
+                                              <table  role="module"  bgcolor="" cellpadding="0" cellspacing="0" width="100%" style="width: 100%; margin: 0 auto; font-family:arial,helvetica,sans-serif; max-width: 480px;  border: 1px solid rgba(145, 154, 176, 0.4); background-color:#202020; border-radius: 16px; overflow: hidden;">
+                                                <tr style="background-image: url(https://lh3.googleusercontent.com/d/1J-pt69rplOTPbANuMNJqwW8pj5C8prnK); background-size: cover;"> 
+                                                  
+                                                  <!-- no cambies este vertical align -->
+                                                  <td width="50%" style="vertical-align: top; text-align:left; overflow: hidden; padding: 8px; "><div> <img role="imagenfull" border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; margin: 0 auto; border-radius: 7px; " alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1OEXxNDtUklgU4W8sta2zOzdZ4rZYq7PO"> 
+                                                      
+                                                      <!-- Este src se debe reemplazar con el enlace que traerás de la fuente de la imagen para "Imagen beneficio url" --> 
+                                                      
+                                                    </div></td>
+                                                  
+                                                  <!-- no cambies este vertical align -->
+                                                  <td style="vertical-align: top; text-align:left; word-break: break-all; padding: 7px 7px;  "><img src="https://lh3.googleusercontent.com/d/1vdunOvDi3k-LLdfUwk2Qpotyl9u7ionz" width="25" style="display: block;" alt="img"> 
+                                                    <!-- Este src se debe reemplazar con el enlace que traerás de la fuente de la imagen para "url beneficio icon" -->
+                                                    
+                                                    <div class="separador-S"></div>
+                                                    
+                                                    <!-- Conserva este espaciado tal cual se encuentra en el template --> 
+                                                    
+                                                    <!-- En el siguiente h5 se inserta el "Beneficio Subtitulo:"  de la fuente, si este Módulo no tiene subtitulo, se elimina la eitqueta completa-->
+                                                    
+                                                    <h5 role="componente" style="color: #E2E2E2; ">Cómo activar tus notificaciones</h5>
+                                                    <div class="separador-S"></div>
+                                                    
+                                                    <!-- En el siguiente div se inserta el "Beneficio Texto" de la fuente, si este Módulo no tiene texto, se elimina la eitqueta completa-->
+                                                    
+                                                    <div  role="componente" class="txts"> <span style="color:#E2E2E2;  ">En todos tus pedidos en la app, pidiendo desde $XXXXXX</span> </div></td>
+                                                </tr>
+                                              </table>
+                                            </div>
+                                            
+                                            <!-- siempre que en la fuente se encuentre el "MÓDULO CONTENIDO #" se debe insertar la siguiente tabla completa, 
+
+los elementos que se agregan adentro tienen la etiqueta  role="componente" 
+
+puede haber varios componentes en este módulo y pueden estar en diferente orden según la fuente y se agregan dentro de la div  con el role="divcomponentes"
+
+entre un componente y otro siempre debes insertar un <div class="separador-M"> </div> para agregar aire entre ellos
+
+
+casi siempre va a haber en este módulo una imagen role="imagenfull" es decir que si a imagen va arriba según la fuente, primero pones role="imagenfull" y luego role="divcomponentes" con sus componentes adentro
+
+si primero tienes componentes y luego imagenes debe ir role="divcomponentes" y debajo  role="imagenfull"
+
+
+si tienes más componentes luego de role="imagenfull" debes agregar otro role="divcomponentes" con sus componentes adentro
+
+-->
+                                            
+                                            <table role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed; margin: 0px auto; max-width: 480px; border-radius: 16px; overflow: hidden; " >
+                                              <tbody>
+                                                <tr>
+                                                  <td style="padding:0px 0px 0px 0px; line-height:23px; text-align:inherit; " height="100%" valign="top" bgcolor="" role=""><div style=" background: #202020; border-radius: 20px;"> 
+                                                      
+                                                      <!-- El siguiente div se conserva cuando tenemos componentes dentro de la card de comntenidos y dentro se insertan todos los componentes, si en la fuente hay componentes debajo de la imagen se debe replicar con la misma lógica  -->
+                                                      <div role="divcomponentes" style="padding: 14px 10px"> 
+                                                        
+                                                        <!-- La siguiente div se conserva cuando en la fuente para MÓDULO CONTENIDO # existe imagen s -->
+                                                        
+                                                        <div role="componente"  style="text-align: center; "> <img src="https://lh3.googleusercontent.com/d/1bhEOxyc3Z7znLDUvJmmLE4PIJmdiH9Zt" style="display: block; margin: 10px auto; width: 100%; max-width: 220px; border: 0;" alt="img"> 
+                                                          <!-- Este src se debe reemplazar con el enlace que traerás de la fuente de la imagen para "imagen s" del MÓDULO CONTENIDO # --> 
+                                                          
+                                                          <!-- el ancho de la imágen conservalo en 100% y modifica el max width por el valor asinado para Ancho imagen s url --> 
+                                                          
+                                                        </div>
+                                                        
+                                                        <!-- recuerda que este separador-m solo se inserta cuando hay varios componentes dentro de esta div -->
+                                                        <div class="separador-M"> </div>
+                                                        
+                                                        <!-- La siguiente div se conserva cuando en la fuente para MÓDULO CONTENIDO # existe Subtitulo, Texto o texto legal -->
+                                                        <div role="componente" style="text-align: center;" > 
+                                                          <!-- Cuando en MÓDULO CONTENIDO solo tiene Subtitulo o Texto , y no hay otros componentes además de la imagen, el alineado debe ser center,
+Cuando en MÓDULO CONTENIDO tiene Subtitulo o Texto y otros componentes el alineado debe ser left --> 
+                                                          
+                                                          <!-- En el siguiente h5 se inserta el "Subtitulo"  de la fuente, si este Módulo no tiene subtitulo, se elimina la eitqueta completa-->
+                                                          <h5 style="color: #E2E2E2; font-weight:lighter; ">Conoce amor para dos</h5>
+                                                          
+                                                          <!-- las siguientes dos div se insertan como separador adicional debajo del subtitulo, solo cuando kv es Pro o ProBlack. si el alineado es left se debe eliminar el  margin: 0 auto --> 
+                                                          <!-- inicio separador Pro -->
+                                                          <div class="separador-M"></div>
+                                                          <div style="width: 50px; border-top: 1px solid #DAA868; margin-bottom: 5px; margin: 0 auto;"></div>
+                                                          <!-- fin separador Pro --> 
+                                                          
+                                                          <!-- Esta este separador <div class="separador-S"></div> se utliza solo cuando hay varios h5 h6 o <span> seguidos, se inserta entre uno y otro para generar aire, si solo hay un texto se elimina-->
+                                                          
+                                                          <div class="separador-S"></div>
+                                                          <!-- En el siguiente h6 se inserta el "Texto" de la fuente, si este Módulo no tiene subtitulo, se elimina la eitqueta completa-->
+                                                          <h6 style="color:#E2E2E2;margin:0; text-decoration: none;">Un alivio rápido y prolongado que te ayuda a sentirte mejor día a día</h6>
+                                                          
+                                                          <!-- En el siguiente <div>se inserta el "Texto legal"  de la fuente, si este Módulo no tiene Texto legal, se elimina la eitqueta completa-->
+                                                          <div class="separador-S"></div>
+                                                          <div class="txts"> <span class="txts" style="color:#E2E2E2;margin:0; text-decoration: none;">Un alivio rápido y prolongado que te ayuda a sentirte mejor día a díaUn alivio rápido y prolongado que te ayuda a sentirte mejor día a día</span> </div>
+                                                        </div>
+                                                        
+                                                        <!-- recuerda que este separador-m solo se inserta cuando hay varios componentes dentro de esta div -->
+                                                        <div class="separador-M"> </div>
+                                                        
+                                                        <!-- La siguiente tabla se debe insertar cuando para el módulo existe un BULLET LOGO #
+Puede haber varios BULLET LOGO, cada uno con imagen, y texto
+-->
+                                                        <table role="componente"  border="0" cellpadding="0" cellspacing="0">
+                                                          <tr> 
+                                                            <!-- no se debe cambiar el ancho del siguiente td 
+-->
+                                                            <td width="50px" valign="top"><!-- el src de la siguiente imagen se reemplaza por el que traerás de la fuente para "url imagen" del  BULLET LOGO # --> 
+                                                              <img src="https://lh3.googleusercontent.com/d/1OnoMAEG3mWUinKdMpWpqQ9lt4s3a8tiS" width="50px" style="display: block; border: 0; border-radius: 7px;" alt="img"> 
+                                                              <!-- Este src se debe reemplazar con el enlace que traerás de la fuente de la imagen para "url logo" del BULLET LOGO # , no se debe cambiar el ancho de 50px de la imagen ni de la tabla --></td>
+                                                            <td valign="middle" style="padding-left: 9px; text-align: left;"><!-- en el siguiente h5 se inserta el texto para B-Subtitulo: del BULLET LOGO # si no hay subtitulo se elimina la etiqueta -->
+                                                              
+                                                              <h5 style="color: #E2E2E2; font-weight:lighter; ">Mora Mora</h5>
+                                                              
+                                                              <!-- Esta div <div class="separador-S"></div> se utliza solo cuando hay varios H seguidos, si solo hay un h5 o h6 se elimina-->
+                                                              
+                                                              <div class="separador-S"></div>
+                                                              
+                                                              <!-- en el siguiente h6 se inserta el texto para B-Texto del BULLET LOGO # si no hay texto se elimina la etiqueta -->
+                                                              
+                                                              <h6 style="color: #E2E2E2; ">desayuno perfecto para una mañana llena de energía </h6></td>
+                                                          </tr>
+                                                        </table>
+                                                        
+                                                        <!-- recuerda que este separador-m solo se inserta cuando hay varios componentes dentro de esta div -->
+                                                        <div class="separador-M"> </div>
+                                                        <!-- La siguiente tabla se debe insertar cuando para el módulo existe un BULLET ICONO #
+Puede haber varios BULLET ICONO, cada uno con imagen, y texto
+-->
+                                                        <div role="componente">
+                                                          <table border="0" cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                              <td width="25px" valign="top" style="text-align: left; "><!-- el src de la siguiente imagen se reemplaza por el que traerás de la fuente para "url imagen" del  BULLET ICONO # --> 
+                                                                <img src="https://lh3.googleusercontent.com/d/1vdunOvDi3k-LLdfUwk2Qpotyl9u7ionz" width="25" style="display: block;" alt="img"> 
+                                                                
+                                                                <!-- Este src se debe reemplazar con el enlace que traerás de la fuente de la imagen para "url icon:" del BULLET ICONO # --></td>
+                                                              <td valign="top" style="padding-left: 9px; text-align: left;"><!-- en el siguiente h5 se inserta el texto para C-Subtitulo del BULLET ICONO # si no hay subtitulo se elimina la etiqueta -->
+                                                                
+                                                                <h5 style="color: #E2E2E2; font-weight:lighter; ">Mora Mora</h5>
+                                                                
+                                                                <!-- Esta div <div class="separador-S"></div> se utliza solo cuando hay varios H seguidos, si solo hay un h5 o h6 se elimina-->
+                                                                
+                                                                <div class="separador-S"></div>
+                                                                
+                                                                <!-- en el siguiente h6 se inserta el texto para C-Texto: del BULLET ICONO # si no hay texto se elimina la etiqueta -->
+                                                                
+                                                                <h6 style="color: #E2E2E2; ">desayuno perfecto para una mañana llena de energía</h6></td>
+                                                            </tr>
+                                                          </table>
+                                                        </div>
+                                                        
+                                                        <!-- recuerda que este separador-m solo se inserta cuando hay varios componentes dentro de esta div -->
+                                                        <div class="separador-M"> </div>
+                                                        
+                                                        <!-- La siguiente tabla se debe insertar cuando para el módulo existe un BULLET NUMERADO #
+-Puede haber varios BULLET NUMERADO, cada uno con imagen, y texto
+-->
+                                                        <div role="componente">
+                                                          <table border="0" cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                              <td width="25px" valign="top" style="text-align: left; "><!-- en el siguiente h4 se inserta el texto para N-Numero del BULLET NUMERADO #  -->
+                                                                
+                                                                <h4 style="color: #E2E2E2;border-right: 1px solid #E2E2E2; "><!-- si kv es Pro o Problack este borde cambia de color a #DAA868 -->1</h4></td>
+                                                              <td valign="top" style="padding-left: 9px; text-align: left;"><!-- en el siguiente h5 se inserta el texto para N-Subtitulo del BULLET NUMERADO # si no hay subtitulo se elimina la etiqueta -->
+                                                                
+                                                                <h5 style="color: #E2E2E2; font-weight:lighter; ">Mora Mora</h5>
+                                                                
+                                                                <!-- Esta div <div class="separador-S"></div> se utliza solo cuando hay varios H seguidos, si solo hay un h5 o h6 se elimina-->
+                                                                
+                                                                <div class="separador-S"></div>
+                                                                
+                                                                <!-- en el siguiente h6 se inserta el texto para N-Texto del BULLET NUMERADO # si no hay texto se elimina la etiqueta -->
+                                                                
+                                                                <h6 style="color: #E2E2E2; ">desayuno perfecto para una mañana llena de energía</h6></td>
+                                                            </tr>
+                                                          </table>
+                                                        </div>
+                                                        
+                                                        <!-- recuerda que este separador-m solo se inserta cuando hay varios componentes dentro de esta div -->
+                                                        <div class="separador-M"> </div>
+                                                      </div>
+                                                      
+                                                      <!-- Si en este módulo no hay imagen, debe eliminarse la etiqueta completa
+- la imagen siempre va a aparte de la div role="divcomponentes" 
+- si hay componentes debajo de la iamgen se repite una  role="divcomponentes" 
+--> 
+                                                      <img role="imagenfull" border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; max-width: 480px; margin: 0 auto; border-radius: 0px 0px 0px 0px;" alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1OEXxNDtUklgU4W8sta2zOzdZ4rZYq7PO"> 
+                                                      
+                                                      <!-- Este src se debe reemplazar con el enlace que traerás de la fuente de la imagen para "Imagen Url" del MÓDULO CONTENIDO # --> 
+                                                      
+                                                    </div></td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                            
+                                            <!--  a continuación se encuentran las tablas para el contenido de dos columnnas
+
+-->
+                                            
+                                            <div> 
+                                              
+                                              <!--  la siguiente es la tabla para escritorio 
+
+-->
+                                              
+                                              <table class="mobile_hide" role="module"  bgcolor="" cellpadding="0" cellspacing="0" width="100%" style="width: 100%; margin: 0 auto; font-family:arial,helvetica,sans-serif; max-width: 480px;  background-color:#202020; border-radius: 16px; table-layout: responsive">
+                                                <tr style="">
+                                                  <td role="columna-textos"  style="vertical-align: middle; text-align:left; word-break: break-all; padding: 7px 7px;  "><!-- 
+puede haber varios componentes en este módulo y pueden estar en diferente orden según la fuente
+
+entre uno componente y otro siempre debes insertar un <div class="separador-M"> </div> para agregar aire entre ellos -->
+                                                    
+                                                    <div style="float: left; text-align: left;"> 
+                                                      
+                                                      <!-- 
+puede haber varios componentes en este módulo y pueden estar en diferente orden según la fuente
+
+entre uno componente y otro siempre debes insertar un <div class="separador-M"> </div> para agregar aire entre ellos
+
+Si solo hay titulo y subtitulo conserva la class="alineado-center" , si hay varios componentes, debes eliminarla -->
+                                                      
+                                                      <div class="alineado-center"  style="float: left; text-align:left; width: 100%; "> 
+                                                        
+                                                        <!-- 
+dentro de esta div puedes agregar los componentes que te asignen en la fuente, bajo las mismas reclas del modulo superior --> 
+                                                        
+                                                        <!-- en la siguiente etiqueta h4 inserta el texto de la fuente para "Subtitulo" del MÓDULO LOGOS - si no hay subititlo en la fuente elimina la etiqueta completa   -->
+                                                        <h4 style="color: #E2E2E2; font-weight:lighter; ">Además los más top </h4>
+                                                        
+                                                        <!-- las siguientes dos div se insertan como separador adicional debajo del subtitulo, solo cuando kv es Pro o ProBlack --> 
+                                                        <!-- inicio separador Pro -->
+                                                        <div class="separador-M"></div>
+                                                        <div class="alineado-center"  style="width: 50px; border-top: 1px solid #DAA868; margin-bottom: 5px;"></div>
+                                                        <!-- fin separador Pro --> 
+                                                        
+                                                        <!-- La siguiente Div separador-S se conserva solo cuando hay subitulo y texto, en medio de los dos, si solo hay texto o solo hay subtitulo se debe eliminar   -->
+                                                        <div class="separador-S"></div>
+                                                        
+                                                        <!-- en la siguiente etiqueta h6 inserta el texto de la fuente para "Texto" del MÓDULO LOGOS - si no hay subititlo en la fuente elimina la etiqueta completa   -->
+                                                        
+                                                        <h6 style="color: #E2E2E2; font-weight:lighter; ">tendrán un producto especial durante el evento</h6>
+                                                      </div>
+                                                    </div></td>
+                                                  <td width="50%" style="vertical-align: middle; text-align:left; overflow: hidden; padding: 8px;margin:0px;border-spacing:0;vertical-align:top; background-image: url(https://lh3.googleusercontent.com/d/19EbOxcdUK_qhWVIheqNeEqSv6NNXgHns); background-size: cover; background-position: center center; "><div> <img border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 90%; max-width: 480px; margin: 0 auto; border-radius: 12px; vertical-align: middle;" alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/14VKG5CPVNPIVbOQYkyHgtxfW1uLorjXP"> 
+                                                      
+                                                      <!-- Este src se debe reemplazar con el enlace que traerás de la fuente de la imagen para "Imagen Url" del modulo--> 
+                                                      
+                                                    </div></td>
+                                                </tr>
+                                              </table>
+                                              
+                                              <!--  la siguiente es la tabla para mobile 
+
+-->
+                                              
+                                              <table role="module" class="desktop_hide" bgcolor="" cellpadding="0" cellspacing="0" width="100%" style="width: 100%; margin: 0 auto; font-family:arial,helvetica,sans-serif; max-width: 480px;  background-color:#202020; border-radius: 16px; +">
+                                                <tr style="">
+                                                  <td role="columna-textos"  style="vertical-align: middle; text-align:left; word-break: break-all; padding: 12px 12px;  "><!-- 
+puede haber varios componentes en este módulo y pueden estar en diferente orden según la fuente
+
+entre uno componente y otro siempre debes insertar un <div class="separador-M"> </div> para agregar aire entre ellos
+
+Si solo hay titulo y subtitulo conserva la class="alineado-center" , si hay varios componentes, debes eliminarla -->
+                                                    
+                                                    <div class="alineado-center"  style="float: left; text-align:left; width: 100%; "> 
+                                                      
+                                                      <!-- 
+dentro de esta div puedes agregar los componentes que te asignen en la fuente, bajo las mismas reclas del modulo superior --> 
+                                                      
+                                                      <!-- en la siguiente etiqueta h4 inserta el texto de la fuente para "Subtitulo" del MÓDULO LOGOS - si no hay subititlo en la fuente elimina la etiqueta completa   -->
+                                                      <h4 style="color: #E2E2E2; font-weight:lighter; ">Además los más top </h4>
+                                                      
+                                                      <!-- las siguientes dos div se insertan como separador adicional debajo del subtitulo, solo cuando kv es Pro o ProBlack --> 
+                                                      <!-- inicio separador Pro -->
+                                                      <div class="separador-M"></div>
+                                                      <div class="alineado-center"  style="width: 50px; border-top: 1px solid #DAA868; margin-bottom: 5px;"></div>
+                                                      <!-- fin separador Pro --> 
+                                                      
+                                                      <!-- La siguiente Div separador-S se conserva solo cuando hay subitulo y texto, en medio de los dos, si solo hay texto o solo hay subtitulo se debe eliminar   -->
+                                                      <div class="separador-S"></div>
+                                                      
+                                                      <!-- en la siguiente etiqueta h6 inserta el texto de la fuente para "Texto" del MÓDULO LOGOS - si no hay subititlo en la fuente elimina la etiqueta completa   -->
+                                                      
+                                                      <h6 style="color: #E2E2E2; font-weight:lighter; ">tendrán un producto especial durante el evento</h6>
+                                                    </div></td>
+                                                </tr>
+                                                <tr style="">
+                                                  <td width="50%" style="vertical-align: middle; text-align:left; overflow: hidden; padding: 8px;margin:0px;border-spacing:0;vertical-align:top; background-image: url(https://lh3.googleusercontent.com/d/19EbOxcdUK_qhWVIheqNeEqSv6NNXgHns); background-size: cover; background-position: center center; "><div> <img border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 90%; max-width: 480px; margin: 0 auto; border-radius: 12px;" alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/14VKG5CPVNPIVbOQYkyHgtxfW1uLorjXP"> 
+                                                      
+                                                      <!-- Este src se debe reemplazar con el enlace que traerás de la fuente de la imagen para "Imagen Url" del modulo--> 
+                                                      
+                                                    </div></td>
+                                                </tr>
+                                              </table>
+                                            </div>
+                                            
+                                            <!-- siempre que en la fuente se encuentre el "MÓDULO LOGOS" se debe insertar la siguiente tabla completa -->
+                                            
+                                            <div role="module"  style="display:flex;">
+                                              <table width="560" style="width:560px; border-spacing:0; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-0">
+                                                <tbody>
+                                                  <tr valign="middle">
+                                                    <td style="padding:0px 0px;margin:0px;border-spacing:0; vertical-align: middle;"><div style="background:#202020; border-radius: 16px; max-width: 480px; margin: 0 auto; display: table; overflow: hidden; vertical-align: middle;"> 
+                                                        
+                                                        <!-- el alto del siguiente contenedor cambia de acuerdo a la cantitdad de logos en la fuente 
+-cuando son 2 o 3: height: auto 
+-cuando son 4: height: 295px;
+-cuando son 5 o 6: height: 200px;
+
+-->
+                                                        
+                                                        <table role="seccion-textos" width="185" style="width:185px; height: 200px;" cellpadding="0" cellspacing="0" align="left" border="0" class="column column-0">
+                                                          <tbody>
+                                                            <tr>
+                                                              <td class="alto-auto" style="margin:0px;border-spacing:0; overflow: hidden; padding: 15px;"><!-- 
+puede haber varios componentes en este módulo y pueden estar en diferente orden según la fuente
+
+entre uno componente y otro siempre debes insertar un <div class="separador-M"> </div> para agregar aire entre ellos
+
+Si solo hay titulo y subtitulo conserva la class="alineado-center" , si hay varios componentes, debes eliminarla -->
+                                                                
+                                                                <div class="alineado-center"  style="float: left; text-align:left; width: 100%; "> 
+                                                                  
+                                                                  <!-- 
+dentro de esta div puedes agregar los componentes que te asignen en la fuente, bajo las mismas reclas del modulo superior --> 
+                                                                  
+                                                                  <!-- en la siguiente etiqueta h4 inserta el texto de la fuente para "Subtitulo" del MÓDULO LOGOS - si no hay subititlo en la fuente elimina la etiqueta completa   -->
+                                                                  <h4 style="color: #E2E2E2; font-weight:lighter; ">Además los más top </h4>
+                                                                  
+                                                                  <!-- las siguientes dos div se insertan como separador adicional debajo del subtitulo, solo cuando kv es Pro o ProBlack --> 
+                                                                  <!-- inicio separador Pro -->
+                                                                  <div class="separador-M"></div>
+                                                                  <div class="alineado-center"  style="width: 50px; border-top: 1px solid #DAA868; margin-bottom: 5px;"></div>
+                                                                  <!-- fin separador Pro --> 
+                                                                  
+                                                                  <!-- La siguiente Div separador-S se conserva solo cuando hay subitulo y texto, en medio de los dos, si solo hay texto o solo hay subtitulo se debe eliminar   -->
+                                                                  <div class="separador-S"></div>
+                                                                  
+                                                                  <!-- en la siguiente etiqueta h6 inserta el texto de la fuente para "Texto" del MÓDULO LOGOS - si no hay subititlo en la fuente elimina la etiqueta completa   -->
+                                                                  
+                                                                  <h6 style="color: #E2E2E2; font-weight:lighter; ">tendrán un producto especial durante el evento</h6>
+                                                                </div></td>
+                                                            </tr>
+                                                          </tbody>
+                                                        </table>
+                                                        
+                                                        <!-- en la siguiente tabla se insertan los logos del MÓDULO LOGOS en bloques de 3 4 o 6-->
+                                                        <table role="seccion-logos" width="295" style="width:295px; padding: 0px 0px 0px 0px" cellpadding="0" cellspacing="0" align="left" border="0"  class="column column-1">
+                                                          <tbody>
+                                                            <tr>
+                                                              <td style="padding:5px;margin:0px;vertical-align: top;"><!-- para este modulo dependiendo de la cantidad de logos que nos proporcionan en la fuente se debe insertar la tabla correcta -->
+                                                                
+                                                                <table>
+                                                                  <tbody>
+                                                                    
+                                                                    <!-- cuando son 2 o 3 logos se usa el siguiente tr completo y cada logo se reemplaza en cada td  -->
+                                                                    
+                                                                    <tr>
+                                                                      <td role="logo1" style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; " ><!-- el background-image: url de cada celda se reemplaza por la url que traerás de la fuente
+
+-Si en la fuente solo vienen 2 logos, esta tercera celda se conserva con el fondo que ya tiene en la base	--> 
+                                                                        
+                                                                        <a href="#" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto;  " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                                      <td role="logo2" style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; "  ><!-- el background-image: url de cada celda se reemplaza por la url que traerás de la fuente --> 
+                                                                        <a href="#" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                                      <td role="logo3"  style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; " ><!-- el background-image: url de cada celda se reemplaza por la url que traerás de la fuente --> 
+                                                                        
+                                                                        <a href="#" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                                    </tr>
+                                                                    
+                                                                    <!-- cuando son 2 o 3 logos el siguiente tr se elimina
+
+- cuando son  5 o 6 logos el siguiente tr se conserva
+
+
+se usa el siguiente tr completo y cada logo se reemplaza en cada td 
+-->
+                                                                    
+                                                                    <tr>
+                                                                      <td role="logo4" style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; " ><!-- el background-image: url de cada celda se reemplaza por la url que traerás de la fuente --> 
+                                                                        
+                                                                        <a href="#" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                                      <td role="logo5"  style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; "><!-- el background-image: url de cada celda se reemplaza por la url que traerás de la fuente --> 
+                                                                        <a href="#" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                                      <td role="logo6"  style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; " ><!-- el background-image: url de cada celda se reemplaza por la url que traerás de la fuente
+
+-Si en la fuente solo vienen 5 logos, esta sexta celda se conserva con el fondo que ya tiene en la base	--> 
+                                                                        
+                                                                        <a href="#" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                                    </tr>
+                                                                  </tbody>
+                                                                </table>
+                                                                
+                                                                <!-- cuando son 4 logos se usa la siguiente tabla completa, si son 2,3,5, o 6 se usa la anterior y esta se debe eliminar 
+-cada logo se reemplaza en cada td  -->
+                                                                
+                                                                <table>
+                                                                  <thead>
+                                                                    <tr>
+                                                                      <th style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; "> <!-- el background-image: url de cada celda se reemplaza por la url que traerás de la fuente --> 
+                                                                        
+                                                                        <a href="#" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto;  " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a> </th>
+                                                                      <th style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; "> <!-- el background-image: url de cada celda se reemplaza por la url que traerás de la fuente --> 
+                                                                        
+                                                                        <a href="#" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a> </th>
+                                                                    </tr>
+                                                                  </thead>
+                                                                  <tbody>
+                                                                    <tr>
+                                                                      <td style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; " ><!-- el background-image: url de cada celda se reemplaza por la url que traerás de la fuente --> 
+                                                                        
+                                                                        <a href="#" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto;  " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                                      <td style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; " ><!-- el background-image: url de cada celda se reemplaza por la url que traerás de la fuente --> 
+                                                                        
+                                                                        <a href="#" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto;  " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                                    </tr>
+                                                                  </tbody>
+                                                                </table></td>
+                                                            </tr>
+                                                          </tbody>
+                                                        </table>
+                                                      </div></td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </div>
+                                            
+                                            <!--La siguiente esta tabla completa se omite si Tipo de Kv = Pro, si Tipo de Kv = ProBlack o si Pide img es "sin cierre" 
+
+
+de lo contrario siempre debe estar, si no viene en la fuente se debe conservar como se encuentra en la base-->
+                                            
+                                            <table role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed; margin: 0px auto; max-width: 480px;">
+                                              <tbody>
+                                                <tr>
+                                                  <td align="center"><img src="https://lh3.googleusercontent.com/d/1Szsf0kwqfJhdeu9hA944XWUGc85DFLZ5" style="display: block; border: 0; max-width: 250px; width: auto; max-height: 38px; margin: 0 auto;" alt="RappiFirma"> 
+                                                    
+                                                    <!-- Este src se debe Reemplazar con el enlace de Pide img de acuerdo a la base de datos de las instrucciones para este tenemos una lista de diferentes versiones, sigue la instrucción determinada --></td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                            
+                                            <!-- Debajo de esta sección no insertes más módulos de contenido o ctas --></td>
+                                        </tr>
+                                      </tbody>
+                                    </table></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            
+                            <!-- FOOTER: la siguiente tabla se conserva siempre completa nunca se omite
+
+
+si no viene en la fuente se debe conservar como se encuentra en la base --> 
+                            
+                            {% assign cond = '' %} 
+                            <!--DENTRO DE LAS COMILLAS SE AGREGA EL TEXTO PROPORCIONADO COMO "Legales adicionales" 
+                           
+
+si hay un link dentro del texto se debe insertar dentro de la etiqueta: <a href="linkaqui" style="text-decoration: none; color:#7D8188">linkaqui</a>
+                                          
+ --> 
+                            
+                            {% assign font_style_look = 'negro' %} 
+                            
+                            <!--DENTRO DE LAS COMILLAS SE CAMBIA EL ESTILO
+                                           
+si Tipo de Kv = generico, Turbo o Neutro debe ser 'negro'
+                                          
+si Tipo de Kv = Pro o ProBlack debe ser 'pro'--> 
+                            
+                            {% assign show_legal_tyc = true %} 
+                            <!-- siempre que Legal promos = TRUE esta variable debe setearse en true, de lo contrario como false  --> 
+                            {% assign show_legal_turbo = true %} 
+                            <!-- siempre que Legal turbo  = TRUE esta variable debe setearse en true, de lo contrario como false  --> 
+                            {% assign show_legal_liquor = true %} 
+                            
+                            <!-- siempre que Legal licores = TRUE esta variable debe setearse en true, de lo contrario como false  --> 
+                            {{content_blocks.${FOOTER_q1_2024_legales}}} 
+                            
+                            <!--FIN FOOTER --></td>
+                        </tr>
+                      </table>
+                      
+                      <!--[if mso]>
+                                  </td>
+                                </tr>
+                              </table>
+                            </center>
+                            <![endif]--></td>
+                  </tr>
+                </table></td>
+            </tr>
+          </table></td>
+      </tr>
+    </table>
+  </div>
+</center>
+</body>
+</html>
+<script type="application/ld+json">
+[
+  {
+    "@context": "http://schema.org/",
+    "@type": "Organization",
+    "logo": "https://braze-images.com/appboy/communication/assets/image_assets/images/5bc61374a12f74108a3dea94/original.png"
+  }
+]
+</script>

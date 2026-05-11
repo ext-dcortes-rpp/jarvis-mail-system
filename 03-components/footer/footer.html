@@ -1,31 +1,31 @@
-<!-- FOOTER: la siguiente tabla se conserva siempre completa nunca se omite
+                            <!-- FOOTER: la siguiente tabla se conserva siempre completa nunca se omite
 
 
 si no viene en la fuente se debe conservar como se encuentra en la base --> 
                             
                             {% assign cond = '' %} 
-<!--DENTRO DE LAS COMILLAS SE AGREGA EL TEXTO PROPORCIONADO COMO "Legales adicionales" 
+                            <!--DENTRO DE LAS COMILLAS SE AGREGA EL TEXTO PROPORCIONADO COMO "Legales adicionales" 
                            
 
 si hay un link dentro del texto se debe insertar dentro de la etiqueta: <a href="linkaqui" style="text-decoration: none; color:#7D8188">linkaqui</a>
                                           
  --> 
                             
-                            {% assign font_style_look = 'negro' %}
-							  
-<!--DENTRO DE LAS COMILLAS SE CAMBIA EL ESTILO
+                            {% assign font_style_look = 'negro' %} 
+                            
+                            <!--DENTRO DE LAS COMILLAS SE CAMBIA EL ESTILO
                                            
 si Tipo de Kv = generico, Turbo o Neutro debe ser 'negro'
                                           
 si Tipo de Kv = Pro o ProBlack debe ser 'pro'--> 
-							  
+                            
                             {% assign show_legal_tyc = true %} 
-<!-- siempre que Legal promos = TRUE esta variable debe setearse en true, de lo contrario como false  --> 
-                            {% assign show_legal_turbo = true %}
-<!-- siempre que Legal turbo  = TRUE esta variable debe setearse en true, de lo contrario como false  --> 
-                            {% assign show_legal_liquor = true %}
-							  
-<!-- siempre que Legal licores = TRUE esta variable debe setearse en true, de lo contrario como false  --> 
+                            <!-- siempre que Legal promos = TRUE esta variable debe setearse en true, de lo contrario como false  --> 
+                            {% assign show_legal_turbo = true %} 
+                            <!-- siempre que Legal turbo  = TRUE esta variable debe setearse en true, de lo contrario como false  --> 
+                            {% assign show_legal_liquor = true %} 
+                            
+                            <!-- siempre que Legal licores = TRUE esta variable debe setearse en true, de lo contrario como false  --> 
                             {{content_blocks.${FOOTER_q1_2024_legales}}} 
                             
-<!--FIN FOOTER -->
+                            <!--FIN FOOTER --></td>

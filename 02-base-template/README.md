@@ -2,34 +2,36 @@
 
 > El esqueleto. El tablero donde se montan los bricks.
 
-Esta carpeta contiene la estructura del mail que **nunca cambia de un mail a otro**: el inicio, la apertura de la zona de contenido, el cierre de esa zona y el final. Si modificas algo de aquí, rompes todos los mails.
+Esta carpeta contiene la estructura HTML que **nunca cambia entre un mail y otro**. Doctype, head, body, los wrappers que envuelven todo. Si tocas esto, rompes todos los mails.
 
 ## Archivos
 
 ### `opening.html`
-El inicio obligatorio de todo mail. Siempre va primero, antes de cualquier otra pieza. Contiene:
+Apertura completa del HTML hasta el inicio del header. Incluye:
+- `<!doctype html>` y la etiqueta `<html>`
+- Meta tags (charset, viewport, conditional comments para Outlook)
+- El bloque `<style>` completo (importado desde `01-foundations/global-styles/`)
+- Apertura del `<body>`
+- El `<center class="wrapper">` con el background del KV
+- La tabla wrapper general
+- El `<!-- CONTENEDOR GENERAL -->` y la apertura del banner
 
-- La configuración técnica del mail (idioma, caracteres, compatibilidad con Outlook)
-- Todos los estilos visuales del sistema (tamaños, colores, fuentes)
-- La apertura del cuerpo del mail
-- El contenedor general que envuelve todo
-
-Termina justo antes de donde empieza el header.
+Termina justo antes de `<!-- INICIO HEADER GENERAL -->`.
 
 ### `body-wrapper-open.html`
-Se pega **después del banner** y **antes de empezar a poner CTAs, deals o módulos**. Abre la zona de contenido central del mail.
+Después del banner y antes de los CTAs/deals/cupones/módulos, hay una tabla que envuelve la zona de contenido del mail. Esta apertura está aquí. Contiene los comentarios sobre cómo separar bloques entre sí:
 
-Adentro tiene un recordatorio importante:
-
-> Cuando dos bloques de contenido van uno debajo del otro, hay que poner entre ellos el separador correspondiente.
+> cuando se inserte un contenedor con `role="module"` y debajo se encuentre uno con el mismo role, debes insertar entre uno y otro la div: `<div class="separador"></div>`
 
 ### `body-wrapper-close.html`
-Se pega **después del último bloque de contenido** (CTA, deal o módulo) y **antes del footer**. Cierra la zona de contenido central.
+Cierre de la tabla del cuerpo. Va justo después del cierre y antes del footer.
 
 ### `closing.html`
-El final obligatorio de todo mail. Siempre va último, después del footer. Cierra correctamente el mail para que se vea bien en todos los clientes de correo.
+Cierres finales del HTML: el cierre del wrapper, los conditional comments de Outlook, `</body>`, `</html>`.
 
-## Cómo se usa — el orden de ensamblaje
+## Cómo se usa
+
+El orden de ensamblaje siempre es:
 
 ```
 opening.html
@@ -40,9 +42,9 @@ opening.html
    ↓
 body-wrapper-open.html
    ↓
-[CTAs, deals, módulos en el orden que necesites]
+[CTAs, deals, cupones, beneficios, módulos en orden libre]
    ↓
-[cierre.html de 03-components/closing/ — si aplica]
+[cierre.html de 03-components/closing/ — opcional]
    ↓
 body-wrapper-close.html
    ↓
@@ -53,6 +55,6 @@ closing.html
 
 ## Regla de oro
 
-Si sientes que necesitas cambiar algo de esta carpeta, detente. Casi siempre lo que necesitas cambiar está en otro lugar: en un componente (`03-components/`), en una variante visual (`04-variants/`), o en las reglas base (`01-foundations/`).
+Si te encuentras cambiando algo de esta carpeta, para. Casi siempre el cambio que necesitas hacer está en otro lado: en un componente (`03-components/`), en una skin (`04-variants/`), o en los foundations (`01-foundations/`).
 
-**El esqueleto no se toca.**
+El esqueleto es lo único que no se toca.

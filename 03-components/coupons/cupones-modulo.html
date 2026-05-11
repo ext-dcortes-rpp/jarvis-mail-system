@@ -1,0 +1,85 @@
+                                            <!-- CUPONES: los módulos de cupón siempre deben venir en la fuente por pares
+de modo que por cada 2 cupones se inserta la siguiente tabla completa, y en cada td el cupón correspondiente -->
+                                            
+                                            <table  role="module"  bgcolor="" cellpadding="0" cellspacing="6" width="100%" style="width: 100%; margin: 0 auto; font-family:arial,helvetica,sans-serif; max-width: 480px; ">
+                                              <tr> 
+                                                
+                                                <!-- MÓDULO CUPÓN TITLE: 
+esta celda se usa cuando en la fuente hay cupón title, esto se recomienda cuando la cantidad de cupones es impar, cuando hay dos cupones esta celda se reemplaza por una  role="cupon" -->
+                                                
+                                                <td role="title" class="cuponmob" width="50%" style="vertical-align: middle; text-align:left; background:#202020; border-radius: 16px; overflow: hidden;"><div  style="float: left; text-align:left; padding: 0px 7px; word-break: break-all; width: 100%;   "> <img role="imagenfull" border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; margin: 0 auto; margin-bottom: 20px; line-height: 0px;  " alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/19EQoRd7tH_SFWbNJ6T2AfzX5rJfnFe9W">
+                                                    <div style="background-color: #2A2B2B; padding: 4px 7px; border-radius: 30px; width: auto; display: inline-block; margin-bottom: 3px;"> <!-- En el siguiente src se inserta el "cupón Ícono titulo"  --><img src="https://lh3.googleusercontent.com/d/19wcynrgz0OqdDt5S5fVf7yaSx7rAN4Fn" width="15" style="display: block; line-height: 0px;" alt="img"> </div>
+                                                    <div class="txtl" > 
+                                                      <!-- En el siguiente span se inserta el "Cupón Titulo"  --><span style="color: #E2E2E2; ">Tus cupones<br>
+                                                      del mes</span> </div>
+                                                    <img role="imagenfull" border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; margin: 0 auto; margin-top: 20px; line-height: 0px;    " alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/19EQoRd7tH_SFWbNJ6T2AfzX5rJfnFe9W"> </div></td>
+                                                
+                                                <!-- MÓDULO CUPÓN: cuando en la fuente hay dos cupones juntos se usa esta celda 2 vecs cuando lo precede un titilo, solo se usa una vez como en este ejemplo -->
+                                                
+                                                <td role="cupon"  class="cuponmob" width="50%" style="vertical-align: top; text-align:left; background:#202020; border-radius: 16px; overflow: hidden;"><div> 
+                                                    
+                                                    <!-- el src de la siguiente imagen se reemplaza por el que traerás de la fuente para "Imagen top url" del  CUPON # --> 
+                                                    
+                                                    <img role="imagenfull" border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; margin: 0 auto; border-radius: 0px 0px 0px 0px;" alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1OEXxNDtUklgU4W8sta2zOzdZ4rZYq7PO"> 
+                                                    
+                                                    <!-- la siguiente imagen es decorativa, siempre se conserva --> 
+                                                    <img  border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; margin: 0 auto; line-height: 0px;" alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/19EQoRd7tH_SFWbNJ6T2AfzX5rJfnFe9W">
+                                                    <div  style="float: left; text-align:left; padding: 5px 7px; word-break: break-all; width: 100%;">
+                                                      <table style="margin-bottom: 5px;">
+                                                        <thead>
+                                                          <tr> 
+                                                            
+                                                            <!-- el siguiente th se inserta cuando hay texto de Tag para CUPON # y en el span interno se inserta el texto, si no hay texto se elimina el th completo-->
+                                                            <th style=" background-color: #2A2B2B; padding: 4px 7px; border-radius: 30px;"> <div class="txts"> <span style="color:#E2E2E2; ">Martes</span> </div>
+                                                            </th>
+                                                            
+                                                            <!-- el siguiente th se inserta cuando hay texto de Vertical para CUPON # y en el span interno se inserta el texto, si no hay texto se elimina el th completo-->
+                                                            <th style=" "> <div class="txts" style=""> <span style="color:#E2E2E2; ">Supermercados</span> </div>
+                                                            </th>
+                                                          </tr>
+                                                        </thead>
+                                                      </table>
+                                                      <div class="txtl" > 
+                                                        
+                                                        <!-- en el siguiente span se inserta el texto de  Value Prop, este texto es mandatorio 
+Este color #DAA868 se usa para kv Pro y ProBlack
+Para otros kvs debe ir del color para texto destacado predeterminado
+--> 
+                                                        <span style="color: #DAA868; ">$10.000<br>
+                                                        de descuento</span> </div>
+                                                      <div class="separador-S"></div>
+                                                      
+                                                      <!-- Si en el cupón no hay complemento se elimina todo el div role="complemento" -->
+                                                      
+                                                      <div role="complemento" style="margin-bottom: 5px;">
+                                                        <table border="0" cellpadding="0" cellspacing="0">
+                                                          <tr>
+                                                            <td width="15px" valign="top" style="text-align: left; "><!-- el src de la siguiente imagen se reemplaza por el que traerás de la fuente para "Ícono Cupón" del  CUPON # --> 
+                                                              <img src="https://lh3.googleusercontent.com/d/19wcynrgz0OqdDt5S5fVf7yaSx7rAN4Fn" width="15" style="display: block; line-height: 0px;" alt="img"></td>
+                                                            <td valign="top" style="padding-left: 6px; text-align: left;"><!-- en el siguiente span inserta el texto para Complemento:  -->
+                                                              
+                                                              <div class="txts" style=""> <span style="color:#E2E2E2; ">Tope de reintegro: $xxxxxx</span> </div></td>
+                                                          </tr>
+                                                        </table>
+                                                      </div>
+                                                    </div>
+                                                  </div></td>
+                                              </tr>
+                                              
+                                              <!-- cuando los cupones tienen legales se agrega el siguiente tr, cada cupon lleva el legal en el td correspondiente -->
+                                              
+                                              <tr> 
+                                                
+                                                <!-- para el cupon title normalmente no hay legales asi qu este td va vacío-->
+                                                
+                                                <td role="title" width="50%" style=" text-align:center;"></td>
+                                                <td role="cupon"  width="50%" style=" vertical-align: top; text-align:center;"><div style="line-height: 7.5px;"> 
+                                                    
+                                                    <!-- en el siguiente span se inserta el texto de  Legal Cupón
+--> 
+                                                    
+                                                    <span style="color:#7D8188; font-size: 7px; ">Aplican términos y condiciones:  El usuario puede visualizar dicho valor en la canasta de la orden. Promoción válida únicamente (FECHA) en (Aliado).</span> </div></td>
+                                              </tr>
+                                            </table>
+                                            
+                                            <!-- FIN CUPONES este es el fin de la tabla para 2 cupones, si hay otro par se repite la tabla --> 

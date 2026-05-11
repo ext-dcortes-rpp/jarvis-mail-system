@@ -1,20 +1,26 @@
 # Changelog
 
-Registro de cambios del sistema. Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
+## [0.3.0] - Documentación expandida de KVs y uso de componentes
+
+### Agregado
+- **`07-docs/GUIA-DE-KVS.md`**: documentación exhaustiva de cómo se aplican los 5 KVs en las 7 zonas del HTML donde afectan. Incluye tabla maestra de referencia rápida y lista de errores comunes con cómo evitarlos.
+- **`07-docs/USO-DE-CADA-PARTE.md`**: guía brick por brick de cuándo usar cada componente, sus reglas internas y el orden recomendado de ensamblaje.
+- Sección "Documentación clave" en el README principal apuntando a estos dos documentos.
+
+## [0.2.0] - Actualización con nuevos módulos
+
+### Agregado
+- **Módulo CUPONES** (`03-components/coupons/cupones-modulo.html`): tabla en pares con variante Cupón Title.
+- **Módulo BENEFICIOS** (`03-components/benefits/modulo-beneficios.html`): card de beneficios con imagen + texto.
+
+### Cambiado
+- Reordenamiento del orden de headers: `RappiProBlack` ahora aparece antes de `RappiPro` (siguiendo el orden del HTML base actualizado).
+- Renumeración de líneas en `INDICE-DE-COMPONENTES.md` al expandir el HTML base.
+- Total de componentes: pasa de 19 a 21 bricks.
 
 ## [0.1.0] - Setup inicial
 
 ### Agregado
 - Estructura inicial de carpetas (foundations, base-template, components, variants, templates, assets, docs, examples).
-- Extracción de los 19 componentes del HTML base original:
-  - 6 headers (Rappi, Travel, Turbo, Turbo Rest, Pro, Pro Black)
-  - 3 banners (horizontal, vertical, editorial)
-  - 1 CTA template
-  - 2 deals (large, small)
-  - 5 content modules (título, 2 columnas, 3 columnas, logos, contenido)
-  - 1 cierre
-  - 1 footer
-- Foundations: estilos globales y meta tags.
-- Skins de placeholder para los 5 KV types (genérico, turbo, neutro, pro, pro-black).
+- Extracción de los 19 componentes del HTML base original.
 - Documentación inicial: README principal, guía "cómo armar un mail", índice de componentes, contributing.
-- HTML original guardado como referencia en `08-examples/`.
