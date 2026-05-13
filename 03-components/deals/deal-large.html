@@ -1,91 +1,356 @@
-                                            <!--INICIO DEAL: por cada deal en la fuente debes insertar un módulo de principio a fin, no cambies estructura solo las variables definidas y no quites lineas de variables--> 
-                                            
-                                            {% assign deal_recommendation_deeplink = '#' %}
-                                            
-                                            
-                                            {% assign deal_show_pro-crown = true %} 
-                                            
-                                            <!-- 
+<!--
+--------------------
+/* FIX VARIABLES: */
+--------------------
+These variables are fix, and do not have to be modified.
 
--siempre en la fuente que kv = Pro o = ProBlack, deal_show_pro-crown debe setearse como true
+-----------------------
+Copy-related variables:
+-----------------------
+{% assign deal_markdown_copy = deal_markdown_copy | truncate: 22 %}
+{% assign deal_porcentaje_off_copy = deal_porcentaje_off_copy | truncate: 10 %}
+{% assign deal_antes_copy = deal_antes_copy | truncate: 25 %}
+{% assign deal_descripcion_copy = deal_descripcion_copy | truncate: 80 %}
+{% assign deal_cta_text = deal_cta_text | truncate: 21 %}
 
--siempre en la fuente Descuento Pro = TRUE,  deal_show_pro-crown debe setearse como true
-si ninguna de esas dos condiciones se cumple debe setearse como false  --> 
-                                            
-                                            {% assign deal_markdown_copy = '70% OFF' %} 
-                                            
-                                            <!-- dentro de las comillas agregar aqui markdown   --> 
-                                            
-                                            {% assign deal_porcentaje_off_copy = '50% OFF' %} 
-                                            
-                                            <!-- dentro de las comillas agregar aqui Porcentaje_off  --> 
-                                            
-                                            {% assign deal_antes_copy = 'Antes <s>$140.000</s>' %} 
-                                            
-                                            <!-- dentro de las comillas agregar aqui Antes   --> 
-                                            
-                                            {% assign deal_descripcion_copy = 'Nombre del producto' %} 
-                                            
-                                            <!-- dentro de las comillas agregar aqui descripcion  --> 
-                                            
-                                            {% assign deal_legaltop_copy = 'PRIMER texto' %} 
-                                            
-                                            <!-- dentro de las comillas agregar aqui Legal title  --> 
-                                            
-                                            {% assign deal_legal_copy = 'segundo texto' %} 
-                                            
-                                            <!-- dentro de las comillas agregar aqui Legal bloque  --> 
-                                            
-                                            {% assign deal_show_legal = true %} 
-                                            
-                                            <!-- siempre que haya texto Legal o legal de licores esta variable debe setearse en true, de lo contrario como false  --> 
-                                            
-                                            {% assign deal_show_legal_liquor = true %} 
-                                            
-                                            <!-- siempre que Legal Licores venga como TRUE, esta variable se setea en true, de lo contrario como false --> 
-                                            
-                                            {% assign deal_recommendation_productimg = 'https://lh3.googleusercontent.com/d/1PN4JgFquurp1UTshjuM55DnIpQVOKs_L' %} 
-                                            
-                                            <!-- dentro de las comillas agregar aqui url de Asset que traerás de la fuente  --> 
-                                            
-                                            {% assign deal_recommendation_brandlogo = 'https://lh3.googleusercontent.com/d/1a9-c_8otztz8MJvWa6G-TczJ3NEO083G' %} 
-                                            
-                                            <!-- dentro de las comillas agregar aqui url de Logo con el enlace que traerás de la fuente  --> 
-                                            
-                                            {% assign deal_style_logosize = 'S' %} 
-                                            
-                                            <!-- cuando te pidan cambiar el tamaño de logo, dentro de las comillas se puede cambiar por M L o BG solamente existen estas variantes --> 
-                                            
-                                            {% assign deal_cta_text = 'Lo quiero' %} 
-                                            
-                                            <!-- dentro de las comillas agregar aqui Botón  --> 
-                                            
-                                            {% assign deal_style_tag1_url = 'https://braze-images.com/appboy/communication/assets/image_assets/images/69c9cc0586d9de006381053b/original.png?1774832644' %} 
-                                            
-                                            <!-- dentro de las comillas agregar aqui Tag 1 icono   --> 
-                                            
-                                            {% assign deal_tag1_text = 'Descuento Pro' %} 
-                                            
-                                            <!-- dentro de las comillas agregar aqui Tag 1 texto   --> 
-                                            
-                                            {% assign deal_style_tag2_url = 'https://braze-images.com/appboy/communication/assets/image_assets/images/69c9cc0586d9de006381053b/original.png?1774832644' %} 
-                                            
-                                            <!-- dentro de las comillas agregar aqui Tag 2 icono   --> 
-                                            
-                                            {% assign deal_tag2_text = 'Descuento Pro' %} 
-                                            
-                                            <!-- dentro de las comillas agregar aqui Tag 2 texto   --> 
-                                            
-                                            {% assign deal_style_look = 'generico' %} 
-                                            <!--  
--si en la fuente Kv = generico, turbo, o neutro y en el deal Fondo = gis, dentro de las comillas debe decir: generico 
+------------------------
+Style-related variables:
+------------------------
 
--si en la fuente Kv = generico, turbo, o neutro y en el deal Fondo = neon, dentro de las comillas debe decir: neon
 
--si en la fuente Kv = Pro y en el deal Fondo = gis o neon dentro de las comillas debe decir: pro 
+{% assign markdown_length = deal_markdown_copy.size %}
 
--si en la fuente Kv = ProBlack  y en el deal Fondo = gis o neon dentro de las comillas debe decir: problack
---> 
-                                            {{content_blocks.${ALL_DEAL_MODULE}}} 
-                                            
-                                            <!--FIN DEL DEAL--> 
+{% if markdown_length > 10 %}
+  {% assign deal_markdown_size = '20px' %}
+  {% assign deal_markdown_lh = '20px' %}
+  {% assign deal_markdown_class = 'deal-destacado-s' %}
+{% else %}
+  {% assign deal_markdown_size = '24px' %}
+  {% assign deal_markdown_lh = '20px' %}
+  {% assign deal_markdown_class = 'deal-destacado-l' %}
+{% endif %}
+
+
+
+{% assign description_length = deal_descripcion_copy.size %}
+
+{% if description_length> 30 %}
+  {% assign deal_description_size = '14px' %}
+  {% assign deal_description_lh = '15px' %}
+  {% assign deal_description_class = 'deal-texto2-s' %}
+{% else %}
+  {% assign deal_description_size = '16px' %}
+  {% assign deal_description_lh = '17px' %}
+  {% assign deal_description_class = 'deal-texto2' %}
+{% endif %}
+
+
+{% assign deal_style_look  = deal_style_look  | default: 'generico' %}
+
+ 
+{% if deal_style_look == 'generico' %}
+ 	{% assign deal_style_box_backgroundimg = 'https://lh3.googleusercontent.com/d/19EbOxcdUK_qhWVIheqNeEqSv6NNXgHns' %}
+	{% assign deal_style_bg_general = '#202020' %}
+	{% assign deal_style_bg_markdown = '#FBDC25' %}
+	{% assign deal_style_txt_description = '#E2E2E2' %}
+	{% assign deal_style_txt_before = '#D8D9D9' %}
+	{% assign deal_style_txt_lgl1 = '#E2E2E2' %}
+	{% assign deal_style_bg_cta = 'https://lh3.googleusercontent.com/d/18Y9JAF97ljD8yazeZG3YXjb8OD38tpXZ' %}{% assign deal_style_crown_url = 'https://lh3.googleusercontent.com/d/1e-aCBPdnaVeeOvzkzCzMs7TkI2jq3B_4' %}
+
+
+{% elsif deal_style_look == 'neon' %}
+ 	{% assign deal_style_box_backgroundimg = 'https://lh3.googleusercontent.com/d/19S4zm40u-wImqp5q6NOmNue8Xv1k581-' %}
+	{% assign deal_style_bg_general = '#202020' %}
+	{% assign deal_style_bg_markdown = '#FBDC25' %}
+	{% assign deal_style_txt_description = '#E2E2E2' %}
+	{% assign deal_style_txt_before = '#D8D9D9' %}
+	{% assign deal_style_txt_lgl1 = '#E2E2E2' %}
+	{% assign deal_style_bg_cta = 'https://lh3.googleusercontent.com/d/18Y9JAF97ljD8yazeZG3YXjb8OD38tpXZ' %}
+	{% assign deal_style_crown_url = 'https://lh3.googleusercontent.com/d/1e-aCBPdnaVeeOvzkzCzMs7TkI2jq3B_4' %}
+
+{% elsif deal_style_look == 'problack' %}
+	{% assign deal_style_box_backgroundimg = 'https://lh3.googleusercontent.com/d/19EbOxcdUK_qhWVIheqNeEqSv6NNXgHns' %}
+	{% assign deal_style_bg_general = '#FBFBFB' %}
+	{% assign deal_style_bg_markdown = '#D8D9D9' %}
+	{% assign deal_style_txt_description = '#292B30' %}
+	{% assign deal_style_txt_before = '#2A2B2B' %}
+	{% assign deal_style_txt_lgl1 = '#DAA868' %}
+	{% assign deal_style_bg_cta = 'https://lh3.googleusercontent.com/d/1Ky-MMEZyWawrbebq1gO_Gm2JUlAc8u8l' %}
+	{% assign deal_style_crown_url = 'https://lh3.googleusercontent.com/d/1_F8tVia9lbp9aOmD24CqTSWzOebR5Wvr' %}
+
+{% elsif deal_style_look == 'pro' %}
+	{% assign deal_style_box_backgroundimg = 'https://lh3.googleusercontent.com/d/19EbOxcdUK_qhWVIheqNeEqSv6NNXgHns' %}
+	{% assign deal_style_bg_general = '#1D1D1D' %}
+	{% assign deal_style_bg_markdown = '#D8D9D9' %}
+	{% assign deal_style_txt_description = '#E2E2E2' %}
+	{% assign deal_style_txt_before = '#D8D9D9' %}
+	{% assign deal_style_txt_lgl1 = '#919AAA' %}
+	{% assign deal_style_bg_cta = 'https://lh3.googleusercontent.com/d/1Ky-MMEZyWawrbebq1gO_Gm2JUlAc8u8l' %}
+	{% assign deal_style_crown_url = 'https://lh3.googleusercontent.com/d/1_F8tVia9lbp9aOmD24CqTSWzOebR5Wvr' %}
+
+  
+{% endif %}
+
+
+-->
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--[if !mso]><!-->
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<!--<![endif]--> 
+<!--[if (gte mso 9)|(IE)]>
+      <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+      </xml>
+      <![endif]--> 
+<!--[if (gte mso 9)|(IE)]>
+  <style type="text/css">
+    body {width: 600px;margin: 0 auto;}
+  body a {text-decoration: none!important;}
+  .ii a[href] { text-decoration: none!important;}
+    table {border-collapse: collapse;}
+    table, td {mso-table-lspace: 0pt;mso-table-rspace: 0pt;}
+    img {-ms-interpolation-mode: bicubic;}
+  </style>
+  <![endif]--> 
+
+<!--user entered Head Start--> 
+<!--End Head user entered-->
+<style>
+@media (max-width:620px) {
+.deal-tag {
+    font-size: 10px !important;
+    line-height: 10px!important;
+}
+.deal-tag img {
+    height: 12px !important;
+    max-height: 12px !important;
+    min-height: 12px !important;
+}
+.deal1 {
+    width: 90% !important;
+    margin: 10px auto !important;
+}
+.deal-cont1 {
+    height: 30vw !important;
+}
+.deal-cont2 {
+    height: 40vw !important;
+}
+.deal-cont3 {
+    height: 32vw !important;
+}
+.deal-destacado-l {
+    font-size: 19px !important;
+    line-height: 15px!important;
+}
+.deal-destacado-s {
+    font-size: 15px !important;
+    line-height: 16px!important;
+}
+.deal-texto1 {
+    font-size: 11.5px!important;
+    line-height: 12px!important;
+}
+.deal-texto2 {
+    font-size: 11px!important;
+    line-height: 12px!important;
+}
+.deal-texto2-s {
+    font-size: 9px!important;
+    line-height: 10px!important;
+}
+.deal-logos {
+    width: 40px !important;
+}
+.deal-cta1 {
+    width: 85%!important;
+	border: 1px solid rgba(125, 129, 136, 0.5)!important;
+    font-size: 11px !important;
+    line-height: 12px !important;
+}
+.deal-legal1 {
+    font-size: 9px!important;
+    line-height: 11px!important;
+    margin-bottom: 3px!important;
+    letter-spacing: 0.3!important;
+}
+.deal-legal2 {
+    font-size: 6px !important;
+    line-height: 7px !important;
+}
+
+
+
+
+}
+
+</style>
+</head>
+
+<body style="font-family: helvetica, 'helvetica neue', arial, verdana, sans-serif; color: #000000; margin: 0px; padding: 0px;" bgcolor="">
+	
+                      <!--[if mso]>
+    <center>
+    <table><tr><td width="600">
+  <![endif]-->
+                 
+	
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin: 15px auto; max-width:480px;" >
+  <tbody>
+    <tr>
+      <td style="padding: 0px 0px 0px 0px; line-height:23px; text-align:inherit;" height="100%" valign="top" bgcolor="">
+		  
+		 <a originalsrc="{{deal_recommendation_deeplink}}" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="{{deal_recommendation_deeplink}}" data-linkindex="0" style="text-decoration: none;">
+        <div>
+          <table border="0" cellpadding="0" cellspacing="5" width="100%" style="margin: 0px auto; max-width: 480px; background-color: {{deal_style_bg_general}}; border-radius: 16px; overflow: hidden; border-collapse: collapse; font-family:arial,helvetica,sans-serif; " >
+            <tbody>
+              <tr>
+                <td style="padding:0px 0px 0px 0px; line-height:23px; text-align:inherit; word-break: break-all" width="50%" height="100%" valign="middle" bgcolor=""  ><div style="">
+                    <div style="padding: 5px 7px;"> 
+						
+						   <img border="0" style=" height: 1px; width: 100% ;margin: 0px; line-height: 1px; " ata-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"> 
+                      
+                      <!--{% if deal_style_tag1_url != null and deal_style_tag1_url != '' and deal_tag1_text != null and deal_tag1_text != '' %}-->
+                      <table style="border-collapse: collapse; height: 15px;">
+                        <tr style="">
+                          <td class="deal-tag" style="vertical-align: middle; text-align: left; width: 14px; padding-right: 3px; height: 14px; line-height: 0px;  "><img  border="0" style="height: 14px; max-height: 14px; min-height: 14px; margin: 0px; padding: 0px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="{{deal_style_tag1_url}}"></td>
+                          <td class="deal-tag" style="text-align: left; vertical-align: middle; color:#919AAA; font-size: 12px; line-height: 12px;"><span style="font-weight: bold; ">{{deal_tag1_text}}</span></td>
+                        </tr>
+                      </table>
+                      
+                      <!--{% endif %}--> 
+                      
+                      <!--{% if deal_style_tag2_url != null and deal_style_tag2_url != '' and deal_tag2_text != null and deal_tag2_text != '' %}-->
+                      
+                      <table style="border-collapse: collapse; height: 15px;">
+                        <tr style="">
+                          <td class="deal-tag" style="vertical-align: middle; text-align: left; width: 14px; padding-right: 3px; height: 14px; "><img  border="0" style="height: 14px; max-height: 14px; min-height: 14px; margin: 0px; padding: 0px; line-height: 0px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="{{deal_style_tag2_url}}"></td>
+                          <td class="deal-tag" style="text-align: left; vertical-align: middle; color:#919AAA; font-size: 12px; line-height: 12px;"><span style="font-weight: bold; ">{{deal_tag2_text}}</span></td>
+                        </tr>
+                      </table>
+                      
+                      <!--{% endif %}-->
+                      
+                      <table class="deal-cont1" style="width: 100%; height: 135px; vertical-align: middle;  ">
+                        <tr>
+                          <td style="vertical-align: middle;  ">
+							  
+							   <!--{% if deal_markdown_copy != blank  %}-->
+							  <div class="{{deal_markdown_class}}" style="background-color:{{deal_style_bg_markdown}}; width: auto; color:#000000; font-size: {{deal_markdown_size}}; line-height: {{deal_markdown_lh}}; margin-bottom: 5px; padding: 6px 3px; border-radius: 7px; display: inline-block; word-break: break-word; letter-spacing: -0.6px; vertical-align: middle;"> <!--{% if deal_show_pro-crown == true %}--><img  border="0" style="height: 7px; max-height: 7px; min-height: 7px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="{{deal_style_crown_url}}"><!--{% else %}--><!--{% endif %}--><span style="font-weight: bold; ">{{deal_markdown_copy}}</span> </div>
+							   <!--{% endif %}-->
+							  
+                            <div class="deal-texto1" style="color:{{deal_style_txt_description}}; font-size: 15px; line-height:16px; margin-bottom: 5px; letter-spacing: 0.3; word-break: break-word; "> <span style="font-weight: bold">{{deal_porcentaje_off_copy}}</span> <span style="color: {{deal_style_txt_before}};">{{deal_antes_copy}}</span> </div>
+							  
+							   <!--{% if deal_descripcion_copy != blank  %}-->
+                            <div class="{{deal_description_class}}" style="color:{{deal_style_txt_description}}; font-size: {{deal_description_size}}; line-height:{{deal_description_lh}}; letter-spacing: 0.3 ; word-break: break-word;"> <span style="">{{deal_descripcion_copy}}</span> </div>
+							<!--{% endif %}-->
+							</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div></td>
+                <td style="padding:0px 0px 0px 0px; line-height:23px; text-align:inherit; height: 108px;background-image: url({{deal_style_box_backgroundimg}}); background-size: cover; background-position: center center;"  width="50%" height="100%" valign="top" bgcolor=""  ><div class="deal-cont2" style="background-image: url({{deal_recommendation_productimg}}); background-size: cover; background-position: center center; height: 180px; padding: 7px;">
+                    <div class="deal-cont3" style="height:84%;"> 
+                      
+                      <!--{% if deal_style_logosize == 'S' and deal_recommendation_brandlogo != null and deal_recommendation_brandlogo != '' %}--> 
+                    
+                       <img class="deal-logos" border="0" style="width: 55px;margin: 0 auto; border-radius: 7px; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="{{deal_recommendation_brandlogo}}"> 
+						
+                      <!--{% elsif deal_style_logosize == 'M' and deal_recommendation_brandlogo != null and deal_recommendation_brandlogo != '' %}--> 
+                      
+						  
+                      <img class="deal-logos" border="0" style="max-width: 180px; width: auto; max-height: 30px; margin: 0 auto; border-radius: 7px; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="{{deal_recommendation_brandlogo}}"> 
+                     
+                      
+                      <!--{% else %}--> 
+                      
+                      <!--{% endif %}--> 
+                      
+                    </div>
+                    <div class="deal-cta1" style="background-color:#000000; width: 92%; color:#FFFFFF; font-size: 14px; line-height:15px; margin-bottom: 5px; padding: 8px 10px; border-radius: 50px; background-image: url({{deal_style_bg_cta}}); background-size: 23px auto; background-position: 96% center; background-repeat: no-repeat;  "> <span style="">{{deal_cta_text}}</span> </div>
+                  </div></td>
+              </tr>
+            </tbody>
+          </table>
+			
+		  <!--{% if deal_legaltop_copy != blank or deal_legal_copy != blank or deal_show_legal_liquor == true  %}-->	
+          <table data-type="text" border="0" cellpadding="0" cellspacing="1" width="100%" style="table-layout: fixed; margin: 0px auto; max-width: 480px; text-align: center; border-radius: 16px; border-collapse: collapse;  " >
+            <tbody>
+              <tr>
+                <td style="padding:5px; text-align:inherit; " height="100%" valign="top" bgcolor=""  ><div style="">
+                    
+					  <!--{% if deal_legaltop_copy != null and deal_legaltop_copy != '' %}--> 
+					<div class="deal-legal1" style="color:{{deal_style_txt_lgl1}};font-size: 10px; line-height:12px; margin-bottom: 5px; letter-spacing: 0.3 "> <span style="">{{deal_legaltop_copy}}</span> </div>
+					 <!--{% else %}--> 
+                      <!--{% endif %}--> 
+					
+					  <!--{% if deal_legal_copy != blank or deal_show_legal_liquor == true  %}-->
+                    <div  class="deal-legal2"  style="color:#939393; font-size: 7px;  line-height:8px;"><!-- LEGAL COPY--> <span style="">Aplican términos y condiciones | </span> 
+                      <!--{% if {{deal_legal_copy}} != null and {{deal_legal_copy}} != '' %}--> 
+                      <span style="">{{deal_legal_copy}} </span> 
+                      <!--{% else %}--> 
+                      <!--{% endif %}--> 
+                      <!--{% if {{${user_id}}} contains 'CO' and deal_show_legal_liquor == true %}--> 
+                      
+                      <span style="">El exceso de alcohol es perjudicial para la salud. Ley 30 de 1986. Prohíbase el expendio de bebidas embriagantes a menores de edad y mujeres embarazadas. Ley 124 de 1994. </span> 
+                      
+                      <!--{% elsif {{${user_id}}} contains 'EC' and deal_show_legal_liquor == true %}--> 
+                      
+                      <span style="">Advertencia: “El consumo excesivo de alcohol puede perjudicar su salud. Ministerio de Salud Pública del Ecuador”. </span> 
+                      
+                      <!--{% elsif {{${user_id}}} contains 'AR' and deal_show_legal_liquor == true %}--> 
+                      
+                      <span style="">Beber con moderación. Prohibida su venta a menores de 18 años.</span> 
+                      
+                      <!--{% elsif {{${user_id}}} contains 'UY' and deal_show_legal_liquor == true %}--> 
+                      
+                      <span style="">Beber con moderación. Prohibida su venta a menores de 18 años.</span> 
+                      <!--{% elsif {{${user_id}}} contains 'MX' and deal_show_legal_liquor == true %}--> 
+                      
+                      <span style="">El abuso en el consumo de este producto es nocivo para la salud. </span> 
+                      
+                      <!--{% elsif {{${user_id}}} contains 'CR' and deal_show_legal_liquor == true %}--> 
+                      
+                      <span style="">El exceso de alcohol es nocivo para la salud. </span> 
+                      <!--{% elsif {{${user_id}}} contains 'CL' and deal_show_legal_liquor == true %}--> 
+                      <!-- LEGAL CHILE--> 
+                      <span style="letter-spacing: 0.3em; font-weight: bold; font-size: 11px; "> </span> 
+                      <!--{% elsif {{${user_id}}} contains 'PE' and deal_show_legal_liquor == true %}--> 
+                      <!-- LEGAL PERU--> 
+                      <span style="letter-spacing: 0.3em; font-size: 8px; margin-top: 3px; line-height: 9px "><br>
+                      TOMAR BEBIDAS ALCOHÓLICAS 
+                      EN EXCESO ES DAÑINO.</span> 
+                      <!--{% endif %}--> 
+                    </div>
+					
+					 <!--{% else %}--> 
+                      <!--{% endif %}--> 
+                  </div></td>
+              </tr>
+            </tbody>
+          </table>
+		
+			  <!--{% else %}--> 
+                <!--{% endif %}--> 
+			
+			
+        </div>
+        </a></td>
+    </tr>
+  </tbody>
+</table>
+	
+ <!--[if mso]>
+                                  </td>
+                                </tr>
+                              </table>
+                            </center>
+                            <![endif]-->
+	
+</body>
+

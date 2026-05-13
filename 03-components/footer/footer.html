@@ -1,31 +1,505 @@
-                            <!-- FOOTER: la siguiente tabla se conserva siempre completa nunca se omite
+<!--
+----------------------------
+-------- STYLE LOOK --------
+----------------------------
+{% assign font_style_look = font_style_look | default: 'negro' %}
+
+	{% if font_style_look == 'negro' %}
+		{% assign color_letra = '#7D8188' %}
+		{% assign color_textwa = '#52ca2d' %}
+		{% assign color_bordewa = '2px solid #52ca2d' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/1F18vChiw3QITlsMJErccLGkDTHTbnJvY' %}
+		{% assign color_fondowa = 'rgba(115,195,91,0.2)' %}
+		{% assign logo = 'https://lh3.googleusercontent.com/d/1jUTxnpXK0J43xxT6mbnvAuHBlRUa0gc1' %}
+		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
+		{% assign img-amor = 'https://lh3.googleusercontent.com/d/1YyaYertMcTnLywsk9dk7yFTe_4bMFOD3' %}
+		{% assign show_hr = false %}
+        {% if ${user_id} contains 'BR' %}
+        {% assign img-amor = 'https://lh3.googleusercontent.com/d/1ud9FQo9bAVuSSrcsGGVcfVDR15i6yRTq' %}
+    {% endif %}
+
+	{% elsif font_style_look == 'cafe' %}
+		{% assign color_letra = '#633D11' %}
+		{% assign color_textwa = '#52ca2d' %}
+		{% assign color_bordewa = '2px solid #52ca2d' %}
+		{% assign color_fondowa = 'rgba(115,195,91,0.2)' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/1F18vChiw3QITlsMJErccLGkDTHTbnJvY' %}
+		{% assign logo = 'https://lh3.googleusercontent.com/d/1l2pSc8pTHDt-pXx9LgxA20oVe1qXe7hn' %}
+		{% assign img-amor = 'https://lh3.googleusercontent.com/d/1F3SJ0pyMl3gqW8PyJswrAH0GdKhWwTHD' %}
+		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
+		{% assign show_hr = false %}
+        {% if ${user_id} contains 'BR' %}
+        {% assign img-amor = 'https://lh3.googleusercontent.com/d/1KJFIXGsAj73Z3jm7zDfV0ZhqrbYLMgoU' %}
+    {% endif %}
+
+	{% elsif font_style_look == 'pro' %}
+		{% assign color_letra = '#7D8188' %}
+		{% assign color_textwa = '#F49502' %}
+		{% assign color_bordewa = '2px solid #F49502' %}
+		{% assign color_fondowa = 'rgba(244,149,2,0.0)' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/16AStlqgQyi2OeNp62kekDDpf8lGhVM1k' %}
+		{% assign color_membresia = '#7D8188' %}
+		{% assign show_hr = true %}
+		{% assign logo = 'https://lh3.googleusercontent.com/d/15j7YHNv1qVdDAWUNs_G6OhQImaYbNz2g' %}
+		{% assign bigote = 'https://lh3.googleusercontent.com/d/1dL43rjEJfev_We8qjnbFx_mk7HUJ7N7j' %}
+		{% assign img-amor = 'https://lh3.googleusercontent.com/d/1eGtd155KXr5bd_B2hSo27xPkYj9mKErp' %}
+        {% if ${user_id} contains 'BR' %}
+        {% assign img-amor = 'https://lh3.googleusercontent.com/d/1fMO_apmLSG4UkEvyJ1g6dym9A6oaX4XB' %}
+        {% endif %}
+	{% elsif font_style_look == 'blanco' %}
+         {% assign background_colour = 'transparent' %}
+		{% assign color_letra = '#FFFFFF' %}
+		{% assign logo = 'https://lh3.googleusercontent.com/d/13fInYFB5qKUpniUQhPN54WF2lBY2770h' %}
+		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
+		{% assign show_hr = false %}
+        {% if ${user_id} contains 'CL' %}
+        {% assign imgchile = 'https://lh3.googleusercontent.com/d/1ap3V0qcokYXYBDZ_yR4EPdpPzd9KYyBN' %}
+    {% endif %}
+	{% else %}
+        {% assign background_colour = '#FFFFFF' %}
+		{% assign color_letra = '#919AAA' %}
+		{% assign color_textwa = '#52ca2d' %}
+		{% assign color_bordewa = '2px solid #52ca2d' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/1F18vChiw3QITlsMJErccLGkDTHTbnJvY' %}
+		{% assign color_fondowa = 'rgba(115,195,91,0.2)' %}
+		{% assign logo = 'https://lh3.googleusercontent.com/d/1jUTxnpXK0J43xxT6mbnvAuHBlRUa0gc1' %}
+		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
+		{% assign img-amor = 'https://lh3.googleusercontent.com/d/1YyaYertMcTnLywsk9dk7yFTe_4bMFOD3' %}
+		{% assign show_hr = false %}
+        {% if ${user_id} contains 'BR' %}
+        {% assign img-amor = 'https://lh3.googleusercontent.com/d/1ud9FQo9bAVuSSrcsGGVcfVDR15i6yRTq' %}
+    {% endif %}
+
+{% endif %}
 
 
-si no viene en la fuente se debe conservar como se encuentra en la base --> 
-                            
-                            {% assign cond = '' %} 
-                            <!--DENTRO DE LAS COMILLAS SE AGREGA EL TEXTO PROPORCIONADO COMO "Legales adicionales" 
-                           
+----------------------------------
+----- PRO Y PROBLACK MEMBRESÍA ----
+----------------------------------
+{% if font_style_look == 'pro' %}
+  {% if ${user_id} contains 'CO' or ${user_id} contains 'EC' or ${user_id} contains 'PE' or ${user_id} contains 'CL' %}
+        {% assign pro_membresia = "Tu membresía Rappi Pro/Rappi Pro Black se renovará automáticamente cada mes. Para la renovación realizaremos el cobro de tu suscripción a cualquier método de pago registrado en tu cuenta. Si deseas modificar o cancelar tu membresía Rappi Pro/Rappi Pro Black, ve a la sección Rappi Pro en el menú principal de tu App y selecciona Maneja tu suscripción." %}
+  {% elsif ${user_id} contains 'AR' or ${user_id} contains 'UY' or ${user_id} contains 'CR' %}
+        {% assign pro_membresia = "Tu membresía Rappi Pro/Rappi Pro Black se renovará automáticamente cada mes. Para la renovación realizaremos el cobro de tu suscripción a cualquier método de pago registrado en tu cuenta. Si deseás modificar o cancelar tu membresía Rappi Pro/Rappi Pro Black, andá a la sección Rappi Pro en el menú principal de tu App y seleccioná ¿Necesitás ayuda?" %}
+  {% elsif ${user_id} contains 'MX' %}
+        {% assign pro_membresia = "Tu membresía Rappi Pro/Rappi Pro Black se renovará automáticamente en los próximos días. Para la renovación realizaremos el cobro de tu suscripción a cualquier método de pago registrado en tu cuenta.Puedes cancelar tu membresía Rappi Pro/Rappi Pro Black en cualquier momento, sin penalidad, con estos pasos: ingresa a 'Mi perfil' en el menú principal de tu App; selecciona la opción 'Rappi Pro'; da clic en 'Cancelar mi suscripción'; y listo. Ten en cuenta que, tras cancelar tu membresía, seguirás teniendo sus beneficios durante los días restantes del periodo que pagaste." %}
+  {% endif %}
+{% else %}
+      {% assign pro_membresia = "" %}
+{% endif %}
 
-si hay un link dentro del texto se debe insertar dentro de la etiqueta: <a href="linkaqui" style="text-decoration: none; color:#7D8188">linkaqui</a>
-                                          
- --> 
-                            
-                            {% assign font_style_look = 'negro' %} 
-                            
-                            <!--DENTRO DE LAS COMILLAS SE CAMBIA EL ESTILO
-                                           
-si Tipo de Kv = generico, Turbo o Neutro debe ser 'negro'
-                                          
-si Tipo de Kv = Pro o ProBlack debe ser 'pro'--> 
-                            
-                            {% assign show_legal_tyc = true %} 
-                            <!-- siempre que Legal promos = TRUE esta variable debe setearse en true, de lo contrario como false  --> 
-                            {% assign show_legal_turbo = true %} 
-                            <!-- siempre que Legal turbo  = TRUE esta variable debe setearse en true, de lo contrario como false  --> 
-                            {% assign show_legal_liquor = true %} 
-                            
-                            <!-- siempre que Legal licores = TRUE esta variable debe setearse en true, de lo contrario como false  --> 
-                            {{content_blocks.${FOOTER_q1_2024_legales}}} 
-                            
-                            <!--FIN FOOTER --></td>
+----------------------------------
+------------- LEGALES ------------
+----------------------------------
+
+{% if ${user_id} contains 'AR' or ${user_id} contains 'CL' or ${user_id} contains 'CO' or ${user_id} contains 'CR' or ${user_id} contains 'EC' or ${user_id} contains 'MX' or ${user_id} contains 'PE' or ${user_id} contains 'UY' %}
+  {% assign centro_ayuda_url = "https://rappi.onelink.me/y6GB/xnl23as1" %}
+{% elsif ${user_id} contains 'BR' %}
+{% assign centro_ayuda_url = "https://rappi.onelink.me/y6GB/xnl23as1" %}
+{% else %}
+  {% abort_message('No country in user_id') %}
+{% endif %}
+
+
+
+{% if ${user_id} contains 'AR' %}
+        {% assign aviso_privacidad_url = "https://rappi.onelink.me/y6GB/j7jbz1fq" %}
+        {% assign legal_turbo_copy = "*El tiempo de entrega puede variar dependiendo de las condiciones climáticas y de tráfico." %}
+        {% assign terminos_y_condiciones_url = "https://rappi.onelink.me/y6GB/c3bjfxsd" %}
+        {% assign legal_liquor_copy = "Beber con moderación. Prohibida su venta a menores de 18 años." %}
+	    {% assign wa-copy = "Encontrá promos exclusivas en el canal de WhatsApp " %}
+	    {% assign wa-texto = "¡UNITE ACÁ!" %}
+	    {% assign deeplink_whatsapp = "https://whatsapp.com/channel/0029VazNdlY4SpkFw7X3m03m" %}
+	    {% assign aplican_tyc = "Aplican Términos y Condiciones |" %}
+  	    {% assign centro_ayuda = "Centro de ayuda" %}
+ 	    {% assign aviso_privacidad = "Aviso de privacidad" %}
+	    {% assign terminos_y_condiciones = "Términos y Condiciones" %}
+	    {% assign cancelar_suscription = "Cancelar suscripción" %}
+	    {% assign bottom_line_1 = "Recibiste este mail porque sos nuestro usuario." %}
+	    {% assign bottom_line_2 = "Copyright © Rappi ARG S.A.S. Todos los derechos reservados." %}
+
+{% elsif ${user_id} contains 'BR' %}
+        {% assign legal_turbo_copy = "*Consulte disponibilidade na sua região." %}
+        {% assign aviso_privacidad_url = "https://rappi.onelink.me/y6GB/79fevo23" %}
+        {% assign terminos_y_condiciones_url = "https://rappi.onelink.me/y6GB/mb0up9on" %}
+        {% assign legal_liquor_copy = "Aprecie com moderação. Venda e consumo proibidos para menores de 18 anos.Se beber não dirija." %}
+        {% assign wa-copy = "Entre no canal e descubra promoções exclusivas" %}
+        {% assign wa-texto = "JUNTE-SE AQUI" %}
+        {% assign deeplink_whatsapp = "https://whatsapp.com/channel/0029VbABTyM8V0tt6EY1JO2p" %}
+        {% assign aplican_tyc = "Aplicam-se T&C | " %}
+        {% assign centro_ayuda = "Ajuda" %}
+        {% assign aviso_privacidad = "Termos de privacidade" %}
+        {% assign terminos_y_condiciones = "Termos e condições" %}
+        {% assign cancelar_suscription = "Cancelar inscrição" %}
+        {% assign bottom_line_1 = "Você recebeu este e-mail porque está cadastrado na nossa base de dados." %}
+        {% assign bottom_line_2 = "Copyright © Rappi Brasil Intermediação de Negócios LTDA. Todos os direitos reservados.
+        " %}
+
+{% elsif ${user_id} contains 'CO' %}
+        {% assign aviso_privacidad_url = "https://rappi.onelink.me/y6GB/jnay7vq9" %}
+        {% assign terminos_y_condiciones_url = "https://rappi.onelink.me/y6GB/380afiq7" %}
+        {% assign legal_turbo_copy = "*El tiempo de entrega es estimado y depende de condiciones climáticas y de tráfico: " %}
+        {% assign legal_turbo_url = "https://legal.rappi.com.co/colombia/terminos-y-condiciones-del-boton-turbo/" %}
+        {% assign legal_liquor_copy = "El exceso de alcohol es perjudicial para la salud. Ley 30 de 1986. Prohíbase el expendio de bebidas embriagantes a menores de edad y mujeres embarazadas. Ley 124 de 1994." %}
+        {% assign wa-copy = "Encuentra promos exclusivas en el canal de WhatsApp" %}
+        {% assign wa-texto = "ÚNETE AQUÍ" %}
+        {% assign deeplink_whatsapp = "https://whatsapp.com/channel/0029VazYoNjEFeXfW1NaPE0f" %}
+        {% assign aplican_tyc = "Aplican Términos y Condiciones |" %}
+        {% assign centro_ayuda = "Centro de ayuda" %}
+        {% assign aviso_privacidad = "Aviso de privacidad" %}
+        {% assign terminos_y_condiciones = "Términos y Condiciones" %}
+        {% assign cancelar_suscription = "Cancelar suscripción" %}
+        {% assign bottom_line_1 = "Recibiste este mail porque eres nuestro usuario." %}
+        {% assign bottom_line_2 = "Copyright © RAPPI S.A.S. Todos los derechos reservados." %}
+
+
+{% elsif ${user_id} contains 'CL' %}
+        {% assign aviso_privacidad_url = "https://rappi.onelink.me/y6GB/tfyw1llj" %}
+        {% assign terminos_y_condiciones_url = "https://rappi.onelink.me/y6GB/bb0rr20v" %}
+        {% assign legal_turbo_copy = "*El tiempo de entrega puede variar dependiendo de las condiciones climáticas, de tráfico u otros factores." %}
+        {% assign legal_turbo_url = "https://promos.rappi.com/chile/2023/5/1/trminos-y-condiciones-botn-turbo" %}
+        {% assign legal_liquor_img = {{$imgchile}} %}
+        {% assign wa-copy = "Encuentra promos exclusivas en el canal de WhatsApp" %}
+        {% assign wa-texto = "ÚNETE AQUÍ" %}
+        {% assign deeplink_whatsapp = "https://whatsapp.com/channel/0029Vb7ux1c17EmzIJmOCB3Z" %}
+        {% assign aplican_tyc = "Aplican Términos y Condiciones |" %}
+        {% assign centro_ayuda = "Centro de ayuda" %}
+        {% assign aviso_privacidad = "Aviso de privacidad" %}
+        {% assign terminos_y_condiciones = "Términos y Condiciones" %}
+        {% assign cancelar_suscription = "Cancelar suscripción" %}
+        {% assign bottom_line_1 = "Recibiste este mail porque eres nuestro usuario." %}
+        {% assign bottom_line_2 = "Copyright © Rappi Chile SpA. Todos los derechos reservados." %}
+
+
+{% elsif ${user_id} contains 'CR' %}
+        {% assign aviso_privacidad_url = "https://rappi.onelink.me/y6GB/bt4ttzlz" %}
+        {% assign terminos_y_condiciones_url = "https://rappi.onelink.me/y6GB/ucs59ed5" %}
+        {% assign legal_turbo_copy = "" %}
+        {% assign legal_liquor_copy = "El exceso de alcohol es nocivo para la salud." %}
+        {% assign wa-copy = "Encontrá promos exclusivas en el canal de WhatsApp" %}
+        {% assign wa-texto = "¡UNITE ACÁ!" %}
+        {% assign deeplink_whatsapp = "#" %}
+        {% assign aplican_tyc = "Aplican Términos y Condiciones |" %}
+        {% assign centro_ayuda = "Centro de ayuda" %}
+        {% assign aviso_privacidad = "Aviso de privacidad" %}
+        {% assign terminos_y_condiciones = "Términos y Condiciones" %}
+        {% assign cancelar_suscription = "Cancelar suscripción" %}
+        {% assign bottom_line_1 = "Recibiste este mail porque sos nuestro usuario." %}
+        {% assign bottom_line_2 = "Copyright © Rappi Pura Vida S.A. Todos los derechos reservados." %}
+
+{% elsif ${user_id} contains 'EC' %}
+        {% assign aviso_privacidad_url = "https://rappi.onelink.me/y6GB/mbqscdgx" %}
+        {% assign terminos_y_condiciones_url = "https://rappi.onelink.me/y6GB/4u1uxwko" %}
+        {% assign legal_turbo_copy = "*El tiempo de entrega puede variar dependiendo de las condiciones climáticas, de tráfico u otros factores." %}
+        {% assign legal_turbo_titulosuper = "Turbo Supermercado:" %}
+        {% assign legal_turbo_titulorest = "Turbo Restaurantes:" %}
+        {% assign legal_turbo_url = "https://promos.rappi.com/ecuador/turbo-ec" %}
+        {% assign legal_turbo_rest = "https://promos.rappi.com/ecuador/turbo-restaurantes" %}
+        {% assign legal_liquor_copy = "Advertencia: “El consumo excesivo de alcohol puede perjudicar su salud. Ministerio de Salud Pública del Ecuador”." %}
+        {% assign wa-copy = "Encuentra promos exclusivas en el canal de WhatsApp" %}
+        {% assign wa-texto = "ÚNETE AQUÍ" %}
+        {% assign deeplink_whatsapp = "https://whatsapp.com/channel/0029Vb09QNeLikg1xo8dfL38" %}
+        {% assign aplican_tyc = "Aplican Términos y Condiciones |" %}
+        {% assign centro_ayuda = "Centro de ayuda" %}
+        {% assign aviso_privacidad = "Aviso de privacidad" %}
+        {% assign terminos_y_condiciones = "Términos y Condiciones" %}
+        {% assign cancelar_suscription = "Cancelar suscripción" %}
+        {% assign bottom_line_1 = "Recibiste este mail porque eres nuestro usuario." %}
+        {% assign bottom_line_2 = "Copyright © Rappiec S.A. Todos los derechos reservados." %}
+
+
+{% elsif ${user_id} contains 'MX' %}
+        {% assign aviso_privacidad_url = "https://rappi.onelink.me/y6GB/tovjuhk8" %}
+        {% assign terminos_y_condiciones_url = "https://rappi.onelink.me/y6GB/xmu8b57u" %}
+        {% assign legal_turbo_copy = "*El tiempo de entrega puede variar dependiendo de las condiciones climáticas, de tráfico u otros factores. ( Turbo supermercado: Solo válido en CDMX, Monterrey, Guadalajara, Puebla y Mérida.)" %}
+        {% assign legal_turbo_url = "" %}
+        {% assign legal_liquor_copy = "El abuso en el consumo de este producto es nocivo para la salud." %}
+        {% assign wa-copy = "Encuentra promos exclusivas en el canal de WhatsApp" %}
+        {% assign wa-texto = "ÚNETE AQUÍ" %}
+        {% assign deeplink_whatsapp = "https://linktr.ee/rappimx?lt_utm_source=lt_admin_share_link#452913383" %}
+        {% assign aplican_tyc = "Aplican Términos y Condiciones |" %}
+        {% assign centro_ayuda = "Centro de ayuda" %}
+        {% assign aviso_privacidad = "Aviso de privacidad" %}
+        {% assign terminos_y_condiciones = "Términos y Condiciones" %}
+        {% assign cancelar_suscription = "Cancelar suscripción" %}
+        {% assign bottom_line_1 = "Recibiste este mail porque eres nuestro usuario." %}
+        {% assign bottom_line_2 = "Copyright © Tecnologías Rappi S.A.P.I. de C.V. Todos los derechos reservados." %}
+
+{% elsif ${user_id} contains 'PE' %}
+        {% assign aviso_privacidad_url = "https://rappi.onelink.me/y6GB/x3w29yb3" %}
+        {% assign terminos_y_condiciones_url = "https://rappi.onelink.me/y6GB/0mfdmpo8" %}
+        {% assign legal_turbo_copy = "*Tiempo de entrega estimado. Puede variar dependiendo de la demanda, el tráfico u otros factores." %}
+        {% assign legal_turbo_titulosuper = "Turbo Supermercado:" %}
+        {% assign legal_turbo_titulorest = "Turbo Restaurantes:" %}
+        {% assign legal_turbo_url = "https://promos.rappi.com/peru/turbo-fresh" %}
+        {% assign legal_turbo_rest = "https://promos.rappi.com/peru/turbo-restaurantes" %}
+        {% assign legal_liquor_copy = "TOMAR BEBIDAS ALCOHÓLICAS EN EXCESO ES DAÑINO." %}
+        {% assign wa-copy = "Encuentra promos exclusivas en el canal de WhatsApp" %}
+        {% assign wa-texto = "ÚNETE AQUÍ" %}
+        {% assign deeplink_whatsapp = "https://whatsapp.com/channel/0029Vb4K60yJf05coAzPI92y" %}
+        {% assign aplican_tyc = "Aplican Términos y Condiciones |" %}
+        {% assign centro_ayuda = "Centro de ayuda" %}
+        {% assign aviso_privacidad = "Aviso de privacidad" %}
+        {% assign terminos_y_condiciones = "Términos y Condiciones" %}
+        {% assign cancelar_suscription = "Cancelar suscripción" %}
+        {% assign bottom_line_1 = "Recibiste este mail porque eres nuestro usuario." %}
+        {% assign bottom_line_2 = "Copyright © Rappi S.A.C. Todos los derechos reservados." %}
+
+{% elsif ${user_id} contains 'UY' %}
+        {% assign aviso_privacidad_url = "https://rappi.onelink.me/y6GB/cjp94bbu" %}
+        {% assign terminos_y_condiciones_url = "https://rappi.onelink.me/y6GB/klw2cnnm" %}
+        {% assign legal_turbo_copy = "*El tiempo de entrega puede variar dependiendo de las condiciones climáticas y de tráfico." %}
+        {% assign legal_liquor_copy = "Beber con moderación. Prohibida su venta a menores de 18 años." %}
+	    {% assign wa-copy = "Encontrá promos exclusivas en el canal de WhatsApp" %}
+	    {% assign wa-texto = "¡UNITE ACÁ!" %}
+	    {% assign deeplink_whatsapp = "#" %}
+	    {% assign aplican_tyc = "Aplican Términos y Condiciones |" %}
+	    {% assign centro_ayuda = "Centro de ayuda" %}
+	    {% assign aviso_privacidad = "Aviso de privacidad" %}
+	    {% assign terminos_y_condiciones = "Términos y Condiciones" %}
+	    {% assign cancelar_suscription = "Cancelar suscripción" %}
+	    {% assign bottom_line_1 = "Recibiste este mail porque sos nuestro usuario." %}
+	    {% assign bottom_line_2 = "Copyright © Brisanier SA - Rappi Uruguay Todos los derechos reservados." %}
+
+{% else %}
+  {% abort_message('No country in user_id') %}
+{% endif %}
+
+
+----------------------------------------
+-------- TERMINOS Y CONDICIONES --------
+----------------------------------------
+{% assign show_legal_tyc = show_legal_tyc | default: false %}
+{% if ${user_id} contains 'AR' %}
+  {% if font_style_look == 'pro' and show_legal_tyc == true %}
+  {% assign aplican_tyc_url = "https://promos.rappi.com/argentina/rappiprohome" %}
+  {% elsif show_legal_tyc == true %}
+    {% assign aplican_tyc_url = "https://promos.rappi.com/argentina/promocionesargentina2026" %}
+  {% endif %}
+{% elsif ${user_id} contains 'BR' %}
+  {% if font_style_look == 'pro' and show_legal_tyc == true %}
+    {% assign aplican_tyc_url = "https://promos.rappi.com/brasil/2024/homerappipro" %}
+  {% elsif show_legal_tyc == true %}
+    {% assign aplican_tyc_url = "https://promos.rappi.com/brasil" %}
+  {% endif %}
+{% elsif ${user_id} contains 'CL' %}
+  {% if font_style_look == 'pro' and show_legal_tyc == true %}
+    {% assign aplican_tyc_url = "https://promos.rappi.com/chile/rappiprohome" %}
+  {% elsif show_legal_tyc == true %}
+    {% assign aplican_tyc_url = "https://promos.rappi.com/chile/promocioneschile2026" %}
+  {% endif %}
+{% elsif ${user_id} contains 'CO' %}
+  {% if font_style_look == 'pro' and show_legal_tyc == true %}
+    {% assign aplican_tyc_url = "https://promos.rappi.com/colombia/prohome" %}
+  {% elsif show_legal_tyc == true %}
+    {% assign aplican_tyc_url = " " %}
+  {% endif %}
+{% elsif ${user_id} contains 'CR' %}
+  {% if font_style_look == 'pro' and show_legal_tyc == true %}
+    {% assign aplican_tyc_url = "https://promos.rappi.com/costa-rica/prohome" %}
+  {% elsif show_legal_tyc == true %}
+    {% assign aplican_tyc_url = "https://promos.rappi.com/costa-rica/descuentosenprod" %}
+  {% endif %}
+{% elsif ${user_id} contains 'EC' %}
+  {% if font_style_look == 'pro' and show_legal_tyc == true %}
+    {% assign aplican_tyc_url = "https://promos.rappi.com/ecuador/rappiprohome" %}
+  {% elsif show_legal_tyc == true %}
+		{% assign aplican_tyc-titulorest = "Promos en restaurantes:" %}
+		{% assign aplican_tyc-titulosuper = "Promos en supermercado:" %}
+		{% assign aplican_tyc_url = "https://promos.rappi.com/ecuador/restaurantes-2026" %}
+		{% assign aplican_tycsuper_url = "https://promos.rappi.com/ecuador/2026/descuentoprodselecc" %}	
+
+  {% endif %}
+{% elsif ${user_id} contains 'MX' %}
+  {% if font_style_look == 'pro' and show_legal_tyc == true %}
+    {% assign aplican_tyc_url = "https://promos.rappi.com/mexico/homerpb" %}
+  {% elsif show_legal_tyc == true %}
+    {% assign aplican_tyc_url = "https://promos.rappi.com/mexico/" %}
+  {% endif %}
+{% elsif ${user_id} contains 'PE' %}
+  {% if font_style_look == 'pro' and show_legal_tyc == true %}
+    {% assign aplican_tyc_url = "https://promos.rappi.com/peru/rappiprohome" %}
+  {% elsif show_legal_tyc == true %}
+    {% assign aplican_tyc_url = "https://promos.rappi.com/peru/restaurantes-2026" %}
+  {% endif %}
+{% elsif ${user_id} contains 'UY' %}
+  {% if font_style_look == 'pro' and show_legal_tyc == true %}
+    {% assign aplican_tyc_url = "https://promos.rappi.com/uruguay/rappiprohome" %}
+  {% elsif show_legal_tyc == true %}
+    {% assign aplican_tyc_url = "https://promos.rappi.com/uruguay/promocionesuruguay2026" %}
+  {% endif %}
+{% else %}
+  {% abort_message('No country in user_id') %}
+{% endif %}
+
+
+
+-->
+
+<head>
+<style type="text/css">
+body a {
+    text-decoration: none !important;
+}
+a {
+    text-decoration: none !important;
+}
+.ii a[href] {
+    color: inherit!important;
+    text-decoration: none!important;
+}
+
+@media (max-width:480px) {
+p {
+    font-size: 8px!important;
+    line-height: 9px!important;
+}
+	
+.btn_wa {
+	width: 90% !important;
+}
+}
+
+@media (max-width:620px) {
+p {
+    font-size: 8px!important;
+    line-height: 9px!important;
+}
+	
+.btn_wa {
+	width: 90% !important;
+}
+}
+</style>
+</head>
+<body style="width: 100%; height:auto;font-family:Helvetica,Tahoma,Verdana,Sans-serif; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; padding: 0; Margin: 0; border-spacing: 0; border-collapse: collapse;">
+<table cellspacing="0" cellpadding="0" align="center" border="0" style="width:100%; max-width: 600px; border-spacing: 0; border-collapse: collapse; margin-bottom: 0px; ">
+  <tbody>
+    <tr style="background-image: url({{bigote}}); background-position: center bottom; background-size: 100% auto; background-repeat: no-repeat;text-decoration: none; padding: 0px; margin: 0px; border-spacing: 0; border-collapse: collapse; ">
+      <td height="100%" style="padding: 0px; margin: 0px; border-spacing: 0; border-collapse: collapse; " >
+		  
+		  
+		  <table cellspacing="0" cellpadding="0" align="center" border="0" style="width:100%; border-spacing: 0; border-collapse: collapse; margin-bottom: 0px;">
+          <tbody align="center">
+        
+            <tr>
+              <td style="padding:  30px 0px 0px 0px; -webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif;" align="center">
+                <!-- Botón CTA --> 
+                <a href="{{deeplink_whatsapp}}" target="_blank" style="text-decoration: none; ">
+                <div>
+                  <table class="btn_wa" style="margin: 0 auto; border-radius: 55px; width: 90%; max-width: 480px; text-decoration: none; margin-top: 10px; margin-bottom: 0px;" valign="middle">
+                    <tbody>
+                      <tr>
+                        <td height="100%" style="border-radius: 55px; padding: 5px 5px; text-decoration: none; vertical-align: middle; background: {{color_fondowa}}; border: {{color_bordewa}}; vertical-align: middle;"><div style="text-align: center; color: {{color_textwa}}; padding: 0px 5px; text-decoration: none; font-family: Helvetica, Tahoma, Verdana, Sans-serif;  "> <span style="font-size: 12px; "><img border="0" alt="" style="padding-right:6px; height: 12px;max-height: 14px; min-height: 14px; width: auto; padding-top: 1px;" src="{{walogo}}">{{wa-copy}}</span> 
+                            <!-- TEXTO CTA --> 
+                          </div></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                </a></td>
+            </tr>
+			  
+			     <tr>
+              <td align="center" style="padding:10px 20px 0px 20px; "><img style="width:90%; max-width:350px; height:auto; margin: 0 auto;" alt="Hecho con Amor en Latinoamérica" src="{{img-amor}}"></td>
+            </tr>
+            <!--{% if cond != nil %}--> 
+            <!--{% if show_hr == true %}-->
+            <tr>
+              <td align="center" style="padding: 20px 20px 10px 20px; margin-bottom: 20px; max-width: 480px; "><p style="-webkit-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 10px;  margin: 0px; color: {{color_membresia}};margin: 0 auto; max-width: 480px; "> {{pro_membresia}} </p></td>
+            </tr>
+            <!--{% endif %}--> 
+            <!--{% endif %}-->
+            <tr>
+              <td style="padding: 0px 20px; ">
+				  
+				  
+				  <table cellspacing="0" cellpadding="0" align="center" border="0" style=" max-height:auto; border-spacing: 3px; max-width: 480px; ">
+                  <tbody align="center">
+                    <tr>
+                      <td style="padding: 1% 0% 0% 0%;" align="center"><a href="{{centro_ayuda_url}}" style="text-decoration: none; color: {{color_letra}}">
+                        <p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 10px; line-height: 10px;  color: {{color_letra}};"> {{centro_ayuda}} </p>
+                        </a></td>
+                      <td style="padding: 1% 0% 0% 0%;" align="center"><p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 10px; line-height: 10px;  color: {{color_letra}};">&nbsp;|&nbsp;</p></td>
+                      <td style="padding: 1% 0% 0% 0%;" align="center"><a href="{{aviso_privacidad_url}}" style="text-decoration: none; color: {{color_letra}}">
+                        <p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif;font-size: 10px;  line-height: 10px; color: {{color_letra}};"> {{aviso_privacidad}} </p>
+                        </a></td>
+                      <td style="padding: 1% 0% 0% 0%;" align="center"><p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 10px; line-height: 10px;  color: {{color_letra}};">&nbsp;|&nbsp;</p></td>
+                      <td style="padding: 1% 0% 0% 0%;" align="center"><a href="{{terminos_y_condiciones_url}}" style="text-decoration: none; color: {{color_letra}}">
+                        <p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif;font-size: 10px; line-height: 10px;  color: {{color_letra}};"> {{terminos_y_condiciones}} </p>
+                        </a></td>
+                      <td style="padding: 1% 0% 0% 0%;" align="center"><p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 10px; line-height: 10px;  color: {{color_letra}};">&nbsp;|&nbsp;</p></td>
+                      <td style="padding: 1% 0% 0% 0%;" align="center">
+                        
+                        
+                        
+                        
+                        {% if ${user_id} contains 'CO' %}
+                          <a href="{{preference_center.${EMAIL_PREFERENCE_CENTER_CO}}}" style="text-decoration: none; color: {{color_letra}}">
+
+                        {% elsif ${user_id} contains 'MX' %}
+                          <a href="{{preference_center.${EMAIL_PREFERENCE_CENTER_MX}}}" style="text-decoration: none; color: {{color_letra}}">
+
+                        {% elsif ${user_id} contains 'BR' %}
+                          <a href="{{preference_center.${EMAIL_PREFERENCE_CENTER_BR}}}" style="text-decoration: none; color: {{color_letra}}">
+
+                        {% elsif ${user_id} contains 'PE'
+                          or ${user_id} contains 'EC'
+                          or ${user_id} contains 'CL'
+                          or ${user_id} contains 'AR'
+                          or ${user_id} contains 'UY'
+                          or ${user_id} contains 'CR' %}
+                          <a href="{{preference_center.${EMAIL_PREFERENCE_CENTER_LATAM}}}" style="text-decoration: none; color: {{color_letra}}">
+                          {% endif %}
+    
+                        <p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif;font-size: 10px; line-height: 10px; color: {{color_letra}};"> {{cancelar_suscription}} </p>
+                        </a></td>
+                    </tr>
+                  </tbody>
+                </table></td>
+            </tr>
+            <tr>
+              <td align="center" style="padding: 0px 20px;"><p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 12px;  padding: 0px; margin: 0 auto; max-width: 480px; color: {{color_letra}};"> {{bottom_line_1}} {{bottom_line_2}} | 
+                  {{aplican_tyc}} 
+                  {{aplican_tyc-titulorest}} <a href="{{aplican_tyc_url}}" style="text-decoration: none; color: {{color_letra}} ">{{aplican_tyc_url}} </a> {{aplican_tyc-titulosuper}} <a href="{{aplican_tyc_url}}" style="text-decoration: none; color: {{color_letra}} ">{{aplican_tycsuper_url}} </a> 
+                  <!--{% if cond != nil %}-->{{cond}} <!--{% endif %}--> 
+                  <!--{% if show_legal_turbo == true %}-->{{legal_turbo_copy}} 
+                  {{legal_turbo_titulosuper}} <a href="{{legal_turbo_url}}" style="text-decoration: none; color: {{color_letra}}; ">{{legal_turbo_url}} </a> {{legal_turbo_titulorest}} <a href="{{legal_turbo_url}}" style="text-decoration: none; color: {{color_letra}};">{{legal_turbo_rest}} </a> 
+                  <!--{% endif %}--> 
+                  
+                  <!--{% if show_legal_liquor == true %}--> 
+                  
+                  {% if ${user_id} contains "PE" %} <span style="letter-spacing: 0.3em; font-size: 9px; margin-top: 3px; line-height: 11px "><br>
+                  {{legal_liquor_copy}} </span> <!--{% if legal_liquor_img != blank %}--> <!--{% endif %}--> 
+                  
+                  {% else %} 
+                  <!--{% if legal_liquor_copy != blank %}-->{{legal_liquor_copy}}<!--{% endif %}--> 
+                  <!--{% if legal_liquor_img != blank %}--> <!--{% endif %}--> 
+                  {% endif %} 
+                  
+                  <!--{% endif %}--> 
+                  
+                </p></td>
+            </tr>
+            <tr>
+              <td align="center" style="padding: 20px 0px 20px 0px;"><img style="max-width:170px; width:auto; height:auto; float:center;" alt="Rappi" src="{{logo}}"></td>
+            </tr>
+          </tbody>
+        </table>
+        <img style="width:100%;height:auto;margin: 0 auto;  border-spacing: 0; border-collapse: collapse; padding: 0px;"  alt="Rappi" src="https://lh3.googleusercontent.com/d/189y5oKqF1B1plR5A5fdpfgoVkpD9HRs3"></td>
+    </tr>
+  </tbody>
+</table>
+</body>
+<!--
+---------------------
+/* CLEAN VARIABLES */
+---------------------
+Style related variables:
+{% assign font_style_look = '' %}
+{% assign show_legal_tyc = '' %}
+{% assign color_letra = '' %}
+{% assign logo = '' %}
+{% assign background_colour = '' %}
+{% assign pro_membresía = '' %}
+-->

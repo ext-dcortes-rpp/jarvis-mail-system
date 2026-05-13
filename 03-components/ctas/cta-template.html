@@ -1,19 +1,181 @@
-                                          <td style="padding:0px;margin:0px;border-spacing:0;"><!--CTA: según la fuente puedes insertar varios a lo largo del mail--> 
-                                            
-                                            {% assign text_cta = 'Súper completo en 10 min' %} 
-                                            <!--dentro de las comillas se cambia el texto por el proporcionado como "Cta texto" --> 
-                                            {% assign deeplink_cta = '#'  %} 
-                                            {% assign style_Look = 'blanco' %} 
-                                            
-                                            <!--  
--si en la fuente Fondo = gis, dentro de las comillas debe decir: blanco 
+<!--
 
--si en la fuente Fondo = neon, dentro de las comillas debe decir: blanco
 
--si en la fuente Fondo = Pro, dentro de las comillas debe decir: pro 
+-----------------------
+Copy-related variables:
+-----------------------
+{% assign text_cta = text_cta | truncate: 40 %}
 
--si en la fuente Fondo = ProBlack, dentro de las comillas debe decir: problack
---> 
-                                            {{content_blocks.${CTA-template}}} 
-                                            
-                                            <!--FIN CTA: luego de un cta tambien agrega un <div class="separador"></div> --> 
+
+----------------------------
+-------- STYLE LOOK --------
+----------------------------
+{% assign style_Look = style_Look | default: 'neon' %}
+
+
+{% if style_Look == 'neon' %}
+  {% assign color_letra = '#000000' %}
+	{% assign background_color = '#FFFFFF' %}
+	{% assign cta_style_bg = 'https://lh3.googleusercontent.com/d/1vFAq8gWLP95bcUwHm8sQlBgub2Y4M9z2' %}
+	{% assign estilomobile = 'botmobblanco' %}
+	{% assign estilomobiletxt = 'botmobblancotexto' %}
+
+
+{% elsif style_Look == 'problack' %}
+ 	{% assign color_letra = '#FFFFFF' %}
+	{% assign background_color = '#000000' %}
+	{% assign cta_style_bg = 'https://lh3.googleusercontent.com/d/1HFzAD64n9fGmB3WWb502WUOwsdWgyALr' %}
+	{% assign estilomobile = 'botmobpro' %}
+	{% assign estilomobiletxt = 'botmobprotexto' %}
+
+{% elsif style_Look == 'pro' %}
+ 	{% assign color_letra = '#000000' %}
+	{% assign background_color = '#FFFFFF' %}
+	{% assign cta_style_bg = 'https://lh3.googleusercontent.com/d/1WpznFxp_RBPhAQqT-4ErbLk0O4-9mqnv' %}
+	{% assign estilomobile = 'botmobpro' %}
+	{% assign estilomobiletxt = 'botmobprotexto' %}
+
+{% elsif style_Look == 'blanco' %}
+	{% assign color_letra = '#000000' %}
+	{% assign background_color = '#FFFFFF' %}
+	{% assign cta_style_bg = 'https://lh3.googleusercontent.com/d/1vFAq8gWLP95bcUwHm8sQlBgub2Y4M9z2' %}
+	{% assign estilomobile = 'botmobblanco' %}
+	{% assign estilomobiletxt = 'botmobblancotexto' %}
+
+
+{% elsif style_Look == 'negro' %}
+	{% assign color_letra = '#FFFFFF' %}
+	{% assign background_color = '#000000' %}
+	{% assign cta_style_bg = 'https://lh3.googleusercontent.com/d/1vFAq8gWLP95bcUwHm8sQlBgub2Y4M9z2' %}
+	{% assign estilomobile = 'botmobblanco' %}
+	{% assign estilomobiletxt = 'botmobblancotexto' %}
+
+	{% else %}
+ 	{% assign color_letra = '#000000' %}
+	{% assign background_color = '#FFFFFF' %}
+	{% assign cta_style_bg = 'https://lh3.googleusercontent.com/d/1vFAq8gWLP95bcUwHm8sQlBgub2Y4M9z2' %}
+	{% assign estilomobile = 'botmobblanco' %}
+	{% assign estilomobiletxt = 'botmobblancotexto' %}
+	
+{% endif %}
+-->
+<head>
+<style type="text/css">
+body a {
+    text-decoration: none !important;
+}
+a {
+    text-decoration: none !important;
+}
+.ii a[href] {
+    color: inherit!important;
+    text-decoration: none!important;
+}
+
+
+
+@media (max-width:480px) {
+
+.botmobblanco  {
+    border: 1px solid rgba(125, 129, 136, 0.5) !important;
+}
+
+.botmobblancotexto  {
+}
+	
+.botmobnegro  {
+    border: 1px solid rgba(125, 129, 136, 0.5) !important;
+	
+}
+
+.botmobnegrotexto  {	
+}
+	
+.botmobneon  {
+	border: 1px solid rgba(125, 129, 136, 0.5) !important;
+}
+
+.botmobneontexto  {	
+}
+	
+.botmobpro  {
+    border: 1px solid rgba(125, 129, 136, 0.5) !important;
+	
+}
+
+.botmobprotexto  {
+}
+}
+
+@media (max-width:620px) {
+
+.botmobblanco  {
+    border: 1px solid rgba(125, 129, 136, 0.5) !important;
+}
+
+.botmobblancotexto  {
+}
+	
+.botmobnegro  {
+    border: 1px solid rgba(125, 129, 136, 0.5) !important;
+	
+}
+
+.botmobnegrotexto  {	
+}
+	
+.botmobneon  {
+	border: 1px solid rgba(125, 129, 136, 0.5) !important;
+}
+
+.botmobneontexto  {	
+}
+	
+.botmobpro  {
+    border: 1px solid rgba(125, 129, 136, 0.5) !important;
+	
+}
+
+.botmobprotexto  {
+}
+}
+
+</style>
+</head>
+<body style="width: 100%; height:auto;font-family:Helvetica,Tahoma,Verdana,Sans-serif; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; padding: 0; Margin: 0;">
+	
+
+			  
+	<!-- Botón CTA -->
+<a originalsrc="{{deeplink_cta}}" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="{{deeplink_cta}}" data-linkindex="0" style="text-decoration: none; color: {{color_letra}}; ">
+
+  <div style="padding-bottom: 10px">
+    <table class="{{estilomobile}}" style=" border-radius: 55px; width:100%; max-width: 480px; text-decoration: none; margin: 0 auto; background-color:{{background_color}}; border: 1px solid rgba(125, 129, 136, 0.5); " valign="middle" >
+      <tbody>
+        <tr style="">
+          <td height="100%" style="border-radius: 55px;  background-image: url({{cta_style_bg}}); background-size: auto 90%; background-position: 99% center; background-repeat: no-repeat; padding: 5px; text-decoration: none;">
+            <div class="{{estilomobiletxt}}" style="font-size: 16px; line-height: 21px; text-align: center; color: {{color_letra}}; padding: 5px; text-decoration: none; font-family: Helvetica, Tahoma, Verdana, Sans-serif; max-width: 90%; margin: 0 auto;">
+              <span>{{text_cta}}</span> <!-- TEXTO CTA -->
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</a>
+    
+    
+
+</body>
+
+<!-- /Botón CTA End -->
+<!--
+---------------------
+/* CLEAN VARIABLES */
+---------------------
+Style related variables:
+{% assign text_cta = '' %}
+{% assign deeplink_cta = '' %}
+{% assign style_Look = '' %}
+{% assign margin_cta = '' %}
+-->
