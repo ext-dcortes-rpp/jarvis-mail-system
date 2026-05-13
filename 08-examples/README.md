@@ -4,19 +4,15 @@
 
 ## Archivos actuales
 
-### `test_claude_1_original.html`
-El archivo original del que se extrajo todo este sistema. Es el mail monolítico original, antes de dividirse en piezas separadas.
+### `template_maestro_original.html`
+El HTML base completo (la versión actualizada del instructivo maestro de J.A.R.V.I.S.) del que se extrajo todo este sistema. Sirve como **fuente de verdad histórica**: si en algún momento hay duda sobre cómo se originó un componente o cómo se conecta con otros, este archivo es la referencia.
 
-Sirve como **referencia histórica**: si en algún momento hay duda sobre cómo se originó un componente o cómo se conecta con los demás, este archivo es la fuente de consulta.
-
-**No usar para producción.** Es solo referencia. Para armar mails, usar los componentes de `03-components/`.
+**No usar para producción.** Es solo referencia.
 
 ## Cómo crece esta carpeta
 
-A medida que se construyan mails reales con el sistema, se guardan aquí ejemplos representativos:
-
-- `ejemplo-mail-turbo-completo.html` — Un mail Turbo con todos sus módulos
-- `ejemplo-mail-pro-minimal.html` — Un mail Pro solo con banner y CTA
-- ...y así sucesivamente.
-
-Estos ejemplos sirven como referencia visual y de armado cuando alguien nuevo entra al equipo, o cuando se quiere ver cómo se ve una combinación particular antes de armarla desde cero.
+A medida que se construyan mails reales con el sistema, se podrán guardar aquí ejemplos representativos:
+- `ejemplo-mail-turbo-completo.html`
+- `ejemplo-mail-pro-minimal.html`
+- `ejemplo-mail-cupones.html`
+- ...etc.

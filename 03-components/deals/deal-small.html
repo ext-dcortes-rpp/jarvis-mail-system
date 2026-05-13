@@ -1,94 +1,306 @@
- <!--INICIO DEAL SMALL: por cada Small deal en la fuente debes insertar un módulo de principio a fin, no cambies estructura solo las variables definidas y no quites lineas de variables, esta versión es solo para deal small --> 
-                                            
-                                            {% assign smalldeal_recommendation_deeplink = '#' %}
-                                            
-	
-                                            
-                                            {% assign smalldeal_show_pro-crown = true %}  
-									
-<!-- 
+<!--
+--------------------
+/* FIX VARIABLES: */
+--------------------
+These variables are fix, and do not have to be modified.
 
--siempre en la fuente que kv = Pro o = ProBlack, smalldeal_show_pro-crown debe setearse como true
+-----------------------
+Copy-related variables:
+-----------------------
+{% assign smalldeal_markdown_copy = smalldeal_markdown_copy | truncate: 22 %}
+{% assign smalldeal_porcentaje_off_copy = smalldeal_porcentaje_off_copy | truncate: 10 %}
+{% assign smalldeal_antes_copy = smalldeal_antes_copy | truncate: 25 %}
+{% assign smalldeal_descripcion_copy = smalldeal_descripcion_copy | truncate: 80 %}
+{% assign smalldeal_cta_text = smalldeal_cta_text | truncate: 21 %}
 
--siempre en la fuente Descuento Pro = TRUE,  smalldeal_show_pro-crown debe setearse como true
-si ninguna de esas dos condiciones se cumple debe setearse como false  --> 											  
-											  
-                                            {% assign smalldeal_markdown_copy = '70% OFF' %}
-											  
- <!-- dentro de las comillas agregar aqui SD Markdown   --> 
-                                            
-                                            {% assign smalldeal_porcentaje_off_copy = '50% OFF' %} 
-                                           
-<!-- dentro de las comillas agregar aqui SD Porcentaje_off  --> 
-                                            
-                                            {% assign smalldeal_antes_copy = 'Antes <s>$140.000</s>' %}
-											  
-<!-- dentro de las comillas agregar aqui SD Antes  --> 
-                                            
-                                            {% assign smalldeal_descripcion_copy = 'Nombre del producto' %}
-											  
- <!-- dentro de las comillas agregar aqui SD descripcion  --> 
-                                            
-                                            {% assign smalldeal_legaltop_copy = 'PRIMER texto' %} 
-											  
-<!-- dentro de las comillas agregar aqui SD Legal title  --> 
-                                            
-                                            {% assign smalldeal_legal_copy = 'segundo texto' %} 
-											  
- <!-- dentro de las comillas agregar aqui SD Legal bloque --> 
-                                            
-                                            {% assign smalldeal_show_legal = true %}
-											  
-<!-- siempre que haya texto Legal o legal de licores esta variable debe setearse en true, de lo contrario como false  --> 
-                                            
-                                            {% assign smalldeal_show_legal_liquor = true %} 
-											  
-<!-- siempre que Legal Licores venga como TRUE, esta variable se setea en true, de lo contrario como false --> 
-                                            
-                                            {% assign smalldeal_recommendation_productimg = 'https://lh3.googleusercontent.com/d/1PN4JgFquurp1UTshjuM55DnIpQVOKs_L' %}
-											  
-<!-- dentro de las comillas agregar aqui url de SD Asset que traerás de la fuente  --> 
-                                            
-                                            {% assign smalldeal_recommendation_brandlogo = 'https://lh3.googleusercontent.com/d/1a9-c_8otztz8MJvWa6G-TczJ3NEO083G' %}
-											  
-<!-- dentro de las comillas agregar aqui url de SD Logo con el enlace que traerás de la fuente  --> 
-                                            
-                                            {% assign smalldeal_style_logosize = 'S' %}
-											  
-<!-- cuando te pidan cambiar el tamaño de logo, dentro de las comillas se puede cambiar por M L o BG solamente existen estas variantes --> 
-											  
-                                            
-                                            {% assign smalldeal_cta_text = 'Lo quiero' %}
-											  
-<!-- dentro de las comillas agregar aqui SD Botón  --> 
-                                            
-                                            {% assign smalldeal_style_tag1_url = 'https://braze-images.com/appboy/communication/assets/image_assets/images/69c9cc0586d9de006381053b/original.png?1774832644' %}
-											  
-<!-- dentro de las comillas agregar aqui SD Tag 1 icono   -->  
-											  
-											  
-                                            {% assign smalldeal_tag1_text = 'Descuento Pro' %} 
-                                           
-<!-- dentro de las comillas agregar aqui SD Tag 1 texto   -->  
-                                            
-                                            {% assign smalldeal_style_tag2_url = 'https://braze-images.com/appboy/communication/assets/image_assets/images/69c9cc0586d9de006381053b/original.png?1774832644' %}
-											  
-<!-- dentro de las comillas agregar aqui SD Tag 2 icono   -->  
-                                            
-                                            {% assign smalldeal_tag2_text = 'Descuento Pro' %} 
-                                           
-<!-- dentro de las comillas agregar aqui SD Tag 2 texto   -->
-                                            
-                                            {% assign smalldeal_style_look = 'generico' %} 
- <!--  
--si en la fuente Kv = generico, turbo, o neutro y en el SD Fondo = gis, dentro de las comillas debe decir: generico 
+------------------------
+Style-related variables:
+------------------------
 
--si en la fuente Kv = generico, turbo, o neutro y en el SD Fondo = neon, dentro de las comillas debe decir: neon
 
--si en la fuente Kv = Pro y en el SD Fondo = gis o neon dentro de las comillas debe decir: pro 
+{% assign markdown_length = smalldeal_markdown_copy.size %}
 
--si en la fuente Kv = ProBlack  y en el SD Fondo = gis o neon dentro de las comillas debe decir: problack
---> 
-                                           {{content_blocks.${ALL_DEAL_MODULE_SMALL}}} 
-                                            
-   <!--FIN DEL DEAL SMALL--> 
+{% if markdown_length > 10 %}
+  {% assign smalldeal_markdown_size = '12px' %}
+  {% assign smalldeal_markdown_lh = '18px' %}
+  {% assign smalldeal_markdown_class = 'smalldeal-destacado-s' %}
+{% else %}
+  {% assign smalldeal_markdown_size = '18px' %}
+  {% assign smalldeal_markdown_lh = '18px' %}
+  {% assign smalldeal_markdown_class = 'smalldeal-destacado-l' %}
+{% endif %}
+
+
+
+{% assign description_length = smalldeal_descripcion_copy.size %}
+
+{% if description_length> 30 %}
+  {% assign smalldeal_description_size = '13px' %}
+  {% assign smalldeal_description_lh = '14px' %}
+  {% assign smalldeal_description_class = 'smalldeal-texto2-s' %}
+{% else %}
+  {% assign smalldeal_description_size = '15px' %}
+  {% assign smalldeal_description_lh = '16px' %}
+  {% assign smalldeal_description_class = 'smalldeal-texto2' %}
+{% endif %}
+
+
+{% assign smalldeal_style_look  = smalldeal_style_look  | default: 'generico' %}
+
+ 
+{% if smalldeal_style_look == 'generico' %}
+ 	{% assign smalldeal_style_box_backgroundimg = 'https://lh3.googleusercontent.com/d/19EbOxcdUK_qhWVIheqNeEqSv6NNXgHns' %}
+	{% assign smalldeal_style_bg_general = '#202020' %}
+	{% assign smalldeal_style_bg_markdown = '#FBDC25' %}
+	{% assign smalldeal_style_txt_description = '#E2E2E2' %}
+	{% assign smalldeal_style_txt_before = '#D8D9D9' %}
+	{% assign smalldeal_style_txt_lgl1 = '#E2E2E2' %}
+	{% assign smalldeal_style_bg_cta = 'https://lh3.googleusercontent.com/d/18Y9JAF97ljD8yazeZG3YXjb8OD38tpXZ' %}{% assign smalldeal_style_crown_url = 'https://lh3.googleusercontent.com/d/1e-aCBPdnaVeeOvzkzCzMs7TkI2jq3B_4' %}
+
+
+{% elsif smalldeal_style_look == 'neon' %}
+ 	{% assign smalldeal_style_box_backgroundimg = 'https://lh3.googleusercontent.com/d/19S4zm40u-wImqp5q6NOmNue8Xv1k581-' %}
+	{% assign smalldeal_style_bg_general = '#202020' %}
+	{% assign smalldeal_style_bg_markdown = '#FBDC25' %}
+	{% assign smalldeal_style_txt_description = '#E2E2E2' %}
+	{% assign smalldeal_style_txt_before = '#D8D9D9' %}
+	{% assign smalldeal_style_txt_lgl1 = '#E2E2E2' %}
+	{% assign smalldeal_style_bg_cta = 'https://lh3.googleusercontent.com/d/18Y9JAF97ljD8yazeZG3YXjb8OD38tpXZ' %}
+	{% assign smalldeal_style_crown_url = 'https://lh3.googleusercontent.com/d/1e-aCBPdnaVeeOvzkzCzMs7TkI2jq3B_4' %}
+
+{% elsif smalldeal_style_look == 'problack' %}
+	{% assign smalldeal_style_box_backgroundimg = 'https://lh3.googleusercontent.com/d/19EbOxcdUK_qhWVIheqNeEqSv6NNXgHns' %}
+	{% assign smalldeal_style_bg_general = '#FBFBFB' %}
+	{% assign smalldeal_style_bg_markdown = '#D8D9D9' %}
+	{% assign smalldeal_style_txt_description = '#292B30' %}
+	{% assign smalldeal_style_txt_before = '#2A2B2B' %}
+	{% assign smalldeal_style_txt_lgl1 = '#DAA868' %}
+	{% assign smalldeal_style_bg_cta = 'https://lh3.googleusercontent.com/d/1Ky-MMEZyWawrbebq1gO_Gm2JUlAc8u8l' %}
+	{% assign smalldeal_style_crown_url = 'https://lh3.googleusercontent.com/d/1_F8tVia9lbp9aOmD24CqTSWzOebR5Wvr' %}
+
+{% elsif smalldeal_style_look == 'pro' %}
+	{% assign smalldeal_style_box_backgroundimg = 'https://lh3.googleusercontent.com/d/19EbOxcdUK_qhWVIheqNeEqSv6NNXgHns' %}
+	{% assign smalldeal_style_bg_general = '#1D1D1D' %}
+	{% assign smalldeal_style_bg_markdown = '#D8D9D9' %}
+	{% assign smalldeal_style_txt_description = '#E2E2E2' %}
+	{% assign smalldeal_style_txt_before = '#D8D9D9' %}
+	{% assign smalldeal_style_txt_lgl1 = '#919AAA' %}
+	{% assign smalldeal_style_bg_cta = 'https://lh3.googleusercontent.com/d/1Ky-MMEZyWawrbebq1gO_Gm2JUlAc8u8l' %}
+	{% assign smalldeal_style_crown_url = 'https://lh3.googleusercontent.com/d/1_F8tVia9lbp9aOmD24CqTSWzOebR5Wvr' %}
+
+  
+{% endif %}
+
+
+-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--[if !mso]><!-->
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<!--<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+      <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+      </xml>
+      <![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <style type="text/css">
+    body {width: 600px;margin: 0 auto;}
+  body a {text-decoration: none!important;}
+  .ii a[href] { text-decoration: none!important;}
+    table {border-collapse: collapse;}
+    table, td {mso-table-lspace: 0pt;mso-table-rspace: 0pt;}
+    img {-ms-interpolation-mode: bicubic;}
+  </style>
+  <![endif]-->
+<!--user entered Head Start-->
+<!--End Head user entered-->
+<style>
+@media (max-width:620px) {
+.smalldeal-tag {
+    font-size: 10px !important;
+    line-height: 10px!important;
+}
+.smalldeal-tag img {
+    height: 12px !important;
+    max-height: 12px !important;
+    min-height: 12px !important;
+}
+.smalldeal1 {
+    width: 90% !important;
+    margin: 10px auto !important;
+}
+.smalldeal-destacado-l {
+    font-size: 19px !important;
+    line-height: 18px!important;
+}
+.smalldeal-destacado-s {
+    font-size: 15px !important;
+    line-height: 18px!important;
+}
+.smalldeal-texto1 {
+    font-size: 11.5px!important;
+    line-height: 12px!important;
+}
+.smalldeal-texto2 {
+    font-size: 14px!important;
+    line-height: 14px!important;
+}
+.smalldeal-texto2-s {
+    font-size: 12px!important;
+    line-height: 12px!important;
+}
+.smalldeal-logos {
+    width: 30px !important;
+}
+.smalldeal-cta1 {
+    width: 85%!important;
+    border: 1px solid rgba(125, 129, 136, 0.5)!important;
+    font-size: 11px !important;
+    line-height: 12px !important;
+}
+.smalldeal-legal1 {
+    font-size: 9px!important;
+    line-height: 11px!important;
+    margin-bottom: 3px!important;
+    letter-spacing: 0.3!important;
+}
+.smalldeal-legal2 {
+    font-size: 6px !important;
+    line-height: 7px !important;
+}
+}
+</style>
+</head>
+
+<body style="font-family: helvetica, 'helvetica neue', arial, verdana, sans-serif; color: #000000; margin: 0px; padding: 0px;" bgcolor="">
+
+<!--[if mso]>
+    <center>
+    <table><tr><td width="600">
+  <![endif]-->
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin: 15px auto; max-width:480px;" >
+  <tbody>
+    <tr>
+      <td style="padding: 0px 0px 0px 0px; line-height:23px; text-align:inherit;" height="100%" valign="top" bgcolor=""><a originalsrc="{{smalldeal_recommendation_deeplink}}" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="{{smalldeal_recommendation_deeplink}}" data-linkindex="0" style="text-decoration: none;">
+        <div>
+          <table border="0" cellpadding="0" cellspacing="5" width="100%" style="margin: 0px auto; max-width: 480px; background-color: {{smalldeal_style_bg_general}}; border-radius: 16px; overflow: hidden; border-collapse: collapse; font-family:arial,helvetica,sans-serif; " >
+            <tbody>
+              <tr>
+                <td style="padding:0px 0px 0px 0px; text-align:inherit; height: 100px;background-image: url({{smalldeal_style_box_backgroundimg}}); background-size: cover; background-position: center center; width: 100px; overflow: hidden;"  width="100px" height="110px" valign="middle" bgcolor=""  ><div class="smalldeal-cont2" style="">
+					<img border="0" style="width:100%;  height: 110px;  margin: 0 auto; line-height: 0px;  display: block; object-fit: cover;  " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="{{smalldeal_recommendation_productimg}}"> 
+					
+					</div></td>
+                <td style="padding:0px 0px 0px 0px; text-align:inherit; word-break: break-all; background-image: url({{deal_style_bg_cta}}); background-size: 23px auto; background-position: 96% 15px; background-repeat: no-repeat; " width="" height="100%" valign="middle" bgcolor="" >
+					
+					
+					<div style="">
+                    <div style="padding: 3px 5px;">
+                    <table style="width: 100%; vertical-align: middle; border-collapse: collapse;  ">
+                              <tr style="height: 30px;">
+                                <!--{% if smalldeal_style_logosize == 'S' and smalldeal_recommendation_brandlogo != null and smalldeal_recommendation_brandlogo != '' %}-->
+                                <td style="vertical-align: middle; width: auto; float: left; margin-right: 3px;"><div class="smalldeal-cont3" style="vertical-align: middle;"> <img class="smalldeal-logos" border="0" style="width:30px; margin: 0 auto; border-radius: 7px; line-height: 0px; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="{{smalldeal_recommendation_brandlogo}}"> </div></td>
+                                <!--{% elsif smalldeal_style_logosize == 'M' and smalldeal_recommendation_brandlogo != null and smalldeal_recommendation_brandlogo != '' %}-->
+                                <td style="vertical-align: middle; width: auto; float: left; margin-right: 3px;"><div style="height: 30px; vertical-align: middle;"> <img  border="0" style="max-width: 150px; width: auto; max-height: 30px; border-radius: 7px;  line-height: 0px;" alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="{{smalldeal_recommendation_brandlogo}}"> </div></td>
+                                <!--{% else %}-->
+                                <!--{% endif %}-->
+                                <td style="vertical-align: middle; width: auto; float: left; margin-right: 5px;"><!--{% if smalldeal_markdown_copy != blank  %}-->
+                                  <div class="{{smalldeal_markdown_class}}" style="background-color:{{smalldeal_style_bg_markdown}}; width: auto; color:#000000; font-size: {{smalldeal_markdown_size}}; line-height: {{smalldeal_markdown_lh}};  padding: 5px 3px; border-radius: 7px; display: inline-block; word-break: break-word; letter-spacing: -0.6px; vertical-align: middle; height: 20px;">
+                                    <!--{% if smalldeal_show_pro-crown == true %}-->
+                                    <img  border="0" style="height: 7px; max-height: 7px; min-height: 7px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="{{smalldeal_style_crown_url}}">
+                                    <!--{% else %}-->
+                                    <!--{% endif %}-->
+                                    <span style="font-weight: bold; vertical-align: middle">{{smalldeal_markdown_copy}}</span> </div>
+                                  <!--{% endif %}--></td>
+                                <td style="vertical-align: middle; width: auto; float: left;"><div class="smalldeal-texto1" style="color:{{smalldeal_style_txt_description}}; font-size: 12px; line-height:13px;  letter-spacing: 0.3; word-break: break-word; vertical-align: middle; "><!--{% if smalldeal_porcentaje_off_copy != blank  %}--> <span style="font-weight: bold; vertical-align: middle;">{{smalldeal_porcentaje_off_copy}}<br></span>  <!--{% endif %}--><span style="color: {{smalldeal_style_txt_before}}; vertical-align: middle;"> {{smalldeal_antes_copy}}</span> </div></td>
+                              </tr>
+                            </table>
+                      <!--{% if smalldeal_descripcion_copy != blank  %}-->
+                      <div class="{{smalldeal_description_class}}" style="color:{{smalldeal_style_txt_description}}; font-size: {{smalldeal_description_size}}; line-height:{{smalldeal_description_lh}}; letter-spacing: 0.3 ; word-break: break-word; margin-bottom: 3px; margin-top: 1px;"> <span style="">{{smalldeal_descripcion_copy}}</span> </div>
+                      <!--{% endif %}-->
+                      <!--{% if smalldeal_style_tag1_url != null and smalldeal_style_tag1_url != '' and smalldeal_tag1_text != null and smalldeal_tag1_text != '' %}-->
+                      <table style="border-collapse: collapse; height: 12px;">
+                        <tr style="line-height: 0px;">
+                          <td class="smalldeal-tag" style="vertical-align: middle; text-align: left; width: 13px; padding-right: 3px; height: 13px; "><img border="0" style="height: 13px; max-height: 13px; min-height: 13px; margin: 0px; padding: 0px; line-height: 13px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="{{smalldeal_style_tag1_url}}"></td>
+                          <td class="smalldeal-tag" style="text-align: left; vertical-align: middle; color:#919AAA; font-size: 10px; line-height: 10px;"><span style="font-weight: bold; ">{{smalldeal_tag1_text}}</span></td>
+                        </tr>
+                      </table>
+                      <!--{% endif %}-->
+                      <!--{% if smalldeal_style_tag2_url != null and smalldeal_style_tag2_url != '' and smalldeal_tag2_text != null and smalldeal_tag2_text != '' %}-->
+					 <table style="border-collapse: collapse; height: 12px;">
+                        <tr style="line-height: 0px;">
+                          <td class="smalldeal-tag" style="vertical-align: middle; text-align: left; width: 13px; padding-right: 3px; height: 13px; "><img border="0" style="height: 13px; max-height: 13px; min-height: 13px; margin: 0px; padding: 0px; line-height: 13px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="{{smalldeal_style_tag2_url}}"></td>
+                          <td class="smalldeal-tag" style="text-align: left; vertical-align: middle; color:#919AAA; font-size: 10px; line-height: 10px;"><span style="font-weight: bold; ">{{smalldeal_tag2_text}}</span></td>
+                        </tr>
+                      </table>
+                      <!--{% endif %}-->
+                    </div>
+                  </div></td>
+              </tr>
+            </tbody>
+          </table>
+          <!--{% if smalldeal_legaltop_copy != blank or smalldeal_legal_copy != blank or smalldeal_show_legal_liquor == true  %}-->
+          <table data-type="text" border="0" cellpadding="0" cellspacing="1" width="100%" style="table-layout: fixed; margin: 0px auto; max-width: 480px; text-align: left; border-radius: 16px; border-collapse: collapse;  " >
+            <tbody>
+              <tr>
+                <td style="padding:5px; text-align:inherit; " height="100%" valign="top" bgcolor=""  ><div style="">
+                    <!--{% if smalldeal_legaltop_copy != null and smalldeal_legaltop_copy != '' %}-->
+                    <div class="smalldeal-legal1" style="color:{{smalldeal_style_txt_lgl1}};font-size: 9px; line-height:10px; margin-bottom: 5px; letter-spacing: 0.3 "> <span style="">{{smalldeal_legaltop_copy}}</span> </div>
+                    <!--{% else %}-->
+                    <!--{% endif %}-->
+                    <!--{% if smalldeal_legal_copy != blank or smalldeal_show_legal_liquor == true  %}-->
+                    <div  class="smalldeal-legal2"  style="color:#939393; font-size: 6px;  line-height:7px;">
+                      <!-- LEGAL COPY-->
+                      <span style="">Aplican términos y condiciones | </span>
+                      <!--{% if {{smalldeal_legal_copy}} != null and {{smalldeal_legal_copy}} != '' %}-->
+                      <span style="">{{smalldeal_legal_copy}} </span>
+                      <!--{% else %}-->
+                      <!--{% endif %}-->
+                      <!--{% if {{${user_id}}} contains 'CO' and smalldeal_show_legal_liquor == true %}-->
+                      <span style="">El exceso de alcohol es perjudicial para la salud. Ley 30 de 1986. Prohíbase el expendio de bebidas embriagantes a menores de edad y mujeres embarazadas. Ley 124 de 1994. </span>
+                      <!--{% elsif {{${user_id}}} contains 'EC' and smalldeal_show_legal_liquor == true %}-->
+                      <span style="">Advertencia: “El consumo excesivo de alcohol puede perjudicar su salud. Ministerio de Salud Pública del Ecuador”. </span>
+                      <!--{% elsif {{${user_id}}} contains 'AR' and smalldeal_show_legal_liquor == true %}-->
+                      <span style="">Beber con moderación. Prohibida su venta a menores de 18 años.</span>
+                      <!--{% elsif {{${user_id}}} contains 'UY' and smalldeal_show_legal_liquor == true %}-->
+                      <span style="">Beber con moderación. Prohibida su venta a menores de 18 años.</span>
+                      <!--{% elsif {{${user_id}}} contains 'MX' and smalldeal_show_legal_liquor == true %}-->
+                      <span style="">El abuso en el consumo de este producto es nocivo para la salud. </span>
+                      <!--{% elsif {{${user_id}}} contains 'CR' and smalldeal_show_legal_liquor == true %}-->
+                      <span style="">El exceso de alcohol es nocivo para la salud. </span>
+                      <!--{% elsif {{${user_id}}} contains 'CL' and smalldeal_show_legal_liquor == true %}-->
+                      <!-- LEGAL CHILE-->
+                      <span style="letter-spacing: 0.3em; font-weight: bold; font-size: 8px; "> </span>
+                      <!--{% elsif {{${user_id}}} contains 'PE' and smalldeal_show_legal_liquor == true %}-->
+                      <!-- LEGAL PERU-->
+                      <span style="letter-spacing: 0.3em; font-size: 8px; margin-top: 3px; line-height: 9px "><br>
+                      TOMAR BEBIDAS ALCOHÓLICAS 
+                      EN EXCESO ES DAÑINO.</span>
+                      <!--{% endif %}-->
+                    </div>
+                    <!--{% else %}-->
+                    <!--{% endif %}-->
+                  </div></td>
+              </tr>
+            </tbody>
+          </table>
+          <!--{% else %}-->
+          <!--{% endif %}-->
+        </div>
+        </a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!--[if mso]>
+                                  </td>
+                                </tr>
+                              </table>
+                            </center>
+                            <![endif]-->
+
+</body>

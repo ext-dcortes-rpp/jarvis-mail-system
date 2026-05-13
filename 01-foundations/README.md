@@ -1,47 +1,45 @@
 # 01 · Foundations
 
-> Las reglas del sistema. Lo que nunca cambia.
+> Las reglas del LEGO.
 
-Aquí viven las reglas visuales que todos los bloques del sistema respetan: tipografías, colores, tamaños, separadores y cómo se ve el mail en celular. **Nadie debería tocar esta carpeta sin coordinarlo con el equipo de diseño**, porque cualquier cambio aquí afecta a TODOS los mails.
+Aquí viven las reglas que cualquier brick respeta: tipografías, colores, espaciados, separadores, media queries. **Nadie debería tocar esta carpeta sin coordinarlo con el equipo de diseño**, porque cualquier cambio aquí afecta a TODOS los mails.
 
 ## Archivos
 
 ### `global-styles/global-styles.html`
-Este archivo contiene todas las reglas visuales del sistema en un solo lugar:
+Bloque `<style>` completo del HTML base con:
+- Tipografías y tamaños (h1 a h6, `.txts`, `.txtl`)
+- Clases utilitarias (`.separador`, `.separador-M`, `.separador-S`)
+- Reglas para `table.wrapper`
+- Las dos media queries: `@media (max-width: 480px)` y `@media (max-width: 620px)`
+- Todas las clases de header (`.header-logo`, `.header-logoturbo`, `.header-tag`...)
+- Las clases de banner (`.banner-logo1-1`, `.banner-logo-multi`, `.altobanner1`)
+- Las clases de cupones (`.cuponmob`)
+- Las clases de alineación (`.alineado-center`, `.txtbigbanner`)
 
-- Tamaños y estilos de los textos (títulos grandes, subtítulos, textos pequeños)
-- Los espaciados entre bloques (separador grande, mediano y pequeño)
-- Cómo se ve el contenedor principal del mail
-- Cómo se adapta el mail cuando se abre desde un celular
-- Las clases visuales de los headers y banners
-- Las clases de alineación de textos e imágenes
+Adentro hay comentarios condicionales tipo:
 
-Adentro hay comentarios con instrucciones como:
-
+```css
+/*
+si Tipo de Kv = Generico background-image debe ser https://...
+si Tipo de Kv = Turbo background-image debe ser https://...
+si Tipo de Kv = Pro background-image debe ser https://...
+*/
 ```
-si Tipo de KV = Generico → el fondo debe ser la imagen del KV genérico
-si Tipo de KV = Turbo    → el fondo debe ser la imagen del KV Turbo
-si Tipo de KV = Pro      → el fondo debe ser color claro
-```
 
-Estas instrucciones explican qué cambiar según el "look" del mail. Se materializan en la carpeta `04-variants/`.
+Estos comentarios son las **reglas de skin** y se materializan en `04-variants/kv-types/`.
 
 ### `global-styles/head-meta-tags.html`
-Configuración técnica que va al inicio del mail: define el idioma, el tipo de caracteres y cómo se ve en Outlook. Este archivo va primero, antes de los estilos visuales.
+Los meta tags del `<head>`: viewport, charset, conditional comments para Outlook (MSO). Se inyecta antes del `<style>`.
 
-**No se toca.** Está fijo para todos los mails.
+## Tokens (a futuro)
 
-## Tokens de diseño (próximamente)
+La carpeta `tokens/` está pensada para cuando el sistema migre a tokens de diseño. Por ahora está vacía, pero cuando exista contendrá:
+- `colors.css` — La paleta Neon (FF7A4D, FF2526, FF4583, EB5583) + neutros
+- `spacing.css` — Las medidas de los separadores (16px, 10px, 4px)
+- `radii.css` — Los border-radius que se repiten (16px, 7px, 14px)
+- `typography.css` — Familia Trebuchet/Arial y la escala de tamaños
 
-La carpeta `tokens/` está reservada para cuando el sistema migre a variables de diseño centralizadas. Por ahora está vacía. Cuando exista, contendrá:
+## Por qué esto vive aparte
 
-- `colors.css` — Los colores del sistema: naranja, rojo, rosa, fucsia + neutros
-- `spacing.css` — Los tamaños de los separadores (grande: 16px, mediano: 10px, pequeño: 4px)
-- `radii.css` — Los bordes redondeados que se repiten en los componentes
-- `typography.css` — La fuente Trebuchet/Arial y la escala de tamaños de texto
-
-## Por qué esta carpeta existe aparte
-
-Cuando alguien quiere saber "¿cuál es el color naranja del sistema?" o "¿cuánto mide el separador mediano?", no debería tener que abrir un componente y revisar línea por línea. Esa información vive aquí.
-
-Si eres nuevo en el proyecto, empezar por esta carpeta te da la base visual de todo el sistema.
+Cuando un diseñador quiere saber "qué color es #FF7A4D" o "cuánto es un separador-M", no debería tener que abrir un componente. Esa información vive aquí.
