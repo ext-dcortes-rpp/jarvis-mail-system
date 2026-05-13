@@ -5,6 +5,9 @@ Sistema de diseño para mails de Rappi. Convierte piezas sueltas de Figma en blo
 > Esto no es un repositorio de código. Es una caja de bricks de LEGO.
 > Cada archivo es una pieza. Cada pieza tiene una función clara. Combinándolas se arman los mails.
 
+## Manual J.A.R.V.I.S
+https://powerful-author-808.notion.site/J-A-R-V-I-S-Mail-System-35dc6cf39c6a81c88e23d1463640ab71
+
 ## La metáfora
 
 Si abres una caja de LEGO encuentras tres cosas: las **piezas** (los bricks), las **reglas** de cómo encajan, y las **instrucciones** para armar modelos terminados. Este repositorio funciona igual.
