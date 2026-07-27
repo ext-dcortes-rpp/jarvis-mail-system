@@ -1,39 +1,36 @@
- <!-- FOOTER: la siguiente tabla se conserva siempre completa nunca se omite
+<!-- FOOTER: la siguiente tabla se conserva siempre completa nunca se omite
 
 IMPORTANTE: debe estar en esta ubicación, por fuera del role="paddedcontainer"
 
 
-si no viene en la fuente se debe conservar como se encuentra en la base --> 
-                            
-                            {% assign cond = '' %} 
-                            <!--DENTRO DE LAS COMILLAS SE AGREGA EL TEXTO PROPORCIONADO COMO "Legales adicionales" 
+si no viene en la fuente se debe conservar como se encuentra en la base -->
+{% assign cond = '' %} 
+<!--DENTRO DE LAS COMILLAS SE AGREGA EL TEXTO PROPORCIONADO COMO "Legales adicionales" 
                            
 
 si hay un link dentro del texto se debe insertar dentro de la etiqueta: <a href="linkaqui" style="text-decoration: none; color:#7D8188">linkaqui</a>
                                           
  --> 
-                            
-                            {% assign font_style_look = 'negro' %} 
-                            
-                            <!--DENTRO DE LAS COMILLAS SE CAMBIA EL ESTILO
-                             variantes 'negro'  'pro'--> 
-                            
-                            {% assign show_legal_tyc = true %} 
-                            <!-- siempre que Legal promos = TRUE esta variable debe setearse en true, de lo contrario como false  --> 
-                            {% assign show_legal_turbo = true %} 
-                            <!-- siempre que Legal turbo  = TRUE esta variable debe setearse en true, de lo contrario como false  --> 
-                            {% assign show_legal_liquor = true %} 
-                            
-                            <!-- siempre que Legal licores = TRUE esta variable debe setearse en true, de lo contrario como false  --> 
-                            {{content_blocks.${FOOTER_q1_2024_legales}}} 
 
-  <!-- existen 3 variantes de footer
+{% assign font_style_look = 'negro' %} 
+
+<!--DENTRO DE LAS COMILLAS SE CAMBIA EL ESTILO
+                             variantes 'negro'  'pro'--> 
+
+{% assign show_legal_tyc = true %} 
+<!-- siempre que Legal promos = TRUE esta variable debe setearse en true, de lo contrario como false  --> 
+{% assign show_legal_turbo = true %} 
+<!-- siempre que Legal turbo  = TRUE esta variable debe setearse en true, de lo contrario como false  --> 
+{% assign show_legal_liquor = true %} 
+
+<!-- siempre que Legal licores = TRUE esta variable debe setearse en true, de lo contrario como false  --> 
+{{content_blocks.${FOOTER_q1_2024_legales}}} 
+
+<!-- existen 3 variantes de footer
 GENERAL: {{content_blocks.${FOOTER_q1_2024_legales}}}
 SIN AMOR: {{content_blocks.${FOOTER_VERSION2}}}
 RTS: {{content_blocks.${FOOTER_RTS_q3_2024_legales}}}
 
 --> 
 
-
-                            
- <!--FIN FOOTER -->
+<!--FIN FOOTER -->
