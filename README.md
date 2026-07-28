@@ -27,7 +27,7 @@ Un mail siempre se arma en este orden, pieza por pieza:
 ```
 opening.html  (esqueleto inicial + apertura del banner)
    ↓
-header        (un solo header de los 6 disponibles)
+header        (un solo header de los 10 disponibles, en su variante claro/oscuro y centrado/columnas)
    ↓
 banner        (horizontal, vertical o editorial)
    ↓
@@ -35,7 +35,7 @@ body-wrapper-open.html  (abre la zona de contenido)
    ↓
 [CTAs, deals, cupones, beneficios, módulos de contenido]   ← bricks combinables
    ↓
-cierre        (imagen de cierre — omitido en KV Pro/ProBlack)
+cierre        (imagen de cierre — omitido en los temas Pro/ProBlack)
    ↓
 body-wrapper-close.html
    ↓
@@ -62,7 +62,7 @@ jarvis-mail-system/
 │   └── closing.html           Cierres finales del HTML
 │
 ├── 03-components/             Los bricks (21 piezas en total)
-│   ├── headers/               6 headers (Rappi, Travel, Turbo...)
+│   ├── headers/               10 headers de marca, cada uno en claro/oscuro × centrado/columnas
 │   ├── banners/               3 banners (horizontal, vertical, editorial)
 │   ├── ctas/                  Plantilla del botón de acción
 │   ├── deals/                 Deal grande y small
@@ -88,13 +88,13 @@ jarvis-mail-system/
 1. **Cero Inserción Autónoma.** Nadie inventa módulos nuevos. Si no existe en este repo, no existe.
 2. **Los componentes no se modifican.** Se usan tal cual están. Lo que cambia entre un mail y otro son las imágenes, textos y los componentes que se incluyen u omiten.
 3. **Los comentarios `INICIO` / `FIN` y las instrucciones internas se conservan SIEMPRE.** Son parte del componente. No son adornos.
-4. **El tema se resuelve por Liquid, no se mezcla a mano.** Los 11 temas (light/dark) viven como variables `{% assign %}` en `01-foundations/global-styles/head-meta-tags.html`, condicionadas por `tema_general`; los componentes no se modifican para cambiar de tema.
+4. **El tema se resuelve por Liquid, no se mezcla a mano.** Los 11 temas viven como variables `{% assign %}` en `01-foundations/global-styles/head-meta-tags.html`, condicionadas por `tema_general_mail_general`; los componentes no se modifican para cambiar de tema.
 
 ## Documentación clave
 
 Antes de producir tu primer mail, lee estos dos documentos en orden:
 
-1. **[Guía completa de KVs](06-docs/GUIA-DE-KVS.md)** — Documenta el esquema anterior de 5 KVs (Genérico, Turbo, Neutro, Pro, ProBlack), **obsoleto**. El sistema de temas actual (11 temas, light/dark) se resuelve por Liquid en `01-foundations/global-styles/head-meta-tags.html`.
+1. **[Guía completa de Temas](06-docs/GUIA-DE-TEMAS.md)** — Los 11 temas del sistema, qué variables Liquid define cada uno, y las reglas particulares por grupo (pastel, oscuros/invertidos, premium).
 2. **[Uso correcto de cada parte](06-docs/USO-DE-CADA-PARTE.md)** — Guía brick por brick: cuándo usar cada componente, sus reglas internas, las piezas opcionales, y el orden recomendado de ensamblaje.
 
 Documentación complementaria en `06-docs/`:

@@ -12,7 +12,7 @@ Apertura completa del HTML hasta el inicio del header. Incluye:
 - Meta tags (charset, viewport, conditional comments para Outlook)
 - El bloque `<style>` completo (importado desde `01-foundations/global-styles/`)
 - Apertura del `<body>`
-- El `<center class="wrapper">` con el background del KV
+- El `<center class="wrapper">` con el background del tema — **pendiente de migrar** a las variables de `06-docs/GUIA-DE-TEMAS.md` (hoy sigue con el valor hardcodeado del esquema anterior)
 - La tabla wrapper general
 - El `<!-- CONTENEDOR GENERAL -->` y la apertura del banner
 

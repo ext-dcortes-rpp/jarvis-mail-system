@@ -1,4 +1,4 @@
-# 06 · Assets
+# 05 · Assets
 
 > Imágenes y logos. La biblioteca visual del sistema.
 

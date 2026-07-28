@@ -8,20 +8,33 @@ Esta es la carpeta más importante del repositorio. Aquí viven todos los bloque
 
 ### `headers/` — La identidad del remitente
 
-6 variantes de header, una por marca:
+10 subcarpetas, una por marca. **Solo se usa UNA marca por mail**, y de esa marca se elige exactamente 1 de sus 4 archivos según fondo (claro/oscuro) y disposición (centrado/columnas):
 
-| Archivo | Cuándo se usa |
-|---------|---------------|
-| `rappi.html` | Logo Rappi (la marca general) |
-| `rappi-travel.html` | Mails de RappiTravel |
-| `rappi-turbo.html` | Mails de RappiTurbo |
-| `rappi-turbo-rest.html` | Mails de RappiTurbo Restaurantes |
-| `rappi-pro-black.html` | Mails de RappiPro Black (KV oscuro) |
-| `rappi-pro.html` | Mails de RappiPro (KV claro) |
+| Carpeta | Marca |
+|---------|-------|
+| `rappi/` | Rappi (la marca general) |
+| `rappi-travel/` | RappiTravel |
+| `soyrappi/` | SoyRappi |
+| `rappi-turbo/` | RappiTurbo |
+| `rappi-turbo-rest/` | RappiTurbo Restaurantes |
+| `rappi-pro/` | RappiPro |
+| `rappi-pro-black/` | RappiPro Black |
+| `rappi-defensoria/` | Defensoría |
+| `rappi-entregador/` | RappiEntregador |
+| `contenido-aliado/` | Contenido aliado |
 
-**Solo se usa UNO por mail.** El archivo `_header-wrapper.html` es la envolvente común a todos.
+Dentro de cada carpeta, los 4 archivos:
 
-Cada header soporta tres modos según la fuente: sin cobranding (solo logo), con cobranding tipo "Tag", o con cobranding tipo "1:1". Las instrucciones de cuál mostrar están comentadas dentro de cada archivo.
+| Archivo | Fondo | Disposición |
+|---------|-------|--------------|
+| `centrado-claro.html` | Claro | Logo · divider · cobranding, centrado en una fila |
+| `centrado-oscuro.html` | Oscuro | Logo · divider · cobranding, centrado en una fila |
+| `columnas-claro.html` | Claro | Logo a la izquierda, cobranding a la derecha, sin divider |
+| `columnas-oscuro.html` | Oscuro | Logo a la izquierda, cobranding a la derecha, sin divider |
+
+Cada archivo contiene únicamente el `<tr>` del header (con su comentario identificador); el archivo `_header-wrapper.html` es la envolvente `<table>`/`<tbody>` común a todos y se conserva sin cambios.
+
+**La elección de marca es independiente del tema del mail** (`tema_general_mail_general` en `06-docs/GUIA-DE-TEMAS.md`): cualquiera de los 10 headers puede combinarse con cualquiera de los 11 temas.
 
 ### `banners/` — La cabecera visual del mail
 
@@ -62,7 +75,7 @@ Un mail puede tener varios CTAs. Se insertan a lo largo del body según el orden
 - Los cupones siempre vienen en **pares**. Por cada 2 cupones se inserta la tabla completa.
 - Cuando hay cantidad impar de cupones, se usa la celda **Cupón Title** (`role="title"`) en lugar del segundo cupón. Esa celda lleva ícono + título y reemplaza a un cupón normal.
 - Cada cupón puede tener: imagen top, tag (día/horario), vertical, value prop (mandatorio), complemento (opcional), y legal (opcional).
-- El value prop usa color `#DAA868` para KV Pro/ProBlack y el color destacado por defecto para los demás KVs.
+- El value prop usa color `#DAA868` para los temas Pro/ProBlack y `{{color_acento1_mail_general}}` (o el destacado del tema) para el resto.
 - Los legales van en un `<tr>` separado debajo de la fila de cupones.
 
 ### `benefits/` — Módulo de beneficios · NUEVO
@@ -101,17 +114,20 @@ Estos componentes están dentro del archivo `modulo-contenido.html` para mantene
 
 | Archivo | Descripción |
 |---------|-------------|
-| `cierre.html` | Tabla de imagen de cierre. Se OMITE si KV es Pro, ProBlack, o si la fuente dice "sin cierre". |
+| `cierre.html` | Tabla de imagen de cierre. Se OMITE si el tema es Pro o ProBlack, o si la fuente dice "sin cierre". |
 
-Las URLs de las imágenes de cierre dependen del KV (Genérico, Turbo, Neutro). Se eligen desde la base de datos de assets.
+Las URLs de las imágenes de cierre dependen de la marca del mail. Se eligen desde la base de datos de assets.
 
 ### `footer/` — El pie del mail
 
 | Archivo | Descripción |
 |---------|-------------|
-| `footer.html` | Bloque Liquid del footer con sus variables (`cond`, `font_style_look`, `show_legal_*`) |
+| `footer.html` | Bloque Liquid orquestador: setea `cond`, `font_style_look`, `show_legal_tyc`, `show_legal_turbo`, `show_legal_liquor`, e inserta el content block de legales correspondiente |
+| `footer_general.html` | Contenido del content block `FOOTER_q1_2024_legales` (variante general) |
+| `footer_sinamor.html` | Contenido del content block `FOOTER_VERSION2` (variante "sin amor") |
+| `footer_rts.html` | Contenido del content block `FOOTER_RTS_q3_2024_legales` (variante RTS) |
 
-**El footer SIEMPRE se conserva completo.** Nunca se omite. Solo cambian los valores de las variables Liquid según la fuente.
+**El footer SIEMPRE se conserva completo.** Nunca se omite. `font_style_look` ya no se elige a mano: toma el valor de `{{color_footer_mail_general}}`, la variable que el tema activo definió en `06-docs/GUIA-DE-TEMAS.md` (`'negro'` en la mayoría de los temas, `'pro'` en Pro/ProBlack). Lo único que cambia por fuente es cuál de las 3 variantes de legales (`footer_general` / `footer_sinamor` / `footer_rts`) se referencia y los toggles `show_legal_*`.
 
 ## Reglas comunes a todos los componentes
 

@@ -27,12 +27,12 @@ si Tipo de Kv = Pro background-image debe ser https://...
 */
 ```
 
-Estos comentarios documentan el esquema anterior de KVs, **obsoleto**.
+Estos comentarios documentan un esquema de color anterior al sistema de temas actual; ya no se usan para producir mails nuevos.
 
 ### `global-styles/head-meta-tags.html`
 Los meta tags del `<head>`: viewport, charset, conditional comments para Outlook (MSO). Se inyecta antes del `<style>`.
 
-Además, aquí vive la sección Liquid **TEMAS**: el `{% if tema_general == ... %}` que define, para cada uno de los 11 temas (Beige 100/150, Rosa 100, Púrpura 100, Celeste 100, Verde 100, Dark neon, Dark Turbo, Dark Neutro, Pro, ProBlack), las variables de color/imagen light del mail (`bg_solid_mail_general`, `color_texto_mail_general`, `color_acento1_mail_general`, `bg_contenedor1_mail_general`, etc.). Este bloque reemplaza por completo al viejo mapeo KV↔CSS.
+Además, aquí vive la sección Liquid **TEMAS**: el `{% if tema_general_mail_general == '...' %}` que define, para cada uno de los 11 temas (Beige 100/150, Rosa 100, Púrpura 100, Celeste 100, Verde 100, Dark neon, Dark Turbo, Dark Neutro, Pro, ProBlack), todas las variables de color/imagen del mail (`bg_solid_mail_general`, `color_texto_mail_general`, `color_acento1_mail_general`, `bg_contenedor1_mail_general`, `color_footer_mail_general`, etc.). Ver `06-docs/GUIA-DE-TEMAS.md` para el detalle completo de cada variable.
 
 ## Tokens (a futuro)
 

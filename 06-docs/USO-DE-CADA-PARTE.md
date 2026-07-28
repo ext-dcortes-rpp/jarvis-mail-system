@@ -59,13 +59,13 @@ Siempre. Cada mail incluye automáticamente `head-meta-tags.html` y `global-styl
 ### Regla más importante
 **El esqueleto es lo único que no se toca jamás.** Si te encuentras cambiando algo de esta carpeta, para. Casi siempre el cambio que necesitas está en otro lado: en un componente, en una skin, o en foundations.
 
-### Excepción: el KV
-Aunque no toques los archivos del esqueleto, sí tienes que aplicar las reglas de KV en las zonas que el opening contiene:
+### Excepción: el tema
+Aunque no toques los archivos del esqueleto, sí tienes que aplicar las variables del tema en las zonas que el opening contiene:
 - El `background-color` del `<body>`
 - La URL del `background-image` de la clase `.gradmobile`
 - La URL del background del header
 
-Ver `GUIA-DE-KVS.md` para los valores exactos.
+Ver `GUIA-DE-TEMAS.md` para los valores exactos. (Nota: `02-base-template/opening.html` todavía no consume estas variables directamente — ver "Estado actual / pendientes" en esa guía.)
 
 ---
 
@@ -73,42 +73,44 @@ Ver `GUIA-DE-KVS.md` para los valores exactos.
 
 📁 `03-components/headers/`
 
-### Los 6 headers disponibles
+### Las 10 marcas disponibles
 
-| Archivo | Cuándo se usa |
+| Carpeta | Cuándo se usa |
 |---------|---------------|
-| `rappi.html` | Mails generales de la marca Rappi |
-| `rappi-travel.html` | Mails de RappiTravel |
-| `rappi-turbo.html` | Mails de RappiTurbo (verticales rápidas) |
-| `rappi-turbo-rest.html` | Mails de RappiTurbo Restaurantes |
-| `rappi-pro-black.html` | Mails de RappiPro Black (KV claro) |
-| `rappi-pro.html` | Mails de RappiPro (KV oscuro) |
+| `rappi/` | Mails generales de la marca Rappi |
+| `rappi-travel/` | Mails de RappiTravel |
+| `soyrappi/` | Mails de SoyRappi |
+| `rappi-turbo/` | Mails de RappiTurbo (verticales rápidas) |
+| `rappi-turbo-rest/` | Mails de RappiTurbo Restaurantes |
+| `rappi-pro/` | Mails de RappiPro |
+| `rappi-pro-black/` | Mails de RappiPro Black |
+| `rappi-defensoria/` | Mails de Defensoría |
+| `rappi-entregador/` | Mails de RappiEntregador |
+| `contenido-aliado/` | Mails de contenido aliado |
 
 ### Regla #1 · Solo UNO por mail
-Un mail tiene exactamente **un header**, nunca más, nunca menos. Lo eliges según la marca/vertical de la fuente.
+Un mail tiene exactamente **un header**, nunca más, nunca menos. Lo eliges según la marca/vertical de la fuente — la elección es independiente del tema del mail (ver `GUIA-DE-TEMAS.md`).
 
-### Regla #2 · Headers y KVs están emparejados
-El header tiene que coincidir con el KV:
+### Regla #2 · Cada marca tiene 4 archivos: fondo × disposición
+Dentro de la carpeta de la marca elegida, se usa exactamente 1 de estos 4 archivos:
 
-| Si el KV es... | Usa el header... |
-|----------------|-----------------|
-| Genérico | `rappi.html` (o uno de vertical si aplica) |
-| Turbo | `rappi-turbo.html` o `rappi-turbo-rest.html` |
-| Neutro | `rappi.html` (genérico) |
-| Pro | `rappi-pro.html` |
-| ProBlack | `rappi-pro-black.html` |
+| Archivo | Fondo | Disposición |
+|---------|-------|--------------|
+| `centrado-claro.html` | Claro | Logo · divider · cobranding, centrado |
+| `centrado-oscuro.html` | Oscuro | Logo · divider · cobranding, centrado |
+| `columnas-claro.html` | Claro | Logo a la izquierda, cobranding a la derecha, sin divider |
+| `columnas-oscuro.html` | Oscuro | Logo a la izquierda, cobranding a la derecha, sin divider |
 
-### Regla #3 · El cobranding tiene 3 modos
-Cada header soporta tres formas de mostrar marcas aliadas (cobranding):
+### Regla #3 · El cobranding tiene 4 tamaños
+Cada header soporta estas variantes de cobranding, todas con la misma estructura (logo + tag del partner), cambiando solo el tamaño:
 
-1. **Sin cobranding** — Solo el logo de Rappi. Es el modo por defecto.
-2. **Cobranding tipo "Tag"** — Logo de Rappi + una etiqueta horizontal con el partner al lado.
-3. **Cobranding tipo "1:1"** — Logo de Rappi + logo del partner en formato cuadrado, separados por una línea vertical.
-
-Las instrucciones de cuál modo activar están **dentro del archivo de cada header** como comentarios. Léelos antes de modificar.
+1. **Sin cobranding** — Solo el logo/divider. Es el modo por defecto.
+2. **Cobranding S** (`cobranding-s`) — Tamaño pequeño.
+3. **Cobranding M** (`cobranding-m`) — Tamaño mediano.
+4. **Cobranding L** (`cobranding-l`) — Tamaño grande.
 
 ### El wrapper compartido
-El archivo `_header-wrapper.html` (con guion bajo) es la **envolvente común a todos los headers**. Cuando armas un mail, el flujo es: insertas el wrapper, y dentro del wrapper insertas el contenido de uno de los 6 headers específicos.
+El archivo `_header-wrapper.html` (con guion bajo) es la **envolvente común a todos los headers**. Cuando armas un mail, el flujo es: insertas el wrapper, y dentro del wrapper insertas el `<tr>` de uno de los 40 archivos específicos (10 marcas × claro/oscuro × centrado/columnas).
 
 ---
 
@@ -144,8 +146,8 @@ Dentro de cada banner (excepto el editorial) hay 4 piezas que se pueden incluir 
 
 Las reglas exactas de cuándo conservar/eliminar están comentadas dentro de cada banner.
 
-### Regla #4 · El banner cambia mucho según el KV
-El banner es donde más reglas de KV se aplican: background-color, background-image, color de textos, bgcolor del tag, border-radius. Antes de armar el banner, consulta la `GUIA-DE-KVS.md` para los valores exactos.
+### Regla #4 · El banner cambia mucho según el tema
+El banner es donde más reglas de tema se aplican: background-color, background-image, color de textos, bgcolor del tag, border-radius. Antes de armar el banner, consulta `GUIA-DE-TEMAS.md` para los valores exactos (los comentarios internos del banner todavía usan la nomenclatura anterior; los valores de referencia son los de esa guía).
 
 ---
 
@@ -468,7 +470,7 @@ Mientras armas la zona libre del cuerpo, recuerda los separadores:
 Si acabas de entrar al equipo y vas a producir tu primer mail, sigue estos pasos en este orden:
 
 1. **Lee el README principal** del repo (el archivo `README.md` en la raíz)
-2. **Lee `GUIA-DE-KVS.md`** completa. Es la que más importa.
+2. **Lee `GUIA-DE-TEMAS.md`** completa. Es la que más importa.
 3. **Lee esta guía** completa.
 4. **Lee `COMO-ARMAR-UN-MAIL.md`** para tener el paso a paso en mente.
 5. **Mira ejemplos reales** en `07-examples/` cuando existan.
@@ -478,7 +480,7 @@ Si acabas de entrar al equipo y vas a producir tu primer mail, sigue estos pasos
 
 ## Referencias cruzadas
 
-- Reglas detalladas de KV: `06-docs/GUIA-DE-KVS.md`
+- Reglas detalladas de temas: `06-docs/GUIA-DE-TEMAS.md`
 - Flujo paso a paso: `06-docs/COMO-ARMAR-UN-MAIL.md`
 - Índice de componentes con líneas exactas: `06-docs/INDICE-DE-COMPONENTES.md`
 - Cómo contribuir al sistema: `06-docs/CONTRIBUTING.md`
