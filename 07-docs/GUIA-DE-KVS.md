@@ -1,8 +1,13 @@
 # Guía completa de KVs
 
-Esta guía documenta cómo se aplican los 5 KVs (Key Visuals) del sistema J.A.R.V.I.S. Es la referencia más importante del repositorio: **el 80% de los errores de producción se cometen por aplicar mal un KV.**
+> **⚠️ OBSOLETO.** Esta guía documenta el esquema anterior de **5 KVs** (Genérico, Turbo, Neutro, Pro, ProBlack). Ese esquema **ya no se usa**: fue reemplazado por un sistema de **11 temas** (light/dark), implementado como variables Liquid en
+> `01-foundations/global-styles/head-meta-tags.html` (sección `TEMAS`, condicionada por `tema_general`).
+>
+> Los 11 temas: **Pastel** (Beige 100, Beige 150, Rosa 100, Púrpura 100, Celeste 100, Verde 100), **Oscuros/invertidos** (Dark neon, Dark Turbo, Dark Neutro) y **Premium** (Pro, ProBlack). El mapeo KV↔CSS que esta guía anticipaba en la carpeta `04-variants/` nunca se completó de esa forma y esa carpeta fue eliminada del repositorio; el mecanismo real es el bloque Liquid mencionado arriba.
+>
+> El contenido de abajo queda como referencia histórica para entender mails ya producidos con el esquema viejo. **No lo uses para producir mails nuevos.**
 
-> Lee esta guía completa antes de generar tu primer mail. Tenla a la mano siempre.
+Esta guía documenta cómo se aplicaban los 5 KVs (Key Visuals) del sistema J.A.R.V.I.S., antes de la migración al sistema de 11 temas.
 
 ---
 
@@ -264,19 +269,18 @@ En el footer hay una variable Liquid que cambia el estilo visual:
 
 ---
 
-## El futuro: cuando esto sea automático
+## Qué reemplazó a este sistema
 
-Hoy, aplicar un KV es un proceso manual de leer comentarios y cambiar valores uno por uno. **Esto es exactamente lo que la carpeta `04-variants/` va a resolver.**
+Todo lo de arriba era un proceso manual: leer comentarios condicionales y cambiar valores uno por uno por cada una de las 7 zonas. Ese proceso ya se automatizó, pero no como esta guía anticipaba (una carpeta `04-variants/` con un CSS por KV que se aplica como capa encima).
 
-Cuando la fase 2 del sistema esté lista, cada KV vivirá como un archivo CSS independiente (`generico.css`, `turbo.css`, `neutro.css`, `pro.css`, `pro-black.css`). Producir un mail Pro será entonces simplemente:
+Lo que existe hoy es distinto: un bloque Liquid único en `01-foundations/global-styles/head-meta-tags.html` (sección `TEMAS`) con un `{% if tema_general == '...' %} ... {% endif %}` por cada uno de los **11 temas**. Dentro de cada rama se asignan las variables de ese tema (fondo, texto, acentos, contenedores, tags, imágenes, banner, legales, descuento/créditos) que el resto del HTML consume por variable, no por clase CSS aplicada encima.
 
-```
-opening.html + componentes + closing.html
-              ↓
-        pro.css aplicado como capa encima
-```
+Diferencias clave frente al esquema viejo:
+- Son **11 temas**, no 5: Pastel (Beige 100, Beige 150, Rosa 100, Púrpura 100, Celeste 100, Verde 100), Oscuros/invertidos (Dark neon, Dark Turbo, Dark Neutro) y Premium (Pro, ProBlack).
+- Cada tema define valores para **light y dark**, no un único set de colores.
+- La resolución es por variable Liquid (`{% assign %}`), no por un `.css` que se inyecta encima del HTML.
 
-Y todas estas 7 zonas se aplicarán automáticamente sin que nadie tenga que recordar cada regla. Por ahora, esta guía es la fuente de verdad.
+Producir un mail con un tema hoy es: `opening.html + componentes + closing.html`, con `tema_general` fijando qué rama del bloque `TEMAS` resuelve las variables — no hay un archivo de skin separado que aplicar.
 
 ---
 
@@ -285,3 +289,4 @@ Y todas estas 7 zonas se aplicarán automáticamente sin que nadie tenga que rec
 - Para entender cómo se arma un mail completo: ver `07-docs/COMO-ARMAR-UN-MAIL.md`
 - Para entender cada brick individualmente: ver `07-docs/USO-DE-CADA-PARTE.md`
 - Para ver dónde está cada regla en el HTML original: ver `08-examples/template_maestro_original.html`
+- Para el sistema de temas actual: ver la sección `TEMAS` en `01-foundations/global-styles/head-meta-tags.html`

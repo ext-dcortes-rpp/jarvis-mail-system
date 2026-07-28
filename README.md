@@ -17,7 +17,7 @@ Si abres una caja de LEGO encuentras tres cosas: las **piezas** (los bricks), la
 | Las reglas de color y forma | `01-foundations/` |
 | El tablero base | `02-base-template/` |
 | Los bricks individuales | `03-components/` |
-| Las skins (Pro, Turbo, Neutro...) | `04-variants/` |
+| Las skins (los 11 temas: Beige, Rosa, Púrpura, Celeste, Verde, Dark neon/Turbo/Neutro, Pro, ProBlack) | Liquid en `01-foundations/global-styles/head-meta-tags.html` |
 | Los modelos ya armados | `05-templates/` |
 
 ## Cómo se arma un mail
@@ -72,9 +72,6 @@ jarvis-mail-system/
 │   ├── closing/               Imagen de cierre
 │   └── footer/                Footer general
 │
-├── 04-variants/               Las skins
-│   └── kv-types/              Genérico, Turbo, Neutro, Pro, ProBlack
-│
 ├── 05-templates/              Los modelos armados
 │   ├── full-templates/        Combinaciones completas listas para usar
 │   └── by-vertical/           Templates por vertical de negocio
@@ -91,13 +88,13 @@ jarvis-mail-system/
 1. **Cero Inserción Autónoma.** Nadie inventa módulos nuevos. Si no existe en este repo, no existe.
 2. **Los componentes no se modifican.** Se usan tal cual están. Lo que cambia entre un mail y otro son las imágenes, textos y los componentes que se incluyen u omiten.
 3. **Los comentarios `INICIO` / `FIN` y las instrucciones internas se conservan SIEMPRE.** Son parte del componente. No son adornos.
-4. **Las skins se aplican encima, no se mezclan.** Cuando un mail es Pro, se aplica `pro.css` sobre los componentes; no se modifican los componentes.
+4. **El tema se resuelve por Liquid, no se mezcla a mano.** Los 11 temas (light/dark) viven como variables `{% assign %}` en `01-foundations/global-styles/head-meta-tags.html`, condicionadas por `tema_general`; los componentes no se modifican para cambiar de tema.
 
 ## Documentación clave
 
 Antes de producir tu primer mail, lee estos dos documentos en orden:
 
-1. **[Guía completa de KVs](07-docs/GUIA-DE-KVS.md)** — Cómo se aplican los 5 KVs (Genérico, Turbo, Neutro, Pro, ProBlack) en las 7 zonas del HTML donde el KV afecta. Tabla maestra de referencia rápida + errores comunes y cómo evitarlos.
+1. **[Guía completa de KVs](07-docs/GUIA-DE-KVS.md)** — Documenta el esquema anterior de 5 KVs (Genérico, Turbo, Neutro, Pro, ProBlack), **obsoleto**. El sistema de temas actual (11 temas, light/dark) se resuelve por Liquid en `01-foundations/global-styles/head-meta-tags.html`.
 2. **[Uso correcto de cada parte](07-docs/USO-DE-CADA-PARTE.md)** — Guía brick por brick: cuándo usar cada componente, sus reglas internas, las piezas opcionales, y el orden recomendado de ensamblaje.
 
 Documentación complementaria en `07-docs/`:

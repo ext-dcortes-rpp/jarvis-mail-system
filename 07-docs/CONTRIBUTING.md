@@ -7,7 +7,7 @@ Este sistema vive porque el equipo lo cuida. Cualquier persona puede proponer ca
 1. Lee el README principal y entiende la metáfora del LEGO.
 2. Identifica qué tipo de cambio quieres hacer:
    - ¿Es un nuevo brick? → carpeta `03-components/`
-   - ¿Es una nueva skin? → carpeta `04-variants/`
+   - ¿Es un tema nuevo o un ajuste de tono? → sección Liquid TEMAS en `01-foundations/global-styles/head-meta-tags.html`
    - ¿Es un nuevo template combinando bricks existentes? → carpeta `05-templates/`
    - ¿Es un cambio a las reglas globales? → STOP. Esto requiere discusión en equipo.
 

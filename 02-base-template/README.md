@@ -55,6 +55,6 @@ closing.html
 
 ## Regla de oro
 
-Si te encuentras cambiando algo de esta carpeta, para. Casi siempre el cambio que necesitas hacer está en otro lado: en un componente (`03-components/`), en una skin (`04-variants/`), o en los foundations (`01-foundations/`).
+Si te encuentras cambiando algo de esta carpeta, para. Casi siempre el cambio que necesitas hacer está en otro lado: en un componente (`03-components/`), en el tema (Liquid en `01-foundations/global-styles/head-meta-tags.html`), o en los foundations (`01-foundations/`).
 
 El esqueleto es lo único que no se toca.
