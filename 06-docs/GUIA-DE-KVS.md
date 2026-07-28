@@ -286,7 +286,7 @@ Producir un mail con un tema hoy es: `opening.html + componentes + closing.html`
 
 ## Referencias cruzadas
 
-- Para entender cómo se arma un mail completo: ver `07-docs/COMO-ARMAR-UN-MAIL.md`
-- Para entender cada brick individualmente: ver `07-docs/USO-DE-CADA-PARTE.md`
-- Para ver dónde está cada regla en el HTML original: ver `08-examples/template_maestro_original.html`
+- Para entender cómo se arma un mail completo: ver `06-docs/COMO-ARMAR-UN-MAIL.md`
+- Para entender cada brick individualmente: ver `06-docs/USO-DE-CADA-PARTE.md`
+- Para ver dónde está cada regla en el HTML original: ver `07-examples/template_maestro_original.html`
 - Para el sistema de temas actual: ver la sección `TEMAS` en `01-foundations/global-styles/head-meta-tags.html`

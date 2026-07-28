@@ -3,8 +3,8 @@
 ## [0.3.0] - Documentación expandida de KVs y uso de componentes
 
 ### Agregado
-- **`07-docs/GUIA-DE-KVS.md`**: documentación exhaustiva de cómo se aplican los 5 KVs en las 7 zonas del HTML donde afectan. Incluye tabla maestra de referencia rápida y lista de errores comunes con cómo evitarlos.
-- **`07-docs/USO-DE-CADA-PARTE.md`**: guía brick por brick de cuándo usar cada componente, sus reglas internas y el orden recomendado de ensamblaje.
+- **`06-docs/GUIA-DE-KVS.md`**: documentación exhaustiva de cómo se aplican los 5 KVs en las 7 zonas del HTML donde afectan. Incluye tabla maestra de referencia rápida y lista de errores comunes con cómo evitarlos.
+- **`06-docs/USO-DE-CADA-PARTE.md`**: guía brick por brick de cuándo usar cada componente, sus reglas internas y el orden recomendado de ensamblaje.
 - Sección "Documentación clave" en el README principal apuntando a estos dos documentos.
 
 ## [0.2.0] - Actualización con nuevos módulos

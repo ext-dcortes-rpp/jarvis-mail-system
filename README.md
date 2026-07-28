@@ -18,7 +18,7 @@ Si abres una caja de LEGO encuentras tres cosas: las **piezas** (los bricks), la
 | El tablero base | `02-base-template/` |
 | Los bricks individuales | `03-components/` |
 | Las skins (los 11 temas: Beige, Rosa, Púrpura, Celeste, Verde, Dark neon/Turbo/Neutro, Pro, ProBlack) | Liquid en `01-foundations/global-styles/head-meta-tags.html` |
-| Los modelos ya armados | `05-templates/` |
+| Los modelos ya armados | `04-templates/` |
 
 ## Cómo se arma un mail
 
@@ -72,15 +72,15 @@ jarvis-mail-system/
 │   ├── closing/               Imagen de cierre
 │   └── footer/                Footer general
 │
-├── 05-templates/              Los modelos armados
+├── 04-templates/              Los modelos armados
 │   ├── full-templates/        Combinaciones completas listas para usar
 │   └── by-vertical/           Templates por vertical de negocio
 │
-├── 06-assets/                 Imágenes y logos
+├── 05-assets/                 Imágenes y logos
 │
-├── 07-docs/                   Documentación del sistema
+├── 06-docs/                   Documentación del sistema
 │
-└── 08-examples/               Ejemplos reales de mails ya construidos
+└── 07-examples/               Ejemplos reales de mails ya construidos
 ```
 
 ## Reglas de oro
@@ -94,10 +94,10 @@ jarvis-mail-system/
 
 Antes de producir tu primer mail, lee estos dos documentos en orden:
 
-1. **[Guía completa de KVs](07-docs/GUIA-DE-KVS.md)** — Documenta el esquema anterior de 5 KVs (Genérico, Turbo, Neutro, Pro, ProBlack), **obsoleto**. El sistema de temas actual (11 temas, light/dark) se resuelve por Liquid en `01-foundations/global-styles/head-meta-tags.html`.
-2. **[Uso correcto de cada parte](07-docs/USO-DE-CADA-PARTE.md)** — Guía brick por brick: cuándo usar cada componente, sus reglas internas, las piezas opcionales, y el orden recomendado de ensamblaje.
+1. **[Guía completa de KVs](06-docs/GUIA-DE-KVS.md)** — Documenta el esquema anterior de 5 KVs (Genérico, Turbo, Neutro, Pro, ProBlack), **obsoleto**. El sistema de temas actual (11 temas, light/dark) se resuelve por Liquid en `01-foundations/global-styles/head-meta-tags.html`.
+2. **[Uso correcto de cada parte](06-docs/USO-DE-CADA-PARTE.md)** — Guía brick por brick: cuándo usar cada componente, sus reglas internas, las piezas opcionales, y el orden recomendado de ensamblaje.
 
-Documentación complementaria en `07-docs/`:
+Documentación complementaria en `06-docs/`:
 - `COMO-ARMAR-UN-MAIL.md` — Flujo paso a paso para armar un mail desde cero
 - `INDICE-DE-COMPONENTES.md` — Mapa con cada componente y su ubicación en el HTML original
 - `CONTRIBUTING.md` — Cómo proponer cambios al sistema

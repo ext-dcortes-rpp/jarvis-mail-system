@@ -471,14 +471,14 @@ Si acabas de entrar al equipo y vas a producir tu primer mail, sigue estos pasos
 2. **Lee `GUIA-DE-KVS.md`** completa. Es la que más importa.
 3. **Lee esta guía** completa.
 4. **Lee `COMO-ARMAR-UN-MAIL.md`** para tener el paso a paso en mente.
-5. **Mira ejemplos reales** en `08-examples/` cuando existan.
+5. **Mira ejemplos reales** en `07-examples/` cuando existan.
 6. **Tu primer mail**: pídele al equipo un mail real que ya esté producido y armálo desde cero usando el sistema. Compara el resultado con el original — si coincide, ya entendiste J.A.R.V.I.S.
 
 ---
 
 ## Referencias cruzadas
 
-- Reglas detalladas de KV: `07-docs/GUIA-DE-KVS.md`
-- Flujo paso a paso: `07-docs/COMO-ARMAR-UN-MAIL.md`
-- Índice de componentes con líneas exactas: `07-docs/INDICE-DE-COMPONENTES.md`
-- Cómo contribuir al sistema: `07-docs/CONTRIBUTING.md`
+- Reglas detalladas de KV: `06-docs/GUIA-DE-KVS.md`
+- Flujo paso a paso: `06-docs/COMO-ARMAR-UN-MAIL.md`
+- Índice de componentes con líneas exactas: `06-docs/INDICE-DE-COMPONENTES.md`
+- Cómo contribuir al sistema: `06-docs/CONTRIBUTING.md`

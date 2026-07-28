@@ -8,7 +8,7 @@ Este sistema vive porque el equipo lo cuida. Cualquier persona puede proponer ca
 2. Identifica qué tipo de cambio quieres hacer:
    - ¿Es un nuevo brick? → carpeta `03-components/`
    - ¿Es un tema nuevo o un ajuste de tono? → sección Liquid TEMAS en `01-foundations/global-styles/head-meta-tags.html`
-   - ¿Es un nuevo template combinando bricks existentes? → carpeta `05-templates/`
+   - ¿Es un nuevo template combinando bricks existentes? → carpeta `04-templates/`
    - ¿Es un cambio a las reglas globales? → STOP. Esto requiere discusión en equipo.
 
 ## Reglas
@@ -32,7 +32,7 @@ Este sistema vive porque el equipo lo cuida. Cualquier persona puede proponer ca
 1. Crea una rama desde `main`: `git checkout -b feat/nuevo-modulo`
 2. Haz tus cambios.
 3. Actualiza el README de la carpeta donde cambiaste algo.
-4. Actualiza `07-docs/INDICE-DE-COMPONENTES.md` si agregaste un brick.
+4. Actualiza `06-docs/INDICE-DE-COMPONENTES.md` si agregaste un brick.
 5. Abre un Pull Request.
 
 ## Decisiones que requieren consenso
