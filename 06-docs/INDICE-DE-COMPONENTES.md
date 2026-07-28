@@ -13,13 +13,14 @@ Mapa rápido de todos los bricks disponibles. Para cada uno: qué hace, dónde v
 | Header RappiProBlack | `03-components/headers/rappi-pro-black.html` | 1097-1135 |
 | Header RappiPro | `03-components/headers/rappi-pro.html` | 1138-1176 |
 
-## Banners · 3 bricks
+## Banners · 2 bricks + 6 atoms
 
 | Componente | Archivo | Líneas en HTML original |
 |------------|---------|------------------------|
 | Big banner horizontal | `03-components/banners/big-banner-horizontal.html` | 1189-1352 |
 | Big banner vertical | `03-components/banners/big-banner-vertical.html` | 1354-1510 |
-| Banner editorial | `03-components/banners/banner-editorial.html` | 1512-1596 |
+
+`banner-editorial.html` y `_banner-section-close.html` se eliminaron del sistema. Las piezas internas del banner viven en `03-components/banners/banner_atoms/` (`modulo_tags`, `modulo_img_altofijo`, `modulo_img_variable`, `modulo_creditos`, `modulo_texto_secundario`, `modulo_texto_complementario`) — todavía sin línea de referencia en el HTML original, son ensamblados nuevos.
 
 ## CTAs · 1 brick
 

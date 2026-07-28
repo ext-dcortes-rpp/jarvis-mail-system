@@ -20,13 +20,14 @@ Imagina una caja de LEGO con tres tipos de cosas:
 Toma `02-base-template/opening.html` y pégalo al inicio. Te da el doctype, head, meta tags, estilos globales y la apertura del wrapper.
 
 ### Paso 3 — Agrega un header
-De `03-components/headers/`, elige UNO según la marca. Las instrucciones de cobranding (sin / con tag / 1:1) están en los comentarios del archivo.
+De `03-components/headers/`, elige la carpeta de marca y dentro de ella el archivo según fondo (claro/oscuro) y disposición (centrado/columnas). Las instrucciones de cobranding (sin / S / M / L) están en los comentarios del archivo.
 
 ### Paso 4 — Agrega un banner
 De `03-components/banners/`, elige UNO:
 - `big-banner-horizontal.html` — Si el mail tiene módulos en el body
 - `big-banner-vertical.html` — Si el mail solo tiene CTA y cierre
-- `banner-editorial.html` — Banner full image
+
+Las piezas internas (tag, imagen, créditos, textos) están en `03-components/banners/banner_atoms/`.
 
 ### Paso 5 — Abre la zona de contenido
 Pega `02-base-template/body-wrapper-open.html`.

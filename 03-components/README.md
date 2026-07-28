@@ -38,15 +38,27 @@ Cada archivo contiene únicamente el `<tr>` del header (con su comentario identi
 
 ### `banners/` — La cabecera visual del mail
 
-3 formatos. **Se usa solo UNO por mail.**
+2 formatos. **Se usa solo UNO por mail.**
 
 | Archivo | Cuándo se usa |
 |---------|---------------|
 | `big-banner-horizontal.html` | Mails con módulos de contenido en el body además de cierre y CTA |
 | `big-banner-vertical.html` | Mails que solo tienen CTA y cierre, o banners con logos |
-| `banner-editorial.html` | Banner estilo editorial (full image) |
 
-Cada banner contiene piezas internas (TAG, CONTENEDOR DE TEXTOS, LOGO, TEXTO DE REFUERZO) cuyas reglas de inclusión/omisión están en los comentarios internos.
+`banner-editorial.html` y `_banner-section-close.html` se eliminaron del sistema.
+
+#### `banner_atoms/` — Piezas internas del banner
+
+| Archivo | Descripción |
+|---------|-------------|
+| `modulo_tags.html` | Tag/etiqueta que se muestra sobre el banner |
+| `modulo_img_altofijo.html` | Columna de imagen de alto fijo (banner horizontal) |
+| `modulo_img_variable.html` | Franja de imagen de alto variable (banner vertical) |
+| `modulo_creditos.html` | Texto vivo principal (créditos/cifra), usa las clases `bnr-*` |
+| `modulo_texto_secundario.html` | Línea secundaria de texto vivo — contenido provisional, pendiente de definir |
+| `modulo_texto_complementario.html` | Texto complementario del banner — contenido provisional, pendiente de definir |
+
+El tamaño de las clases `bnr-*` usadas en `modulo_creditos.html` y `modulo_texto_secundario.html` depende de si el banner que las envuelve está marcado con `id="BANNER_HORIZONTAL"` o `id="BANNER_VERTICAL"` (ver `01-foundations/global-styles/global-styles.html`).
 
 ### `ctas/` — El botón de acción
 

@@ -276,20 +276,6 @@ const P = {
       </div>
     </div>`;
   },
-  bannerE(kv) {
-    const v=KV[kv];
-    const bg=v.grad?`linear-gradient(135deg,rgba(254,63,35,.6),rgba(0,0,0,.3))`:`${v.bannerBg}`;
-    return `<div style="background:${bg};border-radius:10px;margin:8px;overflow:hidden;">
-      <div style="padding:12px;display:flex;flex-direction:column;gap:4px;">
-        <div style="width:28px;height:14px;border-radius:3px;background:${v.tc};opacity:.9;"></div>
-        <div style="width:70px;height:8px;border-radius:3px;background:${v.tc};opacity:.55;"></div>
-        <div style="width:54px;height:7px;border-radius:3px;background:${v.tc};opacity:.35;"></div>
-      </div>
-      <div style="background:rgba(0,0,0,.25);background-image:repeating-linear-gradient(45deg,transparent,transparent 4px,rgba(255,255,255,.04) 4px,rgba(255,255,255,.04) 8px);height:52px;display:flex;align-items:center;justify-content:center;">
-        <span style="color:rgba(255,255,255,.2);font-size:11px;font-family:Arial;">Imagen full width</span>
-      </div>
-    </div>`;
-  },
   cta(kv) {
     const v=KV[kv];
     const btn=kv==='turbo'?'#00C49A':kv==='pro'||kv==='proBlack'?'#DAA868':'#fe3f23';
@@ -399,7 +385,6 @@ const COMPONENTS = [
 
   {id:'banner-h',  cat:'banners', name:'Big Banner Horizontal', desc:'Texto izq. + imagen der.',   file:'03-components/banners/big-banner-horizontal.html', prev:kv=>P.bannerH(kv)},
   {id:'banner-v',  cat:'banners', name:'Big Banner Vertical',   desc:'Texto arriba + imagen abajo', file:'03-components/banners/big-banner-vertical.html',   prev:kv=>P.bannerV(kv)},
-  {id:'banner-ed', cat:'banners', name:'Banner Editorial',      desc:'Texto + imagen full width',   file:'03-components/banners/banner-editorial.html',      prev:kv=>P.bannerE(kv)},
 
   {id:'cta', cat:'ctas', name:'CTA', desc:'Botón de llamada a la acción', file:'03-components/ctas/cta-template.html', prev:kv=>P.cta(kv), multi:true},
 

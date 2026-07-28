@@ -118,33 +118,35 @@ El archivo `_header-wrapper.html` (con guion bajo) es la **envolvente común a t
 
 📁 `03-components/banners/`
 
-### Los 3 banners disponibles
+### Los 2 banners disponibles
 
 | Archivo | Cuándo se usa |
 |---------|---------------|
 | `big-banner-horizontal.html` | Cuando el mail tiene módulos en el body además de CTA y cierre |
 | `big-banner-vertical.html` | Cuando el mail solo tiene CTA y cierre (mail simple) |
-| `banner-editorial.html` | Cuando quieres una imagen full sin contenedor de textos |
+
+`banner-editorial.html` y `_banner-section-close.html` se eliminaron del sistema.
 
 ### Regla #1 · Solo UNO por mail
 Igual que el header, un mail tiene exactamente un banner.
 
-### Regla #2 · Eliges según la composición del mail, no según el KV
-El KV define los colores del banner; el **tipo de banner se elige según qué módulos tendrá el mail**:
+### Regla #2 · Eliges según la composición del mail, no según el tema
+El tema define los colores del banner; el **tipo de banner se elige según qué módulos tendrá el mail**:
 
 - **¿El mail solo tiene CTA + cierre?** → big banner vertical
 - **¿El mail tiene módulos de contenido, deals, cupones, beneficios?** → big banner horizontal
-- **¿El mail es 100% imagen, sin texto encima?** → banner editorial
 
-### Regla #3 · Cada banner tiene 4 piezas internas opcionales
-Dentro de cada banner (excepto el editorial) hay 4 piezas que se pueden incluir u omitir según la fuente:
+### Regla #3 · Las piezas internas del banner viven en `banner_atoms/`
+📁 `03-components/banners/banner_atoms/` — 6 piezas que se combinan dentro de cada banner:
 
-1. **TAG** (etiqueta superior) — Si la fuente no trae tag, ELIMINA toda la div del tag.
-2. **CONTENEDOR DE TEXTOS** — h1, h2, h3, h4, h5, h6 según jerarquía. Eliminas las etiquetas que no uses.
-3. **LOGO** (logo de partner dentro del banner) — Si la fuente no trae logo, ELIMINA toda la etiqueta.
-4. **TEXTO DE REFUERZO** (texto 1 / texto 2 al pie del banner) — Si no hay, conserva el `<td>` pero sin la tabla interior.
+1. **`modulo_tags.html`** — Tag/etiqueta superior. Si la fuente no trae tag, se omite.
+2. **`modulo_img_altofijo.html`** — Columna de imagen de alto fijo, para el banner horizontal.
+3. **`modulo_img_variable.html`** — Franja de imagen de alto variable, para el banner vertical.
+4. **`modulo_creditos.html`** — Texto vivo principal (créditos/cifra), usa las clases `bnr-*`.
+5. **`modulo_texto_secundario.html`** — Línea secundaria de texto vivo.
+6. **`modulo_texto_complementario.html`** — Texto complementario del banner.
 
-Las reglas exactas de cuándo conservar/eliminar están comentadas dentro de cada banner.
+Los últimos dos (`texto_secundario` / `texto_complementario`) todavía tienen contenido provisional — su distinción exacta está pendiente de definir con el equipo.
 
 ### Regla #4 · El banner cambia mucho según el tema
 El banner es donde más reglas de tema se aplican: background-color, background-image, color de textos, bgcolor del tag, border-radius. Antes de armar el banner, consulta `GUIA-DE-TEMAS.md` para los valores exactos (los comentarios internos del banner todavía usan la nomenclatura anterior; los valores de referencia son los de esa guía).
