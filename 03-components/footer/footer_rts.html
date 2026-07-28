@@ -1,0 +1,567 @@
+<!--
+----------------------------
+-------- STYLE LOOK --------
+----------------------------
+{% assign font_style_look = font_style_look | default: 'negro' %}
+
+----------------------------------
+------ FONDO BOTONES FIJO --------
+----------------------------------
+{% assign color_fondowa = 'rgba(115,195,91,0.1)' %}
+{% assign color_fondotg = 'rgba(0,136,204,0.1)' %}
+{% assign color_fondofb = 'rgba(24,119,242,0.1)' %}
+
+	    {% if font_style_look == 'negro' %}
+		{% assign color_letra = '#7d8188' %}
+		{% assign color_textwa = '#52ca2d' %}
+		{% assign color_bordewa = '2px solid #52ca2d' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/1F18vChiw3QITlsMJErccLGkDTHTbnJvY' %}
+        {% assign color_texttg = '#1888C9' %}
+	 	{% assign color_bordetg = '2px solid #1888C9' %}
+		{% assign tglogo = 'https://lh3.googleusercontent.com/d/1P1Wd1eZMixGEKaRNR1nqSEXx5djz-nDH' %}
+        {% assign color_textfb = '#2669F6' %}
+		{% assign color_bordefb = '2px solid #2669F6' %}
+		{% assign fblogo = 'https://lh3.googleusercontent.com/d/1GF91p8HSGfq7Wf_mP6T6yZl4OiJE541C' %}
+		{% assign logo = 'https://lh3.googleusercontent.com/d/1jUTxnpXK0J43xxT6mbnvAuHBlRUa0gc1' %}
+		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
+		{% assign img-amor = 'https://lh3.googleusercontent.com/d/1YyaYertMcTnLywsk9dk7yFTe_4bMFOD3' %}
+		{% assign show_hr = false %}
+			{% if {{${user_id}}} contains 'BR' %}
+			{% assign img-amor = 'https://lh3.googleusercontent.com/d/1ud9FQo9bAVuSSrcsGGVcfVDR15i6yRTq' %}
+			{% endif %}
+
+	    {% elsif font_style_look == 'pro' %}
+		{% assign color_letra = '#A4A5A6' %}
+		{% assign color_textwa = '#f8b76f' %}
+		{% assign color_bordewa = '2px solid #f8b76f' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/16AStlqgQyi2OeNp62kekDDpf8lGhVM1k' %}
+        {% assign color_texttg = '#f8b76f' %}
+		{% assign color_bordetg = '2px solid #f8b76f' %}
+		{% assign tglogo = 'https://lh3.googleusercontent.com/d/1F-_2LJik5IrCp0vmE-rVWXKjSeYjVNFk' %}
+        {% assign color_textfb = '#f8b76f' %}
+		{% assign color_bordefb = '2px solid #f8b76f' %}
+		{% assign fblogo = 'https://lh3.googleusercontent.com/d/1zLtZSExa0-eGTaScZJpA-rcYzeYMhvxq' %}
+		{% assign color_membresia = '#D0D0D1' %}
+		{% assign show_hr = true %}
+		{% assign logo = 'https://lh3.googleusercontent.com/d/15j7YHNv1qVdDAWUNs_G6OhQImaYbNz2g' %}
+		{% assign bigote = 'https://lh3.googleusercontent.com/d/1dL43rjEJfev_We8qjnbFx_mk7HUJ7N7j' %}
+		{% assign img-amor = 'https://lh3.googleusercontent.com/d/1eGtd155KXr5bd_B2hSo27xPkYj9mKErp' %}
+			{% if {{${user_id}}} contains 'BR' %}
+			{% assign img-amor = 'https://lh3.googleusercontent.com/d/1fMO_apmLSG4UkEvyJ1g6dym9A6oaX4XB' %}
+			{% endif %}
+	{% elsif font_style_look == 'blanco' %}
+		{% assign color_letra = '#FFFFFF' %}
+		{% assign color_textwa = '#52ca2d' %}
+		{% assign color_bordewa = '2px solid #52ca2d' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/1F18vChiw3QITlsMJErccLGkDTHTbnJvY' %}
+		{% assign color_texttg = '#1888C9' %}
+		{% assign color_bordetg = '2px solid #1888C9' %}
+		{% assign tglogo = 'https://lh3.googleusercontent.com/d/1P1Wd1eZMixGEKaRNR1nqSEXx5djz-nDH' %}
+		{% assign color_textfb = '#2669F6' %}
+		{% assign color_bordefb = '2px solid #2669F6' %}
+		{% assign fblogo = 'https://lh3.googleusercontent.com/d/1GF91p8HSGfq7Wf_mP6T6yZl4OiJE541C' %}
+		{% assign logo = 'https://lh3.googleusercontent.com/d/13fInYFB5qKUpniUQhPN54WF2lBY2770h' %}
+		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
+		{% assign img-amor = 'https://lh3.googleusercontent.com/d/1YyaYertMcTnLywsk9dk7yFTe_4bMFOD3' %}
+		{% assign show_hr = false %}
+			{% if {{${user_id}}} contains 'BR' %}
+			{% assign img-amor = 'https://lh3.googleusercontent.com/d/1ud9FQo9bAVuSSrcsGGVcfVDR15i6yRTq' %}
+			{% endif %}
+			{% if {{${user_id}}} contains 'CL' %}
+			{% assign imgchile = 'https://lh3.googleusercontent.com/d/1ap3V0qcokYXYBDZ_yR4EPdpPzd9KYyBN' %}
+			{% endif %}
+	{% else %}
+		{% assign color_letra = '#000000' %}
+		{% assign color_textwa = '#52ca2d' %}
+		{% assign color_bordewa = '2px solid #52ca2d' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/1F18vChiw3QITlsMJErccLGkDTHTbnJvY' %}
+        {% assign color_textwtg = '#1888C9' %}
+		{% assign color_bordetg = '2px solid #1888C9' %}
+		{% assign tglogo = 'https://lh3.googleusercontent.com/d/1P1Wd1eZMixGEKaRNR1nqSEXx5djz-nDH' %}
+        {% assign color_textwfb = '#2669F6' %}
+		{% assign color_bordefb = '2px solid #2669F6' %}
+		{% assign fblogo = 'https://lh3.googleusercontent.com/d/1GF91p8HSGfq7Wf_mP6T6yZl4OiJE541C' %}
+		{% assign logo = 'https://lh3.googleusercontent.com/d/1jUTxnpXK0J43xxT6mbnvAuHBlRUa0gc1' %}
+		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
+		{% assign img-amor = 'https://lh3.googleusercontent.com/d/1YyaYertMcTnLywsk9dk7yFTe_4bMFOD3' %}
+		{% assign show_hr = false %}
+			{% if {{${user_id}}} contains 'BR' %}
+			{% assign img-amor = 'https://lh3.googleusercontent.com/d/1ud9FQo9bAVuSSrcsGGVcfVDR15i6yRTq' %}
+			{% endif %}
+
+{% endif %}
+
+----------------------------------
+-------- BACKGROUND COLOR --------
+----------------------------------
+{% if background_colour == '' or background_colour == null %}
+  {% assign background_colour = 'transparent' %}
+{% endif %}
+
+
+----------------------------------
+----- LEGALES RAZON SOCIAL -------
+----------------------------------
+
+
+{% if {{${user_id}}} contains 'AR' %}
+  {% assign Legal_blog = "Por favor no responder este mail, en caso de dudas consultar nuestro" %}
+  {% assign centro_ayuda = "Centro de ayuda" %}
+  {% assign aviso_privacidad = "Aviso de privacidad" %}
+  {% assign terminos_y_condiciones = "Términos y Condiciones" %}
+  {% assign cancelar_suscription = "Cancelar suscripción" %}
+  {% assign razon_social = "Recibiste este mail porque sos nuestro usuario.<br>
+Copyright © Rappi ARG S.A.S. Todos los derechos reservados.<br>
+<b>Soy Rappi - AR</b>" %}
+
+{% elsif {{${user_id}}} contains 'BR' %}
+  {% assign Legal_blog = "Por favor não responder este e-mail, em caso de dúvidas, pode consultar nosso" %}
+  {% assign centro_ayuda = "Central de ajuda" %}
+  {% assign aviso_privacidad = "Aviso de privacidade" %}
+  {% assign terminos_y_condiciones = "Termos e Condições" %}
+  {% assign cancelar_suscription = "Cancelar inscrição" %}
+  {% assign razon_social = "Você recebeu este e-mail porque está cadastrado na nossa base de dados.<br>
+Copyright © Rappi Brasil Intermediação de Negócios LTDA. Todos os direitos reservados.<br>
+<b>Rappi Entregador - BR</b>" %}
+
+{% elsif {{${user_id}}} contains 'CL' %}
+  {% assign Legal_blog = "Por favor no responder este mail, en caso de dudas consultar nuestro" %}
+  {% assign centro_ayuda = "Centro de ayuda" %}
+  {% assign aviso_privacidad = "Aviso de privacidad" %}
+  {% assign terminos_y_condiciones = "Términos y Condiciones" %}
+  {% assign cancelar_suscription = "Cancelar suscripción" %}
+  {% assign razon_social = "Recibiste este mail porque eres nuestro usuario.<br>
+Copyright © Rappi Chile SpA. Todos los derechos reservados. <br> 
+<b>Soy Rappi - CL</b>" %}
+
+{% elsif {{${user_id}}} contains 'CO' %}
+  {% assign Legal_blog = "Por favor no responder este mail, en caso de dudas consultar nuestro" %}
+  {% assign centro_ayuda = "Centro de ayuda" %}
+  {% assign aviso_privacidad = "Aviso de privacidad" %}
+  {% assign terminos_y_condiciones = "Términos y Condiciones" %}
+  {% assign cancelar_suscription = "Cancelar suscripción" %}
+  {% assign razon_social = "Recibiste este mail porque eres nuestro usuario.<br>
+Copyright © RAPPI S.A.S. Todos los derechos reservados. <br>
+<b>Soy Rappi - CO</b>" %}
+
+{% elsif {{${user_id}}} contains 'CR' %}
+  {% assign Legal_blog = "Por favor no responder este mail, en caso de dudas consultar nuestro" %}
+  {% assign centro_ayuda = "Centro de ayuda" %}
+  {% assign aviso_privacidad = "Aviso de privacidad" %}
+  {% assign terminos_y_condiciones = "Términos y Condiciones" %}
+  {% assign cancelar_suscription = "Cancelar suscripción" %}
+  {% assign razon_social = "Recibiste este mail porque eres nuestro usuario.<br>
+Copyright © Rappi Pura Vida S.A. Todos los derechos reservados.
+ <br> 
+<b>Soy Rappi - CR</b>" %}
+
+{% elsif {{${user_id}}} contains 'EC' %}
+  {% assign Legal_blog = "Por favor no responder este mail, en caso de dudas consultar nuestro" %}
+  {% assign centro_ayuda = "Centro de ayuda" %}
+  {% assign aviso_privacidad = "Aviso de privacidad" %}
+  {% assign terminos_y_condiciones = "Términos y Condiciones" %}
+  {% assign cancelar_suscription = "Cancelar suscripción" %}
+  {% assign razon_social = "Recibiste este mail porque eres nuestro usuario.<br>
+Copyright © Rappi Pura Vida S.A. Todos los derechos reservados.
+ <br> 
+<b>Soy Rappi - EC</b>" %}
+
+{% elsif {{${user_id}}} contains 'MX' %}
+  {% assign Legal_blog = "Por favor no responder este mail, en caso de dudas consultar nuestro" %}
+  {% assign centro_ayuda = "Centro de ayuda" %}
+  {% assign aviso_privacidad = "Aviso de privacidad" %}
+  {% assign terminos_y_condiciones = "Términos y Condiciones" %}
+  {% assign cancelar_suscription = "Cancelar suscripción" %}
+  {% assign razon_social = "Recibiste este mail porque eres nuestro usuario.<br>
+Copyright © Tecnologías Rappi S.A.P.I. de C.V. Todos los derechos reservados. <br>
+<b>Soy Rappi - MX</b>" %}
+
+{% elsif {{${user_id}}} contains 'PE' %}
+  {% assign Legal_blog = "Por favor no responder este mail, en caso de dudas consultar nuestro" %}
+  {% assign centro_ayuda = "Centro de ayuda" %}
+  {% assign aviso_privacidad = "Aviso de privacidad" %}
+  {% assign terminos_y_condiciones = "Términos y Condiciones" %}
+  {% assign cancelar_suscription = "Cancelar suscripción" %}
+  {% assign razon_social = "Recibiste este mail porque eres nuestro usuario.<br>
+Copyright © Rappi S.A.C. Todos los derechos reservados. <br>
+<b>Soy Rappi - PE</b>" %}
+
+{% elsif {{${user_id}}} contains 'UY' %}
+  {% assign Legal_blog = "Por favor no responder este mail, en caso de dudas consultar nuestro" %}
+  {% assign centro_ayuda = "Centro de ayuda" %}
+  {% assign aviso_privacidad = "Aviso de privacidad" %}
+  {% assign terminos_y_condiciones = "Términos y Condiciones" %}
+  {% assign cancelar_suscription = "Cancelar suscripción" %}
+  {% assign razon_social = "Recibiste este mail porque sos nuestro usuario.<br>
+Copyright © Brisanier SA - Rappi Uruguay Todos los derechos reservados. <br> 
+<b>Soy Rappi - UY</b>" %}
+{% else %}
+  {% abort_message('No country in user_id') %}
+{% endif %}
+----------------------------------
+---------- LINKS LEGALES ---------
+----------------------------------
+{% if {{${user_id}}} contains 'AR' or {{${user_id}}} contains 'CL' or {{${user_id}}} contains 'CO' or {{${user_id}}} contains 'CR' or {{${user_id}}} contains 'EC' or {{${user_id}}} contains 'MX' or {{${user_id}}} contains 'PE' or {{${user_id}}} contains 'UY' %}
+  {% assign centro_ayuda_url = "https://rt.onelink.me/NnNe/2ua4h902" %}
+{% elsif {{${user_id}}} contains 'BR' %}
+  {% assign centro_ayuda_url = "https://rt.onelink.me/NnNe/2ua4h902" %}
+{% else %}
+  {% abort_message('No country in user_id') %}
+{% endif %}
+
+{% if {{${user_id}}} contains 'AR' %}
+  {% assign fb-copy = "Encontrá promos exclusivas en nuestro canal de Facebook" %}
+  {% assign fb-texto = "¡UNITE ACÁ!" %}
+  {% assign deeplink_facebook = "https://www.facebook.com/SoyRappiAR/" %}
+  {% assign aviso_privacidad_url = "https://legal.rappi.com.co/argentina/politica-de-privacidad-de-rappi/" %}
+  {% assign terminos_y_condiciones_url = "https://legal.rappi.com/argentina/terminos-y-condiciones-rappitenderos-3/" %}
+  {% assign cancelar_suscription_url = "https://legal.rappi.com.co/argentina/terminos-y-condiciones-de-rappi/" %}
+{% elsif {{${user_id}}} contains 'BR' %}
+  {% assign wa-copy = "Entre no canal do WhatsApp pra promoções exclusivas" %}
+  {% assign wa-texto = "ENTRE AQUI" %}
+  {% assign deeplink_whatsapp = "https://chat.whatsapp.com/KkLsgjNcpGX2W8vuWQMiQ7?s=cl&p=i&ilr=0" %}
+  {% assign aviso_privacidad_url = "https://legal.rappi.com.co/brazil/aviso-de-privacidade-e-politicas-de-uso-das-informacao-utilizadas-pela-rappi/" %}
+  {% assign terminos_y_condiciones_url = "https://legal.rappi.com/brazil/termos-e-condicoes-de-uso-de-plataforma-virtual-entregador-rappi/" %}
+  {% assign cancelar_suscription_url = "https://legal.rappi.com.co/brasil/termos-e-condicoes/" %}
+{% elsif {{${user_id}}} contains 'CL' %}
+  {% assign fb-copy = "Encuentra en el canal de Facebook promos exclusivas" %}
+  {% assign fb-texto = "ÚNETE AQUÍ" %}
+  {% assign deeplink_facebook = "https://www.facebook.com/soyrappichile/" %}
+  {% assign aviso_privacidad_url = "https://legal.rappi.com.co/chile/politica-de-privacidad/" %}
+  {% assign terminos_y_condiciones_url = "https://legal.rappi.com.co/chile/terminos-y-condiciones-consumidores-rappi/" %}
+  {% assign cancelar_suscription_url = "https://legal.rappi.com.co/chile/terminos-y-condiciones/" %}
+{% elsif {{${user_id}}} contains 'CO' %}
+  {% assign tg-copy = "Encuentra en el canal de Telegram y Facebook promos exclusivas" %}
+  {% assign tg-texto = "ÚNETE AQUÍ" %}
+  {% assign fb-texto = "ÚNETE AQUÍ" %}
+  {% assign deeplink_telegram = "https://t.me/ComunicacionesSoyRappi" %}
+  {% assign deeplink_facebook = "https://www.facebook.com/soyrappicolombia/?locale=es_LA" %}
+  {% assign aviso_privacidad_url = "https://legal.rappi.com.co/colombia/politica-de-proteccion-y-tratamiento-de-datos-personales-rappi-s-a-s/" %}
+  {% assign terminos_y_condiciones_url = "https://legal.rappi.com.co/colombia/terminos-y-condiciones-de-uso-de-plataforma-rappi-2/" %}
+  {% assign cancelar_suscription_url = "https://legal.rappi.com.co/colombia/terminos-y-condiciones/" %}
+{% elsif {{${user_id}}} contains 'CR' %}
+  {% assign fb-copy = "Encontrá promos exclusivas en nuestro canal de Facebook" %}
+  {% assign fb-texto = "¡UNITE ACÁ!" %}
+  {% assign deeplink_facebook = "https://www.facebook.com/SoyRappiCR/" %}
+  {% assign aviso_privacidad_url = "https://legal.rappi.com.co/costa-rica/politica-de-privacidad-de-rappi-2/" %}
+  {% assign terminos_y_condiciones_url = "https://legal.rappi.com.co/costa-rica/terminos-y-condiciones-app-soy-rappi/" %}
+  {% assign cancelar_suscription_url = "https://legal.rappi.com.co/costarica/terminos-y-condiciones/" %}
+{% elsif {{${user_id}}} contains 'EC' %}
+  {% assign fb-copy = "Encuentra en el canal de Facebook promos exclusivas" %}
+  {% assign fb-texto = "ÚNETE AQUÍ" %}
+  {% assign deeplink_facebook = "https://www.facebook.com/SoyRappiEC/" %}
+  {% assign aviso_privacidad_url = "https://legal.rappi.com.co/ecuador/politica-de-privacidad-de-rappi-y-tratamiento-de-datos-persolanes/" %}
+  {% assign terminos_y_condiciones_url = "https://legal.rappi.com.co/ecuador/terminos-y-condiciones-rappitenderos-5/" %}
+  {% assign cancelar_suscription_url = "https://legal.rappi.com.co/ecuador/terminos-y-condiciones/" %}
+{% elsif {{${user_id}}} contains 'MX' %}
+  {% assign wa-copy = "Encuentra en el canal de WhatsApp y Telegram promos exclusivas" %}
+  {% assign wa-texto = "ÚNETE AQUÍ" %}
+  {% assign tg-texto = "ÚNETE AQUÍ" %}
+  {% assign deeplink_whatsapp = "https://www.whatsapp.com/channel/0029Vb5nAyD59PwJfNTiCR2j" %}
+  {% assign deeplink_telegram = "http://t.me/comunicacionsoyrappimx" %}
+  {% assign aviso_privacidad_url = "https://legal.rappi.com.co/mexico/aviso-de-privacidad-usuarios/" %}
+  {% assign terminos_y_condiciones_url = "https://legal.rappi.com.co/mexico/terminos-condiciones-de-uso-de-plataforma-virtual-rappitendero/" %}
+  {% assign cancelar_suscription_url = "https://legal.rappi.com.co/mexico/terminos-y-condiciones/" %}
+{% elsif {{${user_id}}} contains 'PE' %}
+  {% assign fb-copy = "Encuentra en el canal de Facebook promos exclusivas" %}
+  {% assign fb-texto = "ÚNETE AQUÍ" %}
+  {% assign deeplink_facebook = "https://www.whatsapp.com/channel/0029Vb5nAyD59PwJfNTiCR2j" %}
+  {% assign aviso_privacidad_url = "https://legal.rappi.com.co/peru/politica-de-privacidad-de-rappi-y-tratamiento-de-datos-personales/" %}
+  {% assign terminos_y_condiciones_url = "https://legal.rappi.com.co/peru/terminos-y-condiciones-rappitenderos-2/" %}
+  {% assign cancelar_suscription_url = "https://legal.rappi.com.co/peru/terminos-y-condiciones/" %}
+{% elsif {{${user_id}}} contains 'UY' %}
+  {% assign fb-copy = "Encontrá promos exclusivas en nuestro canal de Facebook" %}
+  {% assign fb-texto = "¡UNITE ACÁ!" %}
+  {% assign deeplink_facebook = "https://www.whatsapp.com/channel/0029Vb5nAyD59PwJfNTiCR2j" %}
+  {% assign aviso_privacidad_url = "https://legal.rappi.com.co/uruguay/aviso-de-privacidad/" %}
+  {% assign terminos_y_condiciones_url = "https://legal.rappi.com/uruguay/terminos-y-condiciones-rappitenderos/" %}
+  {% assign cancelar_suscription_url = "https://legal.rappi.com.co/uruguay/terminos-y-condiciones/" %}
+{% else %}
+  {% abort_message('No country in user_id') %}
+{% endif %}
+
+
+----------------------------------------
+--------------- LINK BLOG  -------------
+----------------------------------------
+
+{% if {{${user_id}}} contains 'AR' %}
+  {% assign blog_url = "https://soyrappi.com.ar" %}
+  
+{% elsif {{${user_id}}} contains 'BR' %}
+  {% assign blog_url = "https://rappientregador.com.br/" %}
+
+{% elsif {{${user_id}}} contains 'CL' %}
+  {% assign blog_url = "https://soyrappi.cl" %}
+
+{% elsif {{${user_id}}} contains 'CO' %}
+  {% assign blog_url = "https://soyrappi.com.co" %}
+
+{% elsif {{${user_id}}} contains 'CR' %}
+  {% assign blog_url = "https://soyrappi.co.cr" %}
+
+{% elsif {{${user_id}}} contains 'EC' %}
+  {% assign blog_url = "https://soy-rappi.com.ec" %}
+
+{% elsif {{${user_id}}} contains 'MX' %}
+  {% assign blog_url = "https://soyrappi.com.mx" %}
+
+{% elsif {{${user_id}}} contains 'PE' %}
+  {% assign blog_url = "https://soyrappi.com.pe" %}
+
+{% elsif {{${user_id}}} contains 'UY' %}
+  {% assign blog_url = "https://soyrappi.com.uy" %}
+
+{% else %}
+  {% abort_message('No country in user_id') %}
+{% endif %}
+
+
+
+
+-->
+
+<head>
+<style type="text/css">
+body a {
+    text-decoration: none !important;
+}
+a {
+    text-decoration: none !important;
+}
+.ii a[href] {
+    color: inherit!important;
+    text-decoration: none!important;
+}
+@media (max-width:480px) {
+p {
+    font-size: 8px!important;
+    line-height: 9px!important;
+}
+.rts-section-pad {
+	padding-left: 20px !important;
+	padding-right: 20px !important;
+}
+.rts-btn-row {
+	width: 100% !important;
+}
+.rts-btn-cell {
+	width: 50% !important;
+	padding: 4px 3px !important;
+}
+.rts-btn-inner {
+	width: 100% !important;
+	min-width: 0 !important;
+}
+.rts-btn-inner td {
+	padding: 0px 4px !important;
+}
+.rts-btn-inner span {
+	font-size: 9px !important;
+	letter-spacing: 0.5px !important;
+}
+.rts-btn-inner img {
+	height: 10px !important;
+	max-height: 10px !important;
+	min-height: 10px !important;
+	padding-right: 3px !important;
+}
+}
+
+@media (max-width:620px) {
+p {
+font-size: 8px!important;
+line-height: 9px!important;
+}
+.rts-section-pad {
+	padding-left: 20px !important;
+	padding-right: 20px !important;
+}
+.rts-btn-row {
+	width: 100% !important;
+}
+.rts-btn-cell {
+	width: 50% !important;
+	padding: 4px 3px !important;
+}
+.rts-btn-inner {
+	width: 100% !important;
+	min-width: 0 !important;
+}
+.rts-btn-inner td {
+	padding: 0px 4px !important;
+}
+.rts-btn-inner span {
+	font-size: 9px !important;
+	letter-spacing: 0.5px !important;
+}
+.rts-btn-inner img {
+	height: 10px !important;
+	max-height: 10px !important;
+	min-height: 10px !important;
+	padding-right: 3px !important;
+}
+}
+</style>
+</head>
+<body style="width: 100%; height:auto;font-family:Helvetica,Tahoma,Verdana,Sans-serif; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; padding: 0; Margin: 0; border-spacing: 0; border-collapse: collapse;">
+<table cellspacing="0" cellpadding="0" align="center" border="0" style="background-color: {{background_colour}}; width:100%; max-width: 600px; border-spacing: 0; border-collapse: collapse; margin-bottom: 0px; ">
+  <tbody>
+    <tr style="background-image: url({{bigote}}); background-position: center bottom; background-size: 100% auto; background-repeat: no-repeat;text-decoration: none; padding: 0px; margin: 0px; border-spacing: 0; border-collapse: collapse; ">
+      <td height="100%" style="padding: 0px; margin: 0px; border-spacing: 0; border-collapse: collapse; " ><table cellspacing="0" cellpadding="0" align="center" border="0" style="max-width: 500px; width:100%; border-spacing: 0; border-collapse: collapse; margin-bottom: 0px;  ">
+          <tbody align="center">
+            <tr>
+              <td align="center" style="padding: 35px 20px 10px 20px;"><img style="width:100%; max-width:380px; min-width: 90%; height:auto; margin: 0 auto;" alt="Hecho con Amor en Latinoamérica" src="{{img-amor}}"></td>
+            </tr>
+            
+            <!--{% if user_id contains 'MX' %}-->
+             <tr>
+              <td style="padding: 0px 0px 10px 0px; -webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif;" align="center" class="rts-section-pad"><span style="font-size: 15px; line-height: 15px; color: {{color_letra}};">{{wa-copy}}</span>
+                <table align="center" cellpadding="0" cellspacing="0" border="0" class="rts-btn-row">
+                  <tr>
+                    <!-- WA -->
+                    <td align="center" style="padding: 5px;" class="rts-btn-cell">
+                      <table style="margin: 0 auto; border-radius: 55px; width: auto; min-width: 200px; text-decoration: none; margin-top: 10px; margin-bottom: 0px;" valign="middle" class="rts-btn-inner">
+                        <tbody>
+                          <tr>
+                            <td height="100%" style="border-radius: 55px; padding: 0px 15px; text-decoration: none; vertical-align: middle; background: {{color_fondowa}}; border: {{color_bordewa}};"><a href="{{deeplink_whatsapp}}" target="_blank" style="text-decoration: none;"><div style="text-align: center; color: {{color_textwa}}; padding: 6px 5px; text-decoration: none; font-family: Helvetica, Tahoma, Verdana, Sans-serif;"> <span style="font-size: 14px; letter-spacing: 4px;"> <img border="0" alt="" style="padding-right: 6px; height: 14px; max-height: 14px; min-height: 14px; width: auto; padding-top: 1px;" src="{{walogo}}"> {{wa-texto}} </span> </div></a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      </td>
+
+                    <!-- TG -->
+                    <td align="center" style="padding: 5px;" class="rts-btn-cell">
+                      <table style="margin: 0 auto; border-radius: 55px; width: auto; min-width: 200px; text-decoration: none; margin-top: 10px; margin-bottom: 0px;" valign="middle" class="rts-btn-inner">
+                        <tbody>
+                          <tr>
+                            <td height="100%" style="border-radius: 55px; padding: 0px 15px; text-decoration: none; vertical-align: middle; background: {{color_fondotg}}; border: {{color_bordetg}};"><a href="{{deeplink_telegram}}" target="_blank" style="text-decoration: none;"><div style="text-align: center; color: {{color_texttg}}; padding: 6px 5px; text-decoration: none; font-family: Helvetica, Tahoma, Verdana, Sans-serif;"> <span style="font-size: 14px; letter-spacing: 4px;"> <img border="0" alt="" style="padding-right: 6px; height: 14px; max-height: 14px; min-height: 14px; width: auto; padding-top: 1px;" src="{{tglogo}}"> {{tg-texto}} </span> </div></a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      </td>
+                  </tr>
+                </table></td>
+            </tr>
+            <!--{% endif %}-->
+
+            <!--{% if user_id contains 'BR' %}-->
+             <tr>
+              <td style="padding: 0px 0px 10px 0px; -webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif;" align="center" class="rts-section-pad"><span style="font-size: 15px; line-height: 15px; color: {{color_letra}};">{{wa-copy}}</span>
+                <table align="center" cellpadding="0" cellspacing="0" border="0">
+                  <tr> 
+                    <!-- WA -->
+                    <td align="center" style="padding: 5px;">
+                      <table style="margin: 0 auto; border-radius: 55px; width: auto; min-width: 200px; text-decoration: none; margin-top: 10px; margin-bottom: 0px;" valign="middle">
+                        <tbody>
+                          <tr>
+                            <td height="100%" style="border-radius: 55px; padding: 0px 15px; text-decoration: none; vertical-align: middle; background: {{color_fondowa}}; border: {{color_bordewa}};"><a href="{{deeplink_whatsapp}}" target="_blank" style="text-decoration: none;"><div style="text-align: center; color: {{color_textwa}}; padding: 6px 5px; text-decoration: none; font-family: Helvetica, Tahoma, Verdana, Sans-serif;"> <span style="font-size: 14px; letter-spacing: 4px;"> <img border="0" alt="" style="padding-right: 6px; height: 14px; max-height: 14px; min-height: 14px; width: auto; padding-top: 1px;" src="{{walogo}}"> {{wa-texto}} </span> </div></a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      </td>
+                    </tr>
+                </table></td>
+            </tr>
+            <!--{% endif %}--> 
+            
+            <!--{% if user_id contains 'CO' %}-->
+
+            <tr>
+              <td style="padding: 0px 0px 10px 0px; -webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif;" align="center" class="rts-section-pad"><span style="font-size: 15px; line-height: 15px; color: {{color_letra}};">{{tg-copy}}</span>
+                <table align="center" cellpadding="0" cellspacing="0" border="0" class="rts-btn-row">
+                  <tr>
+                    <!-- TG -->
+                    <td align="center" style="padding: 5px;" class="rts-btn-cell">
+                      <table style="margin: 0 auto; border-radius: 55px; width: auto; min-width: 200px; text-decoration: none; margin-top: 10px; margin-bottom: 0px;" valign="middle" class="rts-btn-inner">
+                        <tbody>
+                          <tr>
+                            <td height="100%" style="border-radius: 55px; padding: 0px 15px; text-decoration: none; vertical-align: middle; background: {{color_fondotg}}; border: {{color_bordetg}};"><a href="{{deeplink_telegram}}" target="_blank" style="text-decoration: none;"><div style="text-align: center; color: {{color_texttg}}; padding: 6px 5px; text-decoration: none; font-family: Helvetica, Tahoma, Verdana, Sans-serif;"> <span style="font-size: 14px; letter-spacing: 4px;"> <img border="0" alt="" style="padding-right: 6px; height: 14px; max-height: 14px; min-height: 14px; width: auto; padding-top: 1px;" src="{{tglogo}}"> {{tg-texto}} </span> </div></a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      </td>
+
+                    <!-- FB-->
+                    <td align="center" style="padding: 5px;" class="rts-btn-cell">
+                      <table style="margin: 0 auto; border-radius: 55px; width: auto; min-width: 200px; text-decoration: none; margin-top: 10px; margin-bottom: 0px;" valign="middle" class="rts-btn-inner">
+                        <tbody>
+                          <tr>
+                            <td height="100%" style="border-radius: 55px; padding: 0px 15px; text-decoration: none; vertical-align: middle; background: {{color_fondofb}}; border: {{color_bordefb}};"><a href="{{deeplink_facebook}}" target="_blank" style="text-decoration: none;"><div style="text-align: center; color: {{color_textfb}}; padding: 6px 5px; text-decoration: none; font-family: Helvetica, Tahoma, Verdana, Sans-serif;"> <span style="font-size: 14px; letter-spacing: 4px;"> <img border="0" alt="" style="padding-right: 6px; height: 14px; max-height: 14px; min-height: 14px; width: auto; padding-top: 1px;" src="{{fblogo}}"> {{fb-texto}} </span> </div></a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      </td>
+                  </tr>
+                </table></td>
+            </tr>
+                <!--{% endif %}-->
+			  
+			   <!-- {% if user_id contains 'AR' or user_id contains 'CL' or user_id contains 'EC' or user_id contains 'UY' or user_id contains 'CR' %}-->
+            <tr>
+              <td style="padding: 0px 0px 10px 0px; -webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif;  " align="center" class="rts-section-pad"><span style="font-size: 15px; line-height: 15px;  color: {{color_letra}};">{{fb-copy}}</span>
+                <!-- FB --> 
+                <a href="{{deeplink_facebook}}" target="_blank" style="text-decoration: none; ">
+                <div>
+                  <table style="margin: 0 auto; border-radius: 55px; width: auto; min-width: 200px; text-decoration: none; margin-top: 10px; margin-bottom: 0px; " valign="middle">
+                    <tbody>
+                      <tr>
+                        <td height="100%" style="border-radius: 55px; padding: 0px 15px; text-decoration: none; vertical-align: middle; background: {{color_fondofb}}; border: {{color_bordefb}}; vertical-align: middle;"><div style="text-align: center; color: {{color_textfb}}; padding: 6px 5px; text-decoration: none; font-family: Helvetica, Tahoma, Verdana, Sans-serif;  "> <span style="font-size: 14px; letter-spacing:4px; "><img border="0" alt="" style="padding-right:6px; height: 14px;max-height: 14px; min-height: 14px; width: auto; padding-top: 1px; " src="{{fblogo}}">{{fb-texto}}</span> 
+                            <!-- TEXTO CTA --> 
+                          </div></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                </a></td>
+            </tr>
+            <!--{% endif %}--> 
+            
+   
+			  
+            <!--{% if cond != nil %}--> 
+            <!--{% endif %}-->
+            <tr>
+              <td style="padding: 0px 20px 20px 20px;"><table cellspacing="0" cellpadding="0" align="center" border="0" style="background-color: {{background_colour}}; max-height:auto; border-spacing: 3px;">
+                  <tbody align="center">
+                    <tr>
+                      <td style="padding: 1% 0% 0% 0%;" align="center"><a href="{{centro_ayuda_url}}" style="text-decoration: none; color: {{color_letra}}">
+                        <p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 10px; line-height: 10px;  color: {{color_letra}};"> {{centro_ayuda}} </p>
+                        </a></td>
+                      <td style="padding: 1% 0% 0% 0%;" align="center"><p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 10px; line-height: 10px;  color: {{color_letra}};">&nbsp;|&nbsp;</p></td>
+                      <td style="padding: 1% 0% 0% 0%;" align="center"><a href="{{aviso_privacidad_url}}" style="text-decoration: none; color: {{color_letra}}">
+                        <p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif;font-size: 10px;  line-height: 10px; color: {{color_letra}};"> {{aviso_privacidad}} </p>
+                        </a></td>
+                      <td style="padding: 1% 0% 0% 0%;" align="center"><p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 10px; line-height: 10px;  color: {{color_letra}};">&nbsp;|&nbsp;</p></td>
+                      <td style="padding: 1% 0% 0% 0%;" align="center"><a href="{{terminos_y_condiciones_url}}" style="text-decoration: none; color: {{color_letra}}">
+                        <p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif;font-size: 10px; line-height: 10px;  color: {{color_letra}};"> {{terminos_y_condiciones}} </p>
+                        </a></td>
+                      <td style="padding: 1% 0% 0% 0%;" align="center"><p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 10px; line-height: 10px;  color: {{color_letra}};">&nbsp;|&nbsp;</p></td>
+                      <td style="padding: 1% 0% 0% 0%;" align="center"><a href="{{${set_user_to_unsubscribed_url}}}" style="text-decoration: none; color: {{color_letra}}">
+                        <p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif;font-size: 10px; line-height: 10px; color: {{color_letra}};"> {{cancelar_suscription}} </p>
+                        </a></td>
+                    </tr>
+                  </tbody>
+                </table></td>
+            </tr>
+            <tr>
+              <td align="center" style="padding: 0px 20px;"><p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 12px;  padding: 0px; margin: 0 auto; max-width: 400px; color: {{color_letra}};"> {{Legal_blog}} <a href="{{blog_url}}" style="text-decoration: none; font-weight: 600; color: {{color_letra}}" target="_blank">blog.</a><br>
+                  {{razon_social}} </p></td>
+            </tr>
+            <tr>
+              <td align="center" style="padding: 20px 0px 20px 0px;"><img style="max-width:170px; width:auto; height:auto; float:center;" alt="Rappi" src="{{logo}}"></td>
+            </tr>
+          </tbody>
+        </table>
+        <img style="width:100%;height:auto;margin: 0 auto;  border-spacing: 0; border-collapse: collapse; padding: 0px;"  alt="Rappi" src="https://lh3.googleusercontent.com/d/189y5oKqF1B1plR5A5fdpfgoVkpD9HRs3"></td>
+    </tr>
+  </tbody>
+</table>
+</body>
+<!--
+---------------------
+/* CLEAN VARIABLES */
+---------------------
+Style related variables:
+{% assign font_style_look = '' %}
+-->

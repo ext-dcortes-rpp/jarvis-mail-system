@@ -1,19 +1,45 @@
+<head>
+<script type="application/ld+json">
+[
+  {
+    "@context": "http://schema.org/",
+    "@type": "Organization",
+    "logo": "https://braze-images.com/appboy/communication/assets/image_assets/images/5bc61374a12f74108a3dea94/original.png"
+  }
+]
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if !mso]><!-->
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<!--<![endif]--> 
+<!--[if (gte mso 9)|(IE)]>
+          <xml>
+            <o:OfficeDocumentSettings>
+              <o:AllowPNG/>
+              <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+          </xml>
+          <![endif]--> 
+<!--[if (gte mso 9)|(IE)]>
+      <style type="text/css">
+        body {width: 600px;margin: 0 auto;}
+        table {border-collapse: collapse;}
+        table, td {mso-table-lspace: 0pt;mso-table-rspace: 0pt;}
+        img {-ms-interpolation-mode: bicubic;}
+      </style>
+    <![endif]-->
 <style type="text/css">
 body, p, div {
     font-family: arial, helvetica, sans-serif;
     font-size: 14px;
 }
 body {
-    color: #E2E2E2;
-    padding: 0px;
-    margin: 0px;
-    background-color: #040404;/* 
-	
-si Tipo de Kv = ProBlack background-color debe ser #ECEFF3
-	
-si Tipo de Kv = Pro background-color debe ser #2A2B2B
-
-*/
+color: {{color_texto_mail_general}};
+padding: 0px;
+margin: 0px;
+background-color: {{bg_solid_mail_general}};
 }
 h1 {
     margin: 0;
@@ -149,65 +175,120 @@ a.bulletproof-button {
     padding: 0px 0px 0px 0px !important;
     height: auto !important;
 }
-.cintillonew {
-    width: 90% !important;
-    max-width: 250px !important;
-    min-height: auto !important;
-    max-height: inherit !important;
-    height: auto !important;
+	
+.fondomobile {
+    background-size: 150% auto !important;
 }
-.gradmobile {
-    background-image: url(https://lh3.googleusercontent.com/d/1rIa4_gp0V6xLfA1K3ipSWBFiTCWhuIb3)!important;
+	
+/* estilos del header
+*/	
+	
+.bg-headermobile {
+    background-size: cover !important;
 }
-/* si Tipo de Kv = Generico background-image debe ser https://lh3.googleusercontent.com/d/1rIa4_gp0V6xLfA1K3ipSWBFiTCWhuIb3
-
-si Tipo de Kv = Turbo background-image debe ser https://lh3.googleusercontent.com/d/1H9gJ5jNpxyIlg7jPve-VafvLZhWDOeSF
-
-si Tipo de Kv = Neutro background-image debe ser https://lh3.googleusercontent.com/d/1cxWexOAmboGIZePNaw43T_STs395wS8K
 	
-si Tipo de Kv = ProBlack background-image debe ser https://lh3.googleusercontent.com/d/1ii-QN0RVxteKuS2cHWUr22ZyOZXZ2-JE
 	
-y agregar a la clase .gradmobile el estilo 
-	background-size: 100% 100% !important;
-	
-si Tipo de Kv = Pro background-image debe ser https://lh3.googleusercontent.com/d/1x630cZMTzzkDMhebuUutPEkWvL1ppPfW
-	
-y agregar a la clase .gradmobile el estilo 
-	background-size: 100% 100% !important;
-
-*/
-
-.header-logo {
-    height: 22px !important;
-    max-height: 22px !important;
-    min-height: 22px !important;
-}
-.header-logoturbo {
+#HEADER1 .logo-base1 {
     height: 28px !important;
     max-height: 28px !important;
     min-height: 28px !important;
 }
-.header-logopro {
+	
+#HEADER1 .cobranding-s {
+    height: 31px !important;
+    max-height: 31px !important;
+    min-height: 31px !important;
+}
+	
+#HEADER1 .cobranding-m  {
+    height: 34px !important;
+    max-height: 34px !important;
+    min-height: 34px !important;
+}
+	
+#HEADER1 .cobranding-l  {
+    height: 36px !important;
+    max-height: 36px !important;
+    min-height: 36px !important;
+}
+
+/* TAMAÑO 2 - Turbo, Pro, ProBlack, Defensoría */
+#HEADER2 .logo-base2 {
+    height: 24px !important;
+    max-height: 24px !important;
+    min-height: 24px !important;
+}
+
+#HEADER2 .cobranding-s {
+    height: 26px !important;
+    max-height: 26px !important;
+    min-height: 26px !important;
+}
+
+#HEADER2 .cobranding-m  {
+    height: 29px !important;
+    max-height: 29px !important;
+    min-height: 29px !important;
+}
+
+#HEADER2 .cobranding-l  {
+    height: 31px !important;
+    max-height: 31px !important;
+    min-height: 31px !important;
+}
+
+/* TAMAÑO 3 - Turbo Rest */
+#HEADER3 .logo-base3 {
+    height: 32px !important;
+    max-height: 32px !important;
+    min-height: 32px !important;
+}
+
+#HEADER3 .cobranding-s {
+    height: 35px !important;
+    max-height: 35px !important;
+    min-height: 35px !important;
+}
+
+#HEADER3 .cobranding-m  {
+    height: 38px !important;
+    max-height: 38px !important;
+    min-height: 38px !important;
+}
+
+#HEADER3 .cobranding-l  {
+    height: 42px !important;
+    max-height: 42px !important;
+    min-height: 42px !important;
+}
+
+/* TAMAÑO 4 - RappiEntregador y Contenido aliado */
+#HEADER4 .logo-base4 {
     height: 20px !important;
     max-height: 20px !important;
     min-height: 20px !important;
 }
-.header-tag {
-    max-width: 120px !important;
-    width: auto !important;
+
+#HEADER4 .cobranding-s {
+    height: 22px !important;
     max-height: 22px !important;
+    min-height: 22px !important;
 }
-.header-logo1-1 {
-    width: 35px !important;
+
+#HEADER4 .cobranding-m  {
+    height: 24px !important;
+    max-height: 24px !important;
+    min-height: 24px !important;
 }
-.header-tag-pro {
-    max-width: 120px !important;
-    width: auto !important;
-    max-height: 20px !important;
+
+#HEADER4 .cobranding-l  {
+    height: 26px !important;
+    max-height: 26px !important;
+    min-height: 26px !important;
 }
-.header-logo1-1-pro {
-    width: 35px !important;
-}
+
+
+
 .banner-logo1-1 {
     width: 67px !important;
 }
@@ -271,6 +352,9 @@ h6 {
     display: table!important;
     max-height: none!important
 }
+.beneficios-mob {
+    width: 50%!important;
+}
 }
 
 @media (max-width:620px) {
@@ -307,65 +391,118 @@ a.bulletproof-button {
     padding: 0px 0px 0px 0px !important;
     height: auto !important;
 }
-.cintillonew {
-    width: 90% !important;
-    max-width: 250px !important;
-    min-height: auto !important;
-    max-height: inherit !important;
-    height: auto !important;
+.fondomobile {
+    background-size: 150% auto !important;
 }
-.gradmobile {
-    background-image: url(https://lh3.googleusercontent.com/d/1rIa4_gp0V6xLfA1K3ipSWBFiTCWhuIb3)!important;
+	
+/* estilos del header
+*/	
+	
+	
+.bg-headermobile {
+    background-size: cover !important;
 }
-/* si Tipo de Kv = Generico background-image debe ser https://lh3.googleusercontent.com/d/1rIa4_gp0V6xLfA1K3ipSWBFiTCWhuIb3
-
-si Tipo de Kv = Turbo background-image debe ser https://lh3.googleusercontent.com/d/1H9gJ5jNpxyIlg7jPve-VafvLZhWDOeSF
-
-si Tipo de Kv = Neutro background-image debe ser https://lh3.googleusercontent.com/d/1cxWexOAmboGIZePNaw43T_STs395wS8K
 	
-si Tipo de Kv = ProBlack background-image debe ser https://lh3.googleusercontent.com/d/1ii-QN0RVxteKuS2cHWUr22ZyOZXZ2-JE
-	
-y agregar a la clase .gradmobile el estilo 
-	background-size: 100% 100% !important;
-	
-si Tipo de Kv = Pro background-image debe ser https://lh3.googleusercontent.com/d/1x630cZMTzzkDMhebuUutPEkWvL1ppPfW
-	
-y agregar a la clase .gradmobile el estilo 
-	background-size: 100% 100% !important;
-
-*/
-
-.header-logo {
-    height: 22px !important;
-    max-height: 22px !important;
-    min-height: 22px !important;
-}
-.header-logoturbo {
+#HEADER1 .logo-base1 {
     height: 28px !important;
     max-height: 28px !important;
     min-height: 28px !important;
 }
-.header-logopro {
+	
+#HEADER1 .cobranding-s {
+    height: 31px !important;
+    max-height: 31px !important;
+    min-height: 31px !important;
+}
+	
+#HEADER1 .cobranding-m  {
+    height: 34px !important;
+    max-height: 34px !important;
+    min-height: 34px !important;
+}
+	
+#HEADER1 .cobranding-l  {
+    height: 36px !important;
+    max-height: 36px !important;
+    min-height: 36px !important;
+}
+
+/* TAMAÑO 2 - Turbo, Pro, ProBlack, Defensoría */
+#HEADER2 .logo-base2 {
+    height: 24px !important;
+    max-height: 24px !important;
+    min-height: 24px !important;
+}
+
+#HEADER2 .cobranding-s {
+    height: 26px !important;
+    max-height: 26px !important;
+    min-height: 26px !important;
+}
+
+#HEADER2 .cobranding-m  {
+    height: 29px !important;
+    max-height: 29px !important;
+    min-height: 29px !important;
+}
+
+#HEADER2 .cobranding-l  {
+    height: 31px !important;
+    max-height: 31px !important;
+    min-height: 31px !important;
+}
+
+/* TAMAÑO 3 - Turbo Rest */
+#HEADER3 .logo-base3 {
+    height: 32px !important;
+    max-height: 32px !important;
+    min-height: 32px !important;
+}
+
+#HEADER3 .cobranding-s {
+    height: 35px !important;
+    max-height: 35px !important;
+    min-height: 35px !important;
+}
+
+#HEADER3 .cobranding-m  {
+    height: 38px !important;
+    max-height: 38px !important;
+    min-height: 38px !important;
+}
+
+#HEADER3 .cobranding-l  {
+    height: 42px !important;
+    max-height: 42px !important;
+    min-height: 42px !important;
+}
+
+/* TAMAÑO 4 - RappiEntregador y Contenido aliado */
+#HEADER4 .logo-base4 {
     height: 20px !important;
     max-height: 20px !important;
     min-height: 20px !important;
 }
-.header-tag {
-    max-width: 120px !important;
-    width: auto !important;
+
+#HEADER4 .cobranding-s {
+    height: 22px !important;
     max-height: 22px !important;
+    min-height: 22px !important;
 }
-.header-logo1-1 {
-    width: 35px !important;
+
+#HEADER4 .cobranding-m  {
+    height: 24px !important;
+    max-height: 24px !important;
+    min-height: 24px !important;
 }
-.header-tag-pro {
-    max-width: 120px !important;
-    width: auto !important;
-    max-height: 20px !important;
+
+#HEADER4 .cobranding-l  {
+    height: 26px !important;
+    max-height: 26px !important;
+    min-height: 26px !important;
 }
-.header-logo1-1-pro {
-    width: 35px !important;
-}
+
+
 .banner-logo1-1- {
     width: 67px !important;
 }
@@ -429,5 +566,9 @@ h6 {
     display: table!important;
     max-height: none!important
 }
+.beneficios-mob {
+    width: 50%!important;
+}
 }
 </style>
+</head>
