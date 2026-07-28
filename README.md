@@ -15,33 +15,24 @@ Si abres una caja de LEGO encuentras tres cosas: las **piezas** (los bricks), la
 | LEGO | J.A.R.V.I.S. |
 |------|--------------|
 | Las reglas de color y forma | `01-foundations/` |
-| El tablero base | `02-base-template/` |
-| Los bricks individuales | `03-components/` |
+| Los bricks individuales | `02-components/` |
 | Las skins (los 11 temas: Beige, Rosa, Púrpura, Celeste, Verde, Dark neon/Turbo/Neutro, Pro, ProBlack) | Liquid en `01-foundations/global-styles/head-meta-tags.html` |
-| Los modelos ya armados | `04-templates/` |
+| Los modelos ya armados | `03-templates/` |
 
 ## Cómo se arma un mail
 
 Un mail siempre se arma en este orden, pieza por pieza:
 
 ```
-opening.html  (esqueleto inicial + apertura del banner)
-   ↓
 header        (un solo header de los 10 disponibles, en su variante claro/oscuro y centrado/columnas)
    ↓
-banner        (horizontal, vertical o editorial)
-   ↓
-body-wrapper-open.html  (abre la zona de contenido)
+banner        (horizontal o vertical)
    ↓
 [CTAs, deals, cupones, beneficios, módulos de contenido]   ← bricks combinables
    ↓
 cierre        (imagen de cierre — omitido en los temas Pro/ProBlack)
    ↓
-body-wrapper-close.html
-   ↓
 footer
-   ↓
-closing.html
 ```
 
 Los corchetes `[ ]` son la zona donde el creador del mail decide qué piezas pone y en qué orden. Todo lo demás es estructura fija.
@@ -55,15 +46,9 @@ jarvis-mail-system/
 │   ├── global-styles/         CSS global, media queries, meta tags
 │   └── tokens/                Colores, espaciados, radios (a futuro)
 │
-├── 02-base-template/          El esqueleto
-│   ├── opening.html           Doctype + head + apertura del wrapper
-│   ├── body-wrapper-open.html Apertura de la zona de contenido
-│   ├── body-wrapper-close.html Cierre de la zona de contenido
-│   └── closing.html           Cierres finales del HTML
-│
-├── 03-components/             Los bricks (21 piezas en total)
+├── 02-components/             Los bricks (21 piezas en total)
 │   ├── headers/               10 headers de marca, cada uno en claro/oscuro × centrado/columnas
-│   ├── banners/               3 banners (horizontal, vertical, editorial)
+│   ├── banners/               2 banners (horizontal, vertical) + banner_atoms/ con sus piezas internas
 │   ├── ctas/                  Plantilla del botón de acción
 │   ├── deals/                 Deal grande y small
 │   ├── coupons/               Módulo de cupones (con title + cupón)  ◀ NUEVO
@@ -72,15 +57,15 @@ jarvis-mail-system/
 │   ├── closing/               Imagen de cierre
 │   └── footer/                Footer general
 │
-├── 04-templates/              Los modelos armados
+├── 03-templates/              Los modelos armados
 │   ├── full-templates/        Combinaciones completas listas para usar
 │   └── by-vertical/           Templates por vertical de negocio
 │
-├── 05-assets/                 Imágenes y logos
+├── 04-assets/                 Imágenes y logos
 │
-├── 06-docs/                   Documentación del sistema
+├── 05-docs/                   Documentación del sistema
 │
-└── 07-examples/               Ejemplos reales de mails ya construidos
+└── 06-examples/               Ejemplos reales de mails ya construidos
 ```
 
 ## Reglas de oro
@@ -94,10 +79,10 @@ jarvis-mail-system/
 
 Antes de producir tu primer mail, lee estos dos documentos en orden:
 
-1. **[Guía completa de Temas](06-docs/GUIA-DE-TEMAS.md)** — Los 11 temas del sistema, qué variables Liquid define cada uno, y las reglas particulares por grupo (pastel, oscuros/invertidos, premium).
-2. **[Uso correcto de cada parte](06-docs/USO-DE-CADA-PARTE.md)** — Guía brick por brick: cuándo usar cada componente, sus reglas internas, las piezas opcionales, y el orden recomendado de ensamblaje.
+1. **[Guía completa de Temas](05-docs/GUIA-DE-TEMAS.md)** — Los 11 temas del sistema, qué variables Liquid define cada uno, y las reglas particulares por grupo (pastel, oscuros/invertidos, premium).
+2. **[Uso correcto de cada parte](05-docs/USO-DE-CADA-PARTE.md)** — Guía brick por brick: cuándo usar cada componente, sus reglas internas, las piezas opcionales, y el orden recomendado de ensamblaje.
 
-Documentación complementaria en `06-docs/`:
+Documentación complementaria en `05-docs/`:
 - `COMO-ARMAR-UN-MAIL.md` — Flujo paso a paso para armar un mail desde cero
 - `INDICE-DE-COMPONENTES.md` — Mapa con cada componente y su ubicación en el HTML original
 - `CONTRIBUTING.md` — Cómo proponer cambios al sistema

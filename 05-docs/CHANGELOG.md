@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.5.0] - Eliminación del esqueleto (base-template) y renumeración de carpetas
+
+### Eliminado
+- Carpeta `02-base-template/` (`opening.html`, `body-wrapper-open.html`, `body-wrapper-close.html`, `closing.html`) — el repo ya no incluye un archivo de "esqueleto" propio.
+- Carpeta `08-examples/` (duplicado suelto de `test_claude_1_original.html`).
+
+### Cambiado
+- Renumeración de carpetas: `03-components/` → `02-components/`, `04-templates/` → `03-templates/`, `05-assets/` → `04-assets/`, `06-docs/` → `05-docs/`, `07-examples/` → `06-examples/`.
+- El flujo de ensamblaje de un mail (README, `COMO-ARMAR-UN-MAIL.md`, `USO-DE-CADA-PARTE.md`) ya no incluye los pasos de esqueleto; empieza directamente en el header.
+- `banners/`: ya son 2 formatos (horizontal, vertical) + `banner_atoms/`, no 3.
+
 ## [0.4.0] - Sistema de temas, reestructuración de headers y documentación al día
 
 ### Agregado

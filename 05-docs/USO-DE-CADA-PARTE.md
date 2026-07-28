@@ -9,17 +9,16 @@ Esta guía explica brick por brick cómo se usa cada componente del sistema. Es 
 ## Índice
 
 1. [Foundations · las reglas](#1-foundations--las-reglas)
-2. [Base Template · el esqueleto](#2-base-template--el-esqueleto)
-3. [Headers · la identidad del remitente](#3-headers--la-identidad-del-remitente)
-4. [Banners · la cabecera visual](#4-banners--la-cabecera-visual)
-5. [CTAs · el botón de acción](#5-ctas--el-botón-de-acción)
-6. [Deals · promociones de productos](#6-deals--promociones-de-productos)
-7. [Coupons · cupones de descuento](#7-coupons--cupones-de-descuento)
-8. [Benefits · beneficios del programa](#8-benefits--beneficios-del-programa)
-9. [Content Modules · los bricks combinables del cuerpo](#9-content-modules--los-bricks-combinables-del-cuerpo)
-10. [Closing · la imagen de cierre](#10-closing--la-imagen-de-cierre)
-11. [Footer · el pie del mail](#11-footer--el-pie-del-mail)
-12. [Orden recomendado de uso](#12-orden-recomendado-de-uso)
+2. [Headers · la identidad del remitente](#2-headers--la-identidad-del-remitente)
+3. [Banners · la cabecera visual](#3-banners--la-cabecera-visual)
+4. [CTAs · el botón de acción](#4-ctas--el-botón-de-acción)
+5. [Deals · promociones de productos](#5-deals--promociones-de-productos)
+6. [Coupons · cupones de descuento](#6-coupons--cupones-de-descuento)
+7. [Benefits · beneficios del programa](#7-benefits--beneficios-del-programa)
+8. [Content Modules · los bricks combinables del cuerpo](#8-content-modules--los-bricks-combinables-del-cuerpo)
+9. [Closing · la imagen de cierre](#9-closing--la-imagen-de-cierre)
+10. [Footer · el pie del mail](#10-footer--el-pie-del-mail)
+11. [Orden recomendado de uso](#11-orden-recomendado-de-uso)
 
 ---
 
@@ -34,44 +33,21 @@ Las reglas que rigen a todos los bricks: tipografías, colores base, separadores
 **Casi nunca.** Solo se modifica cuando hay un cambio estructural del sistema (nueva tipografía, nuevo tamaño de heading, nuevo separador). Cualquier cambio aquí afecta a TODOS los mails que existen y los que vendrán.
 
 ### ¿Cuándo se usa?
-Siempre. Cada mail incluye automáticamente `head-meta-tags.html` y `global-styles.html` cuando se inyecta `02-base-template/opening.html`.
+Siempre. Cada mail incluye `head-meta-tags.html` y `global-styles.html` en el `<head>`.
 
 ### Reglas críticas
 - **No agregues clases nuevas aquí** sin discutirlo con el equipo.
-- **No quites comentarios condicionales** (los `/* si Tipo de Kv = ... */`) — son la fuente de verdad de las reglas de KV.
+- **No quites comentarios condicionales** — todavía quedan algunos con la nomenclatura anterior (`/* si Tipo de Kv = ... */`) en componentes no migrados; son la fuente de verdad hasta que se actualicen al sistema de temas.
 - Si necesitas un color o un tamaño nuevo, primero pregunta al equipo de diseño si encaja en el sistema.
 
----
-
-## 2. Base Template · el esqueleto
-
-📁 `02-base-template/`
-
-### Los 4 archivos
-
-| Archivo | Qué hace | Cuándo se inserta |
-|---------|----------|-------------------|
-| `opening.html` | Doctype, head, meta, estilos, body, wrapper | Al inicio del mail, siempre |
-| `body-wrapper-open.html` | Abre la tabla del cuerpo del mail | Después del banner, antes de CTAs/deals/módulos |
-| `body-wrapper-close.html` | Cierra la tabla del cuerpo | Después del cierre, antes del footer |
-| `closing.html` | Cierra wrapper, body y html | Al final del mail, siempre |
-
-### Regla más importante
-**El esqueleto es lo único que no se toca jamás.** Si te encuentras cambiando algo de esta carpeta, para. Casi siempre el cambio que necesitas está en otro lado: en un componente, en una skin, o en foundations.
-
-### Excepción: el tema
-Aunque no toques los archivos del esqueleto, sí tienes que aplicar las variables del tema en las zonas que el opening contiene:
-- El `background-color` del `<body>`
-- La URL del `background-image` de la clase `.gradmobile`
-- La URL del background del header
-
-Ver `GUIA-DE-TEMAS.md` para los valores exactos. (Nota: `02-base-template/opening.html` todavía no consume estas variables directamente — ver "Estado actual / pendientes" en esa guía.)
+### Aplicar el tema
+Las variables del tema (`bg_solid_mail_general`, `background-image` de `.gradmobile`, background del header, etc.) se aplican en las zonas correspondientes del mail según `GUIA-DE-TEMAS.md`. Consulta esa guía para los valores exactos y qué falta por migrar (sección "Estado actual / pendientes").
 
 ---
 
-## 3. Headers · la identidad del remitente
+## 2. Headers · la identidad del remitente
 
-📁 `03-components/headers/`
+📁 `02-components/headers/`
 
 ### Las 10 marcas disponibles
 
@@ -114,9 +90,9 @@ El archivo `_header-wrapper.html` (con guion bajo) es la **envolvente común a t
 
 ---
 
-## 4. Banners · la cabecera visual
+## 3. Banners · la cabecera visual
 
-📁 `03-components/banners/`
+📁 `02-components/banners/`
 
 ### Los 2 banners disponibles
 
@@ -137,7 +113,7 @@ El tema define los colores del banner; el **tipo de banner se elige según qué 
 - **¿El mail tiene módulos de contenido, deals, cupones, beneficios?** → big banner horizontal
 
 ### Regla #3 · Las piezas internas del banner viven en `banner_atoms/`
-📁 `03-components/banners/banner_atoms/` — 6 piezas que se combinan dentro de cada banner:
+📁 `02-components/banners/banner_atoms/` — 6 piezas que se combinan dentro de cada banner:
 
 1. **`modulo_tags.html`** — Tag/etiqueta superior. Si la fuente no trae tag, se omite.
 2. **`modulo_img_altofijo.html`** — Columna de imagen de alto fijo, para el banner horizontal.
@@ -153,9 +129,9 @@ El banner es donde más reglas de tema se aplican: background-color, background-
 
 ---
 
-## 5. CTAs · el botón de acción
+## 4. CTAs · el botón de acción
 
-📁 `03-components/ctas/`
+📁 `02-components/ctas/`
 
 ### El único archivo: `cta-template.html`
 
@@ -194,9 +170,9 @@ Si el componente anterior es un módulo (`role="module"`), insertas el separador
 
 ---
 
-## 6. Deals · promociones de productos
+## 5. Deals · promociones de productos
 
-📁 `03-components/deals/`
+📁 `02-components/deals/`
 
 ### Los 2 tipos de deal
 
@@ -219,9 +195,9 @@ A diferencia de módulos y CTAs, los deals tienen su propia "área de respeto" i
 
 ---
 
-## 7. Coupons · cupones de descuento
+## 6. Coupons · cupones de descuento
 
-📁 `03-components/coupons/`
+📁 `02-components/coupons/`
 
 ### El único archivo: `cupones-modulo.html`
 
@@ -256,9 +232,9 @@ Los legales NO van dentro del cupón. Van en una fila separada debajo de la fila
 
 ---
 
-## 8. Benefits · beneficios del programa
+## 7. Benefits · beneficios del programa
 
-📁 `03-components/benefits/`
+📁 `02-components/benefits/`
 
 ### El único archivo: `modulo-beneficios.html`
 
@@ -284,9 +260,9 @@ Dentro del archivo hay comentarios que dicen `<!-- no cambies este vertical alig
 
 ---
 
-## 9. Content Modules · los bricks combinables del cuerpo
+## 8. Content Modules · los bricks combinables del cuerpo
 
-📁 `03-components/content-modules/`
+📁 `02-components/content-modules/`
 
 Esta es la carpeta más versátil. Aquí viven los bricks que más se combinan según las necesidades del mail.
 
@@ -349,9 +325,9 @@ Esto está documentado dentro del archivo como comentario.
 
 ---
 
-## 10. Closing · la imagen de cierre
+## 9. Closing · la imagen de cierre
 
-📁 `03-components/closing/`
+📁 `02-components/closing/`
 
 ### El único archivo: `cierre.html`
 
@@ -375,16 +351,16 @@ Para Genérico, Turbo y Neutro, la URL de la imagen viene de la base de datos de
 La URL exacta se busca en la TAXONOMÍA ASSETS (Google Sheets).
 
 ### Regla #4 · El cierre va al final del body
-El cierre va después del último módulo/CTA y antes del `body-wrapper-close.html`. **No** va dentro de los módulos.
+El cierre va después del último módulo/CTA y antes del footer. **No** va dentro de los módulos.
 
 ### Regla #5 · No insertes módulos debajo del cierre
 Después de la tabla de cierre **no debe haber más CTAs ni módulos de contenido**. Si la fuente trae algo después del cierre, es probable que esté mal estructurada y deba reorganizarse.
 
 ---
 
-## 11. Footer · el pie del mail
+## 10. Footer · el pie del mail
 
-📁 `03-components/footer/`
+📁 `02-components/footer/`
 
 ### El único archivo: `footer.html`
 
@@ -431,28 +407,24 @@ Si el texto de `cond` trae un link, se envuelve en una etiqueta `<a>` con estilo
 
 ---
 
-## 12. Orden recomendado de uso
+## 11. Orden recomendado de uso
 
 Cuando armas un mail desde cero, el flujo siempre es el mismo. **Sigue este orden y no te equivocas:**
 
 ```
-PASO 1 → opening.html                               (siempre)
-PASO 2 → un header de headers/                      (siempre, 1 solo)
-PASO 3 → un banner de banners/                      (siempre, 1 solo)
-PASO 4 → body-wrapper-open.html                     (siempre)
-PASO 5 → [zona libre del cuerpo]:
+PASO 1 → un header de headers/                      (siempre, 1 solo)
+PASO 2 → un banner de banners/                      (siempre, 1 solo)
+PASO 3 → [zona libre del cuerpo]:
            - CTAs                                   (0 a N)
            - deals (max 4)                          (0 a 4)
            - coupons (en pares)                     (0, 2, 4...)
            - benefits                               (0 a N)
            - content-modules                        (0 a N)
-PASO 6 → cierre.html                                (solo si KV NO es Pro/ProBlack)
-PASO 7 → body-wrapper-close.html                    (siempre)
-PASO 8 → footer.html                                (siempre)
-PASO 9 → closing.html                               (siempre)
+PASO 4 → cierre.html                                (solo si el tema NO es Pro/ProBlack)
+PASO 5 → footer.html                                (siempre)
 ```
 
-### Reglas de espaciado dentro del paso 5
+### Reglas de espaciado dentro del paso 3
 
 Mientras armas la zona libre del cuerpo, recuerda los separadores:
 
@@ -475,14 +447,14 @@ Si acabas de entrar al equipo y vas a producir tu primer mail, sigue estos pasos
 2. **Lee `GUIA-DE-TEMAS.md`** completa. Es la que más importa.
 3. **Lee esta guía** completa.
 4. **Lee `COMO-ARMAR-UN-MAIL.md`** para tener el paso a paso en mente.
-5. **Mira ejemplos reales** en `07-examples/` cuando existan.
+5. **Mira ejemplos reales** en `06-examples/` cuando existan.
 6. **Tu primer mail**: pídele al equipo un mail real que ya esté producido y armálo desde cero usando el sistema. Compara el resultado con el original — si coincide, ya entendiste J.A.R.V.I.S.
 
 ---
 
 ## Referencias cruzadas
 
-- Reglas detalladas de temas: `06-docs/GUIA-DE-TEMAS.md`
-- Flujo paso a paso: `06-docs/COMO-ARMAR-UN-MAIL.md`
-- Índice de componentes con líneas exactas: `06-docs/INDICE-DE-COMPONENTES.md`
-- Cómo contribuir al sistema: `06-docs/CONTRIBUTING.md`
+- Reglas detalladas de temas: `05-docs/GUIA-DE-TEMAS.md`
+- Flujo paso a paso: `05-docs/COMO-ARMAR-UN-MAIL.md`
+- Índice de componentes con líneas exactas: `05-docs/INDICE-DE-COMPONENTES.md`
+- Cómo contribuir al sistema: `05-docs/CONTRIBUTING.md`
