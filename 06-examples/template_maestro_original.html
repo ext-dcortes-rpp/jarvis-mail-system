@@ -1,4 +1,7 @@
+<!-- EJEMPLO DE DEFINICION DE TEMA  -->
 {% assign tema_general_mail_general = 'darkturbo' %}
+
+<!-- EJEMPLO DE DEFINICION DE CAMPOS PARA BANNER  -->
 {% assign banner_copy_modulo_promo = '$14.000' %}
 {% assign banner_copy_modulo_creditos = '120' %}
 {% assign banner_copy_modulo_textoxl = '120 créditos' %}
@@ -675,6 +678,9 @@ a.bulletproof-button {
 .altobanner1 {
     height: 85vw !important;
 }
+.altobanner2 {
+    height: 60vw !important;
+}
 .alto-auto {
     height: auto !important;
 }
@@ -728,8 +734,8 @@ h6 {
     line-height: 63px!important;
 }
 #BANNER_HORIZONTAL .bnr-md, #BANNER_VERTICAL .bnr-md {
-    font-size: 55px!important;
-    line-height: 55px!important;
+    font-size: 50px!important;
+    line-height: 51px!important;
 }
 #BANNER_HORIZONTAL .bnr-hasta-xl, #BANNER_VERTICAL .bnr-hasta-xl {
     font-size: 27px!important;
@@ -890,6 +896,9 @@ a.bulletproof-button {
 .altobanner1 {
     height: 85vw !important;
 }
+.altobanner2 {
+    height: 60vw !important;
+}
 .alto-auto {
     height: auto !important;
 }
@@ -943,8 +952,8 @@ h6 {
     line-height: 63px!important;
 }
 #BANNER_HORIZONTAL .bnr-md, #BANNER_VERTICAL .bnr-md {
-    font-size: 55px!important;
-    line-height: 55px!important;
+    font-size: 50px!important;
+    line-height: 51px!important;
 }
 #BANNER_HORIZONTAL .bnr-hasta-xl, #BANNER_VERTICAL .bnr-hasta-xl {
     font-size: 27px!important;
@@ -1043,19 +1052,21 @@ h6 {
                                     
                                     <!-- HORIZONTAL  --> 
                                     
-                                    <a role="horizontal"  originalsrc="AQUIELLINK2" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="AQUIELLINK2" data-linkindex="0" style="text-decoration: none; display: block; margin-top: 15px;">
+                                    <a role="horizontal"  originalsrc="AQUIELLINKDELBANNER" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="AQUIELLINKDELBANNER" data-linkindex="0" style="text-decoration: none; display: block; margin-top: 15px;">
                                     <div>
                                       <table id="BANNER_HORIZONTAL" width="480" style="width:480px; border-spacing:0; margin:0 auto;" cellpadding="0" cellspacing="0" align="center" border="0" bgcolor="" class="column column-0">
                                         <tbody>
                                           <tr valign="middle">
                                             <td style="padding:0px 0px;margin:0px;border-spacing:0; vertical-align: middle; background-image: url({{bg_bannerimg_mail_general}}); background-size: 100% 100%; background-position: center top; border-radius: 16px; overflow: hidden;"><div style="background: {{bg_bannertono_mail_general}}; max-width: 480px; margin: 0 auto;  overflow: hidden;"> 
                                                 
-                                                <!-- CELDA 1 PARA ATOMOS -->
-                                                
+                                                <!-- MODULO ATOMOS : dentro de esta tabla se agrupan los ATOMOS, en esta estructura es solo un modulo de atomos y no se cambia la posición  -->
+												
+												
                                                 <table width="240" style="width:240px; " cellpadding="0" cellspacing="0" align="left" border="0" class="column column-0">
                                                   <tbody>
                                                     <tr>
-                                                      <td height="240px" class="alto-auto" style="margin:0px;border-spacing:0; overflow: hidden; padding:{{padd_banner_mail_general}}; "><!-- MODULO PROMOS -->
+                                                      <td height="240px" class="alto-auto" style="margin:0px;border-spacing:0; overflow: hidden; padding:{{padd_banner_mail_general}}; ">
+														  <!-- ATOMO PROMOS -->
                                                         
                                                         <table bgcolor="{{bg_descuento_mail_general}}" style=" width: auto;  font-family:arial,helvetica,sans-serif; padding: 3px 6px; border-radius: 7px; margin-bottom: 7px;">
                                                           <tr>
@@ -1064,7 +1075,7 @@ h6 {
                                                           </tr>
                                                         </table>
                                                         
-                                                        <!-- MODULO CREDITOS -->
+                                                        <!-- ATOMO CREDITOS -->
                                                         
                                                         <table bgcolor="{{bg_creditos_mail_general}}" style=" width: auto;  font-family:arial,helvetica,sans-serif; padding: 3px 6px; border-radius: 7px; margin-bottom: 7px;">
                                                           <tr>
@@ -1073,7 +1084,7 @@ h6 {
                                                           </tr>
                                                         </table>
                                                         
-                                                        <!-- MODULO TEXTO XL VIVO -->
+                                                        <!-- ATOMO TEXTO XL VIVO -->
                                                         
                                                         <table bgcolor="" style=" width: auto;  font-family:arial,helvetica,sans-serif; margin-bottom: 7px; ">
                                                           <tr>
@@ -1081,7 +1092,7 @@ h6 {
                                                           </tr>
                                                         </table>
                                                         
-                                                        <!-- MODULO TEXTO M VIVO -->
+                                                        <!-- ATOMO TEXTO M VIVO -->
                                                         
                                                         <table bgcolor="" style=" width: auto;  font-family:arial,helvetica,sans-serif; margin-bottom: 7px; ">
                                                           <tr>
@@ -1089,7 +1100,7 @@ h6 {
                                                           </tr>
                                                         </table>
                                                         
-                                                        <!-- MODULO TEXTO COMPLEMENTO -->
+                                                        <!-- ATOMO TEXTO COMPLEMENTO -->
                                                         
                                                         <table style=" width: auto;  font-family:arial,helvetica,sans-serif;  margin-bottom: 7px;">
                                                           <tr>
@@ -1097,7 +1108,7 @@ h6 {
                                                           </tr>
                                                         </table>
                                                         
-                                                        <!-- MODULO IMG AUTOMATICA -->
+                                                        <!-- ATOMO IMG AUTOMATICA -->
                                                         
                                                         <table data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style=" margin-bottom: 7px; ">
                                                           <tbody>
@@ -1107,7 +1118,7 @@ h6 {
                                                           </tbody>
                                                         </table>
                                                         
-                                                        <!-- CTA INTERNO  --> 
+                                                        <!-- ATOMO CTA INTERNO  --> 
                                                         {% assign cta_alineado = 'left' %} 
                                                         <!--esta caracteristica se usa en left, en el banner horizontal  --> 
                                                         
@@ -1125,12 +1136,15 @@ h6 {
                                                   </tbody>
                                                 </table>
                                                 
-                                                <!-- CELDA 2 CON IMG FIJA -->
+                                                <!-- MODULO PARA IMG FIJA -->
                                                 <table width="240" style="width:240px; padding: 0px 0px 0px 0px" cellpadding="0" cellspacing="0" align="left" border="0"  class="column column-1">
                                                   <tbody>
                                                     <tr style="background-image: url({{img_overlay_2_mail_general}}); background-size: cover; background-position: center center;" >
-                                                      <td class="altobanner1" style="padding:0px 0px 0px 0px;margin:0px;border-spacing:0;vertical-align: top; background-image: url(https://lh3.googleusercontent.com/d/1DUvbZ8_lGdt1N_jZUSt4vyHHblvbVg9P); background-size: cover; background-position: center center; height: 270px; border-radius: 16px;  "><div style="padding: 10px;"> 
-                                                          <!-- ACA MODULOS DE IMAGEN-->
+                                                      <td class="altobanner1" style="height: 300px; padding:0px 0px 0px 0px;margin:0px;border-spacing:0;vertical-align: top; background-image: url(https://lh3.googleusercontent.com/d/1DUvbZ8_lGdt1N_jZUSt4vyHHblvbVg9P); background-size: cover; background-position: center center; border-radius: 16px;  "><div style="padding: 10px;"> 
+														  
+														  
+                                                          
+                                                          <!-- IMG FIJA -->
                                                           <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; width: 100%; border-collapse: collapse;">
                                                             <tr>
                                                               <td style="vertical-align: top; text-align: left;"><img class="banner-logo1-1" border="0" style="width: 75px;margin: 0 auto; border-radius: 7px; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1a9-c_8otztz8MJvWa6G-TczJ3NEO083G"></td>
@@ -1141,12 +1155,13 @@ h6 {
                                                   </tbody>
                                                 </table>
                                                 
-                                                <!-- CELDA 2 CON IMG AUTOMATICA -->
+                                                 <!-- MODULO PARA IMG AUTOMÁTICA  -->
                                                 <table width="240" style="width:240px; padding: 0px 0px 0px 0px" cellpadding="0" cellspacing="0" align="left" border="0"  class="column column-1">
                                                   <tbody>
                                                     <tr style="" >
                                                       <td  style="padding:0px 0px 0px 0px;margin:0px;border-spacing:0;vertical-align: middle; "><div style=""> 
-                                                          <!-- MODULO IMG AUTOMATICA -->
+														  
+                                                          <!-- IMG AUTOMATICA -->
                                                           
                                                           <table  border="0" cellpadding="0" cellspacing="0" width="100%" style=" margin-bottom: 7px; ">
                                                             <tbody>
@@ -1159,31 +1174,30 @@ h6 {
                                                     </tr>
                                                   </tbody>
                                                 </table>
+                                                
+                                                 <!-- MODULO TAGS : en el banner horizontal siempre está en esta posición, se puede eliminar  --> 
 												
-												 <!-- MODULO TAGS HORIZONTAL -->
-                                              <table style="width: 100%; " cellpadding="0" cellspacing="0" align="left" border="0"  class="column column-1">
-                                                <tbody>
-                                                  <tr style="" >
-                                                    <td style="padding: 5px 10px; margin:0px; vertical-align: middle;  margin-bottom: 7px; "><div style="">
-                                                        <table cellpadding="0" cellspacing="0" style="font-family:arial,helvetica,sans-serif; float: right; border-collapse: separate;">
-                                                          <tr>
-                                                            <td style=""><div style="vertical-align: middle;text-align: left; width: auto; display: inline-block; background: {{bg_tag_fondo_mail_general}};  border-radius: 14px; padding: 2px 4px; margin-right: 3px; ">
-                                                                <h4 style="color: {{color_tag_tipografia_mail_general}} "><img  border="0" style="height: 12px; max-height: 12px; min-height: 12px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1WGmmnGkKvxsrQ1eRVygjRfpzCi60p2df"> tag 1 </h4>
-                                                              </div></td>
-                                                            <td style=""><div style="vertical-align: middle;text-align: left; width: auto; display: inline-block; background: {{bg_tag_fondo_mail_general}};  border-radius: 14px; padding: 2px 4px;  margin-right: 3px; ">
-                                                                <h4 style="color: {{color_tag_tipografia_mail_general}} "><img  border="0" style="height: 12px; max-height: 12px; min-height: 12px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1WGmmnGkKvxsrQ1eRVygjRfpzCi60p2df"> tag 1 </h4>
-                                                              </div></td>
-                                                            <td style=""><div style="vertical-align: middle;text-align: left; width: auto; display: inline-block; background: {{bg_tag_fondo_mail_general}};  border-radius: 14px; padding: 2px 4px;  margin-right: 3px; ">
-                                                               <h4 style="color: {{color_tag_tipografia_mail_general}} "><img  border="0" style="height: 12px; max-height: 12px; min-height: 12px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1WGmmnGkKvxsrQ1eRVygjRfpzCi60p2df"> tag 1 </h4>
-                                                              </div></td>
-                                                          </tr>
-                                                        </table>
-                                                      </div></td>
-                                                  </tr>
-                                                </tbody>
-                                              </table>
-												
-												
+                                                <table style="width: 100%; " cellpadding="0" cellspacing="0" align="left" border="0"  class="column column-1">
+                                                  <tbody>
+                                                    <tr style="" >
+                                                      <td style="padding: 5px 10px; margin:0px; vertical-align: middle;  margin-bottom: 7px; "><div style="">
+                                                          <table cellpadding="0" cellspacing="0" style="font-family:arial,helvetica,sans-serif; float: right; border-collapse: separate;">
+                                                            <tr>
+                                                              <td style=""><div style="vertical-align: middle;text-align: left; width: auto; display: inline-block; background: {{bg_tag_fondo_mail_general}};  border-radius: 14px; padding: 2px 4px; margin-right: 3px; ">
+                                                                  <h4 style="color: {{color_tag_tipografia_mail_general}} "><img  border="0" style="height: 12px; max-height: 12px; min-height: 12px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1WGmmnGkKvxsrQ1eRVygjRfpzCi60p2df"> tag 1 </h4>
+                                                                </div></td>
+                                                              <td style=""><div style="vertical-align: middle;text-align: left; width: auto; display: inline-block; background: {{bg_tag_fondo_mail_general}};  border-radius: 14px; padding: 2px 4px;  margin-right: 3px; ">
+                                                                  <h4 style="color: {{color_tag_tipografia_mail_general}} "><img  border="0" style="height: 12px; max-height: 12px; min-height: 12px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1WGmmnGkKvxsrQ1eRVygjRfpzCi60p2df"> tag 1 </h4>
+                                                                </div></td>
+                                                              <td style=""><div style="vertical-align: middle;text-align: left; width: auto; display: inline-block; background: {{bg_tag_fondo_mail_general}};  border-radius: 14px; padding: 2px 4px;  margin-right: 3px; ">
+                                                                  <h4 style="color: {{color_tag_tipografia_mail_general}} "><img  border="0" style="height: 12px; max-height: 12px; min-height: 12px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1WGmmnGkKvxsrQ1eRVygjRfpzCi60p2df"> tag 1 </h4>
+                                                                </div></td>
+                                                            </tr>
+                                                          </table>
+                                                        </div></td>
+                                                    </tr>
+                                                  </tbody>
+                                                </table>
                                               </div></td>
                                           </tr>
                                         </tbody>
@@ -1191,95 +1205,90 @@ h6 {
                                     </div>
                                     </a> 
                                     
-                                    <!--FIN CTA --> 
-                                    
-                                 
                                     <!-- VERTICAL  --> 
-                                    <a role="vertical" originalsrc="AQUIELLINK2" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="AQUIELLINK2" data-linkindex="0" style="text-decoration: none; display: inline-block; width: 100%; margin-top: 15px;">
+                                    <a role="vertical" originalsrc="AQUIELLINKDELBANNER" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="AQUIELLINKDELBANNER" data-linkindex="0" style="text-decoration: none; display: inline-block; width: 100%; margin-top: 15px;">
                                     <table id="BANNER_VERTICAL" width="480" style="width:480px; border-spacing:0; margin:0 auto;" cellpadding="0" cellspacing="0" align="center" border="0" bgcolor="" class="column column-0">
                                       <tbody>
                                         <tr valign="middle">
-                                          <td style="padding:0px 0px;margin:0px;border-spacing:0; vertical-align: middle; background-image: url({{bg_bannerimg_mail_general}}); background-size: 100% 100%; background-position: center top; border-radius: 16px; overflow: hidden;"><div style="background: {{bg_bannertono_mail_general}}; max-width: 480px; margin: 0 auto;  overflow: hidden;">
-                                              <table style="width: 100%;" cellpadding="0" cellspacing="0" align="left" border="0" class="column column-0">
-                                                <tbody>
-                                                  <tr>
-                                                    <td class="alto-auto" style="margin:0px;border-spacing:0; overflow: hidden; padding: 0px"><table  style="width: 100%;height: 80%; margin: 0 auto; font-family:arial,helvetica,sans-serif; padding:{{padd_banner_mail_general}}">
+                                          <td style="padding:0px 0px;margin:0px;border-spacing:0; vertical-align: middle; background-image: url({{bg_bannerimg_mail_general}}); background-size: 100% 100%; background-position: center top; border-radius: 16px; overflow: hidden;"><div style="background: {{bg_bannertono_mail_general}}; max-width: 480px; margin: 0 auto;  overflow: hidden;"> 
+                                              
+                                              <!-- MODULO ATOMOS : dentro de esta tabla se agrupan los ATOMOS, se puede mover arriba o abajo de la imagen o los tags, se puede duplicar si se requieren ATOMOS en diferentes momentos  -->
+                                              
+                                              <table  style="width: 100%;height: 80%; margin: 0 auto; font-family:arial,helvetica,sans-serif; padding:{{padd_banner_mail_general}}">
+                                                <tr>
+                                                  <td style=""><!-- ATOMO PROMOS VERTICAL -->
+                                                    
+                                                    <table bgcolor="{{bg_descuento_mail_general}}" style=" width: auto; font-family:arial,helvetica,sans-serif; padding: 3px 6px; border-radius: 7px; margin: 0 auto; margin-bottom: 7px;">
+                                                      <tr>
+                                                        <td  style="vertical-align: middle; text-align: center; "><div class="{{banner_copy_modulo_ahora_class}}" style="writing-mode: vertical-rl; -webkit-writing-mode: vertical-rl; -ms-writing-mode: tb-rl; height: 50px; width: 20px; font-size: {{banner_copy_modulo_ahora_fontsize_vertical}}; line-height: {{banner_copy_modulo_ahora_lineheight_vertical}}; color: {{color_descuento_mail_general}};">Ahora</div></td>
+                                                        <td style="vertical-align: middle; text-align: center; "><span class="{{banner_copy_modulo_prom_class}}" style="font-weight: bold; font-size: {{banner_copy_modulo_promo_fontsize_vertical}}; line-height: {{banner_copy_modulo_promo_lineheight_vertical}}; color: {{color_descuento_mail_general}} ">{{banner_copy_modulo_promo}}</span></td>
+                                                      </tr>
+                                                    </table>
+                                                    
+                                                    <!-- ATOMO CREDITOS -->
+                                                    
+                                                    <table bgcolor="{{bg_creditos_mail_general}}" style=" width: auto;  font-family:arial,helvetica,sans-serif; padding: 3px 6px; border-radius: 7px; margin: 0 auto; margin-bottom: 7px;">
+                                                      <tr>
+                                                        <td style="vertical-align: middle; text-align: center; "><span class="{{banner_copy_modulo_creditos_class}}" style="font-weight: bold; font-size: {{banner_copy_modulo_creditos_fontsize_vertical}}; line-height: {{banner_copy_modulo_creditos_lineheight_vertical}}; color: {{color_creditos_mail_general}} ">{{banner_copy_modulo_creditos}}</span>
+                                                          <div class="bnr-sm" style="font-weight: bold; font-size: 16px; line-height: 18px; color: {{color_creditos_mail_general}} ; width: 100%; letter-spacing: 4px; ">DE REINTEGRO</div></td>
+                                                      </tr>
+                                                    </table>
+                                                    
+                                                    <!-- ATOMO TEXTO XL VIVO -->
+                                                    
+                                                    <table bgcolor="" style=" width: auto;  font-family:arial,helvetica,sans-serif; margin: 0 auto; margin-bottom: 7px; ">
+                                                      <tr>
+                                                        <td style="vertical-align: middle; text-align: center; "><span class="{{banner_copy_modulo_textoxl_class}}" style="font-size: {{banner_copy_modulo_textoxl_fontsize_vertical}}; line-height: {{banner_copy_modulo_textoxl_lineheight_vertical}}; color: {{color_acento2_mail_general}} ">{{banner_copy_modulo_textoxl}}</span></td>
+                                                      </tr>
+                                                    </table>
+                                                    
+                                                    <!-- ATOMO TEXTO M VIVO -->
+                                                    
+                                                    <table bgcolor="" style=" width: auto;  font-family:arial,helvetica,sans-serif; margin: 0 auto; margin-bottom: 7px;  ">
+                                                      <tr>
+                                                        <td style="vertical-align: middle; text-align: center; "><span class="bnr-md" style="font-size: 50px; line-height: 51px; color: {{color_acento2_mail_general}} ">{{banner_copy_modulo_textom}}</span></td>
+                                                      </tr>
+                                                    </table>
+                                                    
+                                                    <!-- ATOMO TEXTO COMPLEMENTO -->
+                                                    
+                                                    <table style=" width: auto;  font-family:arial,helvetica,sans-serif; margin: 0 auto; margin-bottom: 7px; ">
+                                                      <tr>
+                                                        <td style="vertical-align: middle; text-align: center; "><h2 style="color: {{color_texto_mail_general}} ">{{banner_copy_modulo_textom}}</h2></td>
+                                                      </tr>
+                                                    </table>
+                                                    
+                                                    <!-- ATOMO IMG AUTOMATICA -->
+                                                    
+                                                    <table data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style=" margin-bottom: 7px; ">
+                                                      <tbody>
                                                         <tr>
-                                                          <td style=""><!-- MODULO PROMOS VERTICAL -->
-                                                            
-                                                            <table bgcolor="{{bg_descuento_mail_general}}" style=" width: auto; font-family:arial,helvetica,sans-serif; padding: 3px 6px; border-radius: 7px; margin: 0 auto; margin-bottom: 7px;">
-                                                              <tr>
-                                                                <td  style="vertical-align: middle; text-align: center; "><div class="{{banner_copy_modulo_ahora_class}}" style="writing-mode: vertical-rl; -webkit-writing-mode: vertical-rl; -ms-writing-mode: tb-rl; height: 50px; width: 20px; font-size: {{banner_copy_modulo_ahora_fontsize_vertical}}; line-height: {{banner_copy_modulo_ahora_lineheight_vertical}}; color: {{color_descuento_mail_general}};">Ahora</div></td>
-                                                                <td style="vertical-align: middle; text-align: center; "><span class="{{banner_copy_modulo_prom_class}}" style="font-weight: bold; font-size: {{banner_copy_modulo_promo_fontsize_vertical}}; line-height: {{banner_copy_modulo_promo_lineheight_vertical}}; color: {{color_descuento_mail_general}} ">{{banner_copy_modulo_promo}}</span></td>
-                                                              </tr>
-                                                            </table>
-                                                            
-                                                            <!-- MODULO CREDITOS -->
-                                                            
-                                                            <table bgcolor="{{bg_creditos_mail_general}}" style=" width: auto;  font-family:arial,helvetica,sans-serif; padding: 3px 6px; border-radius: 7px; margin: 0 auto; margin-bottom: 7px;">
-                                                              <tr>
-                                                                <td style="vertical-align: middle; text-align: center; "><span class="{{banner_copy_modulo_creditos_class}}" style="font-weight: bold; font-size: {{banner_copy_modulo_creditos_fontsize_vertical}}; line-height: {{banner_copy_modulo_creditos_lineheight_vertical}}; color: {{color_creditos_mail_general}} ">{{banner_copy_modulo_creditos}}</span>
-                                                                  <div class="bnr-sm" style="font-weight: bold; font-size: 16px; line-height: 18px; color: {{color_creditos_mail_general}} ; width: 100%; letter-spacing: 4px; ">DE REINTEGRO</div></td>
-                                                              </tr>
-                                                            </table>
-                                                            
-                                                            <!-- MODULO TEXTO XL VIVO -->
-                                                            
-                                                            <table bgcolor="" style=" width: auto;  font-family:arial,helvetica,sans-serif; margin: 0 auto; margin-bottom: 7px; ">
-                                                              <tr>
-                                                                <td style="vertical-align: middle; text-align: center; "><span class="{{banner_copy_modulo_textoxl_class}}" style="font-size: {{banner_copy_modulo_textoxl_fontsize_vertical}}; line-height: {{banner_copy_modulo_textoxl_lineheight_vertical}}; color: {{color_acento2_mail_general}} ">{{banner_copy_modulo_textoxl}}</span></td>
-                                                              </tr>
-                                                            </table>
-                                                            
-                                                            <!-- MODULO TEXTO M VIVO -->
-                                                            
-                                                            <table bgcolor="" style=" width: auto;  font-family:arial,helvetica,sans-serif; margin: 0 auto; margin-bottom: 7px;  ">
-                                                              <tr>
-                                                                <td style="vertical-align: middle; text-align: center; "><span class="bnr-md" style="font-size: 50px; line-height: 51px; color: {{color_acento2_mail_general}} ">{{banner_copy_modulo_textom}}</span></td>
-                                                              </tr>
-                                                            </table>
-                                                            
-                                                            <!-- MODULO TEXTO COMPLEMENTO -->
-                                                            
-                                                            <table style=" width: auto;  font-family:arial,helvetica,sans-serif; margin: 0 auto; margin-bottom: 7px; ">
-                                                              <tr>
-                                                                <td style="vertical-align: middle; text-align: center; "><h2 style="color: {{color_texto_mail_general}} ">{{banner_copy_modulo_textom}}</h2></td>
-                                                              </tr>
-                                                            </table>
-                                                            
-                                                            <!-- MODULO IMG AUTOMATICA -->
-                                                            
-                                                            <table data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style=" margin-bottom: 7px; ">
-                                                              <tbody>
-                                                                <tr>
-                                                                  <td ><img src="https://lh3.googleusercontent.com/d/1U4HZfNfRWpZ0XhMCmFF-4V4U2H3W8IcN" style="display: block; border: 0; width: {{banner_img_modulo_auto_ancho}}%; height: auto; margin: 0 auto; " alt="img"></td>
-                                                                </tr>
-                                                              </tbody>
-                                                            </table>
-                                                            
-                                                            <!-- CTA INTERNO  --> 
-                                                            {% assign cta_alineado = 'center' %}
-                                                            {% assign text_cta = 'Súper completo en 10 min' %} 
-                                                            <!--dentro de las comillas se cambia el texto del cta  --> 
-                                                            {% assign deeplink_cta = 'AQUIELLINK#'  %} 
-                                                            {% assign style_Look = 'neon' %} 
-                                                            
-                                                            <!-- variantes 'neon' 'blanconeon' 'negroneon' 'verde''blancogris' 'negrogris' 
+                                                          <td ><img src="https://lh3.googleusercontent.com/d/1U4HZfNfRWpZ0XhMCmFF-4V4U2H3W8IcN" style="display: block; border: 0; width: {{banner_img_modulo_auto_ancho}}%; height: auto; margin: 0 auto; " alt="img"></td>
+                                                        </tr>
+                                                      </tbody>
+                                                    </table>
+                                                    
+                                                    <!-- ATOMO CTA INTERNO  --> 
+                                                    {% assign cta_alineado = 'center' %}
+                                                    {% assign text_cta = 'Súper completo en 10 min' %} 
+                                                    <!--dentro de las comillas se cambia el texto del cta  --> 
+                                                    {% assign deeplink_cta = 'AQUIELLINK#'  %} 
+                                                    {% assign style_Look = 'neon' %} 
+                                                    
+                                                    <!-- variantes 'neon' 'blanconeon' 'negroneon' 'verde''blancogris' 'negrogris' 
 
 
  'problack': predeterminado para terma Problack 'pro' predeterminado para terma Pro --> 
-                                                            {{content_blocks.${CTA-template}}} </td>
-                                                        </tr>
-                                                      </table>
-                                                      
-                                                      <!-- FIN CONTENEDOR TEXTOS --></td>
-                                                  </tr>
-                                                </tbody>
+                                                    {{content_blocks.${CTA-template}}} </td>
+                                                </tr>
                                               </table>
+                                              
+                                              <!-- FIN CONTENEDOR TEXTOS -->
+                                              
                                               <table style="width: 100%; padding: 0px 0px 0px 0px" cellpadding="0" cellspacing="0" align="left" border="0"  class="column column-1">
                                                 <tbody>
                                                   <tr style="background-image: url({{img_overlay_2_mail_general}}); background-size: cover; background-position: center center;" >
-                                                    <td class="altobanner1" style="padding:0px 0px 0px 0px;margin:0px;border-spacing:0;vertical-align: top; background-image: url(https://lh3.googleusercontent.com/d/1DUvbZ8_lGdt1N_jZUSt4vyHHblvbVg9P); background-size: cover; background-position: center center; height: 270px; border-radius: 16px;  "><div style="padding: 10px;">
+                                                    <td class="altobanner2" style="padding:0px 0px 0px 0px;margin:0px;border-spacing:0;vertical-align: top; background-image: url(https://lh3.googleusercontent.com/d/1DUvbZ8_lGdt1N_jZUSt4vyHHblvbVg9P); background-size: cover; background-position: center center; height: 270px; border-radius: 16px;  "><div style="padding: 10px;">
                                                         <table cellpadding="3px" bgcolor="" style="margin: 0 auto; font-family:arial,helvetica,sans-serif; width: 100%; border-collapse: collapse;">
                                                           <tr>
                                                             <td style="vertical-align: top; text-align: left; width: auto;   display: inline-block;"><a href="AQUIELLINKDELOGO1" style="display: block;"><img border="0" style="width: 75px;margin: 0 auto; border-radius: 7px; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1a9-c_8otztz8MJvWa6G-TczJ3NEO083G"> </a></td>
@@ -1304,7 +1313,7 @@ h6 {
                                                                 <h4 style="color: {{color_tag_tipografia_mail_general}} "><img  border="0" style="height: 12px; max-height: 12px; min-height: 12px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1WGmmnGkKvxsrQ1eRVygjRfpzCi60p2df"> tag 1 </h4>
                                                               </div></td>
                                                             <td style=""><div style="vertical-align: middle;text-align: left; width: auto; display: inline-block; background: {{bg_tag_fondo_mail_general}};  border-radius: 14px; padding: 2px 4px;  margin-right: 3px; ">
-                                                               <h4 style="color: {{color_tag_tipografia_mail_general}} "><img  border="0" style="height: 12px; max-height: 12px; min-height: 12px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1WGmmnGkKvxsrQ1eRVygjRfpzCi60p2df"> tag 1 </h4>
+                                                                <h4 style="color: {{color_tag_tipografia_mail_general}} "><img  border="0" style="height: 12px; max-height: 12px; min-height: 12px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1WGmmnGkKvxsrQ1eRVygjRfpzCi60p2df"> tag 1 </h4>
                                                               </div></td>
                                                           </tr>
                                                         </table>

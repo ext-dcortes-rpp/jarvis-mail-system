@@ -1,18 +1,20 @@
+<!-- EJEMPLO DE DEFINICION DE TEMA  -->
 {% assign tema_general_mail_general = 'darkturbo' %}
+
+<!-- EJEMPLO DE DEFINICION DE CAMPOS PARA BANNER  -->
 {% assign banner_copy_modulo_promo = '$14.000' %}
 {% assign banner_copy_modulo_creditos = '120' %}
 {% assign banner_copy_modulo_textoxl = '120 créditos' %}
 {% assign banner_copy_modulo_textom = 'de regalo para tu proxima compra' %}
- <!-- primero se llama: head-meta-tags.html con todos los temas en liquid  -->
-									  
+{% assign banner_img_modulo_auto_ancho = '80' %}
+
+<!-- primero se llama: head-meta-tags.html con todos los temas en liquid  -->
 
 <!doctype html>
 <html>
 
-	
-	
- <!--en este espacio se llama: global-styles.html con todo el head y css   --> 	
-	
+<!--en este espacio se llama: global-styles.html con todo el head y css   -->
+
 <body>
 
 <!-- INICIO SECCION BANNER -->
@@ -21,8 +23,7 @@
   <div class="webkit">
     <table cellpadding="0" cellspacing="0" border="0" width="100%" class="wrapper" bgcolor="{{bg_solid_mail_general}}">
       <tr>
-        <td valign="top" bgcolor="{{bg_solid_mail_general}}" width="100%" style="background-image: url({{bg_img_mail_general}}); background-size:{{bg_img_size_mail_general}}; background-position: center top; background-repeat: repeat-x;">
-			<table width="100%" role="content-container" class="outer" align="center" cellpadding="0" cellspacing="0" border="0">
+        <td valign="top" bgcolor="{{bg_solid_mail_general}}" width="100%" style="background-image: url({{bg_img_mail_general}}); background-size: {{bg_img_size_mail_general}}; background-position: center top; background-repeat: repeat-x;"><table width="100%" role="content-container" class="outer" align="center" cellpadding="0" cellspacing="0" border="0">
             <tr>
               <td class="fondomobile" width="100%" style="background-image: url({{bg_imgevento_mail_general}}); background-size: 100% auto; background-position: center top; background-repeat: no-repeat"><table width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
@@ -34,45 +35,41 @@
                       
                       <table width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%; max-width:600px; " align="center" bgcolor="">
                         <tr>
-                          <td style="padding:0px 0px 0px 0px; text-align:left;" bgcolor="" width="100%" align="left">
-							  
-							  
-							  <!-- CONTENEDOR GENERAL -->
+                          <td style="padding:0px 0px 0px 0px; text-align:left;" bgcolor="" width="100%" align="left"><!-- CONTENEDOR GENERAL -->
                             
-                            <table role="paddedcontainer" border="0" cellpaddingde ="0" cellspacing="0" align="center" width="100%" data-type="columns" style="padding:20px 15px 0px 15px; " bgcolor="">
+                            <table role="paddedcontainer" border="0" cellpadding ="0" cellspacing="0" align="center" width="100%" data-type="columns" style="padding:20px 15px 0px 15px;" bgcolor="">
                               <tbody>
                                 <tr>
-                                  <td height="100%" valign="top">
-									  
-									 
-									 
-									  	  <!-- HEADER WRAPPER 
-Dentro de header wrapper se llama la celda del header que se requiera: VARIANTE HEADER 
-CIERRE HEADER WRAPPER -->
-									  
-									 
-									  
+                                  <td height="100%" valign="top"><!--en este espacio se llama: global-styles.html con todo el head y css   --> 
                                     
-                                    <!-- BANNER --> 
+                                    <!-- HEADER WRAPPER 
+Dentro de header wrapper se llama la celda del header que se requiera: VARIANTE HEADER 
+CIERRE HEADER WRAPPER --> 
+                                    
+                                    <!-- siempre entre un módulo y otro agregar un separador  -->
+                                    
+                                    
+                                  <!-- BANNER : por defecto el template debe tener un banner vertical, con sus atomos por defecto  -->
+			  
+                                    
+                                    <!-- siempre por defecto debajo del banner debe venir un cta, se puede eliminar --> 
+                                    
+                                    <!-- CTA--> 
+									  
+									  
+									  
+									 <div class="separador"></div>
                                     
                                     <!-- CONTENIDOS --> 
                                     
-                                    <!-- CIERRE -->
-									
-									
-									
-									
-									</td>
+                                    <!-- siempre por defecto debajo del banner debe venir el cierre, se puede eliminar de ser necesario --> 
+                                    
+                                    <!-- CIERRE --></td>
                                 </tr>
                               </tbody>
                             </table>
                             
-                            <!-- FOOTER -->
-							
-							
-							
-							
-							</td>
+                            <!-- FOOTER --></td>
                         </tr>
                       </table>
                       

@@ -51,25 +51,30 @@ Cada archivo contiene únicamente el `<tr>` del header (con su comentario identi
 
 | Archivo | Descripción |
 |---------|-------------|
-| `modulo_tags.html` | Tag/etiqueta que se muestra sobre el banner |
-| `modulo_img_altofijo.html` | Columna de imagen de alto fijo (banner horizontal) |
-| `modulo_creditos_horizontal.html` | Texto vivo de créditos ("$XXX" + "DE REINTEGRO") para el banner horizontal, usa `bnr-*` + tema (`bg_creditos_mail_general`, `color_creditos_mail_general`) |
-| `modulo_creditos_vertical.html` | Igual que `modulo_creditos_horizontal.html` pero con los tamaños del banner vertical |
-| `modulo_promo_horizontal.html` | Módulo de promo ("Ahora" + cifra) para el banner horizontal, tamaños inline + tema (`bg_descuento_mail_general`, `color_descuento_mail_general`) |
-| `modulo_promo_vertical.html` | Igual que `modulo_promo_horizontal.html` pero con los tamaños del banner vertical |
-| `modulo_textoxl_horizontal.html` | Texto vivo XL adicional (`banner_copy_modulo_textoxl`) para el banner horizontal, mismo comportamiento de tamaño que `modulo_promo_horizontal.html` |
-| `modulo_textoxl_vertical.html` | Igual que `modulo_textoxl_horizontal.html` pero con los tamaños del banner vertical |
-| `modulo_textom_horizontal.html` | Texto vivo `.bnr-md` (`banner_copy_modulo_textom`), tamaño fijo inline (no depende del largo) |
-| `modulo_textom_vertical.html` | Igual que `modulo_textom_horizontal.html` pero con los tamaños del banner vertical |
-| `modulo_texto_complemento_horizontal.html` | Versión `<h2>` de `banner_copy_modulo_textom` (texto de body, no `bnr-*`) |
-| `modulo_texto_complemento_vertical.html` | Igual que `modulo_texto_complemento_horizontal.html`, centrado para el banner vertical |
-| `modulo_img_automatica_horizontal.html` | Imagen automática (`banner_img_modulo_auto_ancho`) dentro del banner horizontal |
-| `modulo_img_automatica_vertical.html` | Igual que `modulo_img_automatica_horizontal.html`, centrada para el banner vertical |
-| `modulo_cta_interno_horizontal.html` | CTA embebido dentro del banner horizontal (`cta_alineado: 'left'`) |
-| `modulo_cta_interno_vertical.html` | CTA embebido dentro del banner vertical (`cta_alineado: 'center'`) |
-| `modulo_texto_complementario.html` | Placeholder anterior — pendiente de revisar si sigue haciendo falta ahora que existe `modulo_texto_complemento_horizontal/vertical.html` |
+**MODULOS** — piezas fijas que se conservan tal cual dentro de `big-banner-*.html` (no son ATOMOS, no se combinan libremente):
 
-El tamaño de las clases `bnr-*` usadas en los módulos de créditos, promo y texto XL depende de si el banner que las envuelve está marcado con `id="BANNER_HORIZONTAL"` o `id="BANNER_VERTICAL"` (ver `01-foundations/global-styles/global-styles.html`). Los tamaños de escritorio de estas clases se aplican inline (vía las variables Liquid de largo de texto en `01-foundations/global-styles/head-meta-tags.html`); las clases `bnr-*` en el `<head>` solo cubren el override de mobile.
+| Archivo | Descripción |
+|---------|-------------|
+| `modulo_tags.html` | Tag/etiqueta que se muestra sobre el banner |
+| `modulo_img_altofijo_horizontal.html` | Columna de imagen de alto fijo (`altobanner1`) para el banner horizontal |
+| `modulo_img_altofijo_vertical.html` | Igual, con la clase/alto (`altobanner2`) del banner vertical |
+| `modulo_img_automatica_horizontal.html` | Celda alternativa a `modulo_img_altofijo_horizontal.html` en el banner horizontal — **solo se usa una de las dos**. No confundir con `atomo_img_automatica_*` (son piezas distintas) |
+
+**ATOMOS** — viven dentro de `MODULO ATOMOS` (la tabla que se conserva en `big-banner-*.html`) y se combinan libremente. Cada uno tiene su par horizontal/vertical:
+
+| Archivo | Descripción |
+|---------|-------------|
+| `atomo_promo_horizontal.html` / `atomo_promo_vertical.html` | Módulo de promo ("Ahora" + cifra), tamaños inline + tema (`bg_descuento_mail_general`, `color_descuento_mail_general`) |
+| `atomo_creditos_horizontal.html` / `atomo_creditos_vertical.html` | Texto vivo de créditos ("$XXX" + "DE REINTEGRO"), usa `bnr-*` + tema (`bg_creditos_mail_general`, `color_creditos_mail_general`) |
+| `atomo_textoxl_horizontal.html` / `atomo_textoxl_vertical.html` | Texto vivo XL adicional (`banner_copy_modulo_textoxl`), mismo comportamiento de tamaño que `atomo_promo_*` |
+| `atomo_textom_horizontal.html` / `atomo_textom_vertical.html` | Texto vivo `.bnr-md` (`banner_copy_modulo_textom`), tamaño fijo inline (no depende del largo) |
+| `atomo_texto_complemento_horizontal.html` / `atomo_texto_complemento_vertical.html` | Versión `<h2>` de `banner_copy_modulo_textom` (texto de body, no `bnr-*`) |
+| `atomo_img_automatica_horizontal.html` / `atomo_img_automatica_vertical.html` | Imagen automática (`banner_img_modulo_auto_ancho`) — pieza distinta a `modulo_img_automatica_horizontal.html` |
+| `atomo_cta_interno_horizontal.html` (`cta_alineado: 'left'`) / `atomo_cta_interno_vertical.html` (`cta_alineado: 'center'`) | CTA embebido dentro del banner |
+
+`modulo_texto_complementario.html` (sin sufijo) es un placeholder de una versión anterior — pendiente de revisar si sigue haciendo falta ahora que existe `atomo_texto_complemento_horizontal/vertical.html`.
+
+El tamaño de las clases `bnr-*` usadas en los átomos de créditos, promo y texto XL depende de si el banner que los envuelve está marcado con `id="BANNER_HORIZONTAL"` o `id="BANNER_VERTICAL"` (ver `01-foundations/global-styles/global-styles.html`). Los tamaños de escritorio de estas clases se aplican inline (vía las variables Liquid de largo de texto en `01-foundations/global-styles/head-meta-tags.html`); las clases `bnr-*` en el `<head>` solo cubren el override de mobile.
 
 ### `ctas/` — El botón de acción
 

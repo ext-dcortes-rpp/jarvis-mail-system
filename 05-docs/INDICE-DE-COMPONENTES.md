@@ -20,7 +20,7 @@ Mapa rápido de todos los bricks disponibles. Para cada uno: qué hace, dónde v
 | Big banner horizontal | `02-components/banners/big-banner-horizontal.html` | 1189-1352 |
 | Big banner vertical | `02-components/banners/big-banner-vertical.html` | 1354-1510 |
 
-`banner-editorial.html` y `_banner-section-close.html` se eliminaron del sistema. Las piezas internas del banner viven en `02-components/banners/banner_atoms/` (`modulo_tags`, `modulo_img_altofijo`, `modulo_creditos_horizontal/vertical`, `modulo_promo_horizontal/vertical`, `modulo_textoxl_horizontal/vertical`, `modulo_textom_horizontal/vertical`, `modulo_texto_complemento_horizontal/vertical`, `modulo_img_automatica_horizontal/vertical`, `modulo_cta_interno_horizontal/vertical`) — todavía sin línea de referencia en el HTML original, son ensamblados nuevos. (`modulo_img_variable` y `modulo_texto_secundario` se eliminaron por no ser necesarios.)
+`banner-editorial.html` y `_banner-section-close.html` se eliminaron del sistema. Las piezas internas del banner viven en `02-components/banners/banner_atoms/`: MODULOS fijos (`modulo_tags`, `modulo_img_altofijo_horizontal/vertical`, `modulo_img_automatica_horizontal` — esta última distinta de `atomo_img_automatica_*`) + ATOMOS de `MODULO ATOMOS`, todos con nombre `atomo_*` para ambos banners (`atomo_creditos`, `atomo_promo`, `atomo_textoxl`, `atomo_textom`, `atomo_texto_complemento`, `atomo_img_automatica`, `atomo_cta_interno`, cada uno en `_horizontal`/`_vertical`). Todavía sin línea de referencia en el HTML original, son ensamblados nuevos. (`modulo_img_variable` y `modulo_texto_secundario` se eliminaron por no ser necesarios.)
 
 ## CTAs · 1 brick
 
