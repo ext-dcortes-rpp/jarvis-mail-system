@@ -13,7 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!--[if !mso]><!-->
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<!--<![endif]-->
+<!--<![endif]--> 
 <!--[if (gte mso 9)|(IE)]>
           <xml>
             <o:OfficeDocumentSettings>
@@ -21,7 +21,7 @@
               <o:PixelsPerInch>96</o:PixelsPerInch>
             </o:OfficeDocumentSettings>
           </xml>
-          <![endif]-->
+          <![endif]--> 
 <!--[if (gte mso 9)|(IE)]>
       <style type="text/css">
         body {width: 600px;margin: 0 auto;}
@@ -36,10 +36,9 @@ body, p, div {
     font-size: 14px;
 }
 body {
-color: {{color_texto_mail_general}};
 padding: 0px;
 margin: 0px;
-background-color: {{bg_solid_mail_general}};
+
 }
 h1 {
     margin: 0;
@@ -105,30 +104,24 @@ h6 {
     word-break: break-word;
     font-family: arial, helvetica, sans-serif;
 }
-.txts {
-    margin: 0;
-    padding: 0;
-    font-weight: normal;
-    font-size: 13px;
-    line-height: 14px;
-    word-break: break-word;
-    font-family: arial, helvetica, sans-serif;
+
+/* ===== BANNER "texto vivo" (bnr-*) - Escritorio ===== */
+#BANNER_HORIZONTAL .bnr-xl {
+    font-size: 75px;
+    line-height: 77px;
 }
-.txtl {
-    margin: 0;
-    padding: 0;
-    font-weight: normal;
-    font-size: 25px;
-    line-height: 26px;
-    word-break: break-word;
-    font-family: arial, helvetica, sans-serif;
+#BANNER_VERTICAL .bnr-xl {
+    font-size: 125px;
+    line-height: 125px;
 }
-/* ===== BANNER "texto vivo" (bnr-*) - Escritorio =====
-   .bnr-xl, .bnr-lg, .bnr-hasta-xl, .bnr-hasta-lg y .bnr-sm (horizontal y vertical) se
-   quitaron de aquí: sus tamaños de escritorio se aplican inline en cada módulo
-   (ver banner_copy_modulo_promo_fontsize/lineheight, _vertical, y los valores fijos de
-   .bnr-sm en el módulo de créditos). Las clases se conservan solo para el override de
-   mobile (@media). .bnr-md se conserva porque todavía no tiene versión inline. */
+#BANNER_HORIZONTAL .bnr-lg {
+    font-size: 35px;
+    line-height: 35px;
+}
+#BANNER_VERTICAL .bnr-lg {
+    font-size: 62px;
+    line-height: 62px;
+}
 #BANNER_HORIZONTAL .bnr-md {
     font-size: 30px;
     line-height: 30px;
@@ -136,6 +129,36 @@ h6 {
 #BANNER_VERTICAL .bnr-md {
     font-size: 50px;
     line-height: 50px;
+}
+#BANNER_HORIZONTAL .bnr-hasta-xl {
+    font-size: 19px;
+    line-height: 19px;
+}
+#BANNER_VERTICAL .bnr-hasta-xl {
+    font-size: 25px;
+    line-height: 25px;
+}
+#BANNER_HORIZONTAL .bnr-hasta-lg {
+    font-size: 10px;
+    line-height: 10px;
+}
+#BANNER_VERTICAL .bnr-hasta-lg {
+    font-size: 15px;
+    line-height: 15px;
+}
+#BANNER_HORIZONTAL .bnr-sm {
+    font-size: 15px;
+    line-height: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+}
+#BANNER_VERTICAL .bnr-sm {
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .12em;
 }
 table.wrapper {
     width: 100% !important;
@@ -358,8 +381,8 @@ h6 {
     line-height: 16px!important;
 }
 #BANNER_HORIZONTAL .bnr-sm, #BANNER_VERTICAL .bnr-sm {
-    font-size: 21px!important;
-    line-height: 23px!important;
+    font-size: 17px!important;
+    line-height: 19px!important;
 }
 .mobile_hide {
     min-height: 0;
@@ -573,8 +596,8 @@ h6 {
     line-height: 16px!important;
 }
 #BANNER_HORIZONTAL .bnr-sm, #BANNER_VERTICAL .bnr-sm {
-    font-size: 21px!important;
-    line-height: 23px!important;
+    font-size: 17px!important;
+    line-height: 19px!important;
 }
 .mobile_hide {
     min-height: 0;

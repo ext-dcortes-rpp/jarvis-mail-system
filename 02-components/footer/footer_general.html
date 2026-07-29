@@ -18,20 +18,6 @@
         {% assign img-amor = 'https://lh3.googleusercontent.com/d/1ud9FQo9bAVuSSrcsGGVcfVDR15i6yRTq' %}
     {% endif %}
 
-	{% elsif font_style_look == 'cafe' %}
-		{% assign color_letra = '#633D11' %}
-		{% assign color_textwa = '#0DAE09' %}
-		{% assign color_bordewa = '2px solid #0DAE09' %}
-		{% assign color_fondowa = 'rgba(115,195,91,0.1)' %}
-		{% assign walogo = 'https://lh3.googleusercontent.com/d/1F18vChiw3QITlsMJErccLGkDTHTbnJvY' %}
-		{% assign logo = 'https://lh3.googleusercontent.com/d/1l2pSc8pTHDt-pXx9LgxA20oVe1qXe7hn' %}
-		{% assign img-amor = 'https://lh3.googleusercontent.com/d/1F3SJ0pyMl3gqW8PyJswrAH0GdKhWwTHD' %}
-		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
-		{% assign show_hr = false %}
-        {% if ${user_id} contains 'BR' %}
-        {% assign img-amor = 'https://lh3.googleusercontent.com/d/1KJFIXGsAj73Z3jm7zDfV0ZhqrbYLMgoU' %}
-    {% endif %}
-
 	{% elsif font_style_look == 'pro' %}
 		{% assign color_letra = '#7D8188' %}
 		{% assign color_textwa = '#F49502' %}
@@ -46,15 +32,7 @@
         {% if ${user_id} contains 'BR' %}
         {% assign img-amor = 'https://lh3.googleusercontent.com/d/1fMO_apmLSG4UkEvyJ1g6dym9A6oaX4XB' %}
         {% endif %}
-	{% elsif font_style_look == 'blanco' %}
-         {% assign background_colour = 'transparent' %}
-		{% assign color_letra = '#FFFFFF' %}
-		{% assign logo = 'https://lh3.googleusercontent.com/d/13fInYFB5qKUpniUQhPN54WF2lBY2770h' %}
-		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
-		{% assign show_hr = false %}
-        {% if ${user_id} contains 'CL' %}
-        {% assign imgchile = 'https://lh3.googleusercontent.com/d/1ap3V0qcokYXYBDZ_yR4EPdpPzd9KYyBN' %}
-    {% endif %}
+
 	{% else %}
         {% assign background_colour = '#FFFFFF' %}
 		{% assign color_letra = '#919AAA' %}

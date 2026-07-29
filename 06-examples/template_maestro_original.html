@@ -1,7 +1,8 @@
 {% assign tema_general_mail_general = 'darkturbo' %}
-{% assign banner_copy_modulo_promo = '5555200' %}
+{% assign banner_copy_modulo_promo = '$14.000' %}
 {% assign banner_copy_modulo_creditos = '120' %}
 {% assign banner_copy_modulo_textoxl = '120 créditos' %}
+{% assign banner_copy_modulo_textom = 'de regalo para tu proxima compra' %}
 <!--
 
 
@@ -374,7 +375,7 @@ Variables de largo de texto:
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!--[if !mso]><!-->
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<!--<![endif]-->
+<!--<![endif]--> 
 <!--[if (gte mso 9)|(IE)]>
           <xml>
             <o:OfficeDocumentSettings>
@@ -382,7 +383,7 @@ Variables de largo de texto:
               <o:PixelsPerInch>96</o:PixelsPerInch>
             </o:OfficeDocumentSettings>
           </xml>
-          <![endif]-->
+          <![endif]--> 
 <!--[if (gte mso 9)|(IE)]>
       <style type="text/css">
         body {width: 600px;margin: 0 auto;}
@@ -397,10 +398,9 @@ body, p, div {
     font-size: 14px;
 }
 body {
-color: {{color_texto_mail_general}};
 padding: 0px;
 margin: 0px;
-background-color: {{bg_solid_mail_general}};
+
 }
 h1 {
     margin: 0;
@@ -1028,7 +1028,7 @@ h6 {
                                         <tbody>
                                           
                                           <!-- HEADERS CENTRADOS--> 
-                                         
+                                          
                                           <!-- HEADER RAPPI FONDO CLARO -->
                                           <tr>
                                             <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;"><div id="HEADER1" style="padding: 0px 0px 0px 0px;">
@@ -1053,9 +1053,6 @@ h6 {
                                                 </table>
                                               </div></td>
                                           </tr>
-                                          
-                                       
-                                   
                                         </tbody>
                                       </table>
                                     </div>
@@ -1074,43 +1071,73 @@ h6 {
                                                 <table width="240" style="width:240px; " cellpadding="0" cellspacing="0" align="left" border="0" class="column column-0">
                                                   <tbody>
                                                     <tr>
-                                                      <td height="240px" class="alto-auto" style="margin:0px;border-spacing:0; overflow: hidden; padding:{{padd_banner_mail_general}}; ">
-														  
-														    <!-- MODULO PROMOS --> 
-														  <table bgcolor="{{bg_descuento_mail_general}}" style=" width: auto;  font-family:arial,helvetica,sans-serif; padding: 3px 6px; border-radius: 7px;">
+                                                      <td height="240px" class="alto-auto" style="margin:0px;border-spacing:0; overflow: hidden; padding:{{padd_banner_mail_general}}; "><!-- MODULO PROMOS -->
+                                                        
+                                                        <table bgcolor="{{bg_descuento_mail_general}}" style=" width: auto;  font-family:arial,helvetica,sans-serif; padding: 3px 6px; border-radius: 7px; margin-bottom: 7px;">
                                                           <tr>
-                                                            <td  style="vertical-align: middle; text-align: center; color: #000000;"><div class="{{banner_copy_modulo_ahora_class}}" style="writing-mode: vertical-rl; -webkit-writing-mode: vertical-rl; -ms-writing-mode: tb-rl; height: 70px; width: 15px; font-size: {{banner_copy_modulo_ahora_fontsize}}; line-height: {{banner_copy_modulo_ahora_lineheight}}; color: {{color_descuento_mail_general}};">Ahora</div></td>
+                                                            <td  style="vertical-align: middle; text-align: center; "><div class="{{banner_copy_modulo_ahora_class}}" style="writing-mode: vertical-rl; -webkit-writing-mode: vertical-rl; -ms-writing-mode: tb-rl; height: 50px; width: 15px; font-size: {{banner_copy_modulo_ahora_fontsize}}; line-height: {{banner_copy_modulo_ahora_lineheight}}; color: {{color_descuento_mail_general}};">Ahora</div></td>
                                                             <td style="vertical-align: middle; text-align: center; color: #000000;"><span class="{{banner_copy_modulo_prom_class}}" style="font-weight: bold; font-size: {{banner_copy_modulo_promo_fontsize}}; line-height: {{banner_copy_modulo_promo_lineheight}}; color: {{color_descuento_mail_general}} ">{{banner_copy_modulo_promo}}</span></td>
                                                           </tr>
                                                         </table>
-														  
-														  
-														  
-														    <!-- MODULO CREDITOS --> 
-														  <table bgcolor="{{bg_creditos_mail_general}}" style=" width: auto;  font-family:arial,helvetica,sans-serif; padding: 3px 6px; border-radius: 7px;">
+                                                        
+                                                        <!-- MODULO CREDITOS -->
+                                                        
+                                                        <table bgcolor="{{bg_creditos_mail_general}}" style=" width: auto;  font-family:arial,helvetica,sans-serif; padding: 3px 6px; border-radius: 7px; margin-bottom: 7px;">
                                                           <tr>
-                                                          
-                                                            <td style="vertical-align: middle; text-align: left; color: #000000;"><span class="{{banner_copy_modulo_creditos_class}}" style="font-weight: bold; font-size: {{banner_copy_modulo_creditos_fontsize}}; line-height: {{banner_copy_modulo_creditos_lineheight}}; color: {{color_creditos_mail_general}} ">{{banner_copy_modulo_creditos}}</span><div class="bnr-sm" style="font-weight: bold; font-size: 14px; line-height: 15px; color: {{color_creditos_mail_general}} ; width: 100%; letter-spacing: 4px; ">DE REINTEGRO</div></td>
+                                                            <td style="vertical-align: middle; text-align: left; "><span class="{{banner_copy_modulo_creditos_class}}" style="font-weight: bold; font-size: {{banner_copy_modulo_creditos_fontsize}}; line-height: {{banner_copy_modulo_creditos_lineheight}}; color: {{color_creditos_mail_general}} ">{{banner_copy_modulo_creditos}}</span>
+                                                              <div class="bnr-sm" style="font-weight: bold; font-size: 14px; line-height: 15px; color: {{color_creditos_mail_general}} ; width: 100%; letter-spacing: 4px; ">DE REINTEGRO</div></td>
+                                                          </tr>
+                                                        </table>
+                                                        
+                                                        <!-- MODULO TEXTO XL VIVO -->
+                                                        
+                                                        <table bgcolor="" style=" width: auto;  font-family:arial,helvetica,sans-serif; margin-bottom: 7px; ">
+                                                          <tr>
+                                                            <td style="vertical-align: middle; text-align: left; "><span class="{{banner_copy_modulo_textoxl_class}}" style="font-size: {{banner_copy_modulo_textoxl_fontsize}}; line-height: {{banner_copy_modulo_textoxl_lineheight}}; color: {{color_acento2_mail_general}} ">{{banner_copy_modulo_textoxl}}</span></td>
+                                                          </tr>
+                                                        </table>
+														
+														    <!-- MODULO TEXTO M VIVO -->
+                                                        
+                                                        <table bgcolor="" style=" width: auto;  font-family:arial,helvetica,sans-serif; margin-bottom: 7px; ">
+                                                          <tr>
+                                                            <td style="vertical-align: middle; text-align: left; "><span class="bnr-md" style="font-size: 30px; line-height: 31px; color: {{color_acento2_mail_general}} ">{{banner_copy_modulo_textom}}</span></td>
                                                           </tr>
                                                         </table>
 														  
-														  
-														    <!-- MODULO TEXTO XL VIVO --> 
-														  <table bgcolor="" style=" width: auto;  font-family:arial,helvetica,sans-serif; ">
+														    <!-- MODULO TEXTO COMPLEMENTO -->
+                                                        
+                                                        <table style=" width: auto;  font-family:arial,helvetica,sans-serif;  margin-bottom: 7px;">
                                                           <tr>
-                                                          
-                                                            <td style="vertical-align: middle; text-align: left; color: #000000;"><span class="{{banner_copy_modulo_textoxl_class}}" style="font-size: {{banner_copy_modulo_textoxl_fontsize}}; line-height: {{banner_copy_modulo_textoxl_lineheight}}; color: {{color_acento2_mail_general}} ">{{banner_copy_modulo_textoxl}}</span></td>
+                                                            <td style="vertical-align: middle; text-align: left; "><h2 style="color: {{color_texto_mail_general}} ">{{banner_copy_modulo_textom}}</h2></td>
                                                           </tr>
                                                         </table>
+														
+														     
+														  {% assign cta_alineado = 'left' %}
+														     <!--esta caracteristica se usa en left, en el banner horizontal  --> 
 														  
-                                                  </td>
+									  {% assign text_cta = 'Pide aquí' %} 
+                                            <!--dentro de las comillas se cambia el texto del cta  --> 
+                                            {% assign deeplink_cta = 'AQUIELLINK#'  %} 
+                                            {% assign style_Look = 'neon' %} 
+                                            
+                                            <!-- variantes 'neon' 'blanconeon' 'negroneon' 'verde''blancogris' 'negrogris' 
+
+
+ 'problack': predeterminado para terma Problack 'pro' predeterminado para terma Pro --> 
+                                            {{content_blocks.${CTA-template}}} 
+														
+														
+														
+														</td>
                                                     </tr>
                                                   </tbody>
                                                 </table>
                                                 <table width="240" style="width:240px; padding: 0px 0px 0px 0px" cellpadding="0" cellspacing="0" align="left" border="0"  class="column column-1">
                                                   <tbody>
                                                     <tr style="background-image: url({{img_overlay_2_mail_general}}); background-size: cover; background-position: center center;" >
-                                                      <td class="altobanner1" style="padding:0px 0px 0px 0px;margin:0px;border-spacing:0;vertical-align: top; background-image: url(https://lh3.googleusercontent.com/d/1DUvbZ8_lGdt1N_jZUSt4vyHHblvbVg9P); background-size: cover; background-position: center center; height: 270px; border-radius: 16px;  "><div style="padding: 10px;">
+                                                      <td class="altobanner1" style="padding:0px 0px 0px 0px;margin:0px;border-spacing:0;vertical-align: top; background-image: url(https://lh3.googleusercontent.com/d/1DUvbZ8_lGdt1N_jZUSt4vyHHblvbVg9P); background-size: cover; background-position: center center; height: 270px; border-radius: 16px;  "><div style="padding: 10px;"> 
                                                           <!-- ACA MODULOS DE IMAGEN-->
                                                           <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; width: 100%; border-collapse: collapse;">
                                                             <tr>
@@ -1126,7 +1153,30 @@ h6 {
                                         </tbody>
                                       </table>
                                     </div>
-                                    </a> <img role="imagenfull" border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; max-width: 480px; margin: 0 auto; border-radius: 0px 0px 0px 0px;" alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://braze-images.com/appboy/communication/assets/image_assets/images/6a68f593a7307000854bce06/original.png?1785263506"> 
+                                    </a> 
+									  
+									  
+									    <div class="separador"></div>
+									 <!--CTA: según la fuente puedes insertar varios a lo largo del mail--> 
+                                     
+									   {% assign cta_alineado = 'center' %}
+									  {% assign text_cta = 'Súper completo en 10 min' %} 
+                                            <!--dentro de las comillas se cambia el texto del cta  --> 
+                                            {% assign deeplink_cta = 'AQUIELLINK#'  %} 
+                                            {% assign style_Look = 'neon' %} 
+                                            
+                                            <!-- variantes 'neon' 'blanconeon' 'negroneon' 'verde''blancogris' 'negrogris' 
+
+
+ 'problack': predeterminado para terma Problack 'pro' predeterminado para terma Pro --> 
+                                            {{content_blocks.${CTA-template}}} 
+									  
+									  <div class="separador"></div>
+                                            
+                                            <!--FIN CTA --> 
+									  
+									  
+									  <img role="imagenfull" border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; max-width: 480px; margin: 0 auto; border-radius: 0px 0px 0px 0px;" alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://braze-images.com/appboy/communication/assets/image_assets/images/6a68f593a7307000854bce06/original.png?1785263506"> 
                                     
                                     <!-- Este formato vertical se usa segun las instrucciones para banner con logos o cuando tenemos en el body sólamente cta y cierre  --> 
                                     <a role="vertical" originalsrc="AQUIELLINK2" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="AQUIELLINK2" data-linkindex="0" style="text-decoration: none; display: inline-block; width: 100%; margin-top: 20px;">
@@ -1139,40 +1189,70 @@ h6 {
                                                   <tr>
                                                     <td class="alto-auto" style="margin:0px;border-spacing:0; overflow: hidden; padding: 0px"><table  style="width: 100%;height: 80%; margin: 0 auto; font-family:arial,helvetica,sans-serif; padding:{{padd_banner_mail_general}}">
                                                         <tr>
-                                                          <td style=""> 
+                                                          <td style=""><!-- MODULO PROMOS VERTICAL -->
+                                                            
+                                                            <table bgcolor="{{bg_descuento_mail_general}}" style=" width: auto; font-family:arial,helvetica,sans-serif; padding: 3px 6px; border-radius: 7px; margin: 0 auto; margin-bottom: 7px;">
+                                                              <tr>
+                                                                <td  style="vertical-align: middle; text-align: center; "><div class="{{banner_copy_modulo_ahora_class}}" style="writing-mode: vertical-rl; -webkit-writing-mode: vertical-rl; -ms-writing-mode: tb-rl; height: 50px; width: 20px; font-size: {{banner_copy_modulo_ahora_fontsize_vertical}}; line-height: {{banner_copy_modulo_ahora_lineheight_vertical}}; color: {{color_descuento_mail_general}};">Ahora</div></td>
+                                                                <td style="vertical-align: middle; text-align: center; "><span class="{{banner_copy_modulo_prom_class}}" style="font-weight: bold; font-size: {{banner_copy_modulo_promo_fontsize_vertical}}; line-height: {{banner_copy_modulo_promo_lineheight_vertical}}; color: {{color_descuento_mail_general}} ">{{banner_copy_modulo_promo}}</span></td>
+                                                              </tr>
+                                                            </table>
+                                                            
+                                                            <!-- MODULO CREDITOS -->
+                                                            
+                                                            <table bgcolor="{{bg_creditos_mail_general}}" style=" width: auto;  font-family:arial,helvetica,sans-serif; padding: 3px 6px; border-radius: 7px; margin: 0 auto; margin-bottom: 7px;">
+                                                              <tr>
+                                                                <td style="vertical-align: middle; text-align: center; "><span class="{{banner_copy_modulo_creditos_class}}" style="font-weight: bold; font-size: {{banner_copy_modulo_creditos_fontsize_vertical}}; line-height: {{banner_copy_modulo_creditos_lineheight_vertical}}; color: {{color_creditos_mail_general}} ">{{banner_copy_modulo_creditos}}</span>
+                                                                  <div class="bnr-sm" style="font-weight: bold; font-size: 16px; line-height: 18px; color: {{color_creditos_mail_general}} ; width: 100%; letter-spacing: 4px; ">DE REINTEGRO</div></td>
+                                                              </tr>
+                                                            </table>
+                                                            
+                                                            <!-- MODULO TEXTO XL VIVO -->
+                                                            
+                                                            <table bgcolor="" style=" width: auto;  font-family:arial,helvetica,sans-serif; margin: 0 auto; margin-bottom: 7px; ">
+                                                              <tr>
+                                                                <td style="vertical-align: middle; text-align: center; "><span class="{{banner_copy_modulo_textoxl_class}}" style="font-size: {{banner_copy_modulo_textoxl_fontsize_vertical}}; line-height: {{banner_copy_modulo_textoxl_lineheight_vertical}}; color: {{color_acento2_mail_general}} ">{{banner_copy_modulo_textoxl}}</span></td>
+                                                              </tr>
+                                                            </table>
 															
-															 <!-- MODULO PROMOS VERTICAL --> 
-															<table bgcolor="{{bg_descuento_mail_general}}" style=" width: auto; font-family:arial,helvetica,sans-serif; padding: 3px 6px; border-radius: 7px; margin: 0 auto;">
+															
+															   <!-- MODULO TEXTO M VIVO -->
+                                                        
+                                                        <table bgcolor="" style=" width: auto;  font-family:arial,helvetica,sans-serif; margin: 0 auto; margin-bottom: 7px;  ">
                                                           <tr>
-                                                            <td  style="vertical-align: middle; text-align: center; color: #000000;"><div class="{{banner_copy_modulo_ahora_class}}" style="writing-mode: vertical-rl; -webkit-writing-mode: vertical-rl; -ms-writing-mode: tb-rl; height: 70px; width: 20px; font-size: {{banner_copy_modulo_ahora_fontsize_vertical}}; line-height: {{banner_copy_modulo_ahora_lineheight_vertical}}; color: {{color_descuento_mail_general}};">Ahora</div></td>
-                                                            <td style="vertical-align: middle; text-align: center; color: #000000;"><span class="{{banner_copy_modulo_prom_class}}" style="font-weight: bold; font-size: {{banner_copy_modulo_promo_fontsize_vertical}}; line-height: {{banner_copy_modulo_promo_lineheight_vertical}}; color: {{color_descuento_mail_general}} ">{{banner_copy_modulo_promo}}</span></td>
+                                                            <td style="vertical-align: middle; text-align: center; "><span class="bnr-md" style="font-size: 50px; line-height: 51px; color: {{color_acento2_mail_general}} ">{{banner_copy_modulo_textom}}</span></td>
                                                           </tr>
                                                         </table>
-															
 															  
-															  	
-															
-														    <!-- MODULO CREDITOS --> 
-														  <table bgcolor="{{bg_creditos_mail_general}}" style=" width: auto;  font-family:arial,helvetica,sans-serif; padding: 3px 6px; border-radius: 7px; margin: 0 auto;">
-                                                          <tr>
-                                                          
-                                                            <td style="vertical-align: middle; text-align: center; color: #000000;"><span class="{{banner_copy_modulo_creditos_class}}" style="font-weight: bold; font-size: {{banner_copy_modulo_creditos_fontsize_vertical}}; line-height: {{banner_copy_modulo_creditos_lineheight_vertical}}; color: {{color_creditos_mail_general}} ">{{banner_copy_modulo_creditos}}</span><div class="bnr-sm" style="font-weight: bold; font-size: 16px; line-height: 18px; color: {{color_creditos_mail_general}} ; width: 100%; letter-spacing: 4px; ">DE REINTEGRO</div></td>
-                                                          </tr>
-                                                        </table>
-															
-															
-														    <!-- MODULO TEXTO XL VIVO --> 
-														  <table bgcolor="" style=" width: auto;  font-family:arial,helvetica,sans-serif; margin: 0 auto; ">
-                                                          <tr>
-                                                          
-                                                            <td style="vertical-align: middle; text-align: center; color: #000000;"><span class="{{banner_copy_modulo_textoxl_class}}" style="font-size: {{banner_copy_modulo_textoxl_fontsize_vertical}}; line-height: {{banner_copy_modulo_textoxl_lineheight_vertical}}; color: {{color_acento2_mail_general}} ">{{banner_copy_modulo_textoxl}}</span></td>
-                                                          </tr>
-                                                        </table>
 															  
+															     <!-- MODULO TEXTO COMPLEMENTO -->
+                                                        
+                                                        <table style=" width: auto;  font-family:arial,helvetica,sans-serif; margin: 0 auto; margin-bottom: 7px; ">
+                                                          <tr>
+                                                            <td style="vertical-align: middle; text-align: center; "><h2 style="color: {{color_texto_mail_general}} ">{{banner_copy_modulo_textom}}</h2></td>
+                                                          </tr>
+                                                        </table>
+														
+														 <!--CTA: según la fuente puedes insertar varios a lo largo del mail--> 
+                                     
+															  {% assign cta_alineado = 'center' %}
+									  {% assign text_cta = 'Súper completo en 10 min' %} 
+                                            <!--dentro de las comillas se cambia el texto del cta  --> 
+                                            {% assign deeplink_cta = 'AQUIELLINK#'  %} 
+                                            {% assign style_Look = 'neon' %} 
+                                            
+                                            <!-- variantes 'neon' 'blanconeon' 'negroneon' 'verde''blancogris' 'negrogris' 
+
+
+ 'problack': predeterminado para terma Problack 'pro' predeterminado para terma Pro --> 
+                                            {{content_blocks.${CTA-template}}} 
+															
+															
 															
 															</td>
                                                         </tr>
                                                       </table>
+                                                      
                                                       <!-- FIN CONTENEDOR TEXTOS --></td>
                                                   </tr>
                                                 </tbody>
@@ -1190,22 +1270,69 @@ h6 {
                                                   </tr>
                                                 </tbody>
                                               </table>
+											  
+									
+											  
+											  
                                             </div></td>
                                         </tr>
                                       </tbody>
                                     </table>
+										
+										
+										
+								
                                     </a> 
+									  
+									  
+									  
+									  		   
+									    <div class="separador"></div>
+									 <!--CTA: según la fuente puedes insertar varios a lo largo del mail--> 
+                                     
+									  {% assign cta_alineado = 'center' %}
+									  {% assign text_cta = 'Súper completo en 10 min' %} 
+                                            <!--dentro de las comillas se cambia el texto del cta  --> 
+                                            {% assign deeplink_cta = 'AQUIELLINK#'  %} 
+                                            {% assign style_Look = 'neon' %} 
+                                            
+                                            <!-- variantes 'neon' 'blanconeon' 'negroneon' 'verde''blancogris' 'negrogris' 
+
+
+ 'problack': predeterminado para terma Problack 'pro' predeterminado para terma Pro --> 
+                                            {{content_blocks.${CTA-template}}} 
+									  
+									  <div class="separador"></div>
+                                            
+									  
+									  
                                     
                                     <!-- CONTENIDOS --> 
                                     
-                                    <!-- CIERRE --></td>
+                                    <!-- CIERRE -->
+                                     <div class="separador"></div>
+                                     
+                                    <table role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed; margin: 0px auto; max-width: 480px;">
+                                      <tbody>
+                                        <tr>
+                                          <td align="center"><img src="https://lh3.googleusercontent.com/d/1Szsf0kwqfJhdeu9hA944XWUGc85DFLZ5" style="display: block; border: 0; max-width: 250px; width: auto; max-height: 38px; margin: 0 auto;" alt="RappiFirma"> 
+                                            
+                                            <!-- Este src se debe Reemplazar con el enlace de Pide img de acuerdo a la base de datos de las instrucciones para este tenemos una lista de diferentes versiones, sigue la instrucción determinada --></td>
+                                        </tr>
+                                      </tbody>
+                                    </table></td>
                                 </tr>
                               </tbody>
                             </table>
+                            {% assign cond = '' %}
+                            {% assign font_style_look = 'negro' %} 
+                            {% assign show_legal_tyc = true %} 
                             
-							  
-							  
-                            <!-- FOOTER --></td>
+                            {% assign show_legal_turbo = true %} 
+                            
+                            {% assign show_legal_liquor = true %} 
+                            
+                            {{content_blocks.${FOOTER_q1_2024_legales}}} </td>
                         </tr>
                       </table>
                       
