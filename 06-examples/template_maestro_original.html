@@ -3,9 +3,9 @@
 {% assign banner_copy_modulo_creditos = '120' %}
 {% assign banner_copy_modulo_textoxl = '120 créditos' %}
 {% assign banner_copy_modulo_textom = 'de regalo para tu proxima compra' %}
+{% assign banner_img_modulo_auto_ancho = '80' %}
+
 <!--
-
-
 -----------------------
 Variables de largo de texto:
 -----------------------
@@ -398,9 +398,8 @@ body, p, div {
     font-size: 14px;
 }
 body {
-padding: 0px;
-margin: 0px;
-
+    padding: 0px;
+    margin: 0px;
 }
 h1 {
     margin: 0;
@@ -463,24 +462,6 @@ h6 {
     font-weight: normal;
     font-size: 6px;
     line-height: 8px;
-    word-break: break-word;
-    font-family: arial, helvetica, sans-serif;
-}
-.txts {
-    margin: 0;
-    padding: 0;
-    font-weight: normal;
-    font-size: 13px;
-    line-height: 14px;
-    word-break: break-word;
-    font-family: arial, helvetica, sans-serif;
-}
-.txtl {
-    margin: 0;
-    padding: 0;
-    font-weight: normal;
-    font-size: 25px;
-    line-height: 26px;
     word-break: break-word;
     font-family: arial, helvetica, sans-serif;
 }
@@ -1061,13 +1042,17 @@ h6 {
                                     
                                     <!-- INICIO SECCIÓN BIG BANNER --> 
                                     
-                                    <!-- Este formato horizontal se usa segun la fuente cuando tenemos más módulos de contenido en el body además del cierre y el cta --> 
+                                    <!-- HORIZONTAL  --> 
+                                    
                                     <a role="horizontal"  originalsrc="AQUIELLINK2" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="AQUIELLINK2" data-linkindex="0" style="text-decoration: none; display: block; margin-top: 20px;">
                                     <div>
                                       <table id="BANNER_HORIZONTAL" width="480" style="width:480px; border-spacing:0; margin:0 auto;" cellpadding="0" cellspacing="0" align="center" border="0" bgcolor="" class="column column-0">
                                         <tbody>
                                           <tr valign="middle">
-                                            <td style="padding:0px 0px;margin:0px;border-spacing:0; vertical-align: middle; background-image: url({{bg_bannerimg_mail_general}}); background-size: 100% 100%; background-position: center top; border-radius: 16px; overflow: hidden;"><div style="background: {{bg_bannertono_mail_general}}; max-width: 480px; margin: 0 auto;  overflow: hidden;">
+                                            <td style="padding:0px 0px;margin:0px;border-spacing:0; vertical-align: middle; background-image: url({{bg_bannerimg_mail_general}}); background-size: 100% 100%; background-position: center top; border-radius: 16px; overflow: hidden;"><div style="background: {{bg_bannertono_mail_general}}; max-width: 480px; margin: 0 auto;  overflow: hidden;"> 
+                                                
+                                                <!-- CELDA 1 PARA ATOMOS -->
+                                                
                                                 <table width="240" style="width:240px; " cellpadding="0" cellspacing="0" align="left" border="0" class="column column-0">
                                                   <tbody>
                                                     <tr>
@@ -1096,44 +1081,50 @@ h6 {
                                                             <td style="vertical-align: middle; text-align: left; "><span class="{{banner_copy_modulo_textoxl_class}}" style="font-size: {{banner_copy_modulo_textoxl_fontsize}}; line-height: {{banner_copy_modulo_textoxl_lineheight}}; color: {{color_acento2_mail_general}} ">{{banner_copy_modulo_textoxl}}</span></td>
                                                           </tr>
                                                         </table>
-														
-														    <!-- MODULO TEXTO M VIVO -->
+                                                        
+                                                        <!-- MODULO TEXTO M VIVO -->
                                                         
                                                         <table bgcolor="" style=" width: auto;  font-family:arial,helvetica,sans-serif; margin-bottom: 7px; ">
                                                           <tr>
                                                             <td style="vertical-align: middle; text-align: left; "><span class="bnr-md" style="font-size: 30px; line-height: 31px; color: {{color_acento2_mail_general}} ">{{banner_copy_modulo_textom}}</span></td>
                                                           </tr>
                                                         </table>
-														  
-														    <!-- MODULO TEXTO COMPLEMENTO -->
+                                                        
+                                                        <!-- MODULO TEXTO COMPLEMENTO -->
                                                         
                                                         <table style=" width: auto;  font-family:arial,helvetica,sans-serif;  margin-bottom: 7px;">
                                                           <tr>
                                                             <td style="vertical-align: middle; text-align: left; "><h2 style="color: {{color_texto_mail_general}} ">{{banner_copy_modulo_textom}}</h2></td>
                                                           </tr>
                                                         </table>
-														
-														     
-														  {% assign cta_alineado = 'left' %}
-														     <!--esta caracteristica se usa en left, en el banner horizontal  --> 
-														  
-									  {% assign text_cta = 'Pide aquí' %} 
-                                            <!--dentro de las comillas se cambia el texto del cta  --> 
-                                            {% assign deeplink_cta = 'AQUIELLINK#'  %} 
-                                            {% assign style_Look = 'neon' %} 
-                                            
-                                            <!-- variantes 'neon' 'blanconeon' 'negroneon' 'verde''blancogris' 'negrogris' 
+                                                        
+                                                        <!-- MODULO IMG AUTOMATICA -->
+                                                        
+                                                        <table data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style=" margin-bottom: 7px; ">
+                                                          <tbody>
+                                                            <tr>
+                                                              <td ><img src="https://lh3.googleusercontent.com/d/1U4HZfNfRWpZ0XhMCmFF-4V4U2H3W8IcN" style="display: block; border: 0; width: {{banner_img_modulo_auto_ancho}}%; height: auto; " alt="img"></td>
+                                                            </tr>
+                                                          </tbody>
+                                                        </table>
+                                                        {% assign cta_alineado = 'left' %} 
+                                                        <!--esta caracteristica se usa en left, en el banner horizontal  --> 
+                                                        
+                                                        {% assign text_cta = 'Pide aquí' %} 
+                                                        <!--dentro de las comillas se cambia el texto del cta  --> 
+                                                        {% assign deeplink_cta = 'AQUIELLINK#'  %} 
+                                                        {% assign style_Look = 'neon' %} 
+                                                        
+                                                        <!-- variantes 'neon' 'blanconeon' 'negroneon' 'verde''blancogris' 'negrogris' 
 
 
  'problack': predeterminado para terma Problack 'pro' predeterminado para terma Pro --> 
-                                            {{content_blocks.${CTA-template}}} 
-														
-														
-														
-														</td>
+                                                        {{content_blocks.${CTA-template}}} </td>
                                                     </tr>
                                                   </tbody>
                                                 </table>
+                                                
+                                                <!-- CELDA 2 CON IMG FIJA -->
                                                 <table width="240" style="width:240px; padding: 0px 0px 0px 0px" cellpadding="0" cellspacing="0" align="left" border="0"  class="column column-1">
                                                   <tbody>
                                                     <tr style="background-image: url({{img_overlay_2_mail_general}}); background-size: cover; background-position: center center;" >
@@ -1148,37 +1139,37 @@ h6 {
                                                     </tr>
                                                   </tbody>
                                                 </table>
+                                                
+                                                <!-- CELDA 2 CON IMG AUTOMATICA -->
+                                                <table width="240" style="width:240px; padding: 0px 0px 0px 0px" cellpadding="0" cellspacing="0" align="left" border="0"  class="column column-1">
+                                                  <tbody>
+                                                    <tr style="" >
+                                                      <td  style="padding:0px 0px 0px 0px;margin:0px;border-spacing:0;vertical-align: middle; "><div style=""> 
+                                                          <!-- MODULO IMG AUTOMATICA -->
+                                                          
+                                                          <table  border="0" cellpadding="0" cellspacing="0" width="100%" style=" margin-bottom: 7px; ">
+                                                            <tbody>
+                                                              <tr>
+                                                                <td ><img src="https://braze-images.com/appboy/communication/assets/image_assets/images/6a69942490791600863938e5/original.png?1785304099" style="display: block; border: 0; width: {{banner_img_modulo_auto_ancho}}%; height: auto; margin: 0 auto " alt="img"></td>
+                                                              </tr>
+                                                            </tbody>
+                                                          </table>
+                                                        </div></td>
+                                                    </tr>
+                                                  </tbody>
+                                                </table>
                                               </div></td>
                                           </tr>
                                         </tbody>
                                       </table>
                                     </div>
                                     </a> 
-									  
-									  
-									    <div class="separador"></div>
-									 <!--CTA: según la fuente puedes insertar varios a lo largo del mail--> 
-                                     
-									   {% assign cta_alineado = 'center' %}
-									  {% assign text_cta = 'Súper completo en 10 min' %} 
-                                            <!--dentro de las comillas se cambia el texto del cta  --> 
-                                            {% assign deeplink_cta = 'AQUIELLINK#'  %} 
-                                            {% assign style_Look = 'neon' %} 
-                                            
-                                            <!-- variantes 'neon' 'blanconeon' 'negroneon' 'verde''blancogris' 'negrogris' 
-
-
- 'problack': predeterminado para terma Problack 'pro' predeterminado para terma Pro --> 
-                                            {{content_blocks.${CTA-template}}} 
-									  
-									  <div class="separador"></div>
-                                            
-                                            <!--FIN CTA --> 
-									  
-									  
-									  <img role="imagenfull" border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; max-width: 480px; margin: 0 auto; border-radius: 0px 0px 0px 0px;" alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://braze-images.com/appboy/communication/assets/image_assets/images/6a68f593a7307000854bce06/original.png?1785263506"> 
                                     
-                                    <!-- Este formato vertical se usa segun las instrucciones para banner con logos o cuando tenemos en el body sólamente cta y cierre  --> 
+                                    <!--FIN CTA --> 
+                                    
+                                    <img role="imagenfull" border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; max-width: 480px; margin: 0 auto; border-radius: 0px 0px 0px 0px;" alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://braze-images.com/appboy/communication/assets/image_assets/images/6a68f593a7307000854bce06/original.png?1785263506"> 
+                                    
+                                    <!-- VERTICAL  --> 
                                     <a role="vertical" originalsrc="AQUIELLINK2" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="AQUIELLINK2" data-linkindex="0" style="text-decoration: none; display: inline-block; width: 100%; margin-top: 20px;">
                                     <table id="BANNER_VERTICAL" width="480" style="width:480px; border-spacing:0; margin:0 auto;" cellpadding="0" cellspacing="0" align="center" border="0" bgcolor="" class="column column-0">
                                       <tbody>
@@ -1214,42 +1205,46 @@ h6 {
                                                                 <td style="vertical-align: middle; text-align: center; "><span class="{{banner_copy_modulo_textoxl_class}}" style="font-size: {{banner_copy_modulo_textoxl_fontsize_vertical}}; line-height: {{banner_copy_modulo_textoxl_lineheight_vertical}}; color: {{color_acento2_mail_general}} ">{{banner_copy_modulo_textoxl}}</span></td>
                                                               </tr>
                                                             </table>
-															
-															
-															   <!-- MODULO TEXTO M VIVO -->
-                                                        
-                                                        <table bgcolor="" style=" width: auto;  font-family:arial,helvetica,sans-serif; margin: 0 auto; margin-bottom: 7px;  ">
-                                                          <tr>
-                                                            <td style="vertical-align: middle; text-align: center; "><span class="bnr-md" style="font-size: 50px; line-height: 51px; color: {{color_acento2_mail_general}} ">{{banner_copy_modulo_textom}}</span></td>
-                                                          </tr>
-                                                        </table>
-															  
-															  
-															     <!-- MODULO TEXTO COMPLEMENTO -->
-                                                        
-                                                        <table style=" width: auto;  font-family:arial,helvetica,sans-serif; margin: 0 auto; margin-bottom: 7px; ">
-                                                          <tr>
-                                                            <td style="vertical-align: middle; text-align: center; "><h2 style="color: {{color_texto_mail_general}} ">{{banner_copy_modulo_textom}}</h2></td>
-                                                          </tr>
-                                                        </table>
-														
-														 <!--CTA: según la fuente puedes insertar varios a lo largo del mail--> 
-                                     
-															  {% assign cta_alineado = 'center' %}
-									  {% assign text_cta = 'Súper completo en 10 min' %} 
-                                            <!--dentro de las comillas se cambia el texto del cta  --> 
-                                            {% assign deeplink_cta = 'AQUIELLINK#'  %} 
-                                            {% assign style_Look = 'neon' %} 
-                                            
-                                            <!-- variantes 'neon' 'blanconeon' 'negroneon' 'verde''blancogris' 'negrogris' 
+                                                            
+                                                            <!-- MODULO TEXTO M VIVO -->
+                                                            
+                                                            <table bgcolor="" style=" width: auto;  font-family:arial,helvetica,sans-serif; margin: 0 auto; margin-bottom: 7px;  ">
+                                                              <tr>
+                                                                <td style="vertical-align: middle; text-align: center; "><span class="bnr-md" style="font-size: 50px; line-height: 51px; color: {{color_acento2_mail_general}} ">{{banner_copy_modulo_textom}}</span></td>
+                                                              </tr>
+                                                            </table>
+                                                            
+                                                            <!-- MODULO TEXTO COMPLEMENTO -->
+                                                            
+                                                            <table style=" width: auto;  font-family:arial,helvetica,sans-serif; margin: 0 auto; margin-bottom: 7px; ">
+                                                              <tr>
+                                                                <td style="vertical-align: middle; text-align: center; "><h2 style="color: {{color_texto_mail_general}} ">{{banner_copy_modulo_textom}}</h2></td>
+                                                              </tr>
+                                                            </table>
+                                                            
+                                                            <!-- MODULO IMG AUTOMATICA -->
+                                                            
+                                                            <table data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style=" margin-bottom: 7px; ">
+                                                              <tbody>
+                                                                <tr>
+                                                                  <td ><img src="https://lh3.googleusercontent.com/d/1U4HZfNfRWpZ0XhMCmFF-4V4U2H3W8IcN" style="display: block; border: 0; width: {{banner_img_modulo_auto_ancho}}%; height: auto; margin: 0 auto; " alt="img"></td>
+                                                                </tr>
+                                                              </tbody>
+                                                            </table>
+                                                            
+                                                            <!--CTA: según la fuente puedes insertar varios a lo largo del mail--> 
+                                                            
+                                                            {% assign cta_alineado = 'center' %}
+                                                            {% assign text_cta = 'Súper completo en 10 min' %} 
+                                                            <!--dentro de las comillas se cambia el texto del cta  --> 
+                                                            {% assign deeplink_cta = 'AQUIELLINK#'  %} 
+                                                            {% assign style_Look = 'neon' %} 
+                                                            
+                                                            <!-- variantes 'neon' 'blanconeon' 'negroneon' 'verde''blancogris' 'negrogris' 
 
 
  'problack': predeterminado para terma Problack 'pro' predeterminado para terma Pro --> 
-                                            {{content_blocks.${CTA-template}}} 
-															
-															
-															
-															</td>
+                                                            {{content_blocks.${CTA-template}}} </td>
                                                         </tr>
                                                       </table>
                                                       
@@ -1270,48 +1265,48 @@ h6 {
                                                   </tr>
                                                 </tbody>
                                               </table>
-											  
-									
-											  
-											  
+                                              
+                                              <!-- MODULO PROMOS VERTICAL -->
+                                              <table style="width: 100%; padding: 0px 0px 0px 0px" cellpadding="0" cellspacing="0" align="left" border="0"  class="column column-1">
+                                                <tbody>
+                                                  <tr style="" >
+                                                    <td style="padding:0px 0px 0px 0px;margin:0px;border-spacing:0;vertical-align: top;  margin-bottom: 7px; "><div style="">
+                                                        <table cellpadding="3px" bgcolor="" style="font-family:arial,helvetica,sans-serif; width: auto; border-collapse: collapse; float: right">
+                                                          <tr>
+                                                            <td style="vertical-align: top; text-align: left; width: auto;   display: inline-block;"><img  border="0" style="height: 12px; max-height: 12px; min-height: 12px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1WGmmnGkKvxsrQ1eRVygjRfpzCi60p2df"><span>tag 1 </span></td>
+                                                          </tr>
+                                                        </table>
+                                                      </div></td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
                                             </div></td>
                                         </tr>
                                       </tbody>
                                     </table>
-										
-										
-										
-								
-                                    </a> 
-									  
-									  
-									  
-									  		   
-									    <div class="separador"></div>
-									 <!--CTA: según la fuente puedes insertar varios a lo largo del mail--> 
-                                     
-									  {% assign cta_alineado = 'center' %}
-									  {% assign text_cta = 'Súper completo en 10 min' %} 
-                                            <!--dentro de las comillas se cambia el texto del cta  --> 
-                                            {% assign deeplink_cta = 'AQUIELLINK#'  %} 
-                                            {% assign style_Look = 'neon' %} 
-                                            
-                                            <!-- variantes 'neon' 'blanconeon' 'negroneon' 'verde''blancogris' 'negrogris' 
+                                    </a>
+                                    <div class="separador"></div>
+                                    
+                                    <!--CTA: según la fuente puedes insertar varios a lo largo del mail--> 
+                                    
+                                    {% assign cta_alineado = 'center' %}
+                                    {% assign text_cta = 'Súper completo en 10 min' %} 
+                                    <!--dentro de las comillas se cambia el texto del cta  --> 
+                                    {% assign deeplink_cta = 'AQUIELLINK#'  %} 
+                                    {% assign style_Look = 'neon' %} 
+                                    
+                                    <!-- variantes 'neon' 'blanconeon' 'negroneon' 'verde''blancogris' 'negrogris' 
 
 
  'problack': predeterminado para terma Problack 'pro' predeterminado para terma Pro --> 
-                                            {{content_blocks.${CTA-template}}} 
-									  
-									  <div class="separador"></div>
-                                            
-									  
-									  
+                                    {{content_blocks.${CTA-template}}}
+                                    <div class="separador"></div>
                                     
                                     <!-- CONTENIDOS --> 
                                     
                                     <!-- CIERRE -->
-                                     <div class="separador"></div>
-                                     
+                                    
+                                    <div class="separador"></div>
                                     <table role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed; margin: 0px auto; max-width: 480px;">
                                       <tbody>
                                         <tr>

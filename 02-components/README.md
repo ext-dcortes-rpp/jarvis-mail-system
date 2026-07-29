@@ -53,23 +53,30 @@ Cada archivo contiene únicamente el `<tr>` del header (con su comentario identi
 |---------|-------------|
 | `modulo_tags.html` | Tag/etiqueta que se muestra sobre el banner |
 | `modulo_img_altofijo.html` | Columna de imagen de alto fijo (banner horizontal) |
-| `modulo_img_variable.html` | Franja de imagen de alto variable (banner vertical) |
 | `modulo_creditos_horizontal.html` | Texto vivo de créditos ("$XXX" + "DE REINTEGRO") para el banner horizontal, usa `bnr-*` + tema (`bg_creditos_mail_general`, `color_creditos_mail_general`) |
 | `modulo_creditos_vertical.html` | Igual que `modulo_creditos_horizontal.html` pero con los tamaños del banner vertical |
 | `modulo_promo_horizontal.html` | Módulo de promo ("Ahora" + cifra) para el banner horizontal, tamaños inline + tema (`bg_descuento_mail_general`, `color_descuento_mail_general`) |
 | `modulo_promo_vertical.html` | Igual que `modulo_promo_horizontal.html` pero con los tamaños del banner vertical |
 | `modulo_textoxl_horizontal.html` | Texto vivo XL adicional (`banner_copy_modulo_textoxl`) para el banner horizontal, mismo comportamiento de tamaño que `modulo_promo_horizontal.html` |
 | `modulo_textoxl_vertical.html` | Igual que `modulo_textoxl_horizontal.html` pero con los tamaños del banner vertical |
-| `modulo_texto_secundario.html` | Línea secundaria de texto vivo — contenido provisional, pendiente de definir |
-| `modulo_texto_complementario.html` | Texto complementario del banner — contenido provisional, pendiente de definir |
+| `modulo_textom_horizontal.html` | Texto vivo `.bnr-md` (`banner_copy_modulo_textom`), tamaño fijo inline (no depende del largo) |
+| `modulo_textom_vertical.html` | Igual que `modulo_textom_horizontal.html` pero con los tamaños del banner vertical |
+| `modulo_texto_complemento_horizontal.html` | Versión `<h2>` de `banner_copy_modulo_textom` (texto de body, no `bnr-*`) |
+| `modulo_texto_complemento_vertical.html` | Igual que `modulo_texto_complemento_horizontal.html`, centrado para el banner vertical |
+| `modulo_img_automatica_horizontal.html` | Imagen automática (`banner_img_modulo_auto_ancho`) dentro del banner horizontal |
+| `modulo_img_automatica_vertical.html` | Igual que `modulo_img_automatica_horizontal.html`, centrada para el banner vertical |
+| `modulo_cta_interno_horizontal.html` | CTA embebido dentro del banner horizontal (`cta_alineado: 'left'`) |
+| `modulo_cta_interno_vertical.html` | CTA embebido dentro del banner vertical (`cta_alineado: 'center'`) |
+| `modulo_texto_complementario.html` | Placeholder anterior — pendiente de revisar si sigue haciendo falta ahora que existe `modulo_texto_complemento_horizontal/vertical.html` |
 
-El tamaño de las clases `bnr-*` usadas en los módulos de créditos, promo, texto XL y `modulo_texto_secundario.html` depende de si el banner que las envuelve está marcado con `id="BANNER_HORIZONTAL"` o `id="BANNER_VERTICAL"` (ver `01-foundations/global-styles/global-styles.html`). Los tamaños de escritorio de estas clases se aplican inline (vía las variables Liquid de largo de texto en `01-foundations/global-styles/head-meta-tags.html`); las clases `bnr-*` en el `<head>` solo cubren el override de mobile.
+El tamaño de las clases `bnr-*` usadas en los módulos de créditos, promo y texto XL depende de si el banner que las envuelve está marcado con `id="BANNER_HORIZONTAL"` o `id="BANNER_VERTICAL"` (ver `01-foundations/global-styles/global-styles.html`). Los tamaños de escritorio de estas clases se aplican inline (vía las variables Liquid de largo de texto en `01-foundations/global-styles/head-meta-tags.html`); las clases `bnr-*` en el `<head>` solo cubren el override de mobile.
 
 ### `ctas/` — El botón de acción
 
 | Archivo | Descripción |
 |---------|-------------|
-| `cta-template.html` | Bloque Liquid del CTA con sus variables (`text_cta`, `deeplink_cta`, `style_Look`) |
+| `cta-template.html` | El botón en sí (HTML + Liquid), vive como content block de Braze (`content_blocks.${CTA-template}`) |
+| `cta-llamado.html` | Lo que se inserta en el cuerpo del mail para instanciar un CTA: setea `cta_alineado`, `text_cta`, `deeplink_cta`, `style_Look` y llama `{{content_blocks.${CTA-template}}}` |
 
 Un mail puede tener varios CTAs. Se insertan a lo largo del body según el orden de la fuente.
 
