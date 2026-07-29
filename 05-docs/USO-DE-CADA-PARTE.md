@@ -113,14 +113,16 @@ El tema define los colores del banner; el **tipo de banner se elige según qué 
 - **¿El mail tiene módulos de contenido, deals, cupones, beneficios?** → big banner horizontal
 
 ### Regla #3 · Las piezas internas del banner viven en `banner_atoms/`
-📁 `02-components/banners/banner_atoms/` — 6 piezas que se combinan dentro de cada banner:
+📁 `02-components/banners/banner_atoms/` — 10 piezas que se combinan dentro de cada banner. La mayoría vienen en pareja horizontal/vertical porque los tamaños de escritorio se aplican inline según en qué banner se insertan:
 
 1. **`modulo_tags.html`** — Tag/etiqueta superior. Si la fuente no trae tag, se omite.
 2. **`modulo_img_altofijo.html`** — Columna de imagen de alto fijo, para el banner horizontal.
 3. **`modulo_img_variable.html`** — Franja de imagen de alto variable, para el banner vertical.
-4. **`modulo_creditos.html`** — Texto vivo principal (créditos/cifra), usa las clases `bnr-*`.
-5. **`modulo_texto_secundario.html`** — Línea secundaria de texto vivo.
-6. **`modulo_texto_complementario.html`** — Texto complementario del banner.
+4. **`modulo_creditos_horizontal.html`** / **`modulo_creditos_vertical.html`** — Texto vivo de créditos ("$XXX" + "DE REINTEGRO"), usa las clases `bnr-*`.
+5. **`modulo_promo_horizontal.html`** / **`modulo_promo_vertical.html`** — Módulo de promo ("Ahora" + cifra).
+6. **`modulo_textoxl_horizontal.html`** / **`modulo_textoxl_vertical.html`** — Texto vivo XL adicional, mismo comportamiento de tamaño que el módulo de promo.
+7. **`modulo_texto_secundario.html`** — Línea secundaria de texto vivo.
+8. **`modulo_texto_complementario.html`** — Texto complementario del banner.
 
 Los últimos dos (`texto_secundario` / `texto_complementario`) todavía tienen contenido provisional — su distinción exacta está pendiente de definir con el equipo.
 

@@ -1,5 +1,73 @@
-{% assign tema_general_mail_general = 'beige100' %}
+{% assign tema_general_mail_general = 'darkturbo' %}
+{% assign banner_copy_modulo_promo = '5555200' %}
+{% assign banner_copy_modulo_creditos = '120' %}
+{% assign banner_copy_modulo_textoxl = '120 créditos' %}
 <!--
+
+
+-----------------------
+Variables de largo de texto:
+-----------------------
+{% assign banner_copy_modulo_promo_length = banner_copy_modulo_promo.size %}
+
+{% if banner_copy_modulo_promo_length > 4 %}
+  {% assign banner_copy_modulo_prom_class = 'bnr-lg' %}
+  {% assign banner_copy_modulo_promo_fontsize = '35px' %}
+  {% assign banner_copy_modulo_promo_lineheight = '35px' %}
+  {% assign banner_copy_modulo_ahora_class = 'bnr-hasta-lg' %}
+  {% assign banner_copy_modulo_ahora_fontsize = '10px' %}
+  {% assign banner_copy_modulo_ahora_lineheight = '10px' %}
+  {% assign banner_copy_modulo_promo_fontsize_vertical = '62px' %}
+  {% assign banner_copy_modulo_promo_lineheight_vertical = '62px' %}
+  {% assign banner_copy_modulo_ahora_fontsize_vertical = '15px' %}
+  {% assign banner_copy_modulo_ahora_lineheight_vertical = '15px' %}
+{% else %}
+  {% assign banner_copy_modulo_prom_class = 'bnr-xl' %}
+  {% assign banner_copy_modulo_promo_fontsize = '80px' %}
+  {% assign banner_copy_modulo_promo_lineheight = '80px' %}
+  {% assign banner_copy_modulo_ahora_class = 'bnr-hasta-xl' %}
+  {% assign banner_copy_modulo_ahora_fontsize = '19px' %}
+  {% assign banner_copy_modulo_ahora_lineheight = '19px' %}
+  {% assign banner_copy_modulo_promo_fontsize_vertical = '125px' %}
+  {% assign banner_copy_modulo_promo_lineheight_vertical = '125px' %}
+  {% assign banner_copy_modulo_ahora_fontsize_vertical = '25px' %}
+  {% assign banner_copy_modulo_ahora_lineheight_vertical = '25px' %}
+{% endif %}
+
+{% assign banner_copy_modulo_creditos_length = banner_copy_modulo_creditos.size %}
+
+{% if banner_copy_modulo_creditos_length > 4 %}
+  {% assign banner_copy_modulo_creditos_class = 'bnr-lg' %}
+  {% assign banner_copy_modulo_creditos_fontsize = '35px' %}
+  {% assign banner_copy_modulo_creditos_lineheight = '35px' %}
+  {% assign banner_copy_modulo_creditos_fontsize_vertical = '62px' %}
+  {% assign banner_copy_modulo_creditos_lineheight_vertical = '62px' %}
+{% else %}
+  {% assign banner_copy_modulo_creditos_class = 'bnr-xl' %}
+  {% assign banner_copy_modulo_creditos_fontsize = '80px' %}
+  {% assign banner_copy_modulo_creditos_lineheight = '80px' %}
+  {% assign banner_copy_modulo_creditos_fontsize_vertical = '125px' %}
+  {% assign banner_copy_modulo_creditos_lineheight_vertical = '125px' %}
+{% endif %}
+
+{% assign banner_copy_modulo_textoxl_length = banner_copy_modulo_textoxl.size %}
+
+{% if banner_copy_modulo_textoxl_length > 4 %}
+  {% assign banner_copy_modulo_textoxl_class = 'bnr-lg' %}
+  {% assign banner_copy_modulo_textoxl_fontsize = '35px' %}
+  {% assign banner_copy_modulo_textoxl_lineheight = '35px' %}
+  {% assign banner_copy_modulo_textoxl_fontsize_vertical = '62px' %}
+  {% assign banner_copy_modulo_textoxl_lineheight_vertical = '62px' %}
+{% else %}
+  {% assign banner_copy_modulo_textoxl_class = 'bnr-xl' %}
+  {% assign banner_copy_modulo_textoxl_fontsize = '80px' %}
+  {% assign banner_copy_modulo_textoxl_lineheight = '80px' %}
+  {% assign banner_copy_modulo_textoxl_fontsize_vertical = '125px' %}
+  {% assign banner_copy_modulo_textoxl_lineheight_vertical = '125px' %}
+{% endif %}
+
+
+
 ----------------------------
 -------- TEMAS --------
 ----------------------------
@@ -19,6 +87,7 @@
 		{% assign bg_contenedor2_mail_general = 'rgba(255,255,255,0.5)' %}
    		{% assign bg_bannertono_mail_general = 'rgba(0,0,0,0.0)' %}
   		{% assign bg_bannerimg_mail_general = '' %}
+		{% assign padd_banner_mail_general = '0px 0px' %}
 		{% assign bg_tag_fondo_mail_general = 'rgba(229,182,127,0.5)' %}
 		{% assign bg_tag_contenedor_mail_general = 'rgba(255,252,247,0.5)' %}
   		{% assign color_tag_tipografia_mail_general = '#2B2316' %}
@@ -42,6 +111,7 @@
 		{% assign bg_contenedor2_mail_general = 'rgba(255,255,255,0.5)' %}
     	{% assign bg_bannertono_mail_general = 'rgba(0,0,0,0.0)' %}
    		 {% assign bg_bannerimg_mail_general = '' %}
+{% assign padd_banner_mail_general = '0px 0px' %}
 		{% assign bg_tag_fondo_mail_general = 'rgba(229,182,127,0.5)' %}
 		{% assign bg_tag_contenedor_mail_general = 'rgba(255,252,247,0.5)' %}
 		{% assign img_overlay_1_mail_general = 'https://lh3.googleusercontent.com/d/1UBlu8zGS8YcXraFVstE7YVKxl1xzt47-' %}
@@ -64,6 +134,7 @@
 		{% assign bg_contenedor2_mail_general = 'rgba(255,255,255,0.5)' %}
   		{% assign bg_bannertono_mail_general = 'rgba(0,0,0,0.0)' %}
   		{% assign bg_bannerimg_mail_general = '' %}
+{% assign padd_banner_mail_general = '0px 0px' %}
 		{% assign bg_tag_fondo_mail_general = 'rgba(202,128,210,0.5)' %}
 		{% assign bg_tag_contenedor_mail_general = 'rgba(255,252,255,0.5)' %}
 		{% assign img_overlay_1_mail_general = 'https://lh3.googleusercontent.com/d/1MnvCxbAR8vvbVsTkfidUuUOfCdsaD-5H' %}
@@ -86,6 +157,7 @@
 		{% assign bg_contenedor2_mail_general = 'rgba(255,255,255,0.5)' %}
   		{% assign bg_bannertono_mail_general = 'rgba(0,0,0,0.0)' %}
   		{% assign bg_bannerimg_mail_general = '' %}
+{% assign padd_banner_mail_general = '0px 0px' %}
 		{% assign bg_tag_fondo_mail_general = 'rgba(159,128,229,0.5)' %}
 		{% assign bg_tag_contenedor_mail_general = 'rgba(253,251,255,0.5)' %}
 		{% assign img_overlay_1_mail_general = 'https://lh3.googleusercontent.com/d/1x15-m7PD47SZlxiT2HPD-wBLJoQnBc0I' %}
@@ -109,6 +181,7 @@
 		{% assign bg_contenedor2_mail_general = 'rgba(255,255,255,0.5)' %}
    		{% assign bg_bannertono_mail_general = 'rgba(0,0,0,0.0)' %}
    		{% assign bg_bannerimg_mail_general = '' %}
+{% assign padd_banner_mail_general = '0px 0px' %}
 		{% assign bg_tag_fondo_mail_general = 'rgba(125,191,220,0.5)' %}
 		{% assign bg_tag_contenedor_mail_general = 'rgba(253,255,255,0.5)' %}
 		{% assign img_overlay_1_mail_general = 'https://lh3.googleusercontent.com/d/1YW0pc7_CBWnFC03qyYVH2TlfTTrRn_Ba' %}
@@ -131,6 +204,7 @@
 		{% assign bg_contenedor2_mail_general = 'rgba(255,255,255,0.5)' %}
  		{% assign bg_bannertono_mail_general = 'rgba(0,0,0,0.0)' %}
    		{% assign bg_bannerimg_mail_general = '' %}
+		{% assign padd_banner_mail_general = '0px 0px' %}
 		{% assign bg_tag_fondo_mail_general = 'rgba(155,234,201,0.5)' %}
 		{% assign bg_tag_contenedor_mail_general = 'rgba(0,56,50,1.0)' %}
 		{% assign img_overlay_1_mail_general = 'https://lh3.googleusercontent.com/d/1dRAz-A3H_qr-0Uk4ZK5RWEDAqlRbQ0dY' %}
@@ -154,6 +228,7 @@
 		{% assign bg_contenedor2_mail_general = 'rgba(42,43,43,1.0)' %}
     {% assign bg_bannertono_mail_general = 'rgba(254,63,35,0.5)' %}
     {% assign bg_bannerimg_mail_general = 'https://lh3.googleusercontent.com/d/1qztlsmSfPI2eNsQ_ej-Y6oE7U94MGLSn' %}
+{% assign padd_banner_mail_general = '15px 10px' %}
 		{% assign bg_tag_fondo_mail_general = 'rgba(42,43,43,1.0)' %}
 		{% assign bg_tag_contenedor_mail_general = 'rgba(42,43,43,1.0)' %}
 		{% assign img_overlay_1_mail_general = 'https://lh3.googleusercontent.com/d/1OBg12RyuiaImsmqxBb9mjfm2bXrX7FgE' %}
@@ -184,6 +259,7 @@
 		{% assign bg_contenedor2_mail_general = 'rgba(42,43,43,1.0)' %}
     	{% assign bg_bannertono_mail_general = 'rgba(0,58,52,0.4)' %}
   		{% assign bg_bannerimg_mail_general = '' %}
+{% assign padd_banner_mail_general = '15px 10px' %}
 		{% assign bg_tag_fondo_mail_general = 'rgba(0,58,52,1.0)' %}
 		{% assign bg_tag_contenedor_mail_general = 'rgba(17,78,78,0.5)' %}
 		{% assign img_overlay_1_mail_general = 'https://lh3.googleusercontent.com/d/1OBg12RyuiaImsmqxBb9mjfm2bXrX7FgE' %}
@@ -211,6 +287,7 @@
 		{% assign bg_contenedor2_mail_general = 'rgba(42,43,43,1.0)' %}
     {% assign bg_bannertono_mail_general = 'rgba(0,0,0,0.4)' %}
     {% assign bg_bannerimg_mail_general = '' %}
+{% assign padd_banner_mail_general = '15px 10px' %}
 		{% assign bg_tag_fondo_mail_general = 'rgba(42,43,43,1.0)' %}
 		{% assign bg_tag_contenedor_mail_general = 'rgba(42,43,43,1.0)' %}
 		{% assign img_overlay_1_mail_general = 'https://lh3.googleusercontent.com/d/1OBg12RyuiaImsmqxBb9mjfm2bXrX7FgE' %}
@@ -237,6 +314,7 @@
 		{% assign bg_contenedor2_mail_general = 'rgba(4,4,4,1.0)' %}
     {% assign bg_bannertono_mail_general = 'rgba(42,43,43,1.0)' %}
     {% assign bg_bannerimg_mail_general = '' %}
+{% assign padd_banner_mail_general = '15px 10px' %}
 		{% assign bg_tag_fondo_mail_general = 'rgba(218,168,104,0.5)' %}
 		{% assign bg_tag_contenedor_mail_general = 'rgba(42,43,43,1.0)' %}
 		{% assign img_overlay_1_mail_general = 'https://lh3.googleusercontent.com/d/1OBg12RyuiaImsmqxBb9mjfm2bXrX7FgE' %}
@@ -262,6 +340,7 @@
 		{% assign bg_contenedor2_mail_general = 'rgba(251,251,251,1.0)' %}
     {% assign bg_bannertono_mail_general = 'rgba(224,228,231,1.0)' %}
     {% assign bg_bannerimg_mail_general = '' %}
+{% assign padd_banner_mail_general = '15px 10px' %}
 		{% assign bg_tag_fondo_mail_general = 'rgba(218,168,104,0.5)' %}
 		{% assign bg_tag_contenedor_mail_general = 'rgba(216,217,217,1.0)' %}
 		{% assign img_overlay_1_mail_general = 'https://lh3.googleusercontent.com/d/1OBg12RyuiaImsmqxBb9mjfm2bXrX7FgE' %}
@@ -295,7 +374,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!--[if !mso]><!-->
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<!--<![endif]--> 
+<!--<![endif]-->
 <!--[if (gte mso 9)|(IE)]>
           <xml>
             <o:OfficeDocumentSettings>
@@ -303,7 +382,7 @@
               <o:PixelsPerInch>96</o:PixelsPerInch>
             </o:OfficeDocumentSettings>
           </xml>
-          <![endif]--> 
+          <![endif]-->
 <!--[if (gte mso 9)|(IE)]>
       <style type="text/css">
         body {width: 600px;margin: 0 auto;}
@@ -327,8 +406,8 @@ h1 {
     margin: 0;
     padding: 0;
     font-weight: normal;
-    font-size: 50px;
-    line-height: 50px;
+    font-size: 25px;
+    line-height: 28px;
     word-break: break-word;
     font-family: arial, helvetica, sans-serif;
 }
@@ -336,8 +415,8 @@ h2 {
     margin: 0;
     padding: 0;
     font-weight: normal;
-    font-size: 35px;
-    line-height: 37px;
+    font-size: 16px;
+    line-height: 18px;
     word-break: break-word;
     font-family: arial, helvetica, sans-serif;
 }
@@ -345,8 +424,8 @@ h3 {
     margin: 0;
     padding: 0;
     font-weight: normal;
-    font-size: 27px;
-    line-height: 28px;
+    font-size: 14px;
+    line-height: 17px;
     word-break: break-word;
     font-family: arial, helvetica, sans-serif;
 }
@@ -354,8 +433,8 @@ h4 {
     margin: 0;
     padding: 0;
     font-weight: normal;
-    font-size: 17px;
-    line-height: 19px;
+    font-size: 12px;
+    line-height: 16px;
     word-break: break-word;
     font-family: arial, helvetica, sans-serif;
 }
@@ -364,8 +443,8 @@ h5 {
     padding: 0;
     font-weight: normal;
     color: rgb(255, 68, 31);
-    font-size: 16px;
-    line-height: 17px;
+    font-size: 10px;
+    line-height: 13px;
     word-break: break-word;
     font-family: arial, helvetica, sans-serif;
 }
@@ -373,8 +452,17 @@ h6 {
     margin: 0;
     padding: 0;
     font-weight: normal;
-    font-size: 14px;
-    line-height: 15px;
+    font-size: 8px;
+    line-height: 11px;
+    word-break: break-word;
+    font-family: arial, helvetica, sans-serif;
+}
+.legal {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 6px;
+    line-height: 8px;
     word-break: break-word;
     font-family: arial, helvetica, sans-serif;
 }
@@ -395,6 +483,61 @@ h6 {
     line-height: 26px;
     word-break: break-word;
     font-family: arial, helvetica, sans-serif;
+}
+/* ===== BANNER "texto vivo" (bnr-*) - Escritorio ===== */
+#BANNER_HORIZONTAL .bnr-xl {
+    font-size: 75px;
+    line-height: 77px;
+}
+#BANNER_VERTICAL .bnr-xl {
+    font-size: 125px;
+    line-height: 125px;
+}
+#BANNER_HORIZONTAL .bnr-lg {
+    font-size: 35px;
+    line-height: 35px;
+}
+#BANNER_VERTICAL .bnr-lg {
+    font-size: 62px;
+    line-height: 62px;
+}
+#BANNER_HORIZONTAL .bnr-md {
+    font-size: 30px;
+    line-height: 30px;
+}
+#BANNER_VERTICAL .bnr-md {
+    font-size: 50px;
+    line-height: 50px;
+}
+#BANNER_HORIZONTAL .bnr-hasta-xl {
+    font-size: 19px;
+    line-height: 19px;
+}
+#BANNER_VERTICAL .bnr-hasta-xl {
+    font-size: 25px;
+    line-height: 25px;
+}
+#BANNER_HORIZONTAL .bnr-hasta-lg {
+    font-size: 10px;
+    line-height: 10px;
+}
+#BANNER_VERTICAL .bnr-hasta-lg {
+    font-size: 15px;
+    line-height: 15px;
+}
+#BANNER_HORIZONTAL .bnr-sm {
+    font-size: 15px;
+    line-height: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+}
+#BANNER_VERTICAL .bnr-sm {
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .12em;
 }
 table.wrapper {
     width: 100% !important;
@@ -457,118 +600,98 @@ a.bulletproof-button {
     padding: 0px 0px 0px 0px !important;
     height: auto !important;
 }
-	
 .fondomobile {
     background-size: 150% auto !important;
 }
-	
 /* estilos del header
 */	
 	
 .bg-headermobile {
     background-size: cover !important;
 }
-	
-	
 #HEADER1 .logo-base1 {
     height: 28px !important;
     max-height: 28px !important;
     min-height: 28px !important;
 }
-	
 #HEADER1 .cobranding-s {
     height: 31px !important;
     max-height: 31px !important;
     min-height: 31px !important;
 }
-	
-#HEADER1 .cobranding-m  {
+#HEADER1 .cobranding-m {
     height: 34px !important;
     max-height: 34px !important;
     min-height: 34px !important;
 }
-	
-#HEADER1 .cobranding-l  {
+#HEADER1 .cobranding-l {
     height: 36px !important;
     max-height: 36px !important;
     min-height: 36px !important;
 }
-
 /* TAMAÑO 2 - Turbo, Pro, ProBlack, Defensoría */
 #HEADER2 .logo-base2 {
     height: 24px !important;
     max-height: 24px !important;
     min-height: 24px !important;
 }
-
 #HEADER2 .cobranding-s {
     height: 26px !important;
     max-height: 26px !important;
     min-height: 26px !important;
 }
-
-#HEADER2 .cobranding-m  {
+#HEADER2 .cobranding-m {
     height: 29px !important;
     max-height: 29px !important;
     min-height: 29px !important;
 }
-
-#HEADER2 .cobranding-l  {
+#HEADER2 .cobranding-l {
     height: 31px !important;
     max-height: 31px !important;
     min-height: 31px !important;
 }
-
 /* TAMAÑO 3 - Turbo Rest */
 #HEADER3 .logo-base3 {
     height: 32px !important;
     max-height: 32px !important;
     min-height: 32px !important;
 }
-
 #HEADER3 .cobranding-s {
     height: 35px !important;
     max-height: 35px !important;
     min-height: 35px !important;
 }
-
-#HEADER3 .cobranding-m  {
+#HEADER3 .cobranding-m {
     height: 38px !important;
     max-height: 38px !important;
     min-height: 38px !important;
 }
-
-#HEADER3 .cobranding-l  {
+#HEADER3 .cobranding-l {
     height: 42px !important;
     max-height: 42px !important;
     min-height: 42px !important;
 }
-
 /* TAMAÑO 4 - RappiEntregador y Contenido aliado */
 #HEADER4 .logo-base4 {
     height: 20px !important;
     max-height: 20px !important;
     min-height: 20px !important;
 }
-
 #HEADER4 .cobranding-s {
     height: 22px !important;
     max-height: 22px !important;
     min-height: 22px !important;
 }
-
-#HEADER4 .cobranding-m  {
+#HEADER4 .cobranding-m {
     height: 24px !important;
     max-height: 24px !important;
     min-height: 24px !important;
 }
-
-#HEADER4 .cobranding-l  {
+#HEADER4 .cobranding-l {
     height: 26px !important;
     max-height: 26px !important;
     min-height: 26px !important;
 }
-
 .altobanner1 {
     height: 85vw !important;
 }
@@ -579,30 +702,33 @@ a.bulletproof-button {
     text-align: center !important;
     margin: 0 auto !important;
 }
-
 h1 {
-    font-size: 48px!important;
-    line-height: 49px!important;
+    font-size: 29px!important;
+    line-height: 32px!important;
 }
 h2 {
-    font-size: 35px!important;
-    line-height: 37px!important;
+    font-size: 22px!important;
+    line-height: 25px!important;
 }
 h3 {
-    font-size: 27px!important;
-    line-height: 28px!important;
+    font-size: 19px!important;
+    line-height: 23px!important;
 }
 h4 {
-    font-size: 16px!important;
+    font-size: 14px!important;
     line-height: 18px!important;
 }
 h5 {
-    font-size: 15px!important;
+    font-size: 12px!important;
     line-height: 16px!important;
 }
 h6 {
-    font-size: 13px!important;
-    line-height: 14px!important;
+    font-size: 9px!important;
+    line-height: 12px!important;
+}
+.legal {
+    font-size: 8px!important;
+    line-height: 10px!important;
 }
 .txts {
     font-size: 11px!important;
@@ -611,6 +737,31 @@ h6 {
 .txtl {
     font-size: 20px!important;
     line-height: 21px!important;
+}
+/* ===== BANNER "texto vivo" (bnr-*) - Mobile: ambas orientaciones convergen ===== */
+#BANNER_HORIZONTAL .bnr-xl, #BANNER_VERTICAL .bnr-xl {
+    font-size: 110px!important;
+    line-height: 110px!important;
+}
+#BANNER_HORIZONTAL .bnr-lg, #BANNER_VERTICAL .bnr-lg {
+    font-size: 63px!important;
+    line-height: 63px!important;
+}
+#BANNER_HORIZONTAL .bnr-md, #BANNER_VERTICAL .bnr-md {
+    font-size: 55px!important;
+    line-height: 55px!important;
+}
+#BANNER_HORIZONTAL .bnr-hasta-xl, #BANNER_VERTICAL .bnr-hasta-xl {
+    font-size: 27px!important;
+    line-height: 27px!important;
+}
+#BANNER_HORIZONTAL .bnr-hasta-lg, #BANNER_VERTICAL .bnr-hasta-lg {
+    font-size: 16px!important;
+    line-height: 16px!important;
+}
+#BANNER_HORIZONTAL .bnr-sm, #BANNER_VERTICAL .bnr-sm {
+    font-size: 17px!important;
+    line-height: 19px!important;
 }
 .mobile_hide {
     min-height: 0;
@@ -666,7 +817,6 @@ a.bulletproof-button {
 .fondomobile {
     background-size: 150% auto !important;
 }
-	
 /* estilos del header
 */	
 	
@@ -674,106 +824,89 @@ a.bulletproof-button {
 .bg-headermobile {
     background-size: cover !important;
 }
-	
 #HEADER1 .logo-base1 {
     height: 28px !important;
     max-height: 28px !important;
     min-height: 28px !important;
 }
-	
 #HEADER1 .cobranding-s {
     height: 31px !important;
     max-height: 31px !important;
     min-height: 31px !important;
 }
-	
-#HEADER1 .cobranding-m  {
+#HEADER1 .cobranding-m {
     height: 34px !important;
     max-height: 34px !important;
     min-height: 34px !important;
 }
-	
-#HEADER1 .cobranding-l  {
+#HEADER1 .cobranding-l {
     height: 36px !important;
     max-height: 36px !important;
     min-height: 36px !important;
 }
-
 /* TAMAÑO 2 - Turbo, Pro, ProBlack, Defensoría */
 #HEADER2 .logo-base2 {
     height: 24px !important;
     max-height: 24px !important;
     min-height: 24px !important;
 }
-
 #HEADER2 .cobranding-s {
     height: 26px !important;
     max-height: 26px !important;
     min-height: 26px !important;
 }
-
-#HEADER2 .cobranding-m  {
+#HEADER2 .cobranding-m {
     height: 29px !important;
     max-height: 29px !important;
     min-height: 29px !important;
 }
-
-#HEADER2 .cobranding-l  {
+#HEADER2 .cobranding-l {
     height: 31px !important;
     max-height: 31px !important;
     min-height: 31px !important;
 }
-
 /* TAMAÑO 3 - Turbo Rest */
 #HEADER3 .logo-base3 {
     height: 32px !important;
     max-height: 32px !important;
     min-height: 32px !important;
 }
-
 #HEADER3 .cobranding-s {
     height: 35px !important;
     max-height: 35px !important;
     min-height: 35px !important;
 }
-
-#HEADER3 .cobranding-m  {
+#HEADER3 .cobranding-m {
     height: 38px !important;
     max-height: 38px !important;
     min-height: 38px !important;
 }
-
-#HEADER3 .cobranding-l  {
+#HEADER3 .cobranding-l {
     height: 42px !important;
     max-height: 42px !important;
     min-height: 42px !important;
 }
-
 /* TAMAÑO 4 - RappiEntregador y Contenido aliado */
 #HEADER4 .logo-base4 {
     height: 20px !important;
     max-height: 20px !important;
     min-height: 20px !important;
 }
-
 #HEADER4 .cobranding-s {
     height: 22px !important;
     max-height: 22px !important;
     min-height: 22px !important;
 }
-
-#HEADER4 .cobranding-m  {
+#HEADER4 .cobranding-m {
     height: 24px !important;
     max-height: 24px !important;
     min-height: 24px !important;
 }
-
-#HEADER4 .cobranding-l  {
+#HEADER4 .cobranding-l {
     height: 26px !important;
     max-height: 26px !important;
     min-height: 26px !important;
 }
-
 .altobanner1 {
     height: 85vw !important;
 }
@@ -784,30 +917,33 @@ a.bulletproof-button {
     text-align: center !important;
     margin: 0 auto !important;
 }
-
 h1 {
-    font-size: 48px!important;
-    line-height: 49px!important;
+    font-size: 29px!important;
+    line-height: 32px!important;
 }
 h2 {
-    font-size: 35px!important;
-    line-height: 37px!important;
+    font-size: 22px!important;
+    line-height: 25px!important;
 }
 h3 {
-    font-size: 27px!important;
-    line-height: 28px!important;
+    font-size: 19px!important;
+    line-height: 23px!important;
 }
 h4 {
-    font-size: 16px!important;
+    font-size: 14px!important;
     line-height: 18px!important;
 }
 h5 {
-    font-size: 15px!important;
+    font-size: 12px!important;
     line-height: 16px!important;
 }
 h6 {
-    font-size: 13px!important;
-    line-height: 14px!important;
+    font-size: 9px!important;
+    line-height: 12px!important;
+}
+.legal {
+    font-size: 8px!important;
+    line-height: 10px!important;
 }
 .txts {
     font-size: 11px!important;
@@ -816,6 +952,31 @@ h6 {
 .txtl {
     font-size: 20px!important;
     line-height: 21px!important;
+}
+/* ===== BANNER "texto vivo" (bnr-*) - Mobile: ambas orientaciones convergen ===== */
+#BANNER_HORIZONTAL .bnr-xl, #BANNER_VERTICAL .bnr-xl {
+    font-size: 110px!important;
+    line-height: 110px!important;
+}
+#BANNER_HORIZONTAL .bnr-lg, #BANNER_VERTICAL .bnr-lg {
+    font-size: 63px!important;
+    line-height: 63px!important;
+}
+#BANNER_HORIZONTAL .bnr-md, #BANNER_VERTICAL .bnr-md {
+    font-size: 55px!important;
+    line-height: 55px!important;
+}
+#BANNER_HORIZONTAL .bnr-hasta-xl, #BANNER_VERTICAL .bnr-hasta-xl {
+    font-size: 27px!important;
+    line-height: 27px!important;
+}
+#BANNER_HORIZONTAL .bnr-hasta-lg, #BANNER_VERTICAL .bnr-hasta-lg {
+    font-size: 16px!important;
+    line-height: 16px!important;
+}
+#BANNER_HORIZONTAL .bnr-sm, #BANNER_VERTICAL .bnr-sm {
+    font-size: 17px!important;
+    line-height: 19px!important;
 }
 .mobile_hide {
     min-height: 0;
@@ -835,18 +996,17 @@ h6 {
 }
 </style>
 </head>
+
 <!-- fin head -->
 <body>
 
 <!-- INICIO SECCION BANNER -->
 
-
 <center class="wrapper" data-link-color="#fe3f23" data-body-style="font-size:14px; font-family:arial,helvetica,sans-serif; background-color:{{bg_solid_mail_general}};" >
   <div class="webkit">
     <table cellpadding="0" cellspacing="0" border="0" width="100%" class="wrapper" bgcolor="{{bg_solid_mail_general}}">
       <tr>
-        <td valign="top" bgcolor="{{bg_solid_mail_general}}" width="100%" style="background-image: url({{bg_img_mail_general}}); background-size: {{bg_img_size_mail_general}} 100% auto; background-position: center top; background-repeat: repeat-x;">
-			<table width="100%" role="content-container" class="outer" align="center" cellpadding="0" cellspacing="0" border="0">
+        <td valign="top" bgcolor="{{bg_solid_mail_general}}" width="100%" style="background-image: url({{bg_img_mail_general}}); background-size: {{bg_img_size_mail_general}}; background-position: center top; background-repeat: repeat-x;"><table width="100%" role="content-container" class="outer" align="center" cellpadding="0" cellspacing="0" border="0">
             <tr>
               <td class="fondomobile" width="100%" style="background-image: url({{bg_imgevento_mail_general}}); background-size: 100% auto; background-position: center top; background-repeat: no-repeat"><table width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
@@ -858,67 +1018,20 @@ h6 {
                       
                       <table width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%; max-width:600px; " align="center" bgcolor="">
                         <tr>
-                          <td style="padding:0px 0px 0px 0px; text-align:left;" bgcolor="" width="100%" align="left">
-							  
-							  
-							  <!-- CONTENEDOR GENERAL -->
+                          <td style="padding:0px 0px 0px 0px; text-align:left;" bgcolor="" width="100%" align="left"><!-- CONTENEDOR GENERAL -->
                             
                             <table role="paddedcontainer" border="0" cellpadding ="0" cellspacing="0" align="center" width="100%" data-type="columns" style="padding:20px 15px 0px 15px;" bgcolor="">
                               <tbody>
                                 <tr>
-                                  <td height="100%" valign="top">
-									  
-									 
-									  
-									  <div style="display:flex;">
-										  
-										   
-										  
-										  
-										  
+                                  <td height="100%" valign="top"><div style="display:flex;">
                                       <table width="560" style="width:560px; border-spacing:0; margin:0px 0px 0px 0px; " cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-1">
                                         <tbody>
-											
-											 <!-- HEADERS CENTRADOS-->
-											
                                           
-                                          <!-- HEADER RAPPI FONDO OSCURO-->
+                                          <!-- HEADERS CENTRADOS--> 
+                                         
+                                          <!-- HEADER RAPPI FONDO CLARO -->
                                           <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-												
-										
-												
-												<div id="HEADER1" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif;">
-                                                  <tr>
-                                                    <td  style="vertical-align: middle; text-align: center;"><img class="logo-base1" border="0" style="height: 30px; max-height: 30px; min-height: 30px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1YX0mVAslV2AbORwEUHmw6eOx413tbAlB"></td>
-                                                    
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-                                                    
-                                                    <td style="text-align: left; vertical-align: middle;"><!-- SEPARADOR REGLAMENTARIO SIEMPRE QUE HAYA COBRANDING  --> 
-                                                      <img class="logo-base1"  border="0" style="  height: 30px; max-height: 30px; min-height: 30px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/16Hw4AqTJ27_Z1DYUdkJSH2qQ530Qlqf8"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO --> 
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO --> 
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 36px; max-height: 36px; min-height: 36px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO GRANDE--> 
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 39px; max-height: 39px; min-height: 39px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div>
-											  </td>
-                                          </tr>
-											
-											  <!-- HEADER RAPPI FONDO CLARO -->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-												
-										
-												
-												<div id="HEADER1" style="padding: 0px 0px 0px 0px;">
+                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;"><div id="HEADER1" style="padding: 0px 0px 0px 0px;">
                                                 <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif;">
                                                   <tr>
                                                     <td  style="vertical-align: middle; text-align: center;"><img class="logo-base1" border="0" style="height: 30px; max-height: 30px; min-height: 30px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jwEAvRrPJreG7pZbEGhZuo18kVjnw4Cf"></td>
@@ -938,1225 +1051,70 @@ h6 {
                                                       <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 39px; max-height: 39px; min-height: 39px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
                                                   </tr>
                                                 </table>
-                                              </div>
-											  </td>
-                                          </tr>
-											 
-											
-											  <!-- HEADER TRAVEL FONDO OSCURO-->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-												
-										
-												
-												<div id="HEADER1" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif;">
-                                                  <tr>
-                                                    <td  style="vertical-align: middle; text-align: center;"><img class="logo-base1" border="0" style="height: 30px; max-height: 30px; min-height: 30px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1DhbuamGvJgo8MeFIMSv6iHMIp_PGaZrW"></td>
-                                                    
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-                                                    
-                                                    <td style="text-align: left; vertical-align: middle;"><!-- SEPARADOR REGLAMENTARIO SIEMPRE QUE HAYA COBRANDING  --> 
-                                                      <img class="logo-base1"  border="0" style="  height: 30px; max-height: 30px; min-height: 30px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/16Hw4AqTJ27_Z1DYUdkJSH2qQ530Qlqf8"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO --> 
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO --> 
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 36px; max-height: 36px; min-height: 36px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO GRANDE--> 
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 39px; max-height: 39px; min-height: 39px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div>
-											  </td>
-                                          </tr>
-											
-											  <!-- HEADER TRAVEL FONDO CLARO -->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-												
-										
-												
-												<div id="HEADER1" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif;">
-                                                  <tr>
-                                                    <td  style="vertical-align: middle; text-align: center;"><img class="logo-base1" border="0" style="height: 30px; max-height: 30px; min-height: 30px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1OwrpytJ3A51t7syTpF3_vCDdWlD8A7jJ"></td>
-                                                    
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-                                                    
-                                                    <td style="text-align: left; vertical-align: middle;"><!-- SEPARADOR REGLAMENTARIO SIEMPRE QUE HAYA COBRANDING  --> 
-                                                      <img class="logo-base1"  border="0" style="  height: 30px; max-height: 30px; min-height: 30px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1cfo954qyN_7snWJoan_kCTGxEJ1nIosB"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO --> 
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO --> 
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 36px; max-height: 36px; min-height: 36px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO GRANDE--> 
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 39px; max-height: 39px; min-height: 39px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div>
-											  </td>
-                                          </tr>
-											 
-											
-											  <!-- HEADER SOYRAPPI FONDO OSCURO-->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-												
-										
-												
-												<div id="HEADER1" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif;">
-                                                  <tr>
-                                                    <td  style="vertical-align: middle; text-align: center;"><img class="logo-base1" border="0" style="height: 30px; max-height: 30px; min-height: 30px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/15j1sbMRvbg1KrK_n8Oqyfdmn-LwarLsq"></td>
-                                                    
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-                                                    
-                                                    <td style="text-align: left; vertical-align: middle;"><!-- SEPARADOR REGLAMENTARIO SIEMPRE QUE HAYA COBRANDING  --> 
-                                                      <img class="logo-base1"  border="0" style="  height: 30px; max-height: 30px; min-height: 30px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/16Hw4AqTJ27_Z1DYUdkJSH2qQ530Qlqf8"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO --> 
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO --> 
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 36px; max-height: 36px; min-height: 36px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO GRANDE--> 
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 39px; max-height: 39px; min-height: 39px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div>
-											  </td>
-                                          </tr>
-											
-											  <!-- HEADER SOYRAPPI FONDO CLARO -->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-												
-										
-												
-												<div id="HEADER1" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif;">
-                                                  <tr>
-                                                    <td  style="vertical-align: middle; text-align: center;"><img class="logo-base1" border="0" style="height: 30px; max-height: 30px; min-height: 30px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1D14TLIJ6tyE5sSaFeeczgh35p-qiroVJ"></td>
-                                                    
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-                                                    
-                                                    <td style="text-align: left; vertical-align: middle;"><!-- SEPARADOR REGLAMENTARIO SIEMPRE QUE HAYA COBRANDING  --> 
-                                                      <img class="logo-base1"  border="0" style="  height: 30px; max-height: 30px; min-height: 30px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1cfo954qyN_7snWJoan_kCTGxEJ1nIosB"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO --> 
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO --> 
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 36px; max-height: 36px; min-height: 36px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO GRANDE--> 
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 39px; max-height: 39px; min-height: 39px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div>
-											  </td>
-                                          </tr>
-											 
-
-                                         <!-- HEADER TURBO FONDO OSCURO-->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER2" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif;">
-                                                  <tr>
-                                                    <td  style="vertical-align: middle; text-align: center;"><img class="logo-base2" border="0" style="height: 26px; max-height: 26px; min-height: 26px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1XUsOFk4KTNCTzeO_UG15_SXI6kfA-Odr"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td style="text-align: left; vertical-align: middle;"><!-- SEPARADOR REGLAMENTARIO SIEMPRE QUE HAYA COBRANDING  -->
-                                                      <img class="logo-base2"  border="0" style="  height: 26px; max-height: 26px; min-height: 26px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/16Hw4AqTJ27_Z1DYUdkJSH2qQ530Qlqf8">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 31px; max-height: 31px; min-height: 31px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
                                               </div></td>
                                           </tr>
-											   
-											
-											       <!-- HEADER TURBO FONDO CLARO -->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER2" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; border-radius: 10px; overflow: hidden; " cellpadding="0" cellspacing="0" border="0">
-                                                  <tr class="bg-headermobile" style="background-image: url({{bg_header_mail_general}}); background-size: 0% 0%; background-position: center center;">
-                                                    <td  style="vertical-align: middle; text-align: center; padding: 5px;"><img class="logo-base2" border="0" style="height: 26px; max-height: 26px; min-height: 26px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1RMrsj7LKov3zZaL1hGt5gMZTjjpLC6Ct"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td style="text-align: left; vertical-align: middle; padding: 5px;"><!-- SEPARADOR REGLAMENTARIO SIEMPRE QUE HAYA COBRANDING  -->
-                                                      <img class="logo-base2"  border="0" style="  height: 26px; max-height: 26px; min-height: 26px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1cfo954qyN_7snWJoan_kCTGxEJ1nIosB">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 31px; max-height: 31px; min-height: 31px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											   
-											
-											    <!-- HEADER PRO FONDO OSCURO-->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER2" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif;">
-                                                  <tr>
-                                                    <td  style="vertical-align: middle; text-align: center;"><img class="logo-base2" border="0" style="height: 26px; max-height: 26px; min-height: 26px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1vS23h_ozhr-TgT8b3tLVdxaIqxqdbxQn"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td style="text-align: left; vertical-align: middle;"><!-- SEPARADOR REGLAMENTARIO SIEMPRE QUE HAYA COBRANDING  -->
-                                                      <img class="logo-base2"  border="0" style="  height: 26px; max-height: 26px; min-height: 26px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/16Hw4AqTJ27_Z1DYUdkJSH2qQ530Qlqf8">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 31px; max-height: 31px; min-height: 31px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											   
-											
-											       <!-- HEADER PRO FONDO CLARO -->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER2" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif;">
-                                                  <tr>
-                                                    <td  style="vertical-align: middle; text-align: center;"><img class="logo-base2" border="0" style="height: 26px; max-height: 26px; min-height: 26px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/104ERZPJ3vjvWBv1rUA2JPFtAKR-avqlF"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td style="text-align: left; vertical-align: middle;"><!-- SEPARADOR REGLAMENTARIO SIEMPRE QUE HAYA COBRANDING  -->
-                                                      <img class="logo-base2"  border="0" style="  height: 26px; max-height: 26px; min-height: 26px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1JSPiD74ZiZi6RV5KPUAAoi04Bo7aiGdO">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 31px; max-height: 31px; min-height: 31px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											   
-											
-											    <!-- HEADER PROBLACK FONDO OSCURO-->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER2" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif;">
-                                                  <tr>
-                                                    <td  style="vertical-align: middle; text-align: center;"><img class="logo-base2" border="0" style="height: 26px; max-height: 26px; min-height: 26px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1itJPGrD17OuvcENkLMatD_dGAA_hzMmH"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td style="text-align: left; vertical-align: middle;"><!-- SEPARADOR REGLAMENTARIO SIEMPRE QUE HAYA COBRANDING  -->
-                                                      <img class="logo-base2"  border="0" style="  height: 26px; max-height: 26px; min-height: 26px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/16Hw4AqTJ27_Z1DYUdkJSH2qQ530Qlqf8">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 31px; max-height: 31px; min-height: 31px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											   
-											
-											       <!-- HEADER PROBLACK FONDO CLARO -->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER2" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif;">
-                                                  <tr>
-                                                    <td  style="vertical-align: middle; text-align: center;"><img class="logo-base2" border="0" style="height: 26px; max-height: 26px; min-height: 26px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1v5WwHAIZMihyp4hG9M1JaEoyrY0mZafW"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td style="text-align: left; vertical-align: middle;"><!-- SEPARADOR REGLAMENTARIO SIEMPRE QUE HAYA COBRANDING  -->
-                                                      <img class="logo-base2"  border="0" style="  height: 26px; max-height: 26px; min-height: 26px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1JSPiD74ZiZi6RV5KPUAAoi04Bo7aiGdO">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 31px; max-height: 31px; min-height: 31px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											   
-											
-											    <!-- HEADER DEFENSORIA FONDO OSCURO-->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER2" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif;">
-                                                  <tr>
-                                                    <td  style="vertical-align: middle; text-align: center;"><img class="logo-base2" border="0" style="height: 26px; max-height: 26px; min-height: 26px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1JpUTHMWbWBpnEBTR99_cczjdkGOWu-0v"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td style="text-align: left; vertical-align: middle;"><!-- SEPARADOR REGLAMENTARIO SIEMPRE QUE HAYA COBRANDING  -->
-                                                      <img class="logo-base2"  border="0" style="  height: 26px; max-height: 26px; min-height: 26px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/16Hw4AqTJ27_Z1DYUdkJSH2qQ530Qlqf8">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 31px; max-height: 31px; min-height: 31px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											   
-											
-											       <!-- HEADER DEFENSORIA FONDO CLARO -->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER2" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; border-radius: 10px; overflow: hidden; " cellpadding="0" cellspacing="0" border="0">
-                                                <tr class="bg-headermobile" style="background-image: url({{bg_header_mail_general}}); background-size: 0% 0%; background-position: center center;">
-                                                    <td  style="vertical-align: middle; text-align: center; padding: 5px;"><img class="logo-base2" border="0" style="height: 26px; max-height: 26px; min-height: 26px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1Bs8FzgEHozcObWmjZEIfdK-mUaNWJxq1"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td style="text-align: left; vertical-align: middle; padding: 5px;"><!-- SEPARADOR REGLAMENTARIO SIEMPRE QUE HAYA COBRANDING  -->
-                                                      <img class="logo-base2"  border="0" style="  height: 26px; max-height: 26px; min-height: 26px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1JSPiD74ZiZi6RV5KPUAAoi04Bo7aiGdO">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 31px; max-height: 31px; min-height: 31px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											   
-
-                                           <!-- HEADER TURBOREST FONDO OSCURO -->
-											
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER3" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif;">
-                                                  <tr>
-                                                    <td  style="vertical-align: middle; text-align: center;"><img class="logo-base3" border="0" style="height: 34px; max-height: 34px; min-height: 34px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1sOWtb-DWGy7YC50djTvjmJ44oLxm3i1x"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td style="text-align: left; vertical-align: middle;"><!-- SEPARADOR REGLAMENTARIO SIEMPRE QUE HAYA COBRANDING  -->
-                                                      <img class="logo-base3"  border="0" style="  height: 34px; max-height: 34px; min-height: 34px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/16Hw4AqTJ27_Z1DYUdkJSH2qQ530Qlqf8">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 38px; max-height: 38px; min-height: 38px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 41px; max-height: 41px; min-height: 41px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 45px; max-height: 45px; min-height: 45px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											
-											
-											  <!-- HEADER TURBOREST FONDO CLARO -->
-											
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER3" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; border-radius: 10px; overflow: hidden; " cellpadding="0" cellspacing="0" border="0">
-                                                   <tr class="bg-headermobile" style="background-image: url({{bg_header_mail_general}}); background-size: 0% 0%; background-position: center center;">
-                                                    <td  style="vertical-align: middle; text-align: center; padding: 5px;"><img class="logo-base3" border="0" style="height: 34px; max-height: 34px; min-height: 34px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1z_JJh63apDV_OU9W5dFRMSNpKN_76swR"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td style="text-align: left; vertical-align: middle; padding: 5px;"><!-- SEPARADOR REGLAMENTARIO SIEMPRE QUE HAYA COBRANDING  -->
-                                                      <img class="logo-base3"  border="0" style="  height: 34px; max-height: 34px; min-height: 34px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1cfo954qyN_7snWJoan_kCTGxEJ1nIosB">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 38px; max-height: 38px; min-height: 38px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 41px; max-height: 41px; min-height: 41px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 45px; max-height: 45px; min-height: 45px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											
-											
-											
-								
-
-                                           <!-- HEADER RAPPIENTREGADOR FONDO OSCURO -->
-											
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER4" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif;">
-                                                  <tr>
-                                                    <td  style="vertical-align: middle; text-align: center;"><img class="logo-base4" border="0" style="height: 21px; max-height: 21px; min-height: 21px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1qENU3hprjYWozgLlFXllYtMEoD4cM33h"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td style="text-align: left; vertical-align: middle;"><!-- SEPARADOR REGLAMENTARIO SIEMPRE QUE HAYA COBRANDING  -->
-                                                      <img class="logo-base4"  border="0" style="  height: 21px; max-height: 21px; min-height: 21px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/16Hw4AqTJ27_Z1DYUdkJSH2qQ530Qlqf8">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 24px; max-height: 24px; min-height: 24px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 26px; max-height: 26px; min-height: 26px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											
-											
-											         <!-- HEADER RAPPIENTREGADOR FONDO CLARO -->
-											
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER4" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif;">
-                                                  <tr>
-                                                    <td  style="vertical-align: middle; text-align: center;"><img class="logo-base4" border="0" style="height: 21px; max-height: 21px; min-height: 21px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1GcK1pIA8-Muq6X_jswulrisddZs6D4pK"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td style="text-align: left; vertical-align: middle;"><!-- SEPARADOR REGLAMENTARIO SIEMPRE QUE HAYA COBRANDING  -->
-                                                      <img class="logo-base4"  border="0" style="  height: 21px; max-height: 21px; min-height: 21px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1cfo954qyN_7snWJoan_kCTGxEJ1nIosB">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 24px; max-height: 24px; min-height: 24px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 26px; max-height: 26px; min-height: 26px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											
-											    <!-- HEADER CONTENIDO ALIADO FONDO OSCURO -->
-											
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER4" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif;">
-                                                  <tr>
-                                                    <td  style="vertical-align: middle; text-align: center;"><img class="logo-base4" border="0" style="height: 21px; max-height: 21px; min-height: 21px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1BN0nt6V2zOJ8CAh4DO9iD4gA-S-2eZk-"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td style="text-align: left; vertical-align: middle;"><!-- SEPARADOR REGLAMENTARIO SIEMPRE QUE HAYA COBRANDING  -->
-                                                      <img class="logo-base4"  border="0" style="  height: 21px; max-height: 21px; min-height: 21px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/16Hw4AqTJ27_Z1DYUdkJSH2qQ530Qlqf8">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 24px; max-height: 24px; min-height: 24px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 26px; max-height: 26px; min-height: 26px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											
-											
-											         <!-- HEADER  CONTENIDO ALIADO FONDO CLARO -->
-											
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER4" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; border-radius: 10px; overflow: hidden; " cellpadding="0" cellspacing="0" border="0">
-                                                  <tr class="bg-headermobile" style="background-image: url({{bg_header_mail_general}}); background-size: 0% 0%; background-position: center center;">
-                                                    <td  style="vertical-align: middle; text-align: center; padding: 5px;"><img class="logo-base4" border="0" style="height: 21px; max-height: 21px; min-height: 21px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1HwTQQLNvFry9dv2xoxfJPR0O4Me2dZH-"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td style="text-align: left; vertical-align: middle; padding: 5px;"><!-- SEPARADOR REGLAMENTARIO SIEMPRE QUE HAYA COBRANDING  -->
-                                                      <img class="logo-base4"  border="0" style="  height: 21px; max-height: 21px; min-height: 21px;  margin: 0 auto; padding: 0px 10px; " alt="|" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1JSPiD74ZiZi6RV5KPUAAoi04Bo7aiGdO">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 24px; max-height: 24px; min-height: 24px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 26px; max-height: 26px; min-height: 26px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											
-                                      
-											
-											   <!-- HEADERS COLUMNAS-->
-											
                                           
-                                          <!-- HEADER RAPPI FONDO OSCURO-->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-												
-										
-												
-												<div id="HEADER1" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; width:100%; max-width: 480px; margin:0 auto; ">
-                                                  <tr>
-                                                    <td width="50%"  style="vertical-align: middle; text-align: left;"><img class="logo-base1" border="0" style="height: 30px; max-height: 30px; min-height: 30px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1YX0mVAslV2AbORwEUHmw6eOx413tbAlB"></td>
-                                                    
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-                                                    
-                                                    <td width="50%" style="text-align: right; vertical-align: middle;">
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO --> 
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO --> 
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 36px; max-height: 36px; min-height: 36px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO GRANDE--> 
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 39px; max-height: 39px; min-height: 39px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div>
-											  </td>
-                                          </tr>
-											
-											  <!-- HEADER RAPPI FONDO CLARO -->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-												
-										
-												
-												<div id="HEADER1" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; width:100%; max-width: 480px; margin:0 auto; ">
-                                                  <tr>
-                                                    <td width="50%"  style="vertical-align: middle; text-align: left;"><img class="logo-base1" border="0" style="height: 30px; max-height: 30px; min-height: 30px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jwEAvRrPJreG7pZbEGhZuo18kVjnw4Cf"></td>
-                                                    
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-                                                    
-                                                    <td width="50%" style="text-align: right; vertical-align: middle;">
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO --> 
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO --> 
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 36px; max-height: 36px; min-height: 36px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO GRANDE--> 
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 39px; max-height: 39px; min-height: 39px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div>
-											  </td>
-                                          </tr>
-											 
-											
-											  <!-- HEADER TRAVEL FONDO OSCURO-->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-												
-										
-												
-												<div id="HEADER1" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; width:100%; max-width: 480px; margin:0 auto; ">
-                                                  <tr>
-                                                    <td width="50%"  style="vertical-align: middle; text-align: left;"><img class="logo-base1" border="0" style="height: 30px; max-height: 30px; min-height: 30px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1DhbuamGvJgo8MeFIMSv6iHMIp_PGaZrW"></td>
-                                                    
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-                                                    
-                                                    <td width="50%" style="text-align: right; vertical-align: middle;">
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO --> 
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO --> 
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 36px; max-height: 36px; min-height: 36px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO GRANDE--> 
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 39px; max-height: 39px; min-height: 39px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div>
-											  </td>
-                                          </tr>
-											
-											  <!-- HEADER TRAVEL FONDO CLARO -->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-												
-										
-												
-												<div id="HEADER1" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; width:100%; max-width: 480px; margin:0 auto; ">
-                                                  <tr>
-                                                    <td width="50%"  style="vertical-align: middle; text-align: left;"><img class="logo-base1" border="0" style="height: 30px; max-height: 30px; min-height: 30px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1OwrpytJ3A51t7syTpF3_vCDdWlD8A7jJ"></td>
-                                                    
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-                                                    
-                                                    <td width="50%" style="text-align: right; vertical-align: middle;">
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO --> 
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO --> 
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 36px; max-height: 36px; min-height: 36px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO GRANDE--> 
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 39px; max-height: 39px; min-height: 39px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div>
-											  </td>
-                                          </tr>
-											 
-											
-											  <!-- HEADER SOYRAPPI FONDO OSCURO-->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-												
-										
-												
-												<div id="HEADER1" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; width:100%; max-width: 480px; margin:0 auto; ">
-                                                  <tr>
-                                                    <td width="50%"  style="vertical-align: middle; text-align: left;"><img class="logo-base1" border="0" style="height: 30px; max-height: 30px; min-height: 30px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/15j1sbMRvbg1KrK_n8Oqyfdmn-LwarLsq"></td>
-                                                    
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-                                                    
-                                                    <td width="50%" style="text-align: right; vertical-align: middle;">
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO --> 
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO --> 
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 36px; max-height: 36px; min-height: 36px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO GRANDE--> 
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 39px; max-height: 39px; min-height: 39px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div>
-											  </td>
-                                          </tr>
-											
-											  <!-- HEADER SOYRAPPI FONDO CLARO -->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-												
-										
-												
-												<div id="HEADER1" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; width:100%; max-width: 480px; margin:0 auto; ">
-                                                  <tr>
-                                                    <td width="50%"  style="vertical-align: middle; text-align: left;"><img class="logo-base1" border="0" style="height: 30px; max-height: 30px; min-height: 30px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1D14TLIJ6tyE5sSaFeeczgh35p-qiroVJ"></td>
-                                                    
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-                                                    
-                                                    <td width="50%" style="text-align: right; vertical-align: middle;">
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO --> 
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO --> 
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 36px; max-height: 36px; min-height: 36px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"> 
-                                                      
-                                                      <!-- -COBRANDING TAMAÑO GRANDE--> 
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 39px; max-height: 39px; min-height: 39px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div>
-											  </td>
-                                          </tr>
-											 
-
-                                         <!-- HEADER TURBO FONDO OSCURO-->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER2" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; width:100%; max-width: 480px; margin:0 auto; ">
-                                                  <tr>
-                                                    <td width="50%"  style="vertical-align: middle; text-align: left;"><img class="logo-base2" border="0" style="height: 26px; max-height: 26px; min-height: 26px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1XUsOFk4KTNCTzeO_UG15_SXI6kfA-Odr"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td width="50%" style="text-align: right; vertical-align: middle;">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 31px; max-height: 31px; min-height: 31px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											   
-											
-											       <!-- HEADER TURBO FONDO CLARO -->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER2" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; border-radius: 10px; overflow: hidden; width:100%; max-width: 480px; margin:0 auto; " cellpadding="0" cellspacing="0" border="0">
-                                                  <tr class="bg-headermobile" style="background-image: url({{bg_header_mail_general}}); background-size: 0% 0%; background-position: center center;">
-                                                    <td width="50%"  style="vertical-align: middle; text-align: left; padding: 5px;"><img class="logo-base2" border="0" style="height: 26px; max-height: 26px; min-height: 26px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1RMrsj7LKov3zZaL1hGt5gMZTjjpLC6Ct"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td width="50%" style="text-align: right; vertical-align: middle; padding: 5px;">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 31px; max-height: 31px; min-height: 31px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											   
-											
-											    <!-- HEADER PRO FONDO OSCURO-->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER2" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; width:100%; max-width: 480px; margin:0 auto; ">
-                                                  <tr>
-                                                    <td width="50%"  style="vertical-align: middle; text-align: left;"><img class="logo-base2" border="0" style="height: 26px; max-height: 26px; min-height: 26px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1vS23h_ozhr-TgT8b3tLVdxaIqxqdbxQn"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td width="50%" style="text-align: right; vertical-align: middle;">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 31px; max-height: 31px; min-height: 31px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											   
-											
-											       <!-- HEADER PRO FONDO CLARO -->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER2" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; width:100%; max-width: 480px; margin:0 auto; ">
-                                                  <tr>
-                                                    <td width="50%"  style="vertical-align: middle; text-align: left;"><img class="logo-base2" border="0" style="height: 26px; max-height: 26px; min-height: 26px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/104ERZPJ3vjvWBv1rUA2JPFtAKR-avqlF"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td width="50%" style="text-align: right; vertical-align: middle;">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 31px; max-height: 31px; min-height: 31px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											   
-											
-											    <!-- HEADER PROBLACK FONDO OSCURO-->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER2" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; width:100%; max-width: 480px; margin:0 auto; ">
-                                                  <tr>
-                                                    <td width="50%"  style="vertical-align: middle; text-align: left;"><img class="logo-base2" border="0" style="height: 26px; max-height: 26px; min-height: 26px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1itJPGrD17OuvcENkLMatD_dGAA_hzMmH"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td width="50%" style="text-align: right; vertical-align: middle;">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 31px; max-height: 31px; min-height: 31px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											   
-											
-											       <!-- HEADER PROBLACK FONDO CLARO -->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER2" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; width:100%; max-width: 480px; margin:0 auto; ">
-                                                  <tr>
-                                                    <td width="50%"  style="vertical-align: middle; text-align: left;"><img class="logo-base2" border="0" style="height: 26px; max-height: 26px; min-height: 26px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1v5WwHAIZMihyp4hG9M1JaEoyrY0mZafW"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td width="50%" style="text-align: right; vertical-align: middle;">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 31px; max-height: 31px; min-height: 31px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											   
-											
-											    <!-- HEADER DEFENSORIA FONDO OSCURO-->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER2" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; width:100%; max-width: 480px; margin:0 auto; ">
-                                                  <tr>
-                                                    <td width="50%"  style="vertical-align: middle; text-align: left;"><img class="logo-base2" border="0" style="height: 26px; max-height: 26px; min-height: 26px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1JpUTHMWbWBpnEBTR99_cczjdkGOWu-0v"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td width="50%" style="text-align: right; vertical-align: middle;">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 31px; max-height: 31px; min-height: 31px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											   
-											
-											       <!-- HEADER DEFENSORIA FONDO CLARO -->
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER2" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; border-radius: 10px; overflow: hidden; width:100%; max-width: 480px; margin:0 auto; " cellpadding="0" cellspacing="0" border="0">
-                                                <tr class="bg-headermobile" style="background-image: url({{bg_header_mail_general}}); background-size: 0% 0%; background-position: center center;">
-                                                    <td width="50%"  style="vertical-align: middle; text-align: left; padding: 5px;"><img class="logo-base2" border="0" style="height: 26px; max-height: 26px; min-height: 26px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1Bs8FzgEHozcObWmjZEIfdK-mUaNWJxq1"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td width="50%" style="text-align: right; vertical-align: middle; padding: 5px;">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 31px; max-height: 31px; min-height: 31px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 33px; max-height: 33px; min-height: 33px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											   
-
-                                           <!-- HEADER TURBOREST FONDO OSCURO -->
-											
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER3" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; width:100%; max-width: 480px; margin:0 auto; ">
-                                                  <tr>
-                                                    <td width="50%"  style="vertical-align: middle; text-align: left;"><img class="logo-base3" border="0" style="height: 34px; max-height: 34px; min-height: 34px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1sOWtb-DWGy7YC50djTvjmJ44oLxm3i1x"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td width="50%" style="text-align: right; vertical-align: middle;">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 38px; max-height: 38px; min-height: 38px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 41px; max-height: 41px; min-height: 41px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 45px; max-height: 45px; min-height: 45px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											
-											
-											  <!-- HEADER TURBOREST FONDO CLARO -->
-											
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER3" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; border-radius: 10px; overflow: hidden; width:100%; max-width: 480px; margin:0 auto; " cellpadding="0" cellspacing="0" border="0">
-                                                   <tr class="bg-headermobile" style="background-image: url({{bg_header_mail_general}}); background-size: 0% 0%; background-position: center center;">
-                                                    <td width="50%"  style="vertical-align: middle; text-align: left; padding: 5px;"><img class="logo-base3" border="0" style="height: 34px; max-height: 34px; min-height: 34px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1z_JJh63apDV_OU9W5dFRMSNpKN_76swR"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td width="50%" style="text-align: right; vertical-align: middle; padding: 5px;">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 38px; max-height: 38px; min-height: 38px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 41px; max-height: 41px; min-height: 41px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 45px; max-height: 45px; min-height: 45px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											
-											
-											
-								
-
-                                           <!-- HEADER RAPPIENTREGADOR FONDO OSCURO -->
-											
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER4" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; width:100%; max-width: 480px; margin:0 auto; ">
-                                                  <tr>
-                                                    <td width="50%"  style="vertical-align: middle; text-align: left;"><img class="logo-base4" border="0" style="height: 21px; max-height: 21px; min-height: 21px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1qENU3hprjYWozgLlFXllYtMEoD4cM33h"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td width="50%" style="text-align: right; vertical-align: middle;">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 24px; max-height: 24px; min-height: 24px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 26px; max-height: 26px; min-height: 26px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											
-											
-											         <!-- HEADER RAPPIENTREGADOR FONDO CLARO -->
-											
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER4" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; width:100%; max-width: 480px; margin:0 auto; ">
-                                                  <tr>
-                                                    <td width="50%"  style="vertical-align: middle; text-align: left;"><img class="logo-base4" border="0" style="height: 21px; max-height: 21px; min-height: 21px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1GcK1pIA8-Muq6X_jswulrisddZs6D4pK"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td width="50%" style="text-align: right; vertical-align: middle;">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 24px; max-height: 24px; min-height: 24px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 26px; max-height: 26px; min-height: 26px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											
-											    <!-- HEADER CONTENIDO ALIADO FONDO OSCURO -->
-											
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER4" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; width:100%; max-width: 480px; margin:0 auto; ">
-                                                  <tr>
-                                                    <td width="50%"  style="vertical-align: middle; text-align: left;"><img class="logo-base4" border="0" style="height: 21px; max-height: 21px; min-height: 21px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1BN0nt6V2zOJ8CAh4DO9iD4gA-S-2eZk-"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td width="50%" style="text-align: right; vertical-align: middle;">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 24px; max-height: 24px; min-height: 24px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 26px; max-height: 26px; min-height: 26px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											
-											
-											         <!-- HEADER  CONTENIDO ALIADO FONDO CLARO -->
-											
-                                          <tr>
-                                            <td style="padding:0px;margin:0px;border-spacing:0; vertical-align: middle;">
-
-
-
-												<div id="HEADER4" style="padding: 0px 0px 0px 0px;">
-                                                <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; border-radius: 10px; overflow: hidden; width:100%; max-width: 480px; margin:0 auto; " cellpadding="0" cellspacing="0" border="0">
-                                                  <tr class="bg-headermobile" style="background-image: url({{bg_header_mail_general}}); background-size: 0% 0%; background-position: center center;">
-                                                    <td width="50%"  style="vertical-align: middle; text-align: left; padding: 5px;"><img class="logo-base4" border="0" style="height: 21px; max-height: 21px; min-height: 21px; margin: 0 auto; " alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1HwTQQLNvFry9dv2xoxfJPR0O4Me2dZH-"></td>
-
-                                                    <!-- Si la opción "cobranding" se encuentra activa, se activa el td completo-->
-
-                                                    <td width="50%" style="text-align: right; vertical-align: middle; padding: 5px;">
-
-                                                      <!-- -COBRANDING TAMAÑO PEQUEÑO -->
-                                                      <img class="cobranding-s"  border="0" style="max-width: 180px; width: auto; height: 24px; max-height: 24px; min-height: 24px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO MEDIANO -->
-                                                      <img class="cobranding-m"  border="0" style="max-width: 180px; width: auto; height: 26px; max-height: 26px; min-height: 26px;  margin: 0 auto; border-radius: 5px; " alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA">
-
-                                                      <!-- -COBRANDING TAMAÑO GRANDE-->
-                                                      <img class="cobranding-l"  border="0" style="max-width: 180px; width: auto; height: 28px; max-height: 28px; min-height: 28px;  margin: 0 auto; border-radius: 5px;" alt="Tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1jrRUyQvYuQ8gsVP1Sk0jvM3BdFO0ZaJA"></td>
-                                                  </tr>
-                                                </table>
-                                              </div></td>
-                                          </tr>
-											
+                                       
+                                   
                                         </tbody>
                                       </table>
-										  
-										  
-										  
-										  
-										  
                                     </div>
                                     
-                                 
-                                   
-                                    
-									  
-									  
                                     <!-- BANNER --> 
-									  
-									  
-									  
-									             <!-- INICIO SECCIÓN BIG BANNER --> 
+                                    
+                                    <!-- INICIO SECCIÓN BIG BANNER --> 
                                     
                                     <!-- Este formato horizontal se usa segun la fuente cuando tenemos más módulos de contenido en el body además del cierre y el cta --> 
-                                    <a role="horizontal"  originalsrc="AQUIELLINK2" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="AQUIELLINK2" data-linkindex="0" style="text-decoration: none; display: block;">
+                                    <a role="horizontal"  originalsrc="AQUIELLINK2" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="AQUIELLINK2" data-linkindex="0" style="text-decoration: none; display: block; margin-top: 20px;">
                                     <div>
-                                      <table width="560" style="width:560px; border-spacing:0; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-0">
+                                      <table id="BANNER_HORIZONTAL" width="480" style="width:480px; border-spacing:0; margin:0 auto;" cellpadding="0" cellspacing="0" align="center" border="0" bgcolor="" class="column column-0">
                                         <tbody>
                                           <tr valign="middle">
-                                            <td style="padding:0px 0px;margin:0px;border-spacing:0; vertical-align: middle;">
-												
-												
-												
-												<div style="background: {{bg_bannertono_mail_general}}; background-image: url({{bg_bannerimg_mail_general}}); background-size: 100% 100%; background-position: center top; border-radius: 16px; max-width: 480px; margin: 0 auto;  overflow: hidden;"> 
-                                               
-                                                
+                                            <td style="padding:0px 0px;margin:0px;border-spacing:0; vertical-align: middle; background-image: url({{bg_bannerimg_mail_general}}); background-size: 100% 100%; background-position: center top; border-radius: 16px; overflow: hidden;"><div style="background: {{bg_bannertono_mail_general}}; max-width: 480px; margin: 0 auto;  overflow: hidden;">
                                                 <table width="240" style="width:240px; " cellpadding="0" cellspacing="0" align="left" border="0" class="column column-0">
                                                   <tbody>
                                                     <tr>
-                                                      <td height="240px" class="alto-auto" style="margin:0px;border-spacing:0; overflow: hidden; ">
+                                                      <td height="240px" class="alto-auto" style="margin:0px;border-spacing:0; overflow: hidden; padding:{{padd_banner_mail_general}}; ">
 														  
-                                                      
-                                                      aca el contendor de textos
-														
-														
-														
-														</td>
+														    <!-- MODULO PROMOS --> 
+														  <table bgcolor="{{bg_descuento_mail_general}}" style=" width: auto;  font-family:arial,helvetica,sans-serif; padding: 3px 6px; border-radius: 7px;">
+                                                          <tr>
+                                                            <td  style="vertical-align: middle; text-align: center; color: #000000;"><div class="{{banner_copy_modulo_ahora_class}}" style="writing-mode: vertical-rl; -webkit-writing-mode: vertical-rl; -ms-writing-mode: tb-rl; height: 70px; width: 15px; font-size: {{banner_copy_modulo_ahora_fontsize}}; line-height: {{banner_copy_modulo_ahora_lineheight}}; color: {{color_descuento_mail_general}};">Ahora</div></td>
+                                                            <td style="vertical-align: middle; text-align: center; color: #000000;"><span class="{{banner_copy_modulo_prom_class}}" style="font-weight: bold; font-size: {{banner_copy_modulo_promo_fontsize}}; line-height: {{banner_copy_modulo_promo_lineheight}}; color: {{color_descuento_mail_general}} ">{{banner_copy_modulo_promo}}</span></td>
+                                                          </tr>
+                                                        </table>
+														  
+														  
+														  
+														    <!-- MODULO CREDITOS --> 
+														  <table bgcolor="{{bg_creditos_mail_general}}" style=" width: auto;  font-family:arial,helvetica,sans-serif; padding: 3px 6px; border-radius: 7px;">
+                                                          <tr>
+                                                          
+                                                            <td style="vertical-align: middle; text-align: left; color: #000000;"><span class="{{banner_copy_modulo_creditos_class}}" style="font-weight: bold; font-size: {{banner_copy_modulo_creditos_fontsize}}; line-height: {{banner_copy_modulo_creditos_lineheight}}; color: {{color_creditos_mail_general}} ">{{banner_copy_modulo_creditos}}</span><div class="bnr-sm" style="font-weight: bold; font-size: 14px; line-height: 15px; color: {{color_creditos_mail_general}} ; width: 100%; letter-spacing: 4px; ">DE REINTEGRO</div></td>
+                                                          </tr>
+                                                        </table>
+														  
+														  
+														    <!-- MODULO TEXTO XL VIVO --> 
+														  <table bgcolor="" style=" width: auto;  font-family:arial,helvetica,sans-serif; ">
+                                                          <tr>
+                                                          
+                                                            <td style="vertical-align: middle; text-align: left; color: #000000;"><span class="{{banner_copy_modulo_textoxl_class}}" style="font-size: {{banner_copy_modulo_textoxl_fontsize}}; line-height: {{banner_copy_modulo_textoxl_lineheight}}; color: {{color_acento2_mail_general}} ">{{banner_copy_modulo_textoxl}}</span></td>
+                                                          </tr>
+                                                        </table>
+														  
+                                                  </td>
                                                     </tr>
                                                   </tbody>
                                                 </table>
                                                 <table width="240" style="width:240px; padding: 0px 0px 0px 0px" cellpadding="0" cellspacing="0" align="left" border="0"  class="column column-1">
                                                   <tbody>
-                                                    <tr style="background-image: url({{img_overlay_2_mail_general}}); background-size: cover; background-position: center center;" > 
-                                                      
-                                                    <td class="altobanner1" style="padding:0px 0px 0px 0px;margin:0px;border-spacing:0;vertical-align: top; background-image: url(https://lh3.googleusercontent.com/d/1sOWtb-DWGy7YC50djTvjmJ44oLxm3i1x); background-size: cover; background-position: center center; height: 270px; border-radius: 16px;  ">
-                                                        
-                                                        <div style="padding: 10px;"> 
-                                                          
-                                                      
+                                                    <tr style="background-image: url({{img_overlay_2_mail_general}}); background-size: cover; background-position: center center;" >
+                                                      <td class="altobanner1" style="padding:0px 0px 0px 0px;margin:0px;border-spacing:0;vertical-align: top; background-image: url(https://lh3.googleusercontent.com/d/1DUvbZ8_lGdt1N_jZUSt4vyHHblvbVg9P); background-size: cover; background-position: center center; height: 270px; border-radius: 16px;  "><div style="padding: 10px;">
+                                                          <!-- ACA MODULOS DE IMAGEN-->
                                                           <table bgcolor="" style=" margin: 0 auto; font-family:arial,helvetica,sans-serif; width: 100%; border-collapse: collapse;">
-                                                            <tr> 
-                                                              
-                                                           
-                                                              
-                                                              <td style="vertical-align: top; text-align: left;">
-																  
-																  
-                                                                <img class="banner-logo1-1" border="0" style="width: 75px;margin: 0 auto; border-radius: 7px; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1a9-c_8otztz8MJvWa6G-TczJ3NEO083G"> 
-                                                              
-																
-																</td>
-                                                                                      
-                                                           
+                                                            <tr>
+                                                              <td style="vertical-align: top; text-align: left;"><img class="banner-logo1-1" border="0" style="width: 75px;margin: 0 auto; border-radius: 7px; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1a9-c_8otztz8MJvWa6G-TczJ3NEO083G"></td>
                                                             </tr>
                                                           </table>
                                                         </div></td>
@@ -2168,65 +1126,66 @@ h6 {
                                         </tbody>
                                       </table>
                                     </div>
-                                    </a> 
+                                    </a> <img role="imagenfull" border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; max-width: 480px; margin: 0 auto; border-radius: 0px 0px 0px 0px;" alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://braze-images.com/appboy/communication/assets/image_assets/images/6a68f593a7307000854bce06/original.png?1785263506"> 
                                     
-								 <img role="imagenfull" border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; max-width: 480px; margin: 0 auto; border-radius: 0px 0px 0px 0px;" alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://braze-images.com/appboy/communication/assets/image_assets/images/6a68f593a7307000854bce06/original.png?1785263506"> 
-									  
-									  
                                     <!-- Este formato vertical se usa segun las instrucciones para banner con logos o cuando tenemos en el body sólamente cta y cierre  --> 
-                                    <a role="vertical" originalsrc="AQUIELLINK2" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="AQUIELLINK2" data-linkindex="0" style="text-decoration: none; display: inline-block; width: 100%;">
-                                    <table width="570" style="width:560px; border-spacing:0; margin:0px 0px 0px 0px;" cellpadding="0" cellspacing="0" align="center" border="0" bgcolor="" class="column column-0">
+                                    <a role="vertical" originalsrc="AQUIELLINK2" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="AQUIELLINK2" data-linkindex="0" style="text-decoration: none; display: inline-block; width: 100%; margin-top: 20px;">
+                                    <table id="BANNER_VERTICAL" width="480" style="width:480px; border-spacing:0; margin:0 auto;" cellpadding="0" cellspacing="0" align="center" border="0" bgcolor="" class="column column-0">
                                       <tbody>
                                         <tr valign="middle">
-                                          <td style="padding:0px 0px;margin:0px;border-spacing:0; vertical-align: middle;"><div style="background: {{bg_bannertono_mail_general}}; background-image: url({{bg_bannerimg_mail_general}}); background-size: 100% 100%; background-position: center top; border-radius: 16px; max-width: 480px; margin: 0 auto; overflow: hidden;"> 
-                                              
-                                           
-                                              
+                                          <td style="padding:0px 0px;margin:0px;border-spacing:0; vertical-align: middle; background-image: url({{bg_bannerimg_mail_general}}); background-size: 100% 100%; background-position: center top; border-radius: 16px; overflow: hidden;"><div style="background: {{bg_bannertono_mail_general}}; max-width: 480px; margin: 0 auto;  overflow: hidden;">
                                               <table style="width: 100%;" cellpadding="0" cellspacing="0" align="left" border="0" class="column column-0">
                                                 <tbody>
                                                   <tr>
-                                                    <td class="alto-auto" style="margin:0px;border-spacing:0; overflow: hidden; padding: 0px">
-														
-														
-													
-                                                         
-                                                      <table  style="width: 100%;height: 80%; margin: 0 auto; font-family:arial,helvetica,sans-serif; padding: 0px 0px">
+                                                    <td class="alto-auto" style="margin:0px;border-spacing:0; overflow: hidden; padding: 0px"><table  style="width: 100%;height: 80%; margin: 0 auto; font-family:arial,helvetica,sans-serif; padding:{{padd_banner_mail_general}}">
                                                         <tr>
-                                                          <td style="">
+                                                          <td style=""> 
+															
+															 <!-- MODULO PROMOS VERTICAL --> 
+															<table bgcolor="{{bg_descuento_mail_general}}" style=" width: auto; font-family:arial,helvetica,sans-serif; padding: 3px 6px; border-radius: 7px; margin: 0 auto;">
+                                                          <tr>
+                                                            <td  style="vertical-align: middle; text-align: center; color: #000000;"><div class="{{banner_copy_modulo_ahora_class}}" style="writing-mode: vertical-rl; -webkit-writing-mode: vertical-rl; -ms-writing-mode: tb-rl; height: 70px; width: 20px; font-size: {{banner_copy_modulo_ahora_fontsize_vertical}}; line-height: {{banner_copy_modulo_ahora_lineheight_vertical}}; color: {{color_descuento_mail_general}};">Ahora</div></td>
+                                                            <td style="vertical-align: middle; text-align: center; color: #000000;"><span class="{{banner_copy_modulo_prom_class}}" style="font-weight: bold; font-size: {{banner_copy_modulo_promo_fontsize_vertical}}; line-height: {{banner_copy_modulo_promo_lineheight_vertical}}; color: {{color_descuento_mail_general}} ">{{banner_copy_modulo_promo}}</span></td>
+                                                          </tr>
+                                                        </table>
+															
 															  
+															  	
+															
+														    <!-- MODULO CREDITOS --> 
+														  <table bgcolor="{{bg_creditos_mail_general}}" style=" width: auto;  font-family:arial,helvetica,sans-serif; padding: 3px 6px; border-radius: 7px; margin: 0 auto;">
+                                                          <tr>
+                                                          
+                                                            <td style="vertical-align: middle; text-align: center; color: #000000;"><span class="{{banner_copy_modulo_creditos_class}}" style="font-weight: bold; font-size: {{banner_copy_modulo_creditos_fontsize_vertical}}; line-height: {{banner_copy_modulo_creditos_lineheight_vertical}}; color: {{color_creditos_mail_general}} ">{{banner_copy_modulo_creditos}}</span><div class="bnr-sm" style="font-weight: bold; font-size: 16px; line-height: 18px; color: {{color_creditos_mail_general}} ; width: 100%; letter-spacing: 4px; ">DE REINTEGRO</div></td>
+                                                          </tr>
+                                                        </table>
+															
+															
+														    <!-- MODULO TEXTO XL VIVO --> 
+														  <table bgcolor="" style=" width: auto;  font-family:arial,helvetica,sans-serif; margin: 0 auto; ">
+                                                          <tr>
+                                                          
+                                                            <td style="vertical-align: middle; text-align: center; color: #000000;"><span class="{{banner_copy_modulo_textoxl_class}}" style="font-size: {{banner_copy_modulo_textoxl_fontsize_vertical}}; line-height: {{banner_copy_modulo_textoxl_lineheight_vertical}}; color: {{color_acento2_mail_general}} ">{{banner_copy_modulo_textoxl}}</span></td>
+                                                          </tr>
+                                                        </table>
 															  
-														   aca el contendor de textos
 															
 															</td>
                                                         </tr>
                                                       </table>
-                                                      
-                                                      <!-- FIN CONTENEDOR TEXTOS -->
-													  
-													  
-													  
-													  </td>
+                                                      <!-- FIN CONTENEDOR TEXTOS --></td>
                                                   </tr>
                                                 </tbody>
                                               </table>
                                               <table style="width: 100%; padding: 0px 0px 0px 0px" cellpadding="0" cellspacing="0" align="left" border="0"  class="column column-1">
                                                 <tbody>
-                                                 <tr style="background-image: url({{img_overlay_2_mail_general}}); background-size: cover; background-position: center center;" > 
-                                                      
-                                                    <td class="altobanner1" style="padding:0px 0px 0px 0px;margin:0px;border-spacing:0;vertical-align: top; background-image: url(https://lh3.googleusercontent.com/d/1sOWtb-DWGy7YC50djTvjmJ44oLxm3i1x); background-size: cover; background-position: center center; height: 270px; border-radius: 16px;  ">
-                                                      <div style="padding: 10px;"> 
-                                                     
+                                                  <tr style="background-image: url({{img_overlay_2_mail_general}}); background-size: cover; background-position: center center;" >
+                                                    <td class="altobanner1" style="padding:0px 0px 0px 0px;margin:0px;border-spacing:0;vertical-align: top; background-image: url(https://lh3.googleusercontent.com/d/1DUvbZ8_lGdt1N_jZUSt4vyHHblvbVg9P); background-size: cover; background-position: center center; height: 270px; border-radius: 16px;  "><div style="padding: 10px;">
                                                         <table cellpadding="3px" bgcolor="" style="margin: 0 auto; font-family:arial,helvetica,sans-serif; width: 100%; border-collapse: collapse;">
-                                                          <tr> 
-                                                      
-                                                            <td style="vertical-align: top; text-align: left; width: auto;   display: inline-block;"><a href="AQUIELLINKDELOGO1" style="display: block;"><img border="0" style="width: 75px;margin: 0 auto; border-radius: 7px; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1a9-c_8otztz8MJvWa6G-TczJ3NEO083G"> 
-                                                              
-                                                             
-                                                              </a></td>
+                                                          <tr>
+                                                            <td style="vertical-align: top; text-align: left; width: auto;   display: inline-block;"><a href="AQUIELLINKDELOGO1" style="display: block;"><img border="0" style="width: 75px;margin: 0 auto; border-radius: 7px; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1a9-c_8otztz8MJvWa6G-TczJ3NEO083G"> </a></td>
                                                           </tr>
                                                         </table>
-                                                      
-                                                      
                                                       </div></td>
                                                   </tr>
                                                 </tbody>
@@ -2244,6 +1203,8 @@ h6 {
                               </tbody>
                             </table>
                             
+							  
+							  
                             <!-- FOOTER --></td>
                         </tr>
                       </table>

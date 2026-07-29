@@ -20,7 +20,7 @@ Mapa rápido de todos los bricks disponibles. Para cada uno: qué hace, dónde v
 | Big banner horizontal | `02-components/banners/big-banner-horizontal.html` | 1189-1352 |
 | Big banner vertical | `02-components/banners/big-banner-vertical.html` | 1354-1510 |
 
-`banner-editorial.html` y `_banner-section-close.html` se eliminaron del sistema. Las piezas internas del banner viven en `02-components/banners/banner_atoms/` (`modulo_tags`, `modulo_img_altofijo`, `modulo_img_variable`, `modulo_creditos`, `modulo_texto_secundario`, `modulo_texto_complementario`) — todavía sin línea de referencia en el HTML original, son ensamblados nuevos.
+`banner-editorial.html` y `_banner-section-close.html` se eliminaron del sistema. Las piezas internas del banner viven en `02-components/banners/banner_atoms/` (`modulo_tags`, `modulo_img_altofijo`, `modulo_img_variable`, `modulo_creditos_horizontal`, `modulo_creditos_vertical`, `modulo_promo_horizontal`, `modulo_promo_vertical`, `modulo_textoxl_horizontal`, `modulo_textoxl_vertical`, `modulo_texto_secundario`, `modulo_texto_complementario`) — todavía sin línea de referencia en el HTML original, son ensamblados nuevos.
 
 ## CTAs · 1 brick
 

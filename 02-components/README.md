@@ -54,11 +54,16 @@ Cada archivo contiene únicamente el `<tr>` del header (con su comentario identi
 | `modulo_tags.html` | Tag/etiqueta que se muestra sobre el banner |
 | `modulo_img_altofijo.html` | Columna de imagen de alto fijo (banner horizontal) |
 | `modulo_img_variable.html` | Franja de imagen de alto variable (banner vertical) |
-| `modulo_creditos.html` | Texto vivo principal (créditos/cifra), usa las clases `bnr-*` |
+| `modulo_creditos_horizontal.html` | Texto vivo de créditos ("$XXX" + "DE REINTEGRO") para el banner horizontal, usa `bnr-*` + tema (`bg_creditos_mail_general`, `color_creditos_mail_general`) |
+| `modulo_creditos_vertical.html` | Igual que `modulo_creditos_horizontal.html` pero con los tamaños del banner vertical |
+| `modulo_promo_horizontal.html` | Módulo de promo ("Ahora" + cifra) para el banner horizontal, tamaños inline + tema (`bg_descuento_mail_general`, `color_descuento_mail_general`) |
+| `modulo_promo_vertical.html` | Igual que `modulo_promo_horizontal.html` pero con los tamaños del banner vertical |
+| `modulo_textoxl_horizontal.html` | Texto vivo XL adicional (`banner_copy_modulo_textoxl`) para el banner horizontal, mismo comportamiento de tamaño que `modulo_promo_horizontal.html` |
+| `modulo_textoxl_vertical.html` | Igual que `modulo_textoxl_horizontal.html` pero con los tamaños del banner vertical |
 | `modulo_texto_secundario.html` | Línea secundaria de texto vivo — contenido provisional, pendiente de definir |
 | `modulo_texto_complementario.html` | Texto complementario del banner — contenido provisional, pendiente de definir |
 
-El tamaño de las clases `bnr-*` usadas en `modulo_creditos.html` y `modulo_texto_secundario.html` depende de si el banner que las envuelve está marcado con `id="BANNER_HORIZONTAL"` o `id="BANNER_VERTICAL"` (ver `01-foundations/global-styles/global-styles.html`).
+El tamaño de las clases `bnr-*` usadas en los módulos de créditos, promo, texto XL y `modulo_texto_secundario.html` depende de si el banner que las envuelve está marcado con `id="BANNER_HORIZONTAL"` o `id="BANNER_VERTICAL"` (ver `01-foundations/global-styles/global-styles.html`). Los tamaños de escritorio de estas clases se aplican inline (vía las variables Liquid de largo de texto en `01-foundations/global-styles/head-meta-tags.html`); las clases `bnr-*` en el `<head>` solo cubren el override de mobile.
 
 ### `ctas/` — El botón de acción
 

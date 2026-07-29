@@ -1,4 +1,69 @@
 <!--
+
+
+-----------------------
+Variables de largo de texto:
+-----------------------
+{% assign banner_copy_modulo_promo_length = banner_copy_modulo_promo.size %}
+
+{% if banner_copy_modulo_promo_length > 4 %}
+  {% assign banner_copy_modulo_prom_class = 'bnr-lg' %}
+  {% assign banner_copy_modulo_promo_fontsize = '35px' %}
+  {% assign banner_copy_modulo_promo_lineheight = '35px' %}
+  {% assign banner_copy_modulo_ahora_class = 'bnr-hasta-lg' %}
+  {% assign banner_copy_modulo_ahora_fontsize = '10px' %}
+  {% assign banner_copy_modulo_ahora_lineheight = '10px' %}
+  {% assign banner_copy_modulo_promo_fontsize_vertical = '62px' %}
+  {% assign banner_copy_modulo_promo_lineheight_vertical = '62px' %}
+  {% assign banner_copy_modulo_ahora_fontsize_vertical = '15px' %}
+  {% assign banner_copy_modulo_ahora_lineheight_vertical = '15px' %}
+{% else %}
+  {% assign banner_copy_modulo_prom_class = 'bnr-xl' %}
+  {% assign banner_copy_modulo_promo_fontsize = '80px' %}
+  {% assign banner_copy_modulo_promo_lineheight = '80px' %}
+  {% assign banner_copy_modulo_ahora_class = 'bnr-hasta-xl' %}
+  {% assign banner_copy_modulo_ahora_fontsize = '19px' %}
+  {% assign banner_copy_modulo_ahora_lineheight = '19px' %}
+  {% assign banner_copy_modulo_promo_fontsize_vertical = '125px' %}
+  {% assign banner_copy_modulo_promo_lineheight_vertical = '125px' %}
+  {% assign banner_copy_modulo_ahora_fontsize_vertical = '25px' %}
+  {% assign banner_copy_modulo_ahora_lineheight_vertical = '25px' %}
+{% endif %}
+
+{% assign banner_copy_modulo_creditos_length = banner_copy_modulo_creditos.size %}
+
+{% if banner_copy_modulo_creditos_length > 4 %}
+  {% assign banner_copy_modulo_creditos_class = 'bnr-lg' %}
+  {% assign banner_copy_modulo_creditos_fontsize = '35px' %}
+  {% assign banner_copy_modulo_creditos_lineheight = '35px' %}
+  {% assign banner_copy_modulo_creditos_fontsize_vertical = '62px' %}
+  {% assign banner_copy_modulo_creditos_lineheight_vertical = '62px' %}
+{% else %}
+  {% assign banner_copy_modulo_creditos_class = 'bnr-xl' %}
+  {% assign banner_copy_modulo_creditos_fontsize = '80px' %}
+  {% assign banner_copy_modulo_creditos_lineheight = '80px' %}
+  {% assign banner_copy_modulo_creditos_fontsize_vertical = '125px' %}
+  {% assign banner_copy_modulo_creditos_lineheight_vertical = '125px' %}
+{% endif %}
+
+{% assign banner_copy_modulo_textoxl_length = banner_copy_modulo_textoxl.size %}
+
+{% if banner_copy_modulo_textoxl_length > 4 %}
+  {% assign banner_copy_modulo_textoxl_class = 'bnr-lg' %}
+  {% assign banner_copy_modulo_textoxl_fontsize = '35px' %}
+  {% assign banner_copy_modulo_textoxl_lineheight = '35px' %}
+  {% assign banner_copy_modulo_textoxl_fontsize_vertical = '62px' %}
+  {% assign banner_copy_modulo_textoxl_lineheight_vertical = '62px' %}
+{% else %}
+  {% assign banner_copy_modulo_textoxl_class = 'bnr-xl' %}
+  {% assign banner_copy_modulo_textoxl_fontsize = '80px' %}
+  {% assign banner_copy_modulo_textoxl_lineheight = '80px' %}
+  {% assign banner_copy_modulo_textoxl_fontsize_vertical = '125px' %}
+  {% assign banner_copy_modulo_textoxl_lineheight_vertical = '125px' %}
+{% endif %}
+
+
+
 ----------------------------
 -------- TEMAS --------
 ----------------------------
@@ -18,6 +83,7 @@
 		{% assign bg_contenedor2_mail_general = 'rgba(255,255,255,0.5)' %}
    		{% assign bg_bannertono_mail_general = 'rgba(0,0,0,0.0)' %}
   		{% assign bg_bannerimg_mail_general = '' %}
+		{% assign padd_banner_mail_general = '0px 0px' %}
 		{% assign bg_tag_fondo_mail_general = 'rgba(229,182,127,0.5)' %}
 		{% assign bg_tag_contenedor_mail_general = 'rgba(255,252,247,0.5)' %}
   		{% assign color_tag_tipografia_mail_general = '#2B2316' %}
@@ -41,6 +107,7 @@
 		{% assign bg_contenedor2_mail_general = 'rgba(255,255,255,0.5)' %}
     	{% assign bg_bannertono_mail_general = 'rgba(0,0,0,0.0)' %}
    		 {% assign bg_bannerimg_mail_general = '' %}
+{% assign padd_banner_mail_general = '0px 0px' %}
 		{% assign bg_tag_fondo_mail_general = 'rgba(229,182,127,0.5)' %}
 		{% assign bg_tag_contenedor_mail_general = 'rgba(255,252,247,0.5)' %}
 		{% assign img_overlay_1_mail_general = 'https://lh3.googleusercontent.com/d/1UBlu8zGS8YcXraFVstE7YVKxl1xzt47-' %}
@@ -63,6 +130,7 @@
 		{% assign bg_contenedor2_mail_general = 'rgba(255,255,255,0.5)' %}
   		{% assign bg_bannertono_mail_general = 'rgba(0,0,0,0.0)' %}
   		{% assign bg_bannerimg_mail_general = '' %}
+{% assign padd_banner_mail_general = '0px 0px' %}
 		{% assign bg_tag_fondo_mail_general = 'rgba(202,128,210,0.5)' %}
 		{% assign bg_tag_contenedor_mail_general = 'rgba(255,252,255,0.5)' %}
 		{% assign img_overlay_1_mail_general = 'https://lh3.googleusercontent.com/d/1MnvCxbAR8vvbVsTkfidUuUOfCdsaD-5H' %}
@@ -85,6 +153,7 @@
 		{% assign bg_contenedor2_mail_general = 'rgba(255,255,255,0.5)' %}
   		{% assign bg_bannertono_mail_general = 'rgba(0,0,0,0.0)' %}
   		{% assign bg_bannerimg_mail_general = '' %}
+{% assign padd_banner_mail_general = '0px 0px' %}
 		{% assign bg_tag_fondo_mail_general = 'rgba(159,128,229,0.5)' %}
 		{% assign bg_tag_contenedor_mail_general = 'rgba(253,251,255,0.5)' %}
 		{% assign img_overlay_1_mail_general = 'https://lh3.googleusercontent.com/d/1x15-m7PD47SZlxiT2HPD-wBLJoQnBc0I' %}
@@ -108,6 +177,7 @@
 		{% assign bg_contenedor2_mail_general = 'rgba(255,255,255,0.5)' %}
    		{% assign bg_bannertono_mail_general = 'rgba(0,0,0,0.0)' %}
    		{% assign bg_bannerimg_mail_general = '' %}
+{% assign padd_banner_mail_general = '0px 0px' %}
 		{% assign bg_tag_fondo_mail_general = 'rgba(125,191,220,0.5)' %}
 		{% assign bg_tag_contenedor_mail_general = 'rgba(253,255,255,0.5)' %}
 		{% assign img_overlay_1_mail_general = 'https://lh3.googleusercontent.com/d/1YW0pc7_CBWnFC03qyYVH2TlfTTrRn_Ba' %}
@@ -130,6 +200,7 @@
 		{% assign bg_contenedor2_mail_general = 'rgba(255,255,255,0.5)' %}
  		{% assign bg_bannertono_mail_general = 'rgba(0,0,0,0.0)' %}
    		{% assign bg_bannerimg_mail_general = '' %}
+		{% assign padd_banner_mail_general = '0px 0px' %}
 		{% assign bg_tag_fondo_mail_general = 'rgba(155,234,201,0.5)' %}
 		{% assign bg_tag_contenedor_mail_general = 'rgba(0,56,50,1.0)' %}
 		{% assign img_overlay_1_mail_general = 'https://lh3.googleusercontent.com/d/1dRAz-A3H_qr-0Uk4ZK5RWEDAqlRbQ0dY' %}
@@ -153,6 +224,7 @@
 		{% assign bg_contenedor2_mail_general = 'rgba(42,43,43,1.0)' %}
     {% assign bg_bannertono_mail_general = 'rgba(254,63,35,0.5)' %}
     {% assign bg_bannerimg_mail_general = 'https://lh3.googleusercontent.com/d/1qztlsmSfPI2eNsQ_ej-Y6oE7U94MGLSn' %}
+{% assign padd_banner_mail_general = '15px 10px' %}
 		{% assign bg_tag_fondo_mail_general = 'rgba(42,43,43,1.0)' %}
 		{% assign bg_tag_contenedor_mail_general = 'rgba(42,43,43,1.0)' %}
 		{% assign img_overlay_1_mail_general = 'https://lh3.googleusercontent.com/d/1OBg12RyuiaImsmqxBb9mjfm2bXrX7FgE' %}
@@ -176,13 +248,14 @@
 		{% assign bg_img_size_mail_general = '100% auto' %}
 		{% assign bg_solid_mail_general = '#040404' %}
 		{% assign color_texto_mail_general = '#E2E2E2' %}
-    {% assign color_tag_tipografia_mail_general = '#E2E2E2' %}
+  		  {% assign color_tag_tipografia_mail_general = '#E2E2E2' %}
 		{% assign color_acento1_mail_general = '#F2ED93' %}
 		{% assign color_acento2_mail_general = '#FF441F' %}
 		{% assign bg_contenedor1_mail_general = 'rgba(29,29,29,1.0)' %}
 		{% assign bg_contenedor2_mail_general = 'rgba(42,43,43,1.0)' %}
-    {% assign bg_bannertono_mail_general = 'rgba(0,58,52,0.4)' %}
-    {% assign bg_bannerimg_mail_general = '' %}
+    	{% assign bg_bannertono_mail_general = 'rgba(0,58,52,0.4)' %}
+  		{% assign bg_bannerimg_mail_general = '' %}
+{% assign padd_banner_mail_general = '15px 10px' %}
 		{% assign bg_tag_fondo_mail_general = 'rgba(0,58,52,1.0)' %}
 		{% assign bg_tag_contenedor_mail_general = 'rgba(17,78,78,0.5)' %}
 		{% assign img_overlay_1_mail_general = 'https://lh3.googleusercontent.com/d/1OBg12RyuiaImsmqxBb9mjfm2bXrX7FgE' %}
@@ -195,7 +268,7 @@
 		{% assign color_descuento_mail_general = '#000000' %}
 		{% assign bg_creditos_mail_general = '#29D884' %}
 		{% assign color_creditos_mail_general = '#083410' %}
-     {% assign color_footer_mail_general = 'negro' %}
+   		  {% assign color_footer_mail_general = 'negro' %}
 		{% comment %} banner sin gradiente, solo tono verde {% endcomment %}
 
 	{% elsif tema_general_mail_general == 'darkneutro' %}
@@ -210,6 +283,7 @@
 		{% assign bg_contenedor2_mail_general = 'rgba(42,43,43,1.0)' %}
     {% assign bg_bannertono_mail_general = 'rgba(0,0,0,0.4)' %}
     {% assign bg_bannerimg_mail_general = '' %}
+{% assign padd_banner_mail_general = '15px 10px' %}
 		{% assign bg_tag_fondo_mail_general = 'rgba(42,43,43,1.0)' %}
 		{% assign bg_tag_contenedor_mail_general = 'rgba(42,43,43,1.0)' %}
 		{% assign img_overlay_1_mail_general = 'https://lh3.googleusercontent.com/d/1OBg12RyuiaImsmqxBb9mjfm2bXrX7FgE' %}
@@ -236,6 +310,7 @@
 		{% assign bg_contenedor2_mail_general = 'rgba(4,4,4,1.0)' %}
     {% assign bg_bannertono_mail_general = 'rgba(42,43,43,1.0)' %}
     {% assign bg_bannerimg_mail_general = '' %}
+{% assign padd_banner_mail_general = '15px 10px' %}
 		{% assign bg_tag_fondo_mail_general = 'rgba(218,168,104,0.5)' %}
 		{% assign bg_tag_contenedor_mail_general = 'rgba(42,43,43,1.0)' %}
 		{% assign img_overlay_1_mail_general = 'https://lh3.googleusercontent.com/d/1OBg12RyuiaImsmqxBb9mjfm2bXrX7FgE' %}
@@ -261,6 +336,7 @@
 		{% assign bg_contenedor2_mail_general = 'rgba(251,251,251,1.0)' %}
     {% assign bg_bannertono_mail_general = 'rgba(224,228,231,1.0)' %}
     {% assign bg_bannerimg_mail_general = '' %}
+{% assign padd_banner_mail_general = '15px 10px' %}
 		{% assign bg_tag_fondo_mail_general = 'rgba(218,168,104,0.5)' %}
 		{% assign bg_tag_contenedor_mail_general = 'rgba(216,217,217,1.0)' %}
 		{% assign img_overlay_1_mail_general = 'https://lh3.googleusercontent.com/d/1OBg12RyuiaImsmqxBb9mjfm2bXrX7FgE' %}

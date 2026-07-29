@@ -13,7 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!--[if !mso]><!-->
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<!--<![endif]--> 
+<!--<![endif]-->
 <!--[if (gte mso 9)|(IE)]>
           <xml>
             <o:OfficeDocumentSettings>
@@ -21,7 +21,7 @@
               <o:PixelsPerInch>96</o:PixelsPerInch>
             </o:OfficeDocumentSettings>
           </xml>
-          <![endif]--> 
+          <![endif]-->
 <!--[if (gte mso 9)|(IE)]>
       <style type="text/css">
         body {width: 600px;margin: 0 auto;}
@@ -123,40 +123,20 @@ h6 {
     word-break: break-word;
     font-family: arial, helvetica, sans-serif;
 }
-
-/* ===== BANNER "texto vivo" (bnr-*) - Escritorio ===== */
-#BANNER_HORIZONTAL .bnr-xl { font-size: 80px; line-height: 80px; color: #ff441f; }
-#BANNER_VERTICAL .bnr-xl { font-size: 125px; line-height: 125px; color: #ff441f; }
-
-#BANNER_HORIZONTAL .bnr-lg { font-size: 35px; line-height: 35px; color: #ff441f; }
-#BANNER_VERTICAL .bnr-lg { font-size: 62px; line-height: 62px; color: #ff441f; }
-
-#BANNER_HORIZONTAL .bnr-md { font-size: 30px; line-height: 30px; color: #ff441f; }
-#BANNER_VERTICAL .bnr-md { font-size: 50px; line-height: 50px; color: #ff441f; }
-
-#BANNER_HORIZONTAL .bnr-hasta-xl { font-size: 19px; line-height: 19px; color: #ff441f; }
-#BANNER_VERTICAL .bnr-hasta-xl { font-size: 25px; line-height: 25px; color: #ff441f; }
-
-#BANNER_HORIZONTAL .bnr-hasta-lg { font-size: 10px; line-height: 10px; color: #ff441f; }
-#BANNER_VERTICAL .bnr-hasta-lg { font-size: 15px; line-height: 15px; color: #ff441f; }
-
-#BANNER_HORIZONTAL .bnr-sm {
-    font-size: 15px;
-    line-height: 17px;
-    color: #ff441f;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: .12em;
+/* ===== BANNER "texto vivo" (bnr-*) - Escritorio =====
+   .bnr-xl, .bnr-lg, .bnr-hasta-xl, .bnr-hasta-lg y .bnr-sm (horizontal y vertical) se
+   quitaron de aquí: sus tamaños de escritorio se aplican inline en cada módulo
+   (ver banner_copy_modulo_promo_fontsize/lineheight, _vertical, y los valores fijos de
+   .bnr-sm en el módulo de créditos). Las clases se conservan solo para el override de
+   mobile (@media). .bnr-md se conserva porque todavía no tiene versión inline. */
+#BANNER_HORIZONTAL .bnr-md {
+    font-size: 30px;
+    line-height: 30px;
 }
-#BANNER_VERTICAL .bnr-sm {
-    font-size: 20px;
-    line-height: 22px;
-    color: #ff441f;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: .12em;
+#BANNER_VERTICAL .bnr-md {
+    font-size: 50px;
+    line-height: 50px;
 }
-
 table.wrapper {
     width: 100% !important;
     table-layout: fixed;
@@ -218,118 +198,98 @@ a.bulletproof-button {
     padding: 0px 0px 0px 0px !important;
     height: auto !important;
 }
-	
 .fondomobile {
     background-size: 150% auto !important;
 }
-	
 /* estilos del header
 */	
 	
 .bg-headermobile {
     background-size: cover !important;
 }
-	
-	
 #HEADER1 .logo-base1 {
     height: 28px !important;
     max-height: 28px !important;
     min-height: 28px !important;
 }
-	
 #HEADER1 .cobranding-s {
     height: 31px !important;
     max-height: 31px !important;
     min-height: 31px !important;
 }
-	
-#HEADER1 .cobranding-m  {
+#HEADER1 .cobranding-m {
     height: 34px !important;
     max-height: 34px !important;
     min-height: 34px !important;
 }
-	
-#HEADER1 .cobranding-l  {
+#HEADER1 .cobranding-l {
     height: 36px !important;
     max-height: 36px !important;
     min-height: 36px !important;
 }
-
 /* TAMAÑO 2 - Turbo, Pro, ProBlack, Defensoría */
 #HEADER2 .logo-base2 {
     height: 24px !important;
     max-height: 24px !important;
     min-height: 24px !important;
 }
-
 #HEADER2 .cobranding-s {
     height: 26px !important;
     max-height: 26px !important;
     min-height: 26px !important;
 }
-
-#HEADER2 .cobranding-m  {
+#HEADER2 .cobranding-m {
     height: 29px !important;
     max-height: 29px !important;
     min-height: 29px !important;
 }
-
-#HEADER2 .cobranding-l  {
+#HEADER2 .cobranding-l {
     height: 31px !important;
     max-height: 31px !important;
     min-height: 31px !important;
 }
-
 /* TAMAÑO 3 - Turbo Rest */
 #HEADER3 .logo-base3 {
     height: 32px !important;
     max-height: 32px !important;
     min-height: 32px !important;
 }
-
 #HEADER3 .cobranding-s {
     height: 35px !important;
     max-height: 35px !important;
     min-height: 35px !important;
 }
-
-#HEADER3 .cobranding-m  {
+#HEADER3 .cobranding-m {
     height: 38px !important;
     max-height: 38px !important;
     min-height: 38px !important;
 }
-
-#HEADER3 .cobranding-l  {
+#HEADER3 .cobranding-l {
     height: 42px !important;
     max-height: 42px !important;
     min-height: 42px !important;
 }
-
 /* TAMAÑO 4 - RappiEntregador y Contenido aliado */
 #HEADER4 .logo-base4 {
     height: 20px !important;
     max-height: 20px !important;
     min-height: 20px !important;
 }
-
 #HEADER4 .cobranding-s {
     height: 22px !important;
     max-height: 22px !important;
     min-height: 22px !important;
 }
-
-#HEADER4 .cobranding-m  {
+#HEADER4 .cobranding-m {
     height: 24px !important;
     max-height: 24px !important;
     min-height: 24px !important;
 }
-
-#HEADER4 .cobranding-l  {
+#HEADER4 .cobranding-l {
     height: 26px !important;
     max-height: 26px !important;
     min-height: 26px !important;
 }
-
 .altobanner1 {
     height: 85vw !important;
 }
@@ -340,7 +300,6 @@ a.bulletproof-button {
     text-align: center !important;
     margin: 0 auto !important;
 }
-
 h1 {
     font-size: 29px!important;
     line-height: 32px!important;
@@ -377,14 +336,31 @@ h6 {
     font-size: 20px!important;
     line-height: 21px!important;
 }
-
 /* ===== BANNER "texto vivo" (bnr-*) - Mobile: ambas orientaciones convergen ===== */
-#BANNER_HORIZONTAL .bnr-xl, #BANNER_VERTICAL .bnr-xl { font-size: 110px!important; line-height: 110px!important; }
-#BANNER_HORIZONTAL .bnr-lg, #BANNER_VERTICAL .bnr-lg { font-size: 63px!important; line-height: 63px!important; }
-#BANNER_HORIZONTAL .bnr-md, #BANNER_VERTICAL .bnr-md { font-size: 55px!important; line-height: 55px!important; }
-#BANNER_HORIZONTAL .bnr-hasta-xl, #BANNER_VERTICAL .bnr-hasta-xl { font-size: 27px!important; line-height: 27px!important; }
-#BANNER_HORIZONTAL .bnr-hasta-lg, #BANNER_VERTICAL .bnr-hasta-lg { font-size: 16px!important; line-height: 16px!important; }
-#BANNER_HORIZONTAL .bnr-sm, #BANNER_VERTICAL .bnr-sm { font-size: 21px!important; line-height: 23px!important; }
+#BANNER_HORIZONTAL .bnr-xl, #BANNER_VERTICAL .bnr-xl {
+    font-size: 110px!important;
+    line-height: 110px!important;
+}
+#BANNER_HORIZONTAL .bnr-lg, #BANNER_VERTICAL .bnr-lg {
+    font-size: 63px!important;
+    line-height: 63px!important;
+}
+#BANNER_HORIZONTAL .bnr-md, #BANNER_VERTICAL .bnr-md {
+    font-size: 55px!important;
+    line-height: 55px!important;
+}
+#BANNER_HORIZONTAL .bnr-hasta-xl, #BANNER_VERTICAL .bnr-hasta-xl {
+    font-size: 27px!important;
+    line-height: 27px!important;
+}
+#BANNER_HORIZONTAL .bnr-hasta-lg, #BANNER_VERTICAL .bnr-hasta-lg {
+    font-size: 16px!important;
+    line-height: 16px!important;
+}
+#BANNER_HORIZONTAL .bnr-sm, #BANNER_VERTICAL .bnr-sm {
+    font-size: 21px!important;
+    line-height: 23px!important;
+}
 .mobile_hide {
     min-height: 0;
     max-height: 0;
@@ -439,7 +415,6 @@ a.bulletproof-button {
 .fondomobile {
     background-size: 150% auto !important;
 }
-	
 /* estilos del header
 */	
 	
@@ -447,106 +422,89 @@ a.bulletproof-button {
 .bg-headermobile {
     background-size: cover !important;
 }
-	
 #HEADER1 .logo-base1 {
     height: 28px !important;
     max-height: 28px !important;
     min-height: 28px !important;
 }
-	
 #HEADER1 .cobranding-s {
     height: 31px !important;
     max-height: 31px !important;
     min-height: 31px !important;
 }
-	
-#HEADER1 .cobranding-m  {
+#HEADER1 .cobranding-m {
     height: 34px !important;
     max-height: 34px !important;
     min-height: 34px !important;
 }
-	
-#HEADER1 .cobranding-l  {
+#HEADER1 .cobranding-l {
     height: 36px !important;
     max-height: 36px !important;
     min-height: 36px !important;
 }
-
 /* TAMAÑO 2 - Turbo, Pro, ProBlack, Defensoría */
 #HEADER2 .logo-base2 {
     height: 24px !important;
     max-height: 24px !important;
     min-height: 24px !important;
 }
-
 #HEADER2 .cobranding-s {
     height: 26px !important;
     max-height: 26px !important;
     min-height: 26px !important;
 }
-
-#HEADER2 .cobranding-m  {
+#HEADER2 .cobranding-m {
     height: 29px !important;
     max-height: 29px !important;
     min-height: 29px !important;
 }
-
-#HEADER2 .cobranding-l  {
+#HEADER2 .cobranding-l {
     height: 31px !important;
     max-height: 31px !important;
     min-height: 31px !important;
 }
-
 /* TAMAÑO 3 - Turbo Rest */
 #HEADER3 .logo-base3 {
     height: 32px !important;
     max-height: 32px !important;
     min-height: 32px !important;
 }
-
 #HEADER3 .cobranding-s {
     height: 35px !important;
     max-height: 35px !important;
     min-height: 35px !important;
 }
-
-#HEADER3 .cobranding-m  {
+#HEADER3 .cobranding-m {
     height: 38px !important;
     max-height: 38px !important;
     min-height: 38px !important;
 }
-
-#HEADER3 .cobranding-l  {
+#HEADER3 .cobranding-l {
     height: 42px !important;
     max-height: 42px !important;
     min-height: 42px !important;
 }
-
 /* TAMAÑO 4 - RappiEntregador y Contenido aliado */
 #HEADER4 .logo-base4 {
     height: 20px !important;
     max-height: 20px !important;
     min-height: 20px !important;
 }
-
 #HEADER4 .cobranding-s {
     height: 22px !important;
     max-height: 22px !important;
     min-height: 22px !important;
 }
-
-#HEADER4 .cobranding-m  {
+#HEADER4 .cobranding-m {
     height: 24px !important;
     max-height: 24px !important;
     min-height: 24px !important;
 }
-
-#HEADER4 .cobranding-l  {
+#HEADER4 .cobranding-l {
     height: 26px !important;
     max-height: 26px !important;
     min-height: 26px !important;
 }
-
 .altobanner1 {
     height: 85vw !important;
 }
@@ -557,7 +515,6 @@ a.bulletproof-button {
     text-align: center !important;
     margin: 0 auto !important;
 }
-
 h1 {
     font-size: 29px!important;
     line-height: 32px!important;
@@ -594,14 +551,31 @@ h6 {
     font-size: 20px!important;
     line-height: 21px!important;
 }
-
 /* ===== BANNER "texto vivo" (bnr-*) - Mobile: ambas orientaciones convergen ===== */
-#BANNER_HORIZONTAL .bnr-xl, #BANNER_VERTICAL .bnr-xl { font-size: 110px!important; line-height: 110px!important; }
-#BANNER_HORIZONTAL .bnr-lg, #BANNER_VERTICAL .bnr-lg { font-size: 63px!important; line-height: 63px!important; }
-#BANNER_HORIZONTAL .bnr-md, #BANNER_VERTICAL .bnr-md { font-size: 55px!important; line-height: 55px!important; }
-#BANNER_HORIZONTAL .bnr-hasta-xl, #BANNER_VERTICAL .bnr-hasta-xl { font-size: 27px!important; line-height: 27px!important; }
-#BANNER_HORIZONTAL .bnr-hasta-lg, #BANNER_VERTICAL .bnr-hasta-lg { font-size: 16px!important; line-height: 16px!important; }
-#BANNER_HORIZONTAL .bnr-sm, #BANNER_VERTICAL .bnr-sm { font-size: 21px!important; line-height: 23px!important; }
+#BANNER_HORIZONTAL .bnr-xl, #BANNER_VERTICAL .bnr-xl {
+    font-size: 110px!important;
+    line-height: 110px!important;
+}
+#BANNER_HORIZONTAL .bnr-lg, #BANNER_VERTICAL .bnr-lg {
+    font-size: 63px!important;
+    line-height: 63px!important;
+}
+#BANNER_HORIZONTAL .bnr-md, #BANNER_VERTICAL .bnr-md {
+    font-size: 55px!important;
+    line-height: 55px!important;
+}
+#BANNER_HORIZONTAL .bnr-hasta-xl, #BANNER_VERTICAL .bnr-hasta-xl {
+    font-size: 27px!important;
+    line-height: 27px!important;
+}
+#BANNER_HORIZONTAL .bnr-hasta-lg, #BANNER_VERTICAL .bnr-hasta-lg {
+    font-size: 16px!important;
+    line-height: 16px!important;
+}
+#BANNER_HORIZONTAL .bnr-sm, #BANNER_VERTICAL .bnr-sm {
+    font-size: 21px!important;
+    line-height: 23px!important;
+}
 .mobile_hide {
     min-height: 0;
     max-height: 0;
@@ -620,4 +594,3 @@ h6 {
 }
 </style>
 </head>
-<!-- fin head -->
