@@ -116,7 +116,7 @@ El tema define los colores del banner; el **tipo de banner se elige según qué 
 📁 `02-components/banners/banner_atoms/` — piezas que se combinan dentro de cada banner. La mayoría vienen en pareja horizontal/vertical porque los tamaños de escritorio se aplican inline según en qué banner se insertan:
 
 Piezas fijas (MODULOS, se conservan en `big-banner-*.html` tal cual, no son ATOMOS):
-1. **`modulo_tags.html`** — Tag/etiqueta superior. Si la fuente no trae tag, se omite.
+1. **`modulo_tags_horizontal.html`** / **`modulo_tags_vertical.html`** — Tag/etiqueta superior. Si la fuente no trae tag, se omite.
 2. **`modulo_img_altofijo_horizontal.html`** / **`modulo_img_altofijo_vertical.html`** — Columna de imagen de alto fijo.
 3. **`modulo_img_automatica_horizontal.html`** — Celda alternativa a `modulo_img_altofijo_horizontal.html` en el horizontal (solo se usa una de las dos). No confundir con `atomo_img_automatica_*`.
 

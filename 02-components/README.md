@@ -55,7 +55,8 @@ Cada archivo contiene únicamente el `<tr>` del header (con su comentario identi
 
 | Archivo | Descripción |
 |---------|-------------|
-| `modulo_tags.html` | Tag/etiqueta que se muestra sobre el banner |
+| `modulo_tags_horizontal.html` | Tag/etiqueta que se muestra sobre el banner horizontal (alineado a la derecha, `float: right`) |
+| `modulo_tags_vertical.html` | Igual, centrado (`margin: 0 auto`) para el banner vertical |
 | `modulo_img_altofijo_horizontal.html` | Columna de imagen de alto fijo (`altobanner1`) para el banner horizontal |
 | `modulo_img_altofijo_vertical.html` | Igual, con la clase/alto (`altobanner2`) del banner vertical |
 | `modulo_img_automatica_horizontal.html` | Celda alternativa a `modulo_img_altofijo_horizontal.html` en el banner horizontal — **solo se usa una de las dos**. No confundir con `atomo_img_automatica_*` (son piezas distintas) |
