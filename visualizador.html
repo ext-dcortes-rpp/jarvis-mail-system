@@ -376,26 +376,26 @@ const P = {
 // COMPONENTS
 // ════════════════════════════════════════════════
 const COMPONENTS = [
-  {id:'header-rappi',     cat:'headers', name:'Rappi',             desc:'Logo Rappi + cobranding',      file:'02-components/headers/rappi.html',               prev:kv=>P.header('Rappi','#FF7A4D',kv)},
-  {id:'header-pro',       cat:'headers', name:'Rappi Pro',         desc:'Logo Pro + cobranding',        file:'02-components/headers/rappi-pro.html',           prev:kv=>P.header('Pro','#DAA868',kv)},
-  {id:'header-pro-black', cat:'headers', name:'Rappi Pro Black',   desc:'Logo Pro sobre fondo oscuro',  file:'02-components/headers/rappi-pro-black.html',     prev:kv=>P.header('ProBlack','#DAA868',kv)},
-  {id:'header-turbo',     cat:'headers', name:'Rappi Turbo',       desc:'Logo Turbo + cobranding',      file:'02-components/headers/rappi-turbo.html',         prev:kv=>P.header('Turbo','#00C49A',kv)},
-  {id:'header-turbo-r',   cat:'headers', name:'Rappi Turbo Rest.', desc:'Logo Turbo para restaurantes', file:'02-components/headers/rappi-turbo-rest.html',    prev:kv=>P.header('Turbo Rest','#00C49A',kv)},
-  {id:'header-travel',    cat:'headers', name:'Rappi Travel',      desc:'Logo Travel',                  file:'02-components/headers/rappi-travel.html',        prev:kv=>P.header('Travel','#4D9EFF',kv)},
+  {id:'header-rappi',     cat:'headers', name:'Rappi',             desc:'Logo Rappi + cobranding',      file:'02-components/01_headers/rappi.html',               prev:kv=>P.header('Rappi','#FF7A4D',kv)},
+  {id:'header-pro',       cat:'headers', name:'Rappi Pro',         desc:'Logo Pro + cobranding',        file:'02-components/01_headers/rappi-pro.html',           prev:kv=>P.header('Pro','#DAA868',kv)},
+  {id:'header-pro-black', cat:'headers', name:'Rappi Pro Black',   desc:'Logo Pro sobre fondo oscuro',  file:'02-components/01_headers/rappi-pro-black.html',     prev:kv=>P.header('ProBlack','#DAA868',kv)},
+  {id:'header-turbo',     cat:'headers', name:'Rappi Turbo',       desc:'Logo Turbo + cobranding',      file:'02-components/01_headers/rappi-turbo.html',         prev:kv=>P.header('Turbo','#00C49A',kv)},
+  {id:'header-turbo-r',   cat:'headers', name:'Rappi Turbo Rest.', desc:'Logo Turbo para restaurantes', file:'02-components/01_headers/rappi-turbo-rest.html',    prev:kv=>P.header('Turbo Rest','#00C49A',kv)},
+  {id:'header-travel',    cat:'headers', name:'Rappi Travel',      desc:'Logo Travel',                  file:'02-components/01_headers/rappi-travel.html',        prev:kv=>P.header('Travel','#4D9EFF',kv)},
 
-  {id:'banner-h',  cat:'banners', name:'Big Banner Horizontal', desc:'Texto izq. + imagen der.',   file:'02-components/banners/big-banner-horizontal.html', prev:kv=>P.bannerH(kv)},
-  {id:'banner-v',  cat:'banners', name:'Big Banner Vertical',   desc:'Texto arriba + imagen abajo', file:'02-components/banners/big-banner-vertical.html',   prev:kv=>P.bannerV(kv)},
+  {id:'banner-h',  cat:'banners', name:'Big Banner Horizontal', desc:'Texto izq. + imagen der.',   file:'02-components/02_banners/big-banner-horizontal.html', prev:kv=>P.bannerH(kv)},
+  {id:'banner-v',  cat:'banners', name:'Big Banner Vertical',   desc:'Texto arriba + imagen abajo', file:'02-components/02_banners/big-banner-vertical.html',   prev:kv=>P.bannerV(kv)},
 
-  {id:'cta', cat:'ctas', name:'CTA', desc:'Botón de llamada a la acción', file:'02-components/ctas/cta-template.html', prev:kv=>P.cta(kv), multi:true},
+  {id:'cta', cat:'ctas', name:'CTA', desc:'Botón de llamada a la acción', file:'02-components/03_ctas/cta-template.html', prev:kv=>P.cta(kv), multi:true},
 
-  {id:'mod-tit',  cat:'modules', name:'Módulo Título',     desc:'Heading centrado de sección',    file:'02-components/content-modules/modulo-titulo.html',     prev:kv=>P.titulo(kv),    multi:true},
-  {id:'mod-cont', cat:'modules', name:'Módulo Contenido',  desc:'Bloque de texto enriquecido',    file:'02-components/content-modules/modulo-contenido.html',  prev:kv=>P.contenido(kv), multi:true},
-  {id:'mod-2col', cat:'modules', name:'Módulo 2 Columnas', desc:'Texto + imagen en columnas',     file:'02-components/content-modules/modulo-2-columnas.html', prev:kv=>P.col2(kv),      multi:true},
-  {id:'mod-3col', cat:'modules', name:'Módulo 3 Columnas', desc:'Tres tarjetas de categorías',   file:'02-components/content-modules/modulo-3-columnas.html', prev:kv=>P.col3(kv),      multi:true},
-  {id:'mod-log',  cat:'modules', name:'Módulo Logos',      desc:'Grid de logos de marcas',        file:'02-components/content-modules/modulo-logos.html',      prev:kv=>P.logos(kv),     multi:true},
+  {id:'mod-tit',  cat:'modules', name:'Módulo Título',     desc:'Heading centrado de sección',    file:'02-components/04_content-modules/title/modulo-titulo.html',     prev:kv=>P.titulo(kv),    multi:true},
+  {id:'mod-cont', cat:'modules', name:'Módulo Contenido',  desc:'Bloque de texto enriquecido',    file:'02-components/04_content-modules/1columna/modulo-1columna.html',  prev:kv=>P.contenido(kv), multi:true},
+  {id:'mod-2col', cat:'modules', name:'Módulo 2 Columnas', desc:'Texto + imagen en columnas',     file:'02-components/04_content-modules/2columnas/modulo-2-columnas.html', prev:kv=>P.col2(kv),      multi:true},
+  {id:'mod-3col', cat:'modules', name:'Módulo 3 Columnas', desc:'Tres tarjetas de categorías',   file:'02-components/04_content-modules/3columnas/modulo-3-columnas.html', prev:kv=>P.col3(kv),      multi:true},
+  {id:'mod-log',  cat:'modules', name:'Módulo Logos',      desc:'Grid de logos de marcas',        file:'02-components/04_content-modules/logos/modulo-logos.html',      prev:kv=>P.logos(kv),     multi:true},
 
-  {id:'cierre', cat:'closing', name:'Cierre',  desc:'Imagen de firma Rappi',      file:'02-components/closing/cierre.html',       prev:kv=>P.cierre(kv)},
-  {id:'footer', cat:'footer',  name:'Footer',  desc:'Footer con legales y links', file:'02-components/footer/footer.html',         prev:kv=>P.footer(kv)},
+  {id:'cierre', cat:'closing', name:'Cierre',  desc:'Imagen de firma Rappi',      file:'02-components/05_closing/cierre.html',       prev:kv=>P.cierre(kv)},
+  {id:'footer', cat:'footer',  name:'Footer',  desc:'Footer con legales y links', file:'02-components/06_footer/footer.html',         prev:kv=>P.footer(kv)},
 ];
 
 const getC = id => COMPONENTS.find(c=>c.id===id);

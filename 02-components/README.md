@@ -1,4 +1,4 @@
-# 03 · Components
+# 02 · Components
 
 > Los bricks de LEGO. Cada archivo es una pieza independiente.
 
@@ -6,7 +6,7 @@ Esta es la carpeta más importante del repositorio. Aquí viven todos los bloque
 
 ## Subcarpetas
 
-### `headers/` — La identidad del remitente
+### `01_headers/` — La identidad del remitente
 
 10 subcarpetas, una por marca. **Solo se usa UNA marca por mail**, y de esa marca se elige exactamente 1 de sus 4 archivos según fondo (claro/oscuro) y disposición (centrado/columnas):
 
@@ -36,7 +36,7 @@ Cada archivo contiene únicamente el `<tr>` del header (con su comentario identi
 
 **La elección de marca es independiente del tema del mail** (`tema_general_mail_general` en `05-docs/GUIA-DE-TEMAS.md`): cualquiera de los 10 headers puede combinarse con cualquiera de los 11 temas.
 
-### `banners/` — La cabecera visual del mail
+### `02_banners/` — La cabecera visual del mail
 
 2 formatos. **Se usa solo UNO por mail.**
 
@@ -69,15 +69,14 @@ Cada archivo contiene únicamente el `<tr>` del header (con su comentario identi
 | `atomo_creditos_horizontal.html` / `atomo_creditos_vertical.html` | Texto vivo de créditos ("$XXX" + "DE REINTEGRO"), usa `bnr-*` + tema (`bg_creditos_mail_general`, `color_creditos_mail_general`) |
 | `atomo_textoxl_horizontal.html` / `atomo_textoxl_vertical.html` | Texto vivo XL adicional (`banner_copy_modulo_textoxl`), mismo comportamiento de tamaño que `atomo_promo_*` |
 | `atomo_textom_horizontal.html` / `atomo_textom_vertical.html` | Texto vivo `.bnr-md` (`banner_copy_modulo_textom`), tamaño fijo inline (no depende del largo) |
-| `atomo_texto_complemento_horizontal.html` / `atomo_texto_complemento_vertical.html` | Versión `<h2>` de `banner_copy_modulo_textom` (texto de body, no `bnr-*`) |
 | `atomo_img_automatica_horizontal.html` / `atomo_img_automatica_vertical.html` | Imagen automática (`banner_img_modulo_auto_ancho`) — pieza distinta a `modulo_img_automatica_horizontal.html` |
 | `atomo_cta_interno_horizontal.html` (`cta_alineado: 'left'`) / `atomo_cta_interno_vertical.html` (`cta_alineado: 'center'`) | CTA embebido dentro del banner |
 
-`modulo_texto_complementario.html` (sin sufijo) es un placeholder de una versión anterior — pendiente de revisar si sigue haciendo falta ahora que existe `atomo_texto_complemento_horizontal/vertical.html`.
+`modulo_texto_complementario.html` (sin sufijo) sigue siendo el único archivo para el texto de body (`<h4>`) que acompaña al texto destacado del banner. Su propio comentario interno marca como pendiente dividirlo en `modulo_texto_complemento_horizontal.html` / `_vertical.html`, pero esa versión todavía no existe en el sistema.
 
 El tamaño de las clases `bnr-*` usadas en los átomos de créditos, promo y texto XL depende de si el banner que los envuelve está marcado con `id="BANNER_HORIZONTAL"` o `id="BANNER_VERTICAL"` (ver `01-foundations/global-styles/global-styles.html`). Los tamaños de escritorio de estas clases se aplican inline (vía las variables Liquid de largo de texto en `01-foundations/global-styles/head-meta-tags.html`); las clases `bnr-*` en el `<head>` solo cubren el override de mobile.
 
-### `ctas/` — El botón de acción
+### `03_ctas/` — El botón de acción
 
 | Archivo | Descripción |
 |---------|-------------|
@@ -86,11 +85,36 @@ El tamaño de las clases `bnr-*` usadas en los átomos de créditos, promo y tex
 
 Un mail puede tener varios CTAs. Se insertan a lo largo del body según el orden de la fuente.
 
-### `deals/` — Promociones de productos (fuera de uso)
+### `04_content-modules/` — Los bloques combinables del cuerpo
+
+Aquí viven los bricks más versátiles. Se combinan libremente según las necesidades del mail.
+
+| Archivo | Descripción |
+|---------|-------------|
+| `title/modulo-titulo.html` | Único módulo que se usa SIN contenedor. Solo título destacado. |
+| `3columnas/modulo-3-columnas.html` | Tres columnas con imagen + texto |
+| `2columnas/modulo-2-columnas.html` | Dos columnas con imagen + subtítulo + texto. Incluye versión escritorio y mobile (con `mobile_hide` y `desktop_hide`) |
+| `logos/modulo-logos.html` | Grid de logos en bloques de 3, 4 o 6 |
+| `1columna/modulo-1columna.html` | El más versátil: imagen + componentes (bullet logo, bullet icono, bullet numerado) |
+
+`_contenidos_wrapper.html` es la envolvente `<div>`/`<table>`/`<tbody>` común a la zona de CONTENIDOS del mail (donde se insertan los módulos elegidos, separados por `<div class="separador">`); se conserva sin cambios, igual que `_header-wrapper.html` en `01_headers/`.
+
+#### Componentes internos de `1columna/modulo-1columna.html`
+
+Dentro de `modulo-1columna.html` viven sub-piezas que se identifican con `role="componente"`:
+- **BULLET LOGO** — Logo + subtítulo + texto al lado
+- **BULLET ICONO** — Ícono pequeño + subtítulo + texto
+- **BULLET NUMERADO** — Número grande + subtítulo + texto
+
+Estos componentes están dentro del archivo `modulo-1columna.html` para mantener su contexto. Se pueden combinar libremente dentro del módulo, separados por `<div class="separador-M">`.
+
+#### `04_content-modules/deals/`
 
 `deal-large.html` y `deal-small.html` ya no se usan en el sistema. Se conservan en la carpeta renombrados como `deal-large.backup.html` / `deal-small.backup.html` para no perder el trabajo, pero no están enlazados desde ningún template ni desde el visualizador.
 
-### `coupons/` — Módulo de cupones · NUEVO
+⚠️ **Sin documentar:** la carpeta también tiene `deal_columnas.html` (tabla de 2 celdas, deal a la izquierda y a la derecha) — no está descrito en ningún doc todavía ni enlazado desde el visualizador. Pendiente confirmar con el equipo si es el reemplazo activo de los backups o un work in progress.
+
+#### `04_content-modules/coupons/` — Módulo de cupones · NUEVO
 
 | Archivo | Descripción |
 |---------|-------------|
@@ -103,7 +127,7 @@ Un mail puede tener varios CTAs. Se insertan a lo largo del body según el orden
 - El value prop usa color `#DAA868` para los temas Pro/ProBlack y `{{color_acento1_mail_general}}` (o el destacado del tema) para el resto.
 - Los legales van en un `<tr>` separado debajo de la fila de cupones.
 
-### `benefits/` — Módulo de beneficios · NUEVO
+#### `04_content-modules/benefits/` — Módulo de beneficios · NUEVO
 
 | Archivo | Descripción |
 |---------|-------------|
@@ -114,28 +138,7 @@ Un mail puede tener varios CTAs. Se insertan a lo largo del body según el orden
 - La card tiene fondo `#202020` con un background-image decorativo encima.
 - Contiene tres componentes que se pueden omitir individualmente: imagen del beneficio, ícono, subtítulo, y texto descriptivo.
 
-### `content-modules/` — Los bloques combinables del cuerpo
-
-Aquí viven los bricks más versátiles. Se combinan libremente según las necesidades del mail.
-
-| Archivo | Descripción |
-|---------|-------------|
-| `modulo-titulo.html` | Único módulo que se usa SIN contenedor. Solo título destacado. |
-| `modulo-3-columnas.html` | Tres columnas con imagen + texto |
-| `modulo-2-columnas.html` | Dos columnas con imagen + subtítulo + texto. Incluye versión escritorio y mobile (con `mobile_hide` y `desktop_hide`) |
-| `modulo-logos.html` | Grid de logos en bloques de 3, 4 o 6 |
-| `modulo-contenido.html` | El más versátil: imagen + componentes (bullet logo, bullet icono, bullet numerado) |
-
-#### Componentes internos del `modulo-contenido`
-
-Dentro de `modulo-contenido.html` viven sub-piezas que se identifican con `role="componente"`:
-- **BULLET LOGO** — Logo + subtítulo + texto al lado
-- **BULLET ICONO** — Ícono pequeño + subtítulo + texto
-- **BULLET NUMERADO** — Número grande + subtítulo + texto
-
-Estos componentes están dentro del archivo `modulo-contenido.html` para mantener su contexto. Se pueden combinar libremente dentro del módulo, separados por `<div class="separador-M">`.
-
-### `closing/` — La imagen de cierre
+### `05_closing/` — La imagen de cierre
 
 | Archivo | Descripción |
 |---------|-------------|
@@ -143,7 +146,7 @@ Estos componentes están dentro del archivo `modulo-contenido.html` para mantene
 
 Las URLs de las imágenes de cierre dependen de la marca del mail. Se eligen desde la base de datos de assets.
 
-### `footer/` — El pie del mail
+### `06_footer/` — El pie del mail
 
 | Archivo | Descripción |
 |---------|-------------|

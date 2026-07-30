@@ -47,7 +47,7 @@ Family: Arial/Helvetica sans-serif. `body`, `p` y `div` heredan `14px`. Los tama
 
 `.txts` y `.txtl` solo están definidas dentro de las media queries: en escritorio no tienen tamaño propio (heredan el `14px` de `body`).
 
-Las clases de "texto vivo" del banner (`.bnr-xl`, `.bnr-lg`, `.bnr-md`, `.bnr-hasta-xl`, `.bnr-hasta-lg`, `.bnr-sm`) tienen su tamaño de escritorio aplicado inline en los átomos de `02-components/banners/banner_atoms/` — aquí solo se define su override de mobile. Ver el detalle en `02-components/README.md`.
+Las clases de "texto vivo" del banner (`.bnr-xl`, `.bnr-lg`, `.bnr-md`, `.bnr-hasta-xl`, `.bnr-hasta-lg`, `.bnr-sm`) tienen su tamaño de escritorio aplicado inline en los átomos de `02-components/02_banners/banner_atoms/` — aquí solo se define su override de mobile. Ver el detalle en `02-components/README.md`.
 
 ### `global-styles/head-meta-tags.html`
 Los meta tags del `<head>`: viewport, charset, conditional comments para Outlook (MSO). Se inyecta antes del `<style>`.

@@ -1,70 +1,88 @@
 # Índice de componentes del sistema
 
-Mapa rápido de todos los bricks disponibles. Para cada uno: qué hace, dónde vive, y dónde estaba originalmente en el HTML base.
+Mapa rápido de todos los bricks disponibles. Para cada uno: qué hace y dónde vive.
 
-## Headers · 6 bricks
+> **Nota sobre las líneas de "HTML original":** las columnas de línea de este documento se escribieron cuando `06-examples/template_maestro_original.html` era un archivo de ~2.487 líneas. Ese archivo hoy tiene 1475 líneas — se recortó/simplificó y ya no conserva la mayoría de esas secciones en esas posiciones. Las referencias de línea que siguen (CTA, deals, cupones, beneficios, módulos de contenido, cierre, footer) están desactualizadas y no deberían usarse como fuente de verdad; pendiente recalcularlas o quitarlas.
 
-| Componente | Archivo | Líneas en HTML original |
-|------------|---------|------------------------|
-| Header Rappi | `02-components/headers/rappi.html` | 936-974 |
-| Header RappiTravel | `02-components/headers/rappi-travel.html` | 978-1015 |
-| Header RappiTurbo | `02-components/headers/rappi-turbo.html` | 1019-1054 |
-| Header RappiTurboRest | `02-components/headers/rappi-turbo-rest.html` | 1058-1093 |
-| Header RappiProBlack | `02-components/headers/rappi-pro-black.html` | 1097-1135 |
-| Header RappiPro | `02-components/headers/rappi-pro.html` | 1138-1176 |
+## Headers · 10 bricks (marcas) · 41 archivos
 
-## Banners · 2 bricks + 6 atoms
+Cada marca es una subcarpeta con 4 archivos (fondo claro/oscuro × disposición centrado/columnas). Ver el detalle completo en `02-components/README.md`.
 
-| Componente | Archivo | Líneas en HTML original |
-|------------|---------|------------------------|
-| Big banner horizontal | `02-components/banners/big-banner-horizontal.html` | 1189-1352 |
-| Big banner vertical | `02-components/banners/big-banner-vertical.html` | 1354-1510 |
+| Carpeta | Marca |
+|---------|-------|
+| `02-components/01_headers/rappi/` | Rappi |
+| `02-components/01_headers/rappi-travel/` | RappiTravel |
+| `02-components/01_headers/soyrappi/` | SoyRappi |
+| `02-components/01_headers/rappi-turbo/` | RappiTurbo |
+| `02-components/01_headers/rappi-turbo-rest/` | RappiTurbo Restaurantes |
+| `02-components/01_headers/rappi-pro/` | RappiPro |
+| `02-components/01_headers/rappi-pro-black/` | RappiPro Black |
+| `02-components/01_headers/rappi-defensoria/` | Defensoría |
+| `02-components/01_headers/rappi-entregador/` | RappiEntregador |
+| `02-components/01_headers/contenido-aliado/` | Contenido aliado |
 
-`banner-editorial.html` y `_banner-section-close.html` se eliminaron del sistema. Las piezas internas del banner viven en `02-components/banners/banner_atoms/`: MODULOS fijos (`modulo_tags_horizontal/vertical`, `modulo_img_altofijo_horizontal/vertical`, `modulo_img_automatica_horizontal` — esta última distinta de `atomo_img_automatica_*`) + ATOMOS de `MODULO ATOMOS`, todos con nombre `atomo_*` para ambos banners (`atomo_creditos`, `atomo_promo`, `atomo_textoxl`, `atomo_textom`, `atomo_texto_complemento`, `atomo_img_automatica`, `atomo_cta_interno`, cada uno en `_horizontal`/`_vertical`). Todavía sin línea de referencia en el HTML original, son ensamblados nuevos. (`modulo_img_variable` y `modulo_texto_secundario` se eliminaron por no ser necesarios.)
+Más el archivo `_header-wrapper.html` (la envolvente común a los 40 anteriores) = 41 archivos en total.
+
+## Banners · 2 bricks + banner_atoms/
+
+| Componente | Archivo |
+|------------|---------|
+| Big banner horizontal | `02-components/02_banners/big-banner-horizontal.html` |
+| Big banner vertical | `02-components/02_banners/big-banner-vertical.html` |
+
+`banner-editorial.html` y `_banner-section-close.html` se eliminaron del sistema. Las piezas internas del banner viven en `02-components/02_banners/banner_atoms/` (20 archivos actualmente):
+- **MODULOS** fijos (se conservan tal cual en `big-banner-*.html`, no son ATOMOS): `modulo_tags_horizontal/vertical`, `modulo_img_altofijo_horizontal/vertical`, `modulo_img_automatica_horizontal` (distinta de `atomo_img_automatica_*`), `modulo_texto_complementario` (placeholder, ver `USO-DE-CADA-PARTE.md`).
+- **ATOMOS** de `MODULO ATOMOS`, nombre `atomo_*` para ambos banners: `atomo_creditos`, `atomo_promo`, `atomo_textoxl`, `atomo_textom`, `atomo_img_automatica`, `atomo_cta_interno`, cada uno en `_horizontal`/`_vertical`.
+
+⚠️ **Posible duplicado sin resolver:** además de `atomo_textom_horizontal.html` / `atomo_textom_vertical.html` (los documentados arriba), también existen `atomo_texto_M_horizontal.html` / `atomo_texto_M_vertical.html` con contenido idéntico. Parece un archivo que quedó de una renombrada a medias — pendiente que el equipo confirme cuál es el nombre correcto y borre el sobrante.
+
+(`modulo_img_variable` y `modulo_texto_secundario` se eliminaron por no ser necesarios.)
 
 ## CTAs · 1 brick
 
-| Componente | Archivo | Líneas en HTML original |
-|------------|---------|------------------------|
-| CTA template | `02-components/ctas/cta-template.html` | 1617-1635 |
+| Componente | Archivo |
+|------------|---------|
+| CTA template | `02-components/03_ctas/cta-template.html` |
 
 ## Deals · fuera de uso (0 bricks activos)
 
-Ya no se usan en el sistema. Se conservan como `02-components/deals/deal-large.backup.html` y `02-components/deals/deal-small.backup.html` para no perder el trabajo — no están enlazados desde ningún template ni desde el visualizador.
+Ya no se usan en el sistema. Se conservan como `02-components/04_content-modules/deals/deal-large.backup.html` y `02-components/04_content-modules/deals/deal-small.backup.html` para no perder el trabajo — no están enlazados desde ningún template ni desde el visualizador.
+
+⚠️ La carpeta también tiene `deal_columnas.html`, sin documentar todavía — pendiente confirmar con el equipo si reemplaza a los backups.
 
 ## Coupons · 1 brick · NUEVO
 
 | Componente | Archivo | Líneas en HTML original |
 |------------|---------|------------------------|
-| Módulo cupones | `02-components/coupons/cupones-modulo.html` | 1893-1977 |
+| Módulo cupones | `02-components/04_content-modules/coupons/cupones-modulo.html` | 1893-1977 |
 
 ## Benefits · 1 brick · NUEVO
 
 | Componente | Archivo | Líneas en HTML original |
 |------------|---------|------------------------|
-| Módulo beneficios | `02-components/benefits/modulo-beneficios.html` | 1979-2012 |
+| Módulo beneficios | `02-components/04_content-modules/benefits/modulo-beneficios.html` | 1979-2012 |
 
 ## Content modules · 5 bricks
 
 | Componente | Archivo | Líneas en HTML original |
 |------------|---------|------------------------|
-| Módulo título | `02-components/content-modules/modulo-titulo.html` | 1822-1857 |
-| Módulo 3 columnas | `02-components/content-modules/modulo-3-columnas.html` | 1859-1891 |
-| Módulo contenido principal | `02-components/content-modules/modulo-contenido.html` | 2014-2173 |
-| Módulo 2 columnas | `02-components/content-modules/modulo-2-columnas.html` | 2175-2274 |
-| Módulo logos | `02-components/content-modules/modulo-logos.html` | 2276-2405 |
+| Módulo título | `02-components/04_content-modules/title/modulo-titulo.html` | 1822-1857 |
+| Módulo 3 columnas | `02-components/04_content-modules/3columnas/modulo-3-columnas.html` | 1859-1891 |
+| Módulo contenido principal | `02-components/04_content-modules/1columna/modulo-1columna.html` | 2014-2173 |
+| Módulo 2 columnas | `02-components/04_content-modules/2columnas/modulo-2-columnas.html` | 2175-2274 |
+| Módulo logos | `02-components/04_content-modules/logos/modulo-logos.html` | 2276-2405 |
 
 ## Cierre · 1 brick
 
 | Componente | Archivo | Líneas en HTML original |
 |------------|---------|------------------------|
-| Imagen de cierre | `02-components/closing/cierre.html` | 2407-2420 |
+| Imagen de cierre | `02-components/05_closing/cierre.html` | 2407-2420 |
 
 ## Footer · 1 brick
 
 | Componente | Archivo | Líneas en HTML original |
 |------------|---------|------------------------|
-| Footer general | `02-components/footer/footer.html` | 2430-2460 |
+| Footer general | `02-components/06_footer/footer.html` | 2430-2460 |
 
 ## Foundations · 2 archivos
 
@@ -77,9 +95,9 @@ Ya no se usan en el sistema. Se conservan como `02-components/deals/deal-large.b
 
 ## Resumen
 
-**Total de bricks (componentes): 21**
-- 6 headers
-- 3 banners
+**Total de bricks (componentes): 22**
+- 10 headers (marcas)
+- 2 banners
 - 1 CTA
 - 0 deals (fuera de uso, ver arriba)
 - 1 cupones (NUEVO)
@@ -88,6 +106,8 @@ Ya no se usan en el sistema. Se conservan como `02-components/deals/deal-large.b
 - 1 cierre
 - 1 footer
 
+**Total de archivos en `02-components/`: 81** (41 en `01_headers/` + 22 en `02_banners/` (incluye `banner_atoms/`) + 2 en `03_ctas/` + 11 en `04_content-modules/` + 1 en `05_closing/` + 4 en `06_footer/`)
+
 **Total de archivos de foundations: 2**
 
-**Gran total: 23 archivos** que reemplazan un HTML monolítico de 2.487 líneas. (Nota: los conteos de headers y banners de esta página quedaron desactualizados tras la reestructuración a 10 marcas × 4 variantes y 2 banners + 6 átomos; pendiente de recalcular.)
+Este documento reemplaza un HTML monolítico original de ~2.487 líneas; hoy esa referencia histórica (`06-examples/template_maestro_original.html`) tiene 1475 líneas — ver la nota al inicio sobre por qué las columnas de línea ya no son confiables.

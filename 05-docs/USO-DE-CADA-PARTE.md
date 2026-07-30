@@ -47,7 +47,7 @@ Las variables del tema (`bg_solid_mail_general`, `background-image` de `.gradmob
 
 ## 2. Headers · la identidad del remitente
 
-📁 `02-components/headers/`
+📁 `02-components/01_headers/`
 
 ### Las 10 marcas disponibles
 
@@ -92,7 +92,7 @@ El archivo `_header-wrapper.html` (con guion bajo) es la **envolvente común a t
 
 ## 3. Banners · la cabecera visual
 
-📁 `02-components/banners/`
+📁 `02-components/02_banners/`
 
 ### Los 2 banners disponibles
 
@@ -113,7 +113,7 @@ El tema define los colores del banner; el **tipo de banner se elige según qué 
 - **¿El mail tiene módulos de contenido, deals, cupones, beneficios?** → big banner horizontal
 
 ### Regla #3 · Las piezas internas del banner viven en `banner_atoms/`
-📁 `02-components/banners/banner_atoms/` — piezas que se combinan dentro de cada banner. La mayoría vienen en pareja horizontal/vertical porque los tamaños de escritorio se aplican inline según en qué banner se insertan:
+📁 `02-components/02_banners/banner_atoms/` — piezas que se combinan dentro de cada banner. La mayoría vienen en pareja horizontal/vertical porque los tamaños de escritorio se aplican inline según en qué banner se insertan:
 
 Piezas fijas (MODULOS, se conservan en `big-banner-*.html` tal cual, no son ATOMOS):
 1. **`modulo_tags_horizontal.html`** / **`modulo_tags_vertical.html`** — Tag/etiqueta superior. Si la fuente no trae tag, se omite.
@@ -125,11 +125,10 @@ Piezas de `MODULO ATOMOS` (ATOMOS, se combinan libremente dentro de esa tabla) �
 5. **`atomo_promo_horizontal.html`** / **`atomo_promo_vertical.html`** — Módulo de promo ("Ahora" + cifra).
 6. **`atomo_textoxl_horizontal.html`** / **`atomo_textoxl_vertical.html`** — Texto vivo XL adicional, mismo comportamiento de tamaño que el átomo de promo.
 7. **`atomo_textom_horizontal.html`** / **`atomo_textom_vertical.html`** — Texto vivo `.bnr-md`, tamaño fijo inline.
-8. **`atomo_texto_complemento_horizontal.html`** / **`atomo_texto_complemento_vertical.html`** — Versión `<h2>` del mismo texto.
-9. **`atomo_img_automatica_horizontal.html`** / **`atomo_img_automatica_vertical.html`** — Imagen automática dentro del banner.
-10. **`atomo_cta_interno_horizontal.html`** (`cta_alineado: 'left'`) / **`atomo_cta_interno_vertical.html`** (`cta_alineado: 'center'`) — CTA embebido dentro del banner.
+8. **`atomo_img_automatica_horizontal.html`** / **`atomo_img_automatica_vertical.html`** — Imagen automática dentro del banner.
+9. **`atomo_cta_interno_horizontal.html`** (`cta_alineado: 'left'`) / **`atomo_cta_interno_vertical.html`** (`cta_alineado: 'center'`) — CTA embebido dentro del banner.
 
-`modulo_texto_complementario.html` (sin sufijo) es un placeholder de una versión anterior — pendiente de revisar si sigue haciendo falta ahora que existe `atomo_texto_complemento_horizontal/vertical.html`. (`modulo_img_variable.html` y `modulo_texto_secundario.html` ya se eliminaron.)
+`modulo_texto_complementario.html` (sin sufijo) sigue siendo el único archivo para el texto de body (`<h4>`) que acompaña al texto destacado del banner. Su comentario interno marca como pendiente dividirlo en `modulo_texto_complemento_horizontal.html` / `_vertical.html`, pero esa versión todavía no existe. (`modulo_img_variable.html` y `modulo_texto_secundario.html` ya se eliminaron.)
 
 ### Regla #4 · El banner cambia mucho según el tema
 El banner es donde más reglas de tema se aplican: background-color, background-image, color de textos, bgcolor del tag, border-radius. Antes de armar el banner, consulta `GUIA-DE-TEMAS.md` para los valores exactos (los comentarios internos del banner todavía usan la nomenclatura anterior; los valores de referencia son los de esa guía).
@@ -138,7 +137,7 @@ El banner es donde más reglas de tema se aplican: background-color, background-
 
 ## 4. CTAs · el botón de acción
 
-📁 `02-components/ctas/`
+📁 `02-components/03_ctas/`
 
 ### El único archivo: `cta-template.html`
 
@@ -179,15 +178,17 @@ Si el componente anterior es un módulo (`role="module"`), insertas el separador
 
 ## 5. Deals · promociones de productos (fuera de uso)
 
-📁 `02-components/deals/`
+📁 `02-components/04_content-modules/deals/`
 
 `deal-large.html` y `deal-small.html` ya no se usan en el sistema. Se conservaron renombrados como `deal-large.backup.html` / `deal-small.backup.html` para no perder el trabajo, pero no están enlazados desde ningún template ni desde el visualizador — no usar como referencia para mails nuevos.
+
+⚠️ **Sin documentar:** la carpeta también tiene `deal_columnas.html` (tabla de 2 celdas) — todavía sin describir en ningún doc ni enlazado desde el visualizador. Pendiente confirmar con el equipo si es el reemplazo activo de los backups.
 
 ---
 
 ## 6. Coupons · cupones de descuento
 
-📁 `02-components/coupons/`
+📁 `02-components/04_content-modules/coupons/`
 
 ### El único archivo: `cupones-modulo.html`
 
@@ -224,7 +225,7 @@ Los legales NO van dentro del cupón. Van en una fila separada debajo de la fila
 
 ## 7. Benefits · beneficios del programa
 
-📁 `02-components/benefits/`
+📁 `02-components/04_content-modules/benefits/`
 
 ### El único archivo: `modulo-beneficios.html`
 
@@ -252,7 +253,7 @@ Dentro del archivo hay comentarios que dicen `<!-- no cambies este vertical alig
 
 ## 8. Content Modules · los bricks combinables del cuerpo
 
-📁 `02-components/content-modules/`
+📁 `02-components/04_content-modules/`
 
 Esta es la carpeta más versátil. Aquí viven los bricks que más se combinan según las necesidades del mail.
 
@@ -260,11 +261,11 @@ Esta es la carpeta más versátil. Aquí viven los bricks que más se combinan s
 
 | Archivo | Descripción |
 |---------|-------------|
-| `modulo-titulo.html` | Único módulo SIN contenedor de fondo. Solo un título destacado. |
-| `modulo-3-columnas.html` | Tres columnas con imagen + texto cada una |
-| `modulo-2-columnas.html` | Dos columnas: una con textos, otra con imagen. Incluye versión escritorio y mobile. |
-| `modulo-logos.html` | Grid de logos en bloques de 3, 4 o 6 |
-| `modulo-contenido.html` | El más versátil: imagen + componentes (bullet logo, bullet icono, bullet numerado) |
+| `title/modulo-titulo.html` | Único módulo SIN contenedor de fondo. Solo un título destacado. |
+| `3columnas/modulo-3-columnas.html` | Tres columnas con imagen + texto cada una |
+| `2columnas/modulo-2-columnas.html` | Dos columnas: una con textos, otra con imagen. Incluye versión escritorio y mobile. |
+| `logos/modulo-logos.html` | Grid de logos en bloques de 3, 4 o 6 |
+| `1columna/modulo-1columna.html` | El más versátil: imagen + componentes (bullet logo, bullet icono, bullet numerado) |
 
 ### Reglas comunes a los 5 módulos
 
@@ -277,7 +278,7 @@ Esta es la carpeta más versátil. Aquí viven los bricks que más se combinan s
 Este es el más complejo y el que más se usa. Su estructura interna:
 
 ```
-modulo-contenido
+modulo-1columna
 ├── imagen full (opcional)
 ├── divcomponentes
 │   ├── componente 1
@@ -317,7 +318,7 @@ Esto está documentado dentro del archivo como comentario.
 
 ## 9. Closing · la imagen de cierre
 
-📁 `02-components/closing/`
+📁 `02-components/05_closing/`
 
 ### El único archivo: `cierre.html`
 
@@ -350,7 +351,7 @@ Después de la tabla de cierre **no debe haber más CTAs ni módulos de contenid
 
 ## 10. Footer · el pie del mail
 
-📁 `02-components/footer/`
+📁 `02-components/06_footer/`
 
 ### El único archivo: `footer.html`
 

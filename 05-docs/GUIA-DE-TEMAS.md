@@ -96,8 +96,8 @@ Dentro de cada rama del `{% if %}` se asignan estas variables (todas con el sufi
 
 ## Cómo se relaciona con headers y footer
 
-- **Headers** (`02-components/headers/`) se eligen por **marca**, no por tema: el mismo tema (`beige100`, `pro`, etc.) puede combinarse con cualquiera de los 10 headers de marca. Cada header sí tiene sus propias variantes de fondo claro/oscuro (`centrado-claro`, `centrado-oscuro`, `columnas-claro`, `columnas-oscuro`), independientes de `tema_general_mail_general`.
-- **Footer** (`02-components/footer/footer.html`) no elige su propio estilo: toma `font_style_look` directamente de `{{color_footer_mail_general}}`, la variable que cada tema ya definió. No hay que setear el estilo del footer manualmente por tema.
+- **Headers** (`02-components/01_headers/`) se eligen por **marca**, no por tema: el mismo tema (`beige100`, `pro`, etc.) puede combinarse con cualquiera de los 10 headers de marca. Cada header sí tiene sus propias variantes de fondo claro/oscuro (`centrado-claro`, `centrado-oscuro`, `columnas-claro`, `columnas-oscuro`), independientes de `tema_general_mail_general`.
+- **Footer** (`02-components/06_footer/footer.html`) no elige su propio estilo: toma `font_style_look` directamente de `{{color_footer_mail_general}}`, la variable que cada tema ya definió. No hay que setear el estilo del footer manualmente por tema.
 
 ---
 
@@ -105,7 +105,7 @@ Dentro de cada rama del `{% if %}` se asignan estas variables (todas con el sufi
 
 - `bg_header_mail_general` (fondo del header) y `bg_img_mail_general` / `bg_img_size_mail_general` (fondo del wrapper general) hoy se asignan en grupos de temas distintos — pastel tiene uno, oscuros/premium tienen el otro. Falta unificar ambos para que los 11 temas definan ambas variables.
 - El repositorio ya no tiene un archivo de "esqueleto" propio (`opening.html`/`closing.html`) que abra/cierre el `<body>` y el wrapper general — quien ensambla el mail debe aplicar `bg_solid_mail_general` (y las demás variables de fondo) directamente donde corresponda.
-- El resto de los componentes (`banners/`, `content-modules/`, `coupons/`, `closing/`) también tienen comentarios internos con lógica condicional propia por tema; migrarlos a leer directamente las variables de esta guía es un trabajo pendiente, componente por componente.
+- El resto de los componentes (`02_banners/`, `04_content-modules/`, `04_content-modules/coupons/`, `05_closing/`) también tienen comentarios internos con lógica condicional propia por tema; migrarlos a leer directamente las variables de esta guía es un trabajo pendiente, componente por componente.
 - `06-examples/template_maestro_original.html` sí ya consume estas variables (`{{bg_solid_mail_general}}`, etc.) en el wrapper general — es la referencia de a dónde debe llegar el resto del sistema.
 
 ---

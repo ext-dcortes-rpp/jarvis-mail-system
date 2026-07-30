@@ -46,16 +46,16 @@ jarvis-mail-system/
 │   ├── global-styles/         CSS global, media queries, meta tags
 │   └── tokens/                Colores, espaciados, radios (a futuro)
 │
-├── 02-components/             Los bricks (21 piezas en total)
-│   ├── headers/               10 headers de marca, cada uno en claro/oscuro × centrado/columnas
-│   ├── banners/               2 banners (horizontal, vertical) + banner_atoms/ con sus piezas internas
-│   ├── ctas/                  Plantilla del botón de acción
-│   ├── deals/                 Deal grande y small
-│   ├── coupons/               Módulo de cupones (con title + cupón)  ◀ NUEVO
-│   ├── benefits/              Módulo de beneficios                    ◀ NUEVO
-│   ├── content-modules/       Título, columnas, logos, contenido
-│   ├── closing/               Imagen de cierre
-│   └── footer/                Footer general
+├── 02-components/             Los bricks (22 piezas en total, ver 05-docs/INDICE-DE-COMPONENTES.md) — carpetas numeradas en orden de uso
+│   ├── 01_headers/            10 headers de marca, cada uno en claro/oscuro × centrado/columnas
+│   ├── 02_banners/            2 banners (horizontal, vertical) + banner_atoms/ con sus piezas internas
+│   ├── 03_ctas/               Plantilla del botón de acción
+│   ├── 04_content-modules/    Título, columnas, logos, contenido, deals, cupones, beneficios
+│   │   ├── deals/              Deal grande y small
+│   │   ├── coupons/            Módulo de cupones (con title + cupón)  ◀ NUEVO
+│   │   └── benefits/           Módulo de beneficios                    ◀ NUEVO
+│   ├── 05_closing/            Imagen de cierre
+│   └── 06_footer/             Footer general
 │
 ├── 03-templates/              Los modelos armados
 │   ├── full-templates/        Combinaciones completas listas para usar

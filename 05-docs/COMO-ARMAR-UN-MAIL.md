@@ -16,27 +16,27 @@ Imagina una caja de LEGO con dos tipos de cosas:
 - **¿Qué módulos?** Solo banner + CTA, o algo más complejo con deals, cupones, beneficios y módulos de contenido.
 
 ### Paso 2 — Agrega un header
-De `02-components/headers/`, elige la carpeta de marca y dentro de ella el archivo según fondo (claro/oscuro) y disposición (centrado/columnas). Las instrucciones de cobranding (sin / S / M / L) están en los comentarios del archivo.
+De `02-components/01_headers/`, elige la carpeta de marca y dentro de ella el archivo según fondo (claro/oscuro) y disposición (centrado/columnas). Las instrucciones de cobranding (sin / S / M / L) están en los comentarios del archivo.
 
 ### Paso 3 — Agrega un banner
-De `02-components/banners/`, elige UNO:
+De `02-components/02_banners/`, elige UNO:
 - `big-banner-horizontal.html` — Si el mail tiene módulos en el body
 - `big-banner-vertical.html` — Si el mail solo tiene CTA y cierre
 
-Las piezas internas (tag, imagen, créditos, textos) están en `02-components/banners/banner_atoms/`.
+Las piezas internas (tag, imagen, créditos, textos) están en `02-components/02_banners/banner_atoms/`.
 
 ### Paso 4 — Inserta los bricks del cuerpo
 Aquí se decide qué piezas y en qué orden:
 
-- **CTA** → `02-components/ctas/cta-template.html`
-- **Deal grande / small** → `02-components/deals/`
-- **Cupones** → `02-components/coupons/cupones-modulo.html` (siempre en pares)
-- **Beneficios** → `02-components/benefits/modulo-beneficios.html` (uno por beneficio)
-- **Módulo título** → `02-components/content-modules/modulo-titulo.html`
-- **Módulo 3 columnas** → `02-components/content-modules/modulo-3-columnas.html`
-- **Módulo 2 columnas** → `02-components/content-modules/modulo-2-columnas.html`
-- **Módulo logos** → `02-components/content-modules/modulo-logos.html`
-- **Módulo contenido** → `02-components/content-modules/modulo-contenido.html`
+- **CTA** → `02-components/03_ctas/cta-template.html`
+- **Deal grande / small** → `02-components/04_content-modules/deals/`
+- **Cupones** → `02-components/04_content-modules/coupons/cupones-modulo.html` (siempre en pares)
+- **Beneficios** → `02-components/04_content-modules/benefits/modulo-beneficios.html` (uno por beneficio)
+- **Módulo título** → `02-components/04_content-modules/title/modulo-titulo.html`
+- **Módulo 3 columnas** → `02-components/04_content-modules/3columnas/modulo-3-columnas.html`
+- **Módulo 2 columnas** → `02-components/04_content-modules/2columnas/modulo-2-columnas.html`
+- **Módulo logos** → `02-components/04_content-modules/logos/modulo-logos.html`
+- **Módulo contenido** → `02-components/04_content-modules/1columna/modulo-1columna.html`
 
 **Reglas de espaciado entre bricks:**
 
@@ -47,12 +47,12 @@ Aquí se decide qué piezas y en qué orden:
 | Un deal | NADA, los deals tienen su propio aire |
 
 ### Paso 5 — Agrega el cierre (si aplica)
-De `02-components/closing/cierre.html`. **Se OMITE si:**
+De `02-components/05_closing/cierre.html`. **Se OMITE si:**
 - El tema es Pro o ProBlack
 - La fuente dice "sin cierre"
 
 ### Paso 6 — Agrega el footer
-De `02-components/footer/footer.html`. **El footer SIEMPRE va.** Solo cambias las variables Liquid según la fuente:
+De `02-components/06_footer/footer.html`. **El footer SIEMPRE va.** Solo cambias las variables Liquid según la fuente:
 - `cond` → texto de legales adicionales (si lo hay)
 - `font_style_look` → toma el valor de `{{color_footer_mail_general}}` según el tema activo (ver `GUIA-DE-TEMAS.md`)
 - `show_legal_tyc` → true/false
@@ -66,7 +66,7 @@ De `02-components/footer/footer.html`. **El footer SIEMPRE va.** Solo cambias la
    ↓
 [banner elegido]
    ↓
-[CTAs, deals, cupones, beneficios, módulos en orden libre]
+[_contenidos_wrapper.html ← contiene: CTAs, deals, cupones, beneficios, módulos en orden libre]
    ↓
 [cierre.html — opcional]
    ↓

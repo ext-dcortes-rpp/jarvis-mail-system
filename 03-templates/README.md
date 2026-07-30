@@ -1,4 +1,4 @@
-# 04 · Templates
+# 03 · Templates
 
 > Los modelos terminados. Combinaciones predefinidas listas para usar.
 
