@@ -86,14 +86,9 @@ El tamaño de las clases `bnr-*` usadas en los átomos de créditos, promo y tex
 
 Un mail puede tener varios CTAs. Se insertan a lo largo del body según el orden de la fuente.
 
-### `deals/` — Promociones de productos
+### `deals/` — Promociones de productos (fuera de uso)
 
-| Archivo | Descripción |
-|---------|-------------|
-| `deal-large.html` | Deal grande (formato horizontal con imagen prominente) |
-| `deal-small.html` | Deal small (formato compacto) |
-
-**Máximo 4 deals por mail.** Si hay más, se sugiere convertir algunos a módulos de contenido.
+`deal-large.html` y `deal-small.html` ya no se usan en el sistema. Se conservan en la carpeta renombrados como `deal-large.backup.html` / `deal-small.backup.html` para no perder el trabajo, pero no están enlazados desde ningún template ni desde el visualizador.
 
 ### `coupons/` — Módulo de cupones · NUEVO
 

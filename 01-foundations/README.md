@@ -8,7 +8,7 @@ Aquí viven las reglas que cualquier brick respeta: tipografías, colores, espac
 
 ### `global-styles/global-styles.html`
 Bloque `<style>` completo del HTML base con:
-- Tipografías y tamaños (h1 a h6, `.txts`, `.txtl`)
+- Tipografías y tamaños (h1 a h6, `.legal`, `.txts`, `.txtl`) — ver escala completa abajo
 - Clases utilitarias (`.separador`, `.separador-M`, `.separador-S`)
 - Reglas para `table.wrapper`
 - Las dos media queries: `@media (max-width: 480px)` y `@media (max-width: 620px)`
@@ -29,6 +29,26 @@ si Tipo de Kv = Pro background-image debe ser https://...
 
 Estos comentarios documentan un esquema de color anterior al sistema de temas actual; ya no se usan para producir mails nuevos.
 
+#### Escala tipográfica
+
+Family: Arial/Helvetica sans-serif. `body`, `p` y `div` heredan `14px`. Los tamaños de `h1`-`h6` y las clases de texto cambian entre escritorio (por defecto) y mobile (`@media max-width: 480px` y `620px`, idénticas entre sí):
+
+| Elemento | Escritorio (tamaño / interlineado) | Mobile (tamaño / interlineado) |
+|---|---|---|
+| `h1` | 25px / 28px | 29px / 32px |
+| `h2` | 16px / 18px | 22px / 25px |
+| `h3` | 14px / 17px | 19px / 23px |
+| `h4` | 12px / 16px | 14px / 18px |
+| `h5` | 10px / 13px | 12px / 16px |
+| `h6` | 8px / 11px | 9px / 12px |
+| `.legal` | 6px / 8px | 8px / 10px |
+| `.txts` | — (solo mobile) | 11px / 12px |
+| `.txtl` | — (solo mobile) | 20px / 21px |
+
+`.txts` y `.txtl` solo están definidas dentro de las media queries: en escritorio no tienen tamaño propio (heredan el `14px` de `body`).
+
+Las clases de "texto vivo" del banner (`.bnr-xl`, `.bnr-lg`, `.bnr-md`, `.bnr-hasta-xl`, `.bnr-hasta-lg`, `.bnr-sm`) tienen su tamaño de escritorio aplicado inline en los átomos de `02-components/banners/banner_atoms/` — aquí solo se define su override de mobile. Ver el detalle en `02-components/README.md`.
+
 ### `global-styles/head-meta-tags.html`
 Los meta tags del `<head>`: viewport, charset, conditional comments para Outlook (MSO). Se inyecta antes del `<style>`.
 
@@ -40,7 +60,7 @@ La carpeta `tokens/` está pensada para cuando el sistema migre a tokens de dise
 - `colors.css` — La paleta Neon (FF7A4D, FF2526, FF4583, EB5583) + neutros
 - `spacing.css` — Las medidas de los separadores (16px, 10px, 4px)
 - `radii.css` — Los border-radius que se repiten (16px, 7px, 14px)
-- `typography.css` — Familia Trebuchet/Arial y la escala de tamaños
+- `typography.css` — Familia Arial/Helvetica y la escala de tamaños (hoy documentada en `global-styles/global-styles.html`, ver tabla arriba)
 
 ## Por qué esto vive aparte
 

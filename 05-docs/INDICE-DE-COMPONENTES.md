@@ -28,12 +28,9 @@ Mapa rápido de todos los bricks disponibles. Para cada uno: qué hace, dónde v
 |------------|---------|------------------------|
 | CTA template | `02-components/ctas/cta-template.html` | 1617-1635 |
 
-## Deals · 2 bricks
+## Deals · fuera de uso (0 bricks activos)
 
-| Componente | Archivo | Líneas en HTML original |
-|------------|---------|------------------------|
-| Deal grande | `02-components/deals/deal-large.html` | 1637-1727 |
-| Deal small | `02-components/deals/deal-small.html` | 1729-1820 |
+Ya no se usan en el sistema. Se conservan como `02-components/deals/deal-large.backup.html` y `02-components/deals/deal-small.backup.html` para no perder el trabajo — no están enlazados desde ningún template ni desde el visualizador.
 
 ## Coupons · 1 brick · NUEVO
 
@@ -84,7 +81,7 @@ Mapa rápido de todos los bricks disponibles. Para cada uno: qué hace, dónde v
 - 6 headers
 - 3 banners
 - 1 CTA
-- 2 deals
+- 0 deals (fuera de uso, ver arriba)
 - 1 cupones (NUEVO)
 - 1 beneficios (NUEVO)
 - 5 módulos de contenido

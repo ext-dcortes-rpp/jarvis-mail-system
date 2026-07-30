@@ -12,7 +12,7 @@ Esta guía explica brick por brick cómo se usa cada componente del sistema. Es 
 2. [Headers · la identidad del remitente](#2-headers--la-identidad-del-remitente)
 3. [Banners · la cabecera visual](#3-banners--la-cabecera-visual)
 4. [CTAs · el botón de acción](#4-ctas--el-botón-de-acción)
-5. [Deals · promociones de productos](#5-deals--promociones-de-productos)
+5. [Deals · promociones de productos (fuera de uso)](#5-deals--promociones-de-productos-fuera-de-uso)
 6. [Coupons · cupones de descuento](#6-coupons--cupones-de-descuento)
 7. [Benefits · beneficios del programa](#7-benefits--beneficios-del-programa)
 8. [Content Modules · los bricks combinables del cuerpo](#8-content-modules--los-bricks-combinables-del-cuerpo)
@@ -177,28 +177,11 @@ Si el componente anterior es un módulo (`role="module"`), insertas el separador
 
 ---
 
-## 5. Deals · promociones de productos
+## 5. Deals · promociones de productos (fuera de uso)
 
 📁 `02-components/deals/`
 
-### Los 2 tipos de deal
-
-| Archivo | Cuándo se usa |
-|---------|---------------|
-| `deal-large.html` | Deal grande con imagen prominente, formato horizontal |
-| `deal-small.html` | Deal compacto, formato reducido |
-
-### Regla #1 · Máximo 4 deals por mail
-Si la fuente trae más de 4 deals, el equipo de mails debe sugerir convertir los excedentes a módulos de contenido. No se ponen 8 deals en un mail.
-
-### Regla #2 · Por cada deal, una tabla nueva completa
-**No combines deals.** Cada deal es una tabla independiente. Si hay 3 deals, hay 3 tablas seguidas, cada una con su estructura completa.
-
-### Regla #3 · No cambies la estructura, solo las variables
-Los deals tienen variables Liquid del tipo `{% assign deal_recommendation_deeplink = '#' %}`. **Solo cambias el valor de las variables**, nunca eliminas líneas ni cambias la estructura HTML del deal.
-
-### Regla #4 · Los deals NO necesitan separador antes ni después
-A diferencia de módulos y CTAs, los deals tienen su propia "área de respeto" interna. No insertes `<div class="separador">` alrededor de deals.
+`deal-large.html` y `deal-small.html` ya no se usan en el sistema. Se conservaron renombrados como `deal-large.backup.html` / `deal-small.backup.html` para no perder el trabajo, pero no están enlazados desde ningún template ni desde el visualizador — no usar como referencia para mails nuevos.
 
 ---
 
