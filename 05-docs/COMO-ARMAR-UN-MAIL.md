@@ -23,7 +23,7 @@ De `02-components/02_banners/`, elige UNO:
 - `big-banner-horizontal.html` — Si el mail tiene módulos en el body
 - `big-banner-vertical.html` — Si el mail solo tiene CTA y cierre
 
-Las piezas internas (tag, imagen, créditos, textos) están en `02-components/02_banners/banner_atoms/`.
+Las piezas internas (tag, imagen, créditos, textos) están en `02-components/02_banners/banner_moleculas/`.
 
 ### Paso 4 — Inserta los bricks del cuerpo
 Aquí se decide qué piezas y en qué orden:

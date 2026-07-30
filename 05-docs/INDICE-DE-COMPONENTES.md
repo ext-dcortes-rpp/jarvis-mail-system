@@ -23,18 +23,18 @@ Cada marca es una subcarpeta con 4 archivos (fondo claro/oscuro × disposición 
 
 Más el archivo `_header-wrapper.html` (la envolvente común a los 40 anteriores) = 41 archivos en total.
 
-## Banners · 2 bricks + banner_atoms/
+## Banners · 2 bricks + banner_moleculas/
 
 | Componente | Archivo |
 |------------|---------|
 | Big banner horizontal | `02-components/02_banners/big-banner-horizontal.html` |
 | Big banner vertical | `02-components/02_banners/big-banner-vertical.html` |
 
-`banner-editorial.html` y `_banner-section-close.html` se eliminaron del sistema. Las piezas internas del banner viven en `02-components/02_banners/banner_atoms/` (20 archivos actualmente):
-- **MODULOS** fijos (se conservan tal cual en `big-banner-*.html`, no son ATOMOS): `modulo_tags_horizontal/vertical`, `modulo_img_altofijo_horizontal/vertical`, `modulo_img_automatica_horizontal` (distinta de `atomo_img_automatica_*`), `modulo_texto_complementario` (placeholder, ver `USO-DE-CADA-PARTE.md`).
-- **ATOMOS** de `MODULO ATOMOS`, nombre `atomo_*` para ambos banners: `atomo_creditos`, `atomo_promo`, `atomo_textoxl`, `atomo_textom`, `atomo_img_automatica`, `atomo_cta_interno`, cada uno en `_horizontal`/`_vertical`.
+`banner-editorial.html` y `_banner-section-close.html` se eliminaron del sistema. Las piezas internas del banner viven en `02-components/02_banners/banner_moleculas/` (20 archivos actualmente):
+- **MODULOS** fijos (se conservan tal cual en `big-banner-*.html`, no son MOLECULAS): `modulo_tags_horizontal/vertical`, `modulo_img_altofijo_horizontal/vertical`, `modulo_img_automatica_horizontal` (distinta de `molecula_img_automatica_*`), `modulo_texto_complementario` (placeholder, ver `USO-DE-CADA-PARTE.md`).
+- **MOLECULAS** de `MODULO MOLECULAS`, nombre `molecula_*` para ambos banners: `molecula_creditos`, `molecula_promo`, `molecula_textoxl`, `molecula_textom`, `molecula_img_automatica`, `molecula_cta_interno`, cada uno en `_horizontal`/`_vertical`. (Renombradas de `atomo_*` — el Figma del sistema de diseño también movió esta sección de la página Atoms a la página Molecules.)
 
-⚠️ **Posible duplicado sin resolver:** además de `atomo_textom_horizontal.html` / `atomo_textom_vertical.html` (los documentados arriba), también existen `atomo_texto_M_horizontal.html` / `atomo_texto_M_vertical.html` con contenido idéntico. Parece un archivo que quedó de una renombrada a medias — pendiente que el equipo confirme cuál es el nombre correcto y borre el sobrante.
+⚠️ **Posible duplicado sin resolver:** además de `molecula_textom_horizontal.html` / `molecula_textom_vertical.html` (los documentados arriba), también existen `molecula_texto_M_horizontal.html` / `molecula_texto_M_vertical.html` con contenido idéntico. El Figma del sistema documenta la tarjeta como "atomo_texto_M" (ahora molécula), lo que sugiere que `_textom` es el sobrante de una renombrada a medias — pendiente que el equipo lo confirme y borre el archivo que no corresponda.
 
 (`modulo_img_variable` y `modulo_texto_secundario` se eliminaron por no ser necesarios.)
 
@@ -106,7 +106,7 @@ Ya no se usan en el sistema. Se conservan como `02-components/04_content-modules
 - 1 cierre
 - 1 footer
 
-**Total de archivos en `02-components/`: 81** (41 en `01_headers/` + 22 en `02_banners/` (incluye `banner_atoms/`) + 2 en `03_ctas/` + 11 en `04_content-modules/` + 1 en `05_closing/` + 4 en `06_footer/`)
+**Total de archivos en `02-components/`: 81** (41 en `01_headers/` + 22 en `02_banners/` (incluye `banner_moleculas/`) + 2 en `03_ctas/` + 11 en `04_content-modules/` + 1 en `05_closing/` + 4 en `06_footer/`)
 
 **Total de archivos de foundations: 2**
 

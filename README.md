@@ -48,7 +48,7 @@ jarvis-mail-system/
 │
 ├── 02-components/             Los bricks (22 piezas en total, ver 05-docs/INDICE-DE-COMPONENTES.md) — carpetas numeradas en orden de uso
 │   ├── 01_headers/            10 headers de marca, cada uno en claro/oscuro × centrado/columnas
-│   ├── 02_banners/            2 banners (horizontal, vertical) + banner_atoms/ con sus piezas internas
+│   ├── 02_banners/            2 banners (horizontal, vertical) + banner_moleculas/ con sus piezas internas
 │   ├── 03_ctas/               Plantilla del botón de acción
 │   ├── 04_content-modules/    Título, columnas, logos, contenido, deals, cupones, beneficios
 │   │   ├── deals/              Deal grande y small

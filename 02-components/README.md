@@ -47,11 +47,11 @@ Cada archivo contiene únicamente el `<tr>` del header (con su comentario identi
 
 `banner-editorial.html` y `_banner-section-close.html` se eliminaron del sistema.
 
-#### `banner_atoms/` — Piezas internas del banner
+#### `banner_moleculas/` — Piezas internas del banner
 
 | Archivo | Descripción |
 |---------|-------------|
-**MODULOS** — piezas fijas que se conservan tal cual dentro de `big-banner-*.html` (no son ATOMOS, no se combinan libremente):
+**MODULOS** — piezas fijas que se conservan tal cual dentro de `big-banner-*.html` (no son MOLECULAS, no se combinan libremente):
 
 | Archivo | Descripción |
 |---------|-------------|
@@ -59,22 +59,22 @@ Cada archivo contiene únicamente el `<tr>` del header (con su comentario identi
 | `modulo_tags_vertical.html` | Igual, centrado (`margin: 0 auto`) para el banner vertical |
 | `modulo_img_altofijo_horizontal.html` | Columna de imagen de alto fijo (`altobanner1`) para el banner horizontal |
 | `modulo_img_altofijo_vertical.html` | Igual, con la clase/alto (`altobanner2`) del banner vertical |
-| `modulo_img_automatica_horizontal.html` | Celda alternativa a `modulo_img_altofijo_horizontal.html` en el banner horizontal — **solo se usa una de las dos**. No confundir con `atomo_img_automatica_*` (son piezas distintas) |
+| `modulo_img_automatica_horizontal.html` | Celda alternativa a `modulo_img_altofijo_horizontal.html` en el banner horizontal — **solo se usa una de las dos**. No confundir con `molecula_img_automatica_*` (son piezas distintas) |
 
-**ATOMOS** — viven dentro de `MODULO ATOMOS` (la tabla que se conserva en `big-banner-*.html`) y se combinan libremente. Cada uno tiene su par horizontal/vertical:
+**MOLECULAS** — viven dentro de `MODULO MOLECULAS` (la tabla que se conserva en `big-banner-*.html`) y se combinan libremente. Cada una tiene su par horizontal/vertical:
 
 | Archivo | Descripción |
 |---------|-------------|
-| `atomo_promo_horizontal.html` / `atomo_promo_vertical.html` | Módulo de promo ("Ahora" + cifra), tamaños inline + tema (`bg_descuento_mail_general`, `color_descuento_mail_general`) |
-| `atomo_creditos_horizontal.html` / `atomo_creditos_vertical.html` | Texto vivo de créditos ("$XXX" + "DE REINTEGRO"), usa `bnr-*` + tema (`bg_creditos_mail_general`, `color_creditos_mail_general`) |
-| `atomo_textoxl_horizontal.html` / `atomo_textoxl_vertical.html` | Texto vivo XL adicional (`banner_copy_modulo_textoxl`), mismo comportamiento de tamaño que `atomo_promo_*` |
-| `atomo_textom_horizontal.html` / `atomo_textom_vertical.html` | Texto vivo `.bnr-md` (`banner_copy_modulo_textom`), tamaño fijo inline (no depende del largo) |
-| `atomo_img_automatica_horizontal.html` / `atomo_img_automatica_vertical.html` | Imagen automática (`banner_img_modulo_auto_ancho`) — pieza distinta a `modulo_img_automatica_horizontal.html` |
-| `atomo_cta_interno_horizontal.html` (`cta_alineado: 'left'`) / `atomo_cta_interno_vertical.html` (`cta_alineado: 'center'`) | CTA embebido dentro del banner |
+| `molecula_promo_horizontal.html` / `molecula_promo_vertical.html` | Módulo de promo ("Ahora" + cifra), tamaños inline + tema (`bg_descuento_mail_general`, `color_descuento_mail_general`) |
+| `molecula_creditos_horizontal.html` / `molecula_creditos_vertical.html` | Texto vivo de créditos ("$XXX" + "DE REINTEGRO"), usa `bnr-*` + tema (`bg_creditos_mail_general`, `color_creditos_mail_general`) |
+| `molecula_textoxl_horizontal.html` / `molecula_textoxl_vertical.html` | Texto vivo XL adicional (`banner_copy_modulo_textoxl`), mismo comportamiento de tamaño que `molecula_promo_*` |
+| `molecula_textom_horizontal.html` / `molecula_textom_vertical.html` | Texto vivo `.bnr-md` (`banner_copy_modulo_textom`), tamaño fijo inline (no depende del largo) |
+| `molecula_img_automatica_horizontal.html` / `molecula_img_automatica_vertical.html` | Imagen automática (`banner_img_modulo_auto_ancho`) — pieza distinta a `modulo_img_automatica_horizontal.html` |
+| `molecula_cta_interno_horizontal.html` (`cta_alineado: 'left'`) / `molecula_cta_interno_vertical.html` (`cta_alineado: 'center'`) | CTA embebido dentro del banner |
 
 `modulo_texto_complementario.html` (sin sufijo) sigue siendo el único archivo para el texto de body (`<h4>`) que acompaña al texto destacado del banner. Su propio comentario interno marca como pendiente dividirlo en `modulo_texto_complemento_horizontal.html` / `_vertical.html`, pero esa versión todavía no existe en el sistema.
 
-El tamaño de las clases `bnr-*` usadas en los átomos de créditos, promo y texto XL depende de si el banner que los envuelve está marcado con `id="BANNER_HORIZONTAL"` o `id="BANNER_VERTICAL"` (ver `01-foundations/global-styles/global-styles.html`). Los tamaños de escritorio de estas clases se aplican inline (vía las variables Liquid de largo de texto en `01-foundations/global-styles/head-meta-tags.html`); las clases `bnr-*` en el `<head>` solo cubren el override de mobile.
+El tamaño de las clases `bnr-*` usadas en las moléculas de créditos, promo y texto XL depende de si el banner que las envuelve está marcado con `id="BANNER_HORIZONTAL"` o `id="BANNER_VERTICAL"` (ver `01-foundations/global-styles/global-styles.html`). Los tamaños de escritorio de estas clases se aplican inline (vía las variables Liquid de largo de texto en `01-foundations/global-styles/head-meta-tags.html`); las clases `bnr-*` en el `<head>` solo cubren el override de mobile.
 
 ### `03_ctas/` — El botón de acción
 

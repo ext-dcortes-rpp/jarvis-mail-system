@@ -112,21 +112,21 @@ El tema define los colores del banner; el **tipo de banner se elige según qué 
 - **¿El mail solo tiene CTA + cierre?** → big banner vertical
 - **¿El mail tiene módulos de contenido, deals, cupones, beneficios?** → big banner horizontal
 
-### Regla #3 · Las piezas internas del banner viven en `banner_atoms/`
-📁 `02-components/02_banners/banner_atoms/` — piezas que se combinan dentro de cada banner. La mayoría vienen en pareja horizontal/vertical porque los tamaños de escritorio se aplican inline según en qué banner se insertan:
+### Regla #3 · Las piezas internas del banner viven en `banner_moleculas/`
+📁 `02-components/02_banners/banner_moleculas/` — piezas que se combinan dentro de cada banner. La mayoría vienen en pareja horizontal/vertical porque los tamaños de escritorio se aplican inline según en qué banner se insertan:
 
-Piezas fijas (MODULOS, se conservan en `big-banner-*.html` tal cual, no son ATOMOS):
+Piezas fijas (MODULOS, se conservan en `big-banner-*.html` tal cual, no son MOLECULAS):
 1. **`modulo_tags_horizontal.html`** / **`modulo_tags_vertical.html`** — Tag/etiqueta superior. Si la fuente no trae tag, se omite.
 2. **`modulo_img_altofijo_horizontal.html`** / **`modulo_img_altofijo_vertical.html`** — Columna de imagen de alto fijo.
-3. **`modulo_img_automatica_horizontal.html`** — Celda alternativa a `modulo_img_altofijo_horizontal.html` en el horizontal (solo se usa una de las dos). No confundir con `atomo_img_automatica_*`.
+3. **`modulo_img_automatica_horizontal.html`** — Celda alternativa a `modulo_img_altofijo_horizontal.html` en el horizontal (solo se usa una de las dos). No confundir con `molecula_img_automatica_*`.
 
-Piezas de `MODULO ATOMOS` (ATOMOS, se combinan libremente dentro de esa tabla) — ya con nombre `atomo_*` para ambos banners:
-4. **`atomo_creditos_horizontal.html`** / **`atomo_creditos_vertical.html`** — Texto vivo de créditos ("$XXX" + "DE REINTEGRO"), usa las clases `bnr-*`.
-5. **`atomo_promo_horizontal.html`** / **`atomo_promo_vertical.html`** — Módulo de promo ("Ahora" + cifra).
-6. **`atomo_textoxl_horizontal.html`** / **`atomo_textoxl_vertical.html`** — Texto vivo XL adicional, mismo comportamiento de tamaño que el átomo de promo.
-7. **`atomo_textom_horizontal.html`** / **`atomo_textom_vertical.html`** — Texto vivo `.bnr-md`, tamaño fijo inline.
-8. **`atomo_img_automatica_horizontal.html`** / **`atomo_img_automatica_vertical.html`** — Imagen automática dentro del banner.
-9. **`atomo_cta_interno_horizontal.html`** (`cta_alineado: 'left'`) / **`atomo_cta_interno_vertical.html`** (`cta_alineado: 'center'`) — CTA embebido dentro del banner.
+Piezas de `MODULO MOLECULAS` (MOLECULAS, se combinan libremente dentro de esa tabla) — ya con nombre `molecula_*` para ambos banners:
+4. **`molecula_creditos_horizontal.html`** / **`molecula_creditos_vertical.html`** — Texto vivo de créditos ("$XXX" + "DE REINTEGRO"), usa las clases `bnr-*`.
+5. **`molecula_promo_horizontal.html`** / **`molecula_promo_vertical.html`** — Módulo de promo ("Ahora" + cifra).
+6. **`molecula_textoxl_horizontal.html`** / **`molecula_textoxl_vertical.html`** — Texto vivo XL adicional, mismo comportamiento de tamaño que la molécula de promo.
+7. **`molecula_textom_horizontal.html`** / **`molecula_textom_vertical.html`** — Texto vivo `.bnr-md`, tamaño fijo inline.
+8. **`molecula_img_automatica_horizontal.html`** / **`molecula_img_automatica_vertical.html`** — Imagen automática dentro del banner.
+9. **`molecula_cta_interno_horizontal.html`** (`cta_alineado: 'left'`) / **`molecula_cta_interno_vertical.html`** (`cta_alineado: 'center'`) — CTA embebido dentro del banner.
 
 `modulo_texto_complementario.html` (sin sufijo) sigue siendo el único archivo para el texto de body (`<h4>`) que acompaña al texto destacado del banner. Su comentario interno marca como pendiente dividirlo en `modulo_texto_complemento_horizontal.html` / `_vertical.html`, pero esa versión todavía no existe. (`modulo_img_variable.html` y `modulo_texto_secundario.html` ya se eliminaron.)
 
