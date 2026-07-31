@@ -8,7 +8,7 @@ Aquí viven las reglas que cualquier brick respeta: tipografías, colores, espac
 
 ### `global-styles/global-styles.html`
 Bloque `<style>` completo del HTML base con:
-- Tipografías y tamaños (h1 a h6, `.legal`, `.txts`, `.txtl`) — ver escala completa abajo
+- Tipografías y tamaños (h1 a h6, `.legal`) — ver escala completa abajo
 - Clases utilitarias (`.separador`, `.separador-M`, `.separador-S`)
 - Reglas para `table.wrapper`
 - Las dos media queries: `@media (max-width: 480px)` y `@media (max-width: 620px)`
@@ -31,21 +31,19 @@ Estos comentarios documentan un esquema de color anterior al sistema de temas ac
 
 #### Escala tipográfica
 
-Family: Arial/Helvetica sans-serif. `body`, `p` y `div` heredan `14px`. Los tamaños de `h1`-`h6` y las clases de texto cambian entre escritorio (por defecto) y mobile (`@media max-width: 480px` y `620px`, idénticas entre sí):
+Family: Arial/Helvetica sans-serif. `body`, `p` y `div` heredan `14px`. Los tamaños de `h1`-`h6` y `.legal` son **iguales en escritorio y en mobile** (`@media max-width: 480px` y `620px` sólo repiten el mismo valor con `!important`, no lo cambian):
 
-| Elemento | Escritorio (tamaño / interlineado) | Mobile (tamaño / interlineado) |
-|---|---|---|
-| `h1` | 25px / 28px | 29px / 32px |
-| `h2` | 16px / 18px | 22px / 25px |
-| `h3` | 14px / 17px | 19px / 23px |
-| `h4` | 12px / 16px | 14px / 18px |
-| `h5` | 10px / 13px | 12px / 16px |
-| `h6` | 8px / 11px | 9px / 12px |
-| `.legal` | 6px / 8px | 8px / 10px |
-| `.txts` | — (solo mobile) | 11px / 12px |
-| `.txtl` | — (solo mobile) | 20px / 21px |
+| Elemento | Tamaño / interlineado (escritorio y mobile) |
+|---|---|
+| `h1` | 26px / 28px |
+| `h2` | 21px / 22px |
+| `h3` | 16px / 17px |
+| `h4` | 14px / 15px |
+| `h5` | 12px / 13px |
+| `h6` | 10px / 11px |
+| `.legal` | 8px / 9px |
 
-`.txts` y `.txtl` solo están definidas dentro de las media queries: en escritorio no tienen tamaño propio (heredan el `14px` de `body`).
+Las clases `.txts` y `.txtl` ya no existen en el sistema — se quitaron de `global-styles.html`.
 
 Las clases de "texto vivo" del banner (`.bnr-xl`, `.bnr-lg`, `.bnr-md`, `.bnr-hasta-xl`, `.bnr-hasta-lg`, `.bnr-sm`) tienen su tamaño de escritorio aplicado inline en las moléculas de `02-components/02_banners/banner_moleculas/` — aquí solo se define su override de mobile. Ver el detalle en `02-components/README.md`.
 

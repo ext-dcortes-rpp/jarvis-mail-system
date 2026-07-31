@@ -85,6 +85,7 @@ Antes de producir tu primer mail, lee estos dos documentos en orden:
 Documentación complementaria en `05-docs/`:
 - `COMO-ARMAR-UN-MAIL.md` — Flujo paso a paso para armar un mail desde cero
 - `INDICE-DE-COMPONENTES.md` — Mapa con cada componente y su ubicación en el HTML original
+- `ATOMIC-DESIGN.md` — Cómo clasificamos átomos, moléculas y organismos (espejo del Figma del sistema)
 - `CONTRIBUTING.md` — Cómo proponer cambios al sistema
 - `CHANGELOG.md` — Historial de versiones
 

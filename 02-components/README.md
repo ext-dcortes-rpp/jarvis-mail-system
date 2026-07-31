@@ -4,6 +4,8 @@
 
 Esta es la carpeta más importante del repositorio. Aquí viven todos los bloques visuales que se combinan para armar un mail. Cada subcarpeta agrupa un tipo de pieza.
 
+Las subcarpetas de abajo (`01_headers`, `02_banners`...) son la estructura operativa actual. En paralelo, el sistema también se piensa en términos de Atomic Design (átomos → moléculas → organismos) — ver `05-docs/ATOMIC-DESIGN.md` para las reglas y el estado de esa clasificación.
+
 ## Subcarpetas
 
 ### `01_headers/` — La identidad del remitente
@@ -107,6 +109,28 @@ Dentro de `modulo-1columna.html` viven sub-piezas que se identifican con `role="
 - **BULLET NUMERADO** — Número grande + subtítulo + texto
 
 Estos componentes están dentro del archivo `modulo-1columna.html` para mantener su contexto. Se pueden combinar libremente dentro del módulo, separados por `<div class="separador-M">`.
+
+#### `04_content-modules/content_moleculas/`
+
+Moléculas de contenido extraídas de `06-examples/template_maestro_original.html` (marcadas ahí como `<!-- MOLECULA ... -->`). Cada una es una pieza suelta, sin el contexto de un módulo contenedor:
+
+| Archivo | Descripción |
+|---------|-------------|
+| `molecula_tag_promo.html` | Badge de monto destacado ("$999") con fondo/color de descuento |
+| `molecula_tag_verde.html` | Igual que `molecula_tag_promo`, con fondo/color de créditos |
+| `molecula_separador_s.html` | Línea decorativa corta (50px) bajo un título, color acento 1 — no confundir con la utilidad de espaciado `.separador-S` |
+| `molecula_tag_icono.html` | Pill con ícono + texto pequeño (ícono y texto ocultables/cambiables) |
+| `molecula_texto_pastilla.html` | Tabla de 2 celdas: una pastilla (ej. día) + un texto plano al lado, orden intercambiable |
+| `molecula_link_interno.html` | Link circular con ícono + texto ("Clic aquí") |
+| `molecula_bullet_numerado.html` | Número + subtítulo + texto, separados por `.separador-S` |
+| `molecula_bullet_icono_s.html` | Bullet con ícono de 15px + subtítulo + texto |
+| `molecula_bullet_icono_m.html` | Bullet con ícono de 25px + subtítulo + texto |
+| `molecula_bullet_icono_l.html` | Bullet con imagen de 50-60px + subtítulo + texto |
+| `modificadores-texto.html` | No es una molécula (por eso no lleva el prefijo `molecula_`) — es la referencia de modificadores de texto (tamaño h1-h5/.legal, subtono 1/2, bold, italic, tachado, subrayado, superíndice) que vive justo antes de las moléculas en el HTML maestro |
+
+⚠️ En el HTML original, `molecula_bullet_icono_s.html` y `molecula_bullet_icono_m.html` compartían el mismo nombre de comentario (`MOLECULA BULLET ICONO M`, uno con ícono de 15px y otro de 25px) — se renombró el de 15px a "S" para seguir el patrón S/M/L. Confirmar con el equipo si es correcto.
+
+⚠️ `molecula_bullet_icono_*` se superpone conceptualmente con los sub-componentes BULLET ICONO / BULLET NUMERADO ya documentados dentro de `1columna/modulo-1columna.html` (arriba) — son piezas distintas (una vive suelta, la otra embebida en el módulo), pendiente confirmar si deben unificarse.
 
 #### `04_content-modules/deals/`
 
