@@ -8,6 +8,20 @@
 {% assign banner_copy_modulo_textom = 'de regalo para tu proxima compra' %}
 {% assign banner_img_modulo_auto_ancho = '100' %}
 
+<!-- EJEMPLO DE DEFINICION DE CAMPOS PARA BANNER  -->
+{% assign deals_copy_1_promo = 'promo promo' %}
+{% assign deals_copy_2_promo = 'promo promo promo promo promo promo promo promo promo promo promo promo promo promo promo ' %}
+
+<!-- LÍMITE DE 2 LÍNEAS: cada celda de deal mide ~50% de 480px (≈230px), con el título ahora en h4 (14px/15px, bold).
+     A ese ancho entran ~27-28 caracteres por línea, así que se trunca a 55 para no pasar de 2 líneas. -->
+{% assign deals_copy_1_promo = deals_copy_1_promo | truncate: 50 %}
+{% assign deals_copy_2_promo = deals_copy_2_promo | truncate: 50 %}
+
+
+<!-- EJEMPLO DE DEFINICION DE CAMPOS PARA BODY  -->
+{% assign body_alineado_molecular = 'center' %}
+{% assign body_img_modulo_auto_ancho = '50' %}
+
 <!--
 -----------------------
 Variables de largo de texto:
@@ -72,6 +86,21 @@ Variables de largo de texto:
   {% assign banner_copy_modulo_textoxl_lineheight_vertical = '125px' %}
 {% endif %}
 
+
+
+----------------------------
+-------- ALINEADO --------
+----------------------------
+
+{% if body_alineado_molecular == 'center' %}
+		
+	{% assign alineado_molecular_mail_body = '0 auto' %}
+
+	{% elsif body_alineado_molecular == 'left' %}
+		
+		{% assign alineado_molecular_mail_body = '0px' %}
+
+	{% endif %}
 
 
 ----------------------------
@@ -1054,31 +1083,6 @@ h6 {
                                                           </tr>
                                                         </table>
                                                         
-                                                        <!-- MOLECULA CREDITOS -->
-                                                        
-                                                        <table bgcolor="{{bg_creditos_mail_general}}" style=" width: auto;  font-family:arial,helvetica,sans-serif; padding: 3px 6px; border-radius: 7px; margin-bottom: 7px;">
-                                                          <tr>
-                                                            <td style="vertical-align: middle; text-align: left; "><span class="{{banner_copy_modulo_creditos_class}}" style="font-weight: bold; font-size: {{banner_copy_modulo_creditos_fontsize}}; line-height: {{banner_copy_modulo_creditos_lineheight}}; color: {{color_creditos_mail_general}}; letter-spacing: -2px; ">{{banner_copy_modulo_creditos}}</span>
-                                                              <div class="bnr-sm" style="font-weight: bold; font-size: 14px; line-height: 15px; color: {{color_creditos_mail_general}} ; width: 100%; letter-spacing: 4px; ">DE REINTEGRO</div></td>
-                                                          </tr>
-                                                        </table>
-                                                        
-                                                        <!-- MOLECULA TEXTO XL VIVO -->
-                                                        
-                                                        <table bgcolor="" style=" width: auto;  font-family:arial,helvetica,sans-serif; margin-bottom: 7px; ">
-                                                          <tr>
-                                                            <td style="vertical-align: middle; text-align: left; "><span class="{{banner_copy_modulo_textoxl_class}}" style="font-size: {{banner_copy_modulo_textoxl_fontsize}}; line-height: {{banner_copy_modulo_textoxl_lineheight}}; color: {{color_acento2_mail_general}}; letter-spacing: -2px; ">{{banner_copy_modulo_textoxl}}</span></td>
-                                                          </tr>
-                                                        </table>
-                                                        
-                                                        <!-- MOLECULA TEXTO M VIVO -->
-                                                        
-                                                        <table bgcolor="" style=" width: auto;  font-family:arial,helvetica,sans-serif; margin-bottom: 7px; ">
-                                                          <tr>
-                                                            <td style="vertical-align: middle; text-align: left; "><span class="bnr-md" style="font-size: 30px; line-height: 31px; color: {{color_acento2_mail_general}} ">{{banner_copy_modulo_textom}}</span></td>
-                                                          </tr>
-                                                        </table>
-                                                        
                                                         <!-- MOLECULA TEXTO COMPLEMENTO -->
                                                         
                                                         <table style=" width: auto;  font-family:arial,helvetica,sans-serif;  margin-bottom: 7px;">
@@ -1092,7 +1096,7 @@ h6 {
                                                         <table data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style=" margin-bottom: 7px; ">
                                                           <tbody>
                                                             <tr>
-                                                              <td ><img src="https://lh3.googleusercontent.com/d/1U4HZfNfRWpZ0XhMCmFF-4V4U2H3W8IcN" style="display: block; border: 0; width: {{banner_img_modulo_auto_ancho}}%; height: auto; " alt="img"></td>
+                                                              <td ><img src="https://lh3.googleusercontent.com/d/1U4HZfNfRWpZ0XhMCmFF-4V4U2H3W8IcN" style="display: block; border: 0; width: {{banner_img_modulo_auto_ancho}}%; height: auto; max-width: 480px; " alt="img"></td>
                                                             </tr>
                                                           </tbody>
                                                         </table>
@@ -1128,7 +1132,7 @@ h6 {
                                                           <table  border="0" cellpadding="0" cellspacing="0" width="100%" style=" margin-bottom: 7px; ">
                                                             <tbody>
                                                               <tr>
-                                                                <td ><img src="https://braze-images.com/appboy/communication/assets/image_assets/images/6a69942490791600863938e5/original.png?1785304099" style="display: block; border: 0; width: {{banner_img_modulo_auto_ancho}}%; height: auto; margin: 0 auto " alt="img"></td>
+                                                                <td ><img src="https://braze-images.com/appboy/communication/assets/image_assets/images/6a69942490791600863938e5/original.png?1785304099" style="display: block; border: 0; width: {{banner_img_modulo_auto_ancho}}%; height: auto; margin: 0 auto; max-width: 480px; " alt="img"></td>
                                                               </tr>
                                                             </tbody>
                                                           </table>
@@ -1225,7 +1229,7 @@ h6 {
                                                     <table data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style=" margin-bottom: 7px; ">
                                                       <tbody>
                                                         <tr>
-                                                          <td ><img src="https://lh3.googleusercontent.com/d/1U4HZfNfRWpZ0XhMCmFF-4V4U2H3W8IcN" style="display: block; border: 0; width: {{banner_img_modulo_auto_ancho}}%; height: auto; margin: 0 auto; " alt="img"></td>
+                                                          <td ><img src="https://lh3.googleusercontent.com/d/1U4HZfNfRWpZ0XhMCmFF-4V4U2H3W8IcN" style="display: block; border: 0; width: {{banner_img_modulo_auto_ancho}}%; height: auto; margin: 0 auto; max-width: 480px; " alt="img"></td>
                                                         </tr>
                                                       </tbody>
                                                     </table>
@@ -1307,56 +1311,57 @@ h6 {
                                     
                                     <!-- WRAPPER DE CONTENIDOS -->
                                     
-                                    <table width="560" style="width:560px; border-spacing:0; margin:10px 0px 10px 0px; word-break: break-all; " cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-1">
+                                    <table width="480" style="width:480px; border-spacing:0; margin:10px 0px 10px 0px; word-break: break-all; margin: 0 auto; " cellpadding="0" cellspacing="0" align="center" border="0" bgcolor="" class="column column-1">
                                       <tbody>
                                         <tr>
-                                          <td style="padding:0px;margin:0px;border-spacing:0;">
-											  
-											  
-											   <!-- MODIFICADORES TEXTOS -->
-											  
-											  <!-- TAMAÑO -->
+                                          <td style="padding:0px;margin:0px;border-spacing:0;"><!-- MODIFICADORES TEXTOS --> 
                                             
-                                            <h1 style="color:{{color_texto_mail_general}}; margin:0;">Texto h1</h1>
-                                            <h2 style="color:{{color_texto_mail_general}}; margin:0;">Texto h2</h2>
-                                            <h3 style="color:{{color_texto_mail_general}}; margin:0;">Texto h3</h3>
-                                            <h4 style="color:{{color_texto_mail_general}}; margin:0;">Texto h4</h4>
-                                            <h5 style="color:{{color_texto_mail_general}}; margin:0;">Texto h5</h5>
-                                            <span class="legal" style="color:{{color_texto_mail_general}}; margin:0;">texto legal</span> 
+                                            <!-- TAMAÑO -->
+                                            
+                                            <h1 style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h1</h1>
+                                            <h2 style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h2</h2>
+                                            <h3 style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h3</h3>
+                                            <h4 style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h4</h4>
+                                            <h5 style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h5</h5>
+                                            <span class="legal" style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}}; display: block;">texto legal</span> 
+                                            
+                                            <!-- COLOR BASE -->
+                                            
+                                            <h1 style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h1</h1>
                                             
                                             <!-- SUBTONO 1 -->
                                             
-                                            <h1 style="color:{{color_acento1_mail_general}}; margin:0;">Texto h1</h1>
+                                            <h1 style="color:{{color_acento1_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h1</h1>
                                             
                                             <!-- SUBTONO 2 -->
                                             
-                                            <h1 style="color:{{color_acento2_mail_general}}; margin:0;">Texto h1</h1>
+                                            <h1 style="color:{{color_acento2_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h1</h1>
                                             
                                             <!-- BOLD: SE AGREGA "font-weight: bold;" en el style  -->
                                             
-                                            <h1 style="color:{{color_texto_mail_general}}; margin:0; font-weight: bold;">Texto h1</h1>
+                                            <h1 style="color:{{color_texto_mail_general}}; margin:0; font-weight: bold; text-align: {{body_alineado_molecular}};">Texto h1</h1>
                                             
                                             <!-- ITALIC: SE AGREGA "font-style: italic;" en el style  -->
                                             
-                                            <h1 style="color:{{color_texto_mail_general}}; margin:0; font-style: italic; ">Texto h1</h1>
+                                            <h1 style="color:{{color_texto_mail_general}}; margin:0; font-style: italic; text-align: {{body_alineado_molecular}}; ">Texto h1</h1>
                                             
                                             <!-- TACHADO: SE AGREGA "text-decoration: line-through;" en el style  -->
                                             
-                                            <h1 style="color:{{color_texto_mail_general}}; margin:0; text-decoration: line-through; ">Texto h1</h1>
+                                            <h1 style="color:{{color_texto_mail_general}}; margin:0; text-decoration: line-through; text-align: {{body_alineado_molecular}}; ">Texto h1</h1>
                                             
                                             <!-- SUBRAYADO: SE AGREGA "text-decoration: underline;" en el style  -->
                                             
-                                            <h1 style="color:{{color_texto_mail_general}}; margin:0; text-decoration: underline;">Texto h1</h1>
+                                            <h1 style="color:{{color_texto_mail_general}}; margin:0; text-decoration: underline; text-align: {{body_alineado_molecular}};">Texto h1</h1>
                                             
                                             <!-- SUPERINDICE: SE AGREGA el texto dentro de la etiqueta <sup>  -->
                                             
-                                            <h1 style="color:{{color_texto_mail_general}}; margin:0; ">SI<sup>***</sup></h1>
+                                            <h1 style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}}; ">SI<sup>***</sup></h1>
                                             
                                             <!-- MOLECULAS BODY --> 
                                             
                                             <!-- MOLECULA TAG PROMO -->
                                             
-                                            <table role="module" cellpadding="0" cellspacing="0" style="width: auto; font-family:arial,helvetica,sans-serif;">
+                                            <table role="module" cellpadding="0" cellspacing="0" style="width: auto; font-family:arial,helvetica,sans-serif; margin: {{alineado_molecular_mail_body}};">
                                               <tr>
                                                 <td role="celda1" width="100%" valign="top" style="vertical-align: top; text-align:left;"><div style="color: {{color_descuento_mail_general}}; background-color:{{bg_descuento_mail_general}}; padding:2px 4px; line-height: 20px; font-weight: bold;  border-radius: 3px; display: inline-block; margin-right: 3px; ">
                                                     <h1 style="font-weight: bold">$999</h1>
@@ -1366,7 +1371,7 @@ h6 {
                                             
                                             <!-- MOLECULA TAG VERDE -->
                                             
-                                            <table role="module" cellpadding="0" cellspacing="0" style="width: auto;  font-family:arial,helvetica,sans-serif; ">
+                                            <table role="module" cellpadding="0" cellspacing="0" style="width: auto;  font-family:arial,helvetica,sans-serif; margin: {{alineado_molecular_mail_body}}; ">
                                               <tr>
                                                 <td role="celda1" width="100%" valign="top" style="vertical-align: top; text-align:left;"><div style="color: {{color_creditos_mail_general}}; background-color:{{bg_creditos_mail_general}}; padding:2px 4px; line-height: 20px; font-weight: bold;  border-radius: 3px; display: inline-block; margin-right: 3px; ">
                                                     <h1 style="font-weight: bold; ">$999</h1>
@@ -1374,23 +1379,52 @@ h6 {
                                               </tr>
                                             </table>
                                             
+                                            <!-- MOLECULA TAG BASICO -->
+                                            
+                                            <table role="module" cellpadding="0" cellspacing="0" style="width: auto;  font-family:arial,helvetica,sans-serif; margin: {{alineado_molecular_mail_body}}; ">
+                                              <tr>
+                                                <td role="celda1" width="100%" valign="top" style="vertical-align: top; text-align:left;"><div style="color: {{color_acento2_mail_general}}; background-color:{{bg_solid_generico100_mail_body}}; padding:2px 4px; line-height: 20px; font-weight: bold;  border-radius: 3px; display: inline-block; margin-right: 3px; ">
+                                                    <h1 style="font-weight: bold; ">$999</h1>
+                                                  </div></td>
+                                              </tr>
+                                            </table>
+                                            
                                             <!-- MOLECULA SEPARADOR S -->
                                             
-                                            <div style="height: 10px; width: 50px; border-bottom: 1px solid ; border-color: {{color_acento1_mail_general}}; margin-bottom: 5px; "></div>
+											  <div style="margin-bottom: 10px;">
+                                            <div style="height: 10px; width: 50px; border-bottom: 1px solid ; border-color: {{color_acento1_mail_general}}; margin-bottom: 5px; margin: {{alineado_molecular_mail_body}};  "></div>
+												  </div>
                                             
                                             <!-- MOLECULA TAG: se puede cambiar el ícono o ocularto -->
                                             
-                                            <div style="margin-top: 4px;">
-                                              <div style="vertical-align: middle;text-align: left; width: auto; display: inline-block; background: {{bg_tag_fondo_mail_general}};  border-radius: 14px; padding: 2px 4px; margin-right: 3px; ">
+                                            <div style="margin: {{alineado_molecular_mail_body}}; display: table;">
+                                              <div style="vertical-align: middle;text-align: left; width: auto; display: inline-block; background: {{bg_tag_fondo_mail_general}};  border-radius: 14px; padding: 2px 4px; margin-right: 3px;  ">
                                                 <h4 style="color: {{color_texto_mail_general}} "><img  border="0" style="height: 13px; max-height: 13px; min-height: 13px; vertical-align: middle; padding-right: 2px;line-height: 13px" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/19wcynrgz0OqdDt5S5fVf7yaSx7rAN4Fn"> tag 1 </h4>
                                               </div>
                                             </div>
                                             
                                             <!-- MOLECULA TEXTO + PASTILLA: se puede cambiar el orden de las celdas "th" -->
                                             
-                                            <table>
+                                            <table style="margin: {{alineado_molecular_mail_body}};">
                                               <thead>
                                                 <tr> 
+                                                  <!-- Celda texto -->
+                                                  <th style=" "> <div>
+                                                      <h3 style="color:{{color_texto_mail_general}}; ">Supermercados</h3>
+                                                    </div>
+                                                  </th>
+                                                  <!-- Celda pastilla -->
+                                                  <th style="background: {{bg_tag_contenedor_mail_general}}; padding: 4px 7px; border-radius: 30px;"> <div>
+                                                      <h3 style="color:{{color_tag_tipografia_mail_general}}; ">Martes</h3>
+                                                    </div>
+                                                  </th>
+                                                </tr>
+                                              </thead>
+                                            </table>
+                                            <table style="margin: {{alineado_molecular_mail_body}};">
+                                              <thead>
+                                                <tr> 
+                                                  
                                                   <!-- Celda pastilla -->
                                                   <th style="background: {{bg_tag_contenedor_mail_general}}; padding: 4px 7px; border-radius: 30px;"> <div>
                                                       <h3 style="color:{{color_tag_tipografia_mail_general}}; ">Martes</h3>
@@ -1409,7 +1443,7 @@ h6 {
                                             <!-- MOLECULA LINK INTERNO: se puede cambiar el ícono o ocultarlo --> 
                                             
                                             <a href="link1" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit; display:block;">
-                                            <div role="componente" style="background: {{bg_solid_generico50_mail_body}}; width: auto; padding: 5px; display: inline-block; border-radius: 40px;">
+                                            <div role="componente" style="background: {{bg_solid_generico50_mail_body}}; width: auto; padding: 5px; display: table; border-radius: 40px; margin: {{alineado_molecular_mail_body}};">
                                               <table border="0" cellpadding="0" cellspacing="0" style="width: auto;">
                                                 <tr>
                                                   <td width="25px" height="25px" valign="middle" style="text-align: center; background-color: {{bg_solid_generico100_mail_body}}; border-radius: 40px; "><img  border="0" style="height: 17px; max-height: 17px; min-height: 17px; vertical-align: middle; padding-right: 2px; line-height: 17px" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="{{icon_link_generico_mail_body}}"></td>
@@ -1422,7 +1456,7 @@ h6 {
                                             <!-- MOLECULA BULLET NUMERADO: se pueden agregar textos en la celda derecha, siempre separados por un   <div class="separador-S"></div> -->
                                             
                                             <div role="componente">
-                                              <table border="0" cellpadding="0" cellspacing="0">
+                                              <table border="0" cellpadding="0" cellspacing="0" style="margin: {{alineado_molecular_mail_body}};">
                                                 <tr>
                                                   <td width="23px" valign="top" style="text-align: left; "><h4 style="color:{{color_texto_mail_general}}; border-right: 1px solid;  border-color: {{color_acento2_mail_general}};"> 1 </h4></td>
                                                   
@@ -1437,7 +1471,7 @@ h6 {
                                             <!-- MOLECULA BULLET ICONO M : se pueden agregar textos en la celda derecha, siempre separados por un   <div class="separador-S"></div> -->
                                             
                                             <div role="componente">
-                                              <table border="0" cellpadding="0" cellspacing="0">
+                                              <table border="0" cellpadding="0" cellspacing="0" style="margin: {{alineado_molecular_mail_body}};">
                                                 <tr>
                                                   <td width="15px" valign="top" style="text-align: left;"><img src="https://lh3.googleusercontent.com/d/1wZxPSRbT-maSuZWDyZz99Ewi2A2RH37-" width="15" style="display: block; line-height: 15px;" alt="img"></td>
                                                   
@@ -1453,7 +1487,7 @@ h6 {
                                             <!-- MOLECULA BULLET ICONO M : se pueden agregar textos en la celda derecha, siempre separados por un   <div class="separador-S"></div> -->
                                             
                                             <div role="componente">
-                                              <table border="0" cellpadding="0" cellspacing="0">
+                                              <table border="0" cellpadding="0" cellspacing="0" style="margin: {{alineado_molecular_mail_body}};">
                                                 <tr>
                                                   <td width="25px" valign="top" style="text-align: left; "><img src="https://lh3.googleusercontent.com/d/1vdunOvDi3k-LLdfUwk2Qpotyl9u7ionz" width="25" style="display: block; line-height: 15px;" alt="img"></td>
                                                   
@@ -1468,7 +1502,7 @@ h6 {
                                             
                                             <!-- MOLECULA BULLET ICONO L : se pueden agregar textos en la celda derecha, siempre separados por un   <div class="separador-S"></div> -->
                                             
-                                            <table role="componente"  border="0" cellpadding="0" cellspacing="0">
+                                            <table role="componente"  border="0" cellpadding="0" cellspacing="0" style="margin: {{alineado_molecular_mail_body}};">
                                               <tr>
                                                 <td width="50px" valign="top"><img src="https://lh3.googleusercontent.com/d/1OnoMAEG3mWUinKdMpWpqQ9lt4s3a8tiS" width="60px" style="display: block; border: 0; border-radius: 7px; line-height: 40px;" alt="img"></td>
                                                 
@@ -1477,6 +1511,37 @@ h6 {
                                                   <div class="separador-S"></div>
                                                   <h4 style="color:{{color_texto_mail_general}}; ">bloque de texto bloque de texto bloque de texto </h4></td>
                                               </tr>
+                                            </table>
+                                            
+                                            <!-- MOLECULA BULLET ICONO L : se pueden agregar textos en la celda derecha, siempre separados por un   <div class="separador-S"></div> -->
+                                            
+                                            <table style="border-collapse:collapse;border-spacing:0px; margin-bottom: 0px; width: auto; margin: {{alineado_molecular_mail_body}}; ">
+                                              <tbody>
+                                                <tr>
+                                                  <td style="padding:0px 2px; max-width: 80px;"><!-- LOGO 1-->
+                                                    
+                                                    <div style="margin: 0 auto; width: 100%; max-width: 80px; border-radius: 150px; background-image: url(https://lh3.googleusercontent.com/d/1bgvBGbWVvEmz1kkQenLB2DJ1YSLtXl8P); background-size: 500px ; background-position: right top; vertical-align: middle;"> <img class="banner-logo1-1"  border="0" width="40" style="display:block; width:50px; border-radius: 7px;" alt="LOGO" src="https://lh3.googleusercontent.com/d/1ZYWddltBXkpcjXzkdlT2fqWSSR2HYB-j"> </div></td>
+                                                  <td style="padding:0px 2px; max-width: 80px;"><!-- LOGO 2-->
+                                                    
+                                                    <div style="margin: 0 auto; width: 100%; max-width: 80px; border-radius: 150px; background-image: url(https://lh3.googleusercontent.com/d/1bgvBGbWVvEmz1kkQenLB2DJ1YSLtXl8P); background-size: 500px ; background-position: right top; vertical-align: middle;"> <img class="banner-logo1-1"  border="0" width="40" style="display:block; width:50px; border-radius: 7px;" alt="LOGO" src="https://lh3.googleusercontent.com/d/1ZYWddltBXkpcjXzkdlT2fqWSSR2HYB-j"> </div></td>
+                                                  <td style="padding:0px 2px; max-width: 80px;"><!-- LOGO 3-->
+                                                    
+                                                    <div style="margin: 0 auto; width: 100%; max-width: 80px; border-radius: 150px; background-image: url(https://lh3.googleusercontent.com/d/1bgvBGbWVvEmz1kkQenLB2DJ1YSLtXl8P); background-size: 500px ; background-position: right top; vertical-align: middle;"> <img class="banner-logo1-1"  border="0" width="40" style="display:block; width:50px; border-radius: 7px;" alt="LOGO" src="https://lh3.googleusercontent.com/d/1ZYWddltBXkpcjXzkdlT2fqWSSR2HYB-j"></div></td>
+                                                  <td style="padding:0px 2px; max-width: 80px;"><!-- LOGO 4-->
+                                                    
+                                                    <div style="margin: 0 auto; width: 100%; max-width: 80px; border-radius: 150px; background-image: url(https://lh3.googleusercontent.com/d/1bgvBGbWVvEmz1kkQenLB2DJ1YSLtXl8P); background-size: 500px ; background-position: right top; vertical-align: middle; margin: {{alineado_molecular_mail_body}};"> <img class="banner-logo1-1"  border="0" width="40" style="display:block; width:50px; border-radius: 7px;" alt="LOGO" src="https://lh3.googleusercontent.com/d/1ZYWddltBXkpcjXzkdlT2fqWSSR2HYB-j"> </div></td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                            
+                                            <!-- MOLECULA IMG AUTOMATICA -->
+                                            
+                                            <table data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="">
+                                              <tbody>
+                                                <tr>
+                                                  <td ><img src="https://lh3.googleusercontent.com/d/1U4HZfNfRWpZ0XhMCmFF-4V4U2H3W8IcN" style="display: block; border: 0; width: {{body_img_modulo_auto_ancho}}%; max-width: 480px; height: auto; margin: {{alineado_molecular_mail_body}}; " alt="img"></td>
+                                                </tr>
+                                              </tbody>
                                             </table>
                                             
                                             <!-- DEALS -->
@@ -1505,37 +1570,37 @@ h6 {
                                                             
                                                             <!-- LINEA 1 -->
                                                             
-                                                            <h3 style="color: {{color_texto_mail_general}}; margin:0;  overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;"><strong>linea 1 deal</strong></h3>
+                                                            <h4 style="color: {{color_texto_mail_general}}; margin:0;  overflow: hidden; "><strong>{{deals_copy_1_promo}}</strong></h4>
                                                             
                                                             <!-- LINEA 2 -->
                                                             
-                                                            <h3 style="color:{{color_texto_mail_general}}; margin:0; overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;">linea 2 deal</h3>
+                                                            <h4 style="color:{{color_texto_mail_general}}; margin:0; overflow: hidden;  ">{{deals_copy_2_promo}}</h4>
                                                             
                                                             <!-- TEXTOS PROMOS -->
                                                             
                                                             <div style="margin-top: 4px;">
-                                                              <h3 style="color: {{color_descuento_mail_general}}; background-color:{{bg_descuento_mail_general}}; padding:2px 4px; line-height: 20px; font-weight: bold;  border-radius: 3px; display: inline-block; margin-right: 3px;"><img  border="0" style="height: 7px; max-height: 7px; min-height: 7px; vertical-align: middle;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="{{coronapro_mail_body}}">$999</h3>
-                                                              <h4 style="color:{{color_texto_mail_general}}; display: inline-block;">99% OFF</h4>
-                                                              <h4 style="color:{{color_texto_mail_general}}; display: inline-block;">| Antes <del>$999</del></h4>
+                                                              <h4 style="color: {{color_descuento_mail_general}}; background-color:{{bg_descuento_mail_general}}; padding:2px 4px; line-height: 20px; font-weight: bold;  border-radius: 3px; display: inline-block; margin-right: 3px;"><img  border="0" style="height: 6px; max-height: 6px; min-height: 6px; vertical-align: middle;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="{{coronapro_mail_body}}">$999</h4>
+                                                              <h5 style="color:{{color_texto_mail_general}}; display: inline-block;">99% OFF</h5>
+                                                              <h5 style="color:{{color_texto_mail_general}}; display: inline-block;">| Antes <del>$999</del></h5>
                                                             </div>
                                                             
                                                             <!-- TEXTOS RATING  -->
-                                                            <div style="margin-top: 4px;"> <span style="color:{{color_texto_mail_general}};">Italiana&nbsp;<img src="https://lh3.googleusercontent.com/d/1634Wp0bBuhP7itsbIdYKw6DB4F9mS8HR" alt="⭐" style="height:10px; min-height: 10px; max-height: 10px; line-height: 10px; display:inline-block; margin-left: 5px;">&nbsp;4.9</span> <span style="color:{{color_texto_mail_general}};"> <img src="https://lh3.googleusercontent.com/d/1rRjb39HEa6Pqpz4cxc1vGSVvV1DLE7hQ" alt="⭐" style="height:10px; min-height: 10px; max-height: 10px; line-height: 10px; display:inline-block; margin-left: 5px;">&nbsp;xx min.</span> </div>
+                                                            <div style="margin-top: 4px;"> <h5 style="color:{{color_texto_mail_general}}; display: inline-block;">Italiana&nbsp;<img src="https://lh3.googleusercontent.com/d/1634Wp0bBuhP7itsbIdYKw6DB4F9mS8HR" alt="⭐" style="height:10px; min-height: 10px; max-height: 10px; line-height: 10px; display:inline-block; margin-left: 5px;">&nbsp;4.9</h5> <h5 style="color:{{color_texto_mail_general}}; display: inline-block;"> <img src="https://lh3.googleusercontent.com/d/1rRjb39HEa6Pqpz4cxc1vGSVvV1DLE7hQ" alt="⭐" style="height:10px; min-height: 10px; max-height: 10px; line-height: 10px; display:inline-block; margin-left: 5px;">&nbsp;xx min.</h5> </div>
                                                             
                                                             <!-- TAG 1 -->
                                                             <div style="margin-top: 4px;">
                                                               <div style="vertical-align: middle;text-align: left; width: auto; display: inline-block; background: {{bg_tag_fondo_mail_general}};  border-radius: 14px; padding: 2px 4px; margin-right: 3px; ">
-                                                                <h4 style="color: {{color_texto_mail_general}} "><img  border="0" style="height: 13px; max-height: 13px; min-height: 13px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1rofiEyeYdjqVsiEL3-NWsOfXOSMQRVNa"> tag 1 </h4>
+                                                                <h5 style="color: {{color_texto_mail_general}} "><img  border="0" style="height: 13px; max-height: 13px; min-height: 13px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1rofiEyeYdjqVsiEL3-NWsOfXOSMQRVNa"> tag 1 </h5>
                                                               </div>
                                                             </div>
                                                             
                                                             <!-- TAG 2 -->
                                                             <div style="margin-top: 4px;">
                                                               <div style="vertical-align: middle;text-align: left; width: auto; display: inline-block; background: {{bg_tag_fondo_mail_general}};  border-radius: 14px; padding: 2px 4px; margin-right: 3px; ">
-                                                                <h4 style="color: {{color_texto_mail_general}} "><img  border="0" style="height: 13px; max-height: 13px; min-height: 13px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/19wcynrgz0OqdDt5S5fVf7yaSx7rAN4Fn"> tag 1 </h4>
+                                                                <h5 style="color: {{color_texto_mail_general}} "><img  border="0" style="height: 13px; max-height: 13px; min-height: 13px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/19wcynrgz0OqdDt5S5fVf7yaSx7rAN4Fn"> tag 1 </h5>
                                                               </div>
                                                             </div>
-                                                            <h3 style="color:{{color_acento2_mail_general}}; margin:0; display: inline-block; margin-top: 6px;"> <strong>Pide ahora ⤍ </strong></h3>
+                                                            <h4 style="color:{{color_acento2_mail_general}}; margin:0; display: inline-block; margin-top: 6px;"> <strong>Pide ahora ⤍ </strong></h4>
                                                           </div></td>
                                                       </tr>
                                                       
@@ -1558,42 +1623,42 @@ h6 {
                                                       
                                                       <!-- TEXTOS-->
                                                       
-                                                      <tr>
+                                                       <tr>
                                                         <td style="text-align: left; "><div style="padding:{{padd_deal_mail_general}}; "> 
                                                             
                                                             <!-- LINEA 1 -->
                                                             
-                                                            <h3 style="color: {{color_texto_mail_general}}; margin:0; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;"><strong>linea 1 deal</strong></h3>
+                                                            <h4 style="color: {{color_texto_mail_general}}; margin:0;  overflow: hidden; "><strong>{{deals_copy_1_promo}}</strong></h4>
                                                             
                                                             <!-- LINEA 2 -->
                                                             
-                                                            <h3 style="color:{{color_texto_mail_general}}; margin:0; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;">linea 2 deal</h3>
+                                                            <h4 style="color:{{color_texto_mail_general}}; margin:0; overflow: hidden;  ">{{deals_copy_2_promo}}</h4>
                                                             
                                                             <!-- TEXTOS PROMOS -->
                                                             
                                                             <div style="margin-top: 4px;">
-                                                              <h3 style="color: {{color_descuento_mail_general}}; background-color:{{bg_descuento_mail_general}}; padding:2px 4px; line-height: 20px; font-weight: bold;  border-radius: 3px; display: inline-block; margin-right: 3px;"> $999</h3>
-                                                              <h4 style="color:{{color_texto_mail_general}}; display: inline-block;">99% OFF</h4>
-                                                              <h4 style="color:{{color_texto_mail_general}}; display: inline-block;">| Antes <del>$999</del></h4>
+                                                              <h4 style="color: {{color_descuento_mail_general}}; background-color:{{bg_descuento_mail_general}}; padding:2px 4px; line-height: 20px; font-weight: bold;  border-radius: 3px; display: inline-block; margin-right: 3px;"><img  border="0" style="height: 6px; max-height: 6px; min-height: 6px; vertical-align: middle;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="{{coronapro_mail_body}}">$999</h4>
+                                                              <h5 style="color:{{color_texto_mail_general}}; display: inline-block;">99% OFF</h5>
+                                                              <h5 style="color:{{color_texto_mail_general}}; display: inline-block;">| Antes <del>$999</del></h5>
                                                             </div>
                                                             
                                                             <!-- TEXTOS RATING  -->
-                                                            <div style="margin-top: 4px;"> <span style="color:{{color_texto_mail_general}};">Italiana&nbsp;<img src="https://lh3.googleusercontent.com/d/1634Wp0bBuhP7itsbIdYKw6DB4F9mS8HR" alt="⭐" style="height:10px; min-height: 10px; max-height: 10px; line-height: 10px; display:inline-block; margin-left: 5px;">&nbsp;4.9</span> <span style="color:{{color_texto_mail_general}};"> <img src="https://lh3.googleusercontent.com/d/1rRjb39HEa6Pqpz4cxc1vGSVvV1DLE7hQ" alt="⭐" style="height:10px; min-height: 10px; max-height: 10px; line-height: 10px; display:inline-block; margin-left: 5px;">&nbsp;xx min.</span> </div>
+                                                            <div style="margin-top: 4px;"> <h5 style="color:{{color_texto_mail_general}}; display: inline-block;">Italiana&nbsp;<img src="https://lh3.googleusercontent.com/d/1634Wp0bBuhP7itsbIdYKw6DB4F9mS8HR" alt="⭐" style="height:10px; min-height: 10px; max-height: 10px; line-height: 10px; display:inline-block; margin-left: 5px;">&nbsp;4.9</h5> <h5 style="color:{{color_texto_mail_general}}; display: inline-block;"> <img src="https://lh3.googleusercontent.com/d/1rRjb39HEa6Pqpz4cxc1vGSVvV1DLE7hQ" alt="⭐" style="height:10px; min-height: 10px; max-height: 10px; line-height: 10px; display:inline-block; margin-left: 5px;">&nbsp;xx min.</h5> </div>
                                                             
                                                             <!-- TAG 1 -->
                                                             <div style="margin-top: 4px;">
                                                               <div style="vertical-align: middle;text-align: left; width: auto; display: inline-block; background: {{bg_tag_fondo_mail_general}};  border-radius: 14px; padding: 2px 4px; margin-right: 3px; ">
-                                                                <h4 style="color: {{color_texto_mail_general}} "><img  border="0" style="height: 13px; max-height: 13px; min-height: 13px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1rofiEyeYdjqVsiEL3-NWsOfXOSMQRVNa"> tag 1 </h4>
+                                                                <h5 style="color: {{color_texto_mail_general}} "><img  border="0" style="height: 13px; max-height: 13px; min-height: 13px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1rofiEyeYdjqVsiEL3-NWsOfXOSMQRVNa"> tag 1 </h5>
                                                               </div>
                                                             </div>
                                                             
                                                             <!-- TAG 2 -->
                                                             <div style="margin-top: 4px;">
                                                               <div style="vertical-align: middle;text-align: left; width: auto; display: inline-block; background: {{bg_tag_fondo_mail_general}};  border-radius: 14px; padding: 2px 4px; margin-right: 3px; ">
-                                                                <h4 style="color: {{color_texto_mail_general}} "><img  border="0" style="height: 13px; max-height: 13px; min-height: 13px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/19wcynrgz0OqdDt5S5fVf7yaSx7rAN4Fn"> tag 1 </h4>
+                                                                <h5 style="color: {{color_texto_mail_general}} "><img  border="0" style="height: 13px; max-height: 13px; min-height: 13px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/19wcynrgz0OqdDt5S5fVf7yaSx7rAN4Fn"> tag 1 </h5>
                                                               </div>
                                                             </div>
-                                                            <h3 style="color:{{color_acento2_mail_general}}; margin:0; display: inline-block; margin-top: 6px;"> <strong>Pide ahora ⤍ </strong></h3>
+                                                            <h4 style="color:{{color_acento2_mail_general}}; margin:0; display: inline-block; margin-top: 6px;"> <strong>Pide ahora ⤍ </strong></h4>
                                                           </div></td>
                                                       </tr>
                                                       
