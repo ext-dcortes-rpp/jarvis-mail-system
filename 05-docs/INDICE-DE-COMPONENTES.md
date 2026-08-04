@@ -30,9 +30,10 @@ Más el archivo `_header-wrapper.html` (la envolvente común a los 40 anteriores
 | Big banner horizontal | `02-components/02_banners/big-banner-horizontal.html` |
 | Big banner vertical | `02-components/02_banners/big-banner-vertical.html` |
 
-`banner-editorial.html` y `_banner-section-close.html` se eliminaron del sistema. Las piezas internas del banner viven en `02-components/02_banners/banner_moleculas/` (20 archivos actualmente):
-- **MODULOS** fijos (se conservan tal cual en `big-banner-*.html`, no son MOLECULAS): `modulo_tags_horizontal/vertical`, `modulo_img_altofijo_horizontal/vertical`, `modulo_img_automatica_horizontal` (distinta de `molecula_img_automatica_*`), `modulo_texto_complementario` (placeholder, ver `USO-DE-CADA-PARTE.md`).
-- **MOLECULAS** de `MODULO MOLECULAS`, nombre `molecula_*` para ambos banners: `molecula_creditos`, `molecula_promo`, `molecula_textoxl`, `molecula_textom`, `molecula_img_automatica`, `molecula_cta_interno`, cada uno en `_horizontal`/`_vertical`. (Renombradas de `atomo_*` — el Figma del sistema de diseño también movió esta sección de la página Atoms a la página Molecules.)
+`banner-editorial.html` y `_banner-section-close.html` se eliminaron del sistema. Las piezas internas del banner viven en `02-components/02_banners/banner_moleculas/` (22 archivos actualmente):
+- **MODULOS** fijos (se conservan tal cual en `big-banner-*.html`, no son MOLECULAS): `modulo_tags_horizontal/vertical`, `modulo_img_altofijo_horizontal/vertical`, `modulo_img_automatica_horizontal` (distinta de `molecula_img_automatica_*`).
+- **MOLECULAS** de `MODULO MOLECULAS`, nombre `molecula_*` para ambos banners: `molecula_creditos`, `molecula_promo`, `molecula_textoxl`, `molecula_textom`, `molecula_img_automatica`, `molecula_cta_interno`, `molecula_texto_complementario`, cada uno en `_horizontal`/`_vertical`. (Renombradas de `atomo_*` — el Figma del sistema de diseño también movió esta sección de la página Atoms a la página Molecules.)
+- `molecula_texto_complementario_horizontal.html` / `_vertical.html` reemplazan al viejo `modulo_texto_complementario.html` (sin sufijo, ya eliminado) — contenido pendiente de insertar manualmente en cada uno.
 
 ⚠️ **Posible duplicado sin resolver:** además de `molecula_textom_horizontal.html` / `molecula_textom_vertical.html` (los documentados arriba), también existen `molecula_texto_M_horizontal.html` / `molecula_texto_M_vertical.html` con contenido idéntico. El Figma del sistema documenta la tarjeta como "atomo_texto_M" (ahora molécula), lo que sugiere que `_textom` es el sobrante de una renombrada a medias — pendiente que el equipo lo confirme y borre el archivo que no corresponda.
 

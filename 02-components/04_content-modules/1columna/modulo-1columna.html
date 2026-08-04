@@ -1,160 +1,41 @@
-                                            <!-- siempre que en la fuente se encuentre el "MÓDULO CONTENIDO #" se debe insertar la siguiente tabla completa, 
-
-los elementos que se agregan adentro tienen la etiqueta  role="componente" 
-
-puede haber varios componentes en este módulo y pueden estar en diferente orden según la fuente y se agregan dentro de la div  con el role="divcomponentes"
-
-entre un componente y otro siempre debes insertar un <div class="separador-M"> </div> para agregar aire entre ellos
+<!-- 
+MODULO 1-COLUMNA:
 
 
-casi siempre va a haber en este módulo una imagen role="imagenfull" es decir que si a imagen va arriba según la fuente, primero pones role="imagenfull" y luego role="divcomponentes" con sus componentes adentro
+VARIACIONES:
 
-si primero tienes componentes y luego imagenes debe ir role="divcomponentes" y debajo  role="imagenfull"
+El usuario puede desactivar el fondo del contenedor,
+si el usuario desactiva el fondo del contenedor se afectan las vairables "Fondo" y "SinFondo" del liquid
 
+CONTENIDO: dentro se pueden insertar varios "divcomponentes",dentro de divcomponentes se insertan las moléculas 
 
-si tienes más componentes luego de role="imagenfull" debes agregar otro role="divcomponentes" con sus componentes adentro
+entre una molécula y otra siempre debe haber un  <div class="separador-M"> </div>
+
+Si el usuario activa la opción de hacer el modulo clickeable se debe agregar la etiqueta <a> cubriendo todlo el contenedor, si no se debe eliminar 
 
 -->
-                                            
-                                            <table role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed; margin: 0px auto; max-width: 480px; border-radius: 16px; overflow: hidden; " >
-                                              <tbody>
-                                                <tr>
-                                                  <td style="padding:0px 0px 0px 0px; line-height:23px; text-align:inherit; " height="100%" valign="top" bgcolor="" role=""><div style=" background: #202020; border-radius: 20px;"> 
-                                                      
-                                                      <!-- El siguiente div se conserva cuando tenemos componentes dentro de la card de comntenidos y dentro se insertan todos los componentes, si en la fuente hay componentes debajo de la imagen se debe replicar con la misma lógica  -->
-                                                      <div role="divcomponentes" style="padding: 14px 10px"> 
-                                                        
-                                                        <!-- La siguiente div se conserva cuando en la fuente para MÓDULO CONTENIDO # existe imagen s -->
-                                                        
-                                                        <div role="componente"  style="text-align: center; "> <img src="https://lh3.googleusercontent.com/d/1bhEOxyc3Z7znLDUvJmmLE4PIJmdiH9Zt" style="display: block; margin: 10px auto; width: 100%; max-width: 220px; border: 0;" alt="img"> 
-                                                          <!-- Este src se debe reemplazar con el enlace que traerás de la fuente de la imagen para "imagen s" del MÓDULO CONTENIDO # --> 
-                                                          
-                                                          <!-- el ancho de la imágen conservalo en 100% y modifica el max width por el valor asinado para Ancho imagen s url --> 
-                                                          
-                                                        </div>
-                                                        
-                                                        <!-- recuerda que este separador-m solo se inserta cuando hay varios componentes dentro de esta div -->
-                                                        <div class="separador-M"> </div>
-                                                        
-                                                        <!-- La siguiente div se conserva cuando en la fuente para MÓDULO CONTENIDO # existe Subtitulo, Texto o texto legal -->
-                                                        <div role="componente" style="text-align: center;" > 
-                                                          <!-- Cuando en MÓDULO CONTENIDO solo tiene Subtitulo o Texto , y no hay otros componentes además de la imagen, el alineado debe ser center,
-Cuando en MÓDULO CONTENIDO tiene Subtitulo o Texto y otros componentes el alineado debe ser left --> 
-                                                          
-                                                          <!-- En el siguiente h5 se inserta el "Subtitulo"  de la fuente, si este Módulo no tiene subtitulo, se elimina la eitqueta completa-->
-                                                          <h5 style="color: #E2E2E2; font-weight:lighter; ">Conoce amor para dos</h5>
-                                                          
-                                                          <!-- las siguientes dos div se insertan como separador adicional debajo del subtitulo, solo cuando kv es Pro o ProBlack. si el alineado es left se debe eliminar el  margin: 0 auto --> 
-                                                          <!-- inicio separador Pro -->
-                                                          <div class="separador-M"></div>
-                                                          <div style="width: 50px; border-top: 1px solid #DAA868; margin-bottom: 5px; margin: 0 auto;"></div>
-                                                          <!-- fin separador Pro --> 
-                                                          
-                                                          <!-- Esta este separador <div class="separador-S"></div> se utliza solo cuando hay varios h5 h6 o <span> seguidos, se inserta entre uno y otro para generar aire, si solo hay un texto se elimina-->
-                                                          
-                                                          <div class="separador-S"></div>
-                                                          <!-- En el siguiente h6 se inserta el "Texto" de la fuente, si este Módulo no tiene subtitulo, se elimina la eitqueta completa-->
-                                                          <h6 style="color:#E2E2E2;margin:0; text-decoration: none;">Un alivio rápido y prolongado que te ayuda a sentirte mejor día a día</h6>
-                                                          
-                                                          <!-- En el siguiente <div>se inserta el "Texto legal"  de la fuente, si este Módulo no tiene Texto legal, se elimina la eitqueta completa-->
-                                                          <div class="separador-S"></div>
-                                                          <div class="txts"> <span class="txts" style="color:#E2E2E2;margin:0; text-decoration: none;">Un alivio rápido y prolongado que te ayuda a sentirte mejor día a díaUn alivio rápido y prolongado que te ayuda a sentirte mejor día a día</span> </div>
-                                                        </div>
-                                                        
-                                                        <!-- recuerda que este separador-m solo se inserta cuando hay varios componentes dentro de esta div -->
-                                                        <div class="separador-M"> </div>
-                                                        
-                                                        <!-- La siguiente tabla se debe insertar cuando para el módulo existe un BULLET LOGO #
-Puede haber varios BULLET LOGO, cada uno con imagen, y texto
--->
-                                                        <table role="componente"  border="0" cellpadding="0" cellspacing="0">
-                                                          <tr> 
-                                                            <!-- no se debe cambiar el ancho del siguiente td 
--->
-                                                            <td width="50px" valign="top"><!-- el src de la siguiente imagen se reemplaza por el que traerás de la fuente para "url imagen" del  BULLET LOGO # --> 
-                                                              <img src="https://lh3.googleusercontent.com/d/1OnoMAEG3mWUinKdMpWpqQ9lt4s3a8tiS" width="50px" style="display: block; border: 0; border-radius: 7px;" alt="img"> 
-                                                              <!-- Este src se debe reemplazar con el enlace que traerás de la fuente de la imagen para "url logo" del BULLET LOGO # , no se debe cambiar el ancho de 50px de la imagen ni de la tabla --></td>
-                                                            <td valign="middle" style="padding-left: 9px; text-align: left;"><!-- en el siguiente h5 se inserta el texto para B-Subtitulo: del BULLET LOGO # si no hay subtitulo se elimina la etiqueta -->
-                                                              
-                                                              <h5 style="color: #E2E2E2; font-weight:lighter; ">Mora Mora</h5>
-                                                              
-                                                              <!-- Esta div <div class="separador-S"></div> se utliza solo cuando hay varios H seguidos, si solo hay un h5 o h6 se elimina-->
-                                                              
-                                                              <div class="separador-S"></div>
-                                                              
-                                                              <!-- en el siguiente h6 se inserta el texto para B-Texto del BULLET LOGO # si no hay texto se elimina la etiqueta -->
-                                                              
-                                                              <h6 style="color: #E2E2E2; ">desayuno perfecto para una mañana llena de energía </h6></td>
-                                                          </tr>
-                                                        </table>
-                                                        
-                                                        <!-- recuerda que este separador-m solo se inserta cuando hay varios componentes dentro de esta div -->
-                                                        <div class="separador-M"> </div>
-                                                        <!-- La siguiente tabla se debe insertar cuando para el módulo existe un BULLET ICONO #
-Puede haber varios BULLET ICONO, cada uno con imagen, y texto
--->
-                                                        <div role="componente">
-                                                          <table border="0" cellpadding="0" cellspacing="0">
-                                                            <tr>
-                                                              <td width="25px" valign="top" style="text-align: left; "><!-- el src de la siguiente imagen se reemplaza por el que traerás de la fuente para "url imagen" del  BULLET ICONO # --> 
-                                                                <img src="https://lh3.googleusercontent.com/d/1vdunOvDi3k-LLdfUwk2Qpotyl9u7ionz" width="25" style="display: block;" alt="img"> 
-                                                                
-                                                                <!-- Este src se debe reemplazar con el enlace que traerás de la fuente de la imagen para "url icon:" del BULLET ICONO # --></td>
-                                                              <td valign="top" style="padding-left: 9px; text-align: left;"><!-- en el siguiente h5 se inserta el texto para C-Subtitulo del BULLET ICONO # si no hay subtitulo se elimina la etiqueta -->
-                                                                
-                                                                <h5 style="color: #E2E2E2; font-weight:lighter; ">Mora Mora</h5>
-                                                                
-                                                                <!-- Esta div <div class="separador-S"></div> se utliza solo cuando hay varios H seguidos, si solo hay un h5 o h6 se elimina-->
-                                                                
-                                                                <div class="separador-S"></div>
-                                                                
-                                                                <!-- en el siguiente h6 se inserta el texto para C-Texto: del BULLET ICONO # si no hay texto se elimina la etiqueta -->
-                                                                
-                                                                <h6 style="color: #E2E2E2; ">desayuno perfecto para una mañana llena de energía</h6></td>
-                                                            </tr>
-                                                          </table>
-                                                        </div>
-                                                        
-                                                        <!-- recuerda que este separador-m solo se inserta cuando hay varios componentes dentro de esta div -->
-                                                        <div class="separador-M"> </div>
-                                                        
-                                                        <!-- La siguiente tabla se debe insertar cuando para el módulo existe un BULLET NUMERADO #
--Puede haber varios BULLET NUMERADO, cada uno con imagen, y texto
--->
-                                                        <div role="componente">
-                                                          <table border="0" cellpadding="0" cellspacing="0">
-                                                            <tr>
-                                                              <td width="25px" valign="top" style="text-align: left; "><!-- en el siguiente h4 se inserta el texto para N-Numero del BULLET NUMERADO #  -->
-                                                                
-                                                                <h4 style="color: #E2E2E2;border-right: 1px solid #E2E2E2; "><!-- si kv es Pro o Problack este borde cambia de color a #DAA868 -->1</h4></td>
-                                                              <td valign="top" style="padding-left: 9px; text-align: left;"><!-- en el siguiente h5 se inserta el texto para N-Subtitulo del BULLET NUMERADO # si no hay subtitulo se elimina la etiqueta -->
-                                                                
-                                                                <h5 style="color: #E2E2E2; font-weight:lighter; ">Mora Mora</h5>
-                                                                
-                                                                <!-- Esta div <div class="separador-S"></div> se utliza solo cuando hay varios H seguidos, si solo hay un h5 o h6 se elimina-->
-                                                                
-                                                                <div class="separador-S"></div>
-                                                                
-                                                                <!-- en el siguiente h6 se inserta el texto para N-Texto del BULLET NUMERADO # si no hay texto se elimina la etiqueta -->
-                                                                
-                                                                <h6 style="color: #E2E2E2; ">desayuno perfecto para una mañana llena de energía</h6></td>
-                                                            </tr>
-                                                          </table>
-                                                        </div>
-                                                        
-                                                        <!-- recuerda que este separador-m solo se inserta cuando hay varios componentes dentro de esta div -->
-                                                        <div class="separador-M"> </div>
-                                                      </div>
-                                                      
-                                                      <!-- Si en este módulo no hay imagen, debe eliminarse la etiqueta completa
+<a href="LINKMODULO">
+<div style="display: inline-block;">
+  <table role="module" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed; margin: 0px auto; max-width: 480px; " >
+    <tbody>
+      <tr>
+        <td style="padding:0px 0px 0px 0px; line-height:23px; text-align:inherit; " height="100%" valign="top" bgcolor="" role=""><div role="contenedorgeneral" style="background:{{bg_contenedor1_mail_general}}; border-radius: {{body_container_background_radius}}; overflow: hidden;">
+            <div role="divcomponentes" style="display: inline-block; padding: {{body_container_background_padding}};"> 
+              <!-- aqui las moleculas--> 
+              
+            </div>
+            
+            <!-- Si en este módulo no hay imagen, debe eliminarse la etiqueta completa
 - la imagen siempre va a aparte de la div role="divcomponentes" 
-- si hay componentes debajo de la iamgen se repite una  role="divcomponentes" 
+- si hay moleculas debajo de la iamgen se repite una  role="divcomponentes" 
 --> 
-                                                      <img role="imagenfull" border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; max-width: 480px; margin: 0 auto; border-radius: 0px 0px 0px 0px;" alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1OEXxNDtUklgU4W8sta2zOzdZ4rZYq7PO"> 
-                                                      
-                                                      <!-- Este src se debe reemplazar con el enlace que traerás de la fuente de la imagen para "Imagen Url" del MÓDULO CONTENIDO # --> 
-                                                      
-                                                    </div></td>
-                                                </tr>
-                                              </tbody>
-                                            </table>
+            <img role="imagen-auto" border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; max-width: 480px; margin: 0 auto; border-radius: 0px 0px 0px 0px;" alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1OEXxNDtUklgU4W8sta2zOzdZ4rZYq7PO"> 
+            <!-- Este border radius se debe poder modificar por el usuario--> 
+            <!-- Este src se debe poder modificar por el usuario--> 
+            
+          </div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</a> 

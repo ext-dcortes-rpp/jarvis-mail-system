@@ -36,8 +36,12 @@ Pendiente — se completa a medida que se confirme cada pieza existente de `02-c
 |---|---|---|
 | `molecula_tag_promo.html` | `04_content-modules/content_moleculas/` | Molécula |
 | `molecula_tag_verde.html` | `04_content-modules/content_moleculas/` | Molécula |
+| `molecula_tag_basico.html` | `04_content-modules/content_moleculas/` | Molécula |
 | `molecula_separador_s.html` | `04_content-modules/content_moleculas/` | Molécula |
+| `molecula_icono.html` | `04_content-modules/content_moleculas/` | Molécula (agrupa 4 tamaños: S/M/L/XL) |
 | `molecula_tag_icono.html` | `04_content-modules/content_moleculas/` | Molécula |
+| `molecula_franja_logos.html` | `04_content-modules/content_moleculas/` | Molécula |
+| `molecula_img_automatica.html` | `04_content-modules/content_moleculas/` | Molécula |
 | `molecula_texto_pastilla.html` | `04_content-modules/content_moleculas/` | Molécula |
 | `molecula_link_interno.html` | `04_content-modules/content_moleculas/` | Molécula |
 | `molecula_bullet_numerado.html` | `04_content-modules/content_moleculas/` | Molécula |

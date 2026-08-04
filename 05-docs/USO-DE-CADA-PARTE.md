@@ -127,8 +127,7 @@ Piezas de `MODULO MOLECULAS` (MOLECULAS, se combinan libremente dentro de esa ta
 7. **`molecula_textom_horizontal.html`** / **`molecula_textom_vertical.html`** — Texto vivo `.bnr-md`, tamaño fijo inline.
 8. **`molecula_img_automatica_horizontal.html`** / **`molecula_img_automatica_vertical.html`** — Imagen automática dentro del banner.
 9. **`molecula_cta_interno_horizontal.html`** (`cta_alineado: 'left'`) / **`molecula_cta_interno_vertical.html`** (`cta_alineado: 'center'`) — CTA embebido dentro del banner.
-
-`modulo_texto_complementario.html` (sin sufijo) sigue siendo el único archivo para el texto de body (`<h4>`) que acompaña al texto destacado del banner. Su comentario interno marca como pendiente dividirlo en `modulo_texto_complemento_horizontal.html` / `_vertical.html`, pero esa versión todavía no existe. (`modulo_img_variable.html` y `modulo_texto_secundario.html` ya se eliminaron.)
+10. **`molecula_texto_complementario_horizontal.html`** / **`molecula_texto_complementario_vertical.html`** — Texto de body (`<h4>`) que acompaña al texto destacado del banner, distinto por orientación. Reemplazan al viejo `modulo_texto_complementario.html` (sin sufijo, ya eliminado); contenido pendiente de insertar manualmente en cada uno. (`modulo_img_variable.html` y `modulo_texto_secundario.html` ya se eliminaron.)
 
 ### Regla #4 · El banner cambia mucho según el tema
 El banner es donde más reglas de tema se aplican: background-color, background-image, color de textos, bgcolor del tag, border-radius. Antes de armar el banner, consulta `GUIA-DE-TEMAS.md` para los valores exactos (los comentarios internos del banner todavía usan la nomenclatura anterior; los valores de referencia son los de esa guía).

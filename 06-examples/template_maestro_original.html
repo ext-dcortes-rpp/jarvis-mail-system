@@ -1,5 +1,6 @@
 <!-- EJEMPLO DE DEFINICION DE TEMA  -->
 {% assign tema_general_mail_general = 'beige100' %}
+{% assign body_container_background = 'Fondo' %}
 
 <!-- EJEMPLO DE DEFINICION DE CAMPOS PARA BANNER  -->
 {% assign banner_copy_modulo_promo = '$200' %}
@@ -17,10 +18,9 @@
 {% assign deals_copy_1_promo = deals_copy_1_promo | truncate: 50 %}
 {% assign deals_copy_2_promo = deals_copy_2_promo | truncate: 50 %}
 
-
 <!-- EJEMPLO DE DEFINICION DE CAMPOS PARA BODY  -->
-{% assign body_alineado_molecular = 'center' %}
-{% assign body_img_modulo_auto_ancho = '50' %}
+{% assign body_alineado_molecular = 'left' %}
+{% assign body_img_modulo_auto_ancho = '90' %}
 
 <!--
 -----------------------
@@ -103,6 +103,7 @@ Variables de largo de texto:
 	{% endif %}
 
 
+
 ----------------------------
 -------- TEMAS --------
 ----------------------------
@@ -116,6 +117,7 @@ Variables de largo de texto:
 		{% assign bg_solid_mail_general = '#FFF0DD' %}
 		{% assign bg_header_mail_general = 'https://lh3.googleusercontent.com/d/1aarZz2u-9HhLcCbUIMzhw4OKEqXOfOtn' %}
 		{% assign color_texto_mail_general = '#2B2316' %}
+		{% assign color_textos_legales_mail_general = '#2B2316' %}
 		{% assign color_acento1_mail_general = '#D89950' %}
 		{% assign color_acento2_mail_general = '#FF441F' %}
 		{% assign bg_contenedor1_mail_general = 'rgba(242,211,174,0.5)' %}
@@ -139,11 +141,23 @@ Variables de largo de texto:
 		{% assign bg_solid_generico100_mail_body = '#FFFFFF' %}
 		{% assign bg_solid_generico50_mail_body = 'rgba(255,255,255,0.5)' %}
 		{% assign icon_link_generico_mail_body = 'https://lh3.googleusercontent.com/d/1AJ_chYh5EZCiqNzNLRqyRE3IgIpB4U0l' %}
+		{% assign body_container_background_radius = ' 16px' %}
+		{% assign body_container_background_radius-peq = ' 8px' %}
+		{% assign body_container_background_padding = '10px' %}
+		{% assign body_container_background_border = ' 1px solid rgba(255, 255, 255, 0.4)' %}{% assign body_container_img_dots = 'https://lh3.googleusercontent.com/d/1pP3ezbCx5fQggjm1qgal8hoFzsMkmgZV' %}
+{% if body_container_background == 'Sinfondo' %}
+        {% assign img_fondo_especial_mail_general = 'https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A' %}
+		{% assign bg_contenedor1_mail_general = 'rgba(0,0,0,0.0)' %}
+		{% assign body_container_background_padding = '0px' %}
+		{% assign body_container_background_border = ' 0px solid rgba(255, 255, 255, 0.0)' %}
+		{% assign body_container_background_radius = '0px' %}
+{% endif %}
 
 	{% elsif tema_general_mail_general == 'beige150' %}
 		{% assign bg_solid_mail_general = '#F9DFC6' %}
 		{% assign bg_header_mail_general = 'https://lh3.googleusercontent.com/d/1X4ki8WGVWgfCKQitORRpIC41IVsYJiGI' %}
 		{% assign color_texto_mail_general = '#3D2C1A' %}
+		{% assign color_textos_legales_mail_general = '#3D2C1A' %}
    		{% assign color_tag_tipografia_mail_general = '#3D2C1A' %}
 		{% assign color_acento1_mail_general = '#D89950' %}
 		{% assign color_acento2_mail_general = '#FF441F' %}
@@ -166,11 +180,24 @@ Variables de largo de texto:
 		{% assign bg_solid_generico100_mail_body = '#FFFFFF' %}
 		{% assign bg_solid_generico50_mail_body = 'rgba(255,255,255,0.5)' %}
 		{% assign icon_link_generico_mail_body = 'https://lh3.googleusercontent.com/d/1AJ_chYh5EZCiqNzNLRqyRE3IgIpB4U0l' %}
+		{% assign body_container_background_radius = ' 16px' %}
+		{% assign body_container_background_radius-peq = ' 8px' %}
+		{% assign body_container_background_padding = '10px' %}
+		{% assign body_container_background_border = ' 1px solid rgba(255, 255, 255, 0.4)' %}
+		{% assign body_container_img_dots = 'https://lh3.googleusercontent.com/d/1aJ7WijQJt7iXbfXwwaiqFeLhfPzxoVMy' %}
+{% if body_container_background == 'Sinfondo' %}
+        {% assign img_fondo_especial_mail_general = 'https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A' %}
+		{% assign bg_contenedor1_mail_general = 'rgba(0,0,0,0.0)' %}
+		{% assign body_container_background_padding = '0px' %}
+		{% assign body_container_background_border = ' 0px solid rgba(255, 255, 255, 0.0)' %}
+		{% assign body_container_background_radius = '0px' %}
+{% endif %}
 
 	{% elsif tema_general_mail_general == 'rosa100' %}
 		{% assign bg_solid_mail_general = '#FBE8FD' %}
 		{% assign bg_header_mail_general = 'https://lh3.googleusercontent.com/d/1L5YQm_wsEH5zEP58uR3vCRA6m0nVomm4' %}
 		{% assign color_texto_mail_general = '#312334' %}
+		{% assign color_textos_legales_mail_general = '#312334' %}
    		{% assign color_tag_tipografia_mail_general = '#312334' %}
 		{% assign color_acento1_mail_general = '#B451C0' %}
 		{% assign color_acento2_mail_general = '#FF441F' %}
@@ -193,11 +220,24 @@ Variables de largo de texto:
 		{% assign bg_solid_generico100_mail_body = '#FFFFFF' %}
 		{% assign bg_solid_generico50_mail_body = 'rgba(255,255,255,0.5)' %}
 		{% assign icon_link_generico_mail_body = 'https://lh3.googleusercontent.com/d/1AJ_chYh5EZCiqNzNLRqyRE3IgIpB4U0l' %}
+		{% assign body_container_background_radius = ' 16px' %}
+		{% assign body_container_background_radius-peq = ' 8px' %}
+		{% assign body_container_background_padding = '10px' %}
+		{% assign body_container_background_border = ' 1px solid rgba(255, 255, 255, 0.4)' %}
+		{% assign body_container_img_dots = 'https://lh3.googleusercontent.com/d/1w3ESdcKXn6YVQ71Z3yf_s9anX89Cd3vR' %}
+{% if body_container_background == 'Sinfondo' %}
+        {% assign img_fondo_especial_mail_general = 'https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A' %}
+		{% assign bg_contenedor1_mail_general = 'rgba(0,0,0,0.0)' %}
+		{% assign body_container_background_padding = '0px' %}
+		{% assign body_container_background_border = ' 0px solid rgba(255, 255, 255, 0.0)' %}
+		{% assign body_container_background_radius = '0px' %}
+{% endif %}
 	
 	{% elsif tema_general_mail_general == 'purpura100' %}
 		{% assign bg_solid_mail_general = '#E8E2FB' %}
 		{% assign bg_header_mail_general = 'https://lh3.googleusercontent.com/d/1Seh52ptACWdUuPLKFW840SleeFk6rdjx' %}
 		{% assign color_texto_mail_general = '#2F2C3F' %}
+		{% assign color_textos_legales_mail_general = '#2F2C3F' %}
   		{% assign color_tag_tipografia_mail_general = '#2F2C3F' %}
 		{% assign color_acento1_mail_general = '#7C52D8' %}
 		{% assign color_acento2_mail_general = '#FF441F' %}
@@ -220,12 +260,24 @@ Variables de largo de texto:
 		{% assign bg_solid_generico100_mail_body = '#FFFFFF' %}
 		{% assign bg_solid_generico50_mail_body = 'rgba(255,255,255,0.5)' %}
 		{% assign icon_link_generico_mail_body = 'https://lh3.googleusercontent.com/d/1AJ_chYh5EZCiqNzNLRqyRE3IgIpB4U0l' %}
+		{% assign body_container_background_radius = ' 16px' %}
+		{% assign body_container_background_radius-peq = ' 8px' %}
+		{% assign body_container_background_padding = '10px' %}
+		{% assign body_container_background_border = ' 1px solid rgba(255, 255, 255, 0.4)' %}
+		{% assign body_container_img_dots = 'https://lh3.googleusercontent.com/d/1JNydUUqRaP2cNi23qt1TIuGbh_WdPh5N' %}
+{% if body_container_background == 'Sinfondo' %}
+        {% assign img_fondo_especial_mail_general = 'https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A' %}
+		{% assign bg_contenedor1_mail_general = 'rgba(0,0,0,0.0)' %}
+		{% assign body_container_background_padding = '0px' %}
+		{% assign body_container_background_border = ' 0px solid rgba(255, 255, 255, 0.0)' %}
+		{% assign body_container_background_radius = '0px' %}
+{% endif %}
 
 	{% elsif tema_general_mail_general == 'celeste100' %}
 		{% assign bg_solid_mail_general = '#C8E9FE' %}
 		{% assign bg_header_mail_general = 'https://lh3.googleusercontent.com/d/1HYYs0e40tM9SUfp3UTIEHyEOJizpjH7w' %}
-		{% assign color_texto_mail_general = '#2F2C3F' %}
 		{% assign color_texto_mail_general = '#123344' %}
+		{% assign color_textos_legales_mail_general = '#123344' %}
   		{% assign color_tag_tipografia_mail_general = '#123344' %}
 		{% assign color_acento1_mail_general = '#4DA5CB' %}
 		{% assign color_acento2_mail_general = '#FF441F' %}
@@ -248,11 +300,24 @@ Variables de largo de texto:
 		{% assign bg_solid_generico100_mail_body = '#FFFFFF' %}
 		{% assign bg_solid_generico50_mail_body = 'rgba(255,255,255,0.5)' %}
 		{% assign icon_link_generico_mail_body = 'https://lh3.googleusercontent.com/d/1AJ_chYh5EZCiqNzNLRqyRE3IgIpB4U0l' %}
+		{% assign body_container_background_radius = ' 16px' %}
+		{% assign body_container_background_radius-peq = ' 8px' %}
+		{% assign body_container_background_padding = '10px' %}
+		{% assign body_container_background_border = ' 1px solid rgba(255, 255, 255, 0.4)' %}
+		{% assign body_container_img_dots = 'https://lh3.googleusercontent.com/d/1_McHe2rt53DPA3ViDfW0BFfMLJ2KtN63' %}
+{% if body_container_background == 'Sinfondo' %}
+        {% assign img_fondo_especial_mail_general = 'https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A' %}
+		{% assign bg_contenedor1_mail_general = 'rgba(0,0,0,0.0)' %}
+		{% assign body_container_background_padding = '0px' %}
+		{% assign body_container_background_border = ' 0px solid rgba(255, 255, 255, 0.0)' %}
+		{% assign body_container_background_radius = '0px' %}
+{% endif %}
 
 	{% elsif tema_general_mail_general == 'verde100' %}
 		{% assign bg_solid_mail_general = '#C0FDD3' %}
 		{% assign bg_header_mail_general = 'https://lh3.googleusercontent.com/d/1QliQI_Qq79xbdO8LaX7vS4vBD7Ie_iov' %}
 		{% assign color_texto_mail_general = '#102E14' %}
+		{% assign color_textos_legales_mail_general = '#102E14' %}
   		{% assign color_tag_tipografia_mail_general = '#CDFAD6' %}
 		{% assign color_acento1_mail_general = '#248F63' %}
 		{% assign color_acento2_mail_general = '#FF441F' %}
@@ -275,6 +340,18 @@ Variables de largo de texto:
 		{% assign bg_solid_generico100_mail_body = '#FFFFFF' %}
 		{% assign bg_solid_generico50_mail_body = 'rgba(255,255,255,0.5)' %}
 		{% assign icon_link_generico_mail_body = 'https://lh3.googleusercontent.com/d/1AJ_chYh5EZCiqNzNLRqyRE3IgIpB4U0l' %}
+		{% assign body_container_background_radius = ' 16px' %}
+		{% assign body_container_background_radius-peq = ' 8px' %}
+		{% assign body_container_background_padding = '10px' %}
+		{% assign body_container_background_border = ' 1px solid rgba(255, 255, 255, 0.4)' %}
+		{% assign body_container_img_dots = 'https://lh3.googleusercontent.com/d/1jNX4dfkyMV50m3dDiqn6BpMzdg1EgMc_' %}
+{% if body_container_background == 'Sinfondo' %}
+        {% assign img_fondo_especial_mail_general = 'https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A' %}
+		{% assign bg_contenedor1_mail_general = 'rgba(0,0,0,0.0)' %}
+		{% assign body_container_background_padding = '0px' %}
+		{% assign body_container_background_border = ' 0px solid rgba(255, 255, 255, 0.0)' %}
+		{% assign body_container_background_radius = '0px' %}
+{% endif %}
 
 	{% elsif tema_general_mail_general == 'darkneon' %}
 		{% assign bg_img_mail_general = 'https://lh3.googleusercontent.com/d/19KdV3950aiUjZLKiWGguOfkv3S18e0ME' %}
@@ -310,6 +387,18 @@ Variables de largo de texto:
 		{% assign bg_solid_generico100_mail_body = '#000000' %}
 		{% assign bg_solid_generico50_mail_body = 'rgba(0,0,0,0.5)' %}
 		{% assign icon_link_generico_mail_body = 'https://lh3.googleusercontent.com/d/1AJ_chYh5EZCiqNzNLRqyRE3IgIpB4U0l' %}
+		{% assign body_container_background_radius = ' 16px' %}
+		{% assign body_container_background_radius-peq = ' 8px' %}
+		{% assign body_container_background_padding = '10px' %}
+		{% assign body_container_background_border = ' 1px solid rgba(145, 154, 176, 0.4)' %}
+		{% assign body_container_img_dots = 'https://lh3.googleusercontent.com/d/19EQoRd7tH_SFWbNJ6T2AfzX5rJfnFe9W' %}
+{% if body_container_background == 'Sinfondo' %}
+        {% assign img_fondo_especial_mail_general = 'https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A' %}
+		{% assign bg_contenedor1_mail_general = 'rgba(0,0,0,0.0)' %}
+		{% assign body_container_background_padding = '0px' %}
+		{% assign body_container_background_border = ' 0px solid rgba(255, 255, 255, 0.0)' %}
+		{% assign body_container_background_radius = '0px' %}
+{% endif %}
 
 	{% elsif tema_general_mail_general == 'darkturbo' %}
 		{% assign bg_img_mail_general = 'https://lh3.googleusercontent.com/d/15kxD8-2ldRbzLtuC8c8CLpO1gFoyclKr' %}
@@ -338,9 +427,21 @@ Variables de largo de texto:
 		{% assign color_creditos_mail_general = '#083410' %}
 		{% assign padd_deal_mail_general = '5px 0px' %}
 		{% assign coronapro_mail_body = 'https://lh3.googleusercontent.com/d/1e-aCBPdnaVeeOvzkzCzMs7TkI2jq3B_4' %}
-{% assign bg_solid_generico100_mail_body = '#000000' %}
+		{% assign bg_solid_generico100_mail_body = '#000000' %}
 		{% assign bg_solid_generico50_mail_body = 'rgba(0,0,0,0.5)' %}
 		{% assign icon_link_generico_mail_body = 'https://lh3.googleusercontent.com/d/1AJ_chYh5EZCiqNzNLRqyRE3IgIpB4U0l' %}
+		{% assign body_container_background_radius = ' 16px' %}
+		{% assign body_container_background_radius-peq = ' 8px' %}
+		{% assign body_container_background_padding = '10px' %}
+		{% assign body_container_background_border = ' 1px solid rgba(145, 154, 176, 0.4)' %}
+		{% assign body_container_img_dots = 'https://lh3.googleusercontent.com/d/19EQoRd7tH_SFWbNJ6T2AfzX5rJfnFe9W' %}
+{% if body_container_background == 'Sinfondo' %}
+        {% assign img_fondo_especial_mail_general = 'https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A' %}
+		{% assign bg_contenedor1_mail_general = 'rgba(0,0,0,0.0)' %}
+		{% assign body_container_background_padding = '0px' %}
+		{% assign body_container_background_border = ' 0px solid rgba(255, 255, 255, 0.0)' %}
+		{% assign body_container_background_radius = '0px' %}
+{% endif %}
 
 	{% elsif tema_general_mail_general == 'darkneutro' %}
 		{% assign bg_img_mail_general = 'https://lh3.googleusercontent.com/d/15b2Dj9cVVtRrIXEJb4NZnOENgkIWx11E' %}
@@ -369,9 +470,21 @@ Variables de largo de texto:
 		{% assign color_creditos_mail_general = '#083410' %}
 		{% assign padd_deal_mail_general = '5px 0px' %}
 		{% assign coronapro_mail_body = 'https://lh3.googleusercontent.com/d/1e-aCBPdnaVeeOvzkzCzMs7TkI2jq3B_4' %}
-{% assign bg_solid_generico100_mail_body = '#000000' %}
+		{% assign bg_solid_generico100_mail_body = '#000000' %}
 		{% assign bg_solid_generico50_mail_body = 'rgba(0,0,0,0.5)' %}
 		{% assign icon_link_generico_mail_body = 'https://lh3.googleusercontent.com/d/1AJ_chYh5EZCiqNzNLRqyRE3IgIpB4U0l' %}
+		{% assign body_container_background_radius = ' 16px' %}
+		{% assign body_container_background_radius-peq = ' 8px' %}
+		{% assign body_container_background_padding = '10px' %}
+		{% assign body_container_background_border = ' 1px solid rgba(145, 154, 176, 0.4)' %}
+		{% assign body_container_img_dots = 'https://lh3.googleusercontent.com/d/19EQoRd7tH_SFWbNJ6T2AfzX5rJfnFe9W' %}
+{% if body_container_background == 'Sinfondo' %}
+        {% assign img_fondo_especial_mail_general = 'https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A' %}
+		{% assign bg_contenedor1_mail_general = 'rgba(0,0,0,0.0)' %}
+		{% assign body_container_background_padding = '0px' %}
+		{% assign body_container_background_border = ' 0px solid rgba(255, 255, 255, 0.0)' %}
+		{% assign body_container_background_radius = '0px' %}
+{% endif %}
 
 	{% elsif tema_general_mail_general == 'pro' %}
 		{% assign bg_img_mail_general = 'https://lh3.googleusercontent.com/d/1NcvFMuLVHz-E19h0EbtvpzNKv_XH12hA' %}
@@ -399,9 +512,21 @@ Variables de largo de texto:
 		{% assign color_creditos_mail_general = '#FEE4C0' %}
 		{% assign padd_deal_mail_general = '6px 8px' %}
 		{% assign coronapro_mail_body = 'https://lh3.googleusercontent.com/d/1_F8tVia9lbp9aOmD24CqTSWzOebR5Wvr' %}
-{% assign bg_solid_generico100_mail_body = '#000000' %}
+		{% assign bg_solid_generico100_mail_body = '#000000' %}
 		{% assign bg_solid_generico50_mail_body = 'rgba(0,0,0,0.5)' %}
 		{% assign icon_link_generico_mail_body = 'https://lh3.googleusercontent.com/d/1Wv02SvjwIjWU0Lf2GbDyGhoQCQhYoCOu' %}
+		{% assign body_container_background_radius = ' 16px' %}
+		{% assign body_container_background_radius-peq = ' 8px' %}
+		{% assign body_container_background_padding = '10px' %}
+		{% assign body_container_background_border = ' 1px solid rgba(145, 154, 176, 0.4)' %}
+		{% assign body_container_img_dots = 'https://lh3.googleusercontent.com/d/19EQoRd7tH_SFWbNJ6T2AfzX5rJfnFe9W' %}
+{% if body_container_background == 'Sinfondo' %}
+        {% assign img_fondo_especial_mail_general = 'https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A' %}
+		{% assign bg_contenedor1_mail_general = 'rgba(0,0,0,0.0)' %}
+		{% assign body_container_background_padding = '0px' %}
+		{% assign body_container_background_border = ' 0px solid rgba(255, 255, 255, 0.0)' %}
+		{% assign body_container_background_radius = '0px' %}
+{% endif %}
 
 	{% elsif tema_general_mail_general == 'problack' %}
 		{% assign bg_img_mail_general = 'https://lh3.googleusercontent.com/d/1lY0Y5wzI9i_NyR9taNXABrr9emnyewJH' %}
@@ -432,7 +557,18 @@ Variables de largo de texto:
 		{% assign bg_solid_generico100_mail_body = '#FFFFFF' %}
 		{% assign bg_solid_generico50_mail_body = 'rgba(255,255,255,0.5)' %}
 		{% assign icon_link_generico_mail_body = 'https://lh3.googleusercontent.com/d/1Wv02SvjwIjWU0Lf2GbDyGhoQCQhYoCOu' %}
-
+		{% assign body_container_background_radius = ' 16px' %}
+		{% assign body_container_background_radius-peq = ' 8px' %}
+		{% assign body_container_background_padding = '10px' %}
+		{% assign body_container_background_border = ' 1px solid rgba(145, 154, 176, 0.4)' %}
+		{% assign body_container_img_dots = 'https://lh3.googleusercontent.com/d/19EQoRd7tH_SFWbNJ6T2AfzX5rJfnFe9W' %}
+{% if body_container_background == 'Sinfondo' %}
+        {% assign img_fondo_especial_mail_general = 'https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A' %}
+		{% assign bg_contenedor1_mail_general = 'rgba(0,0,0,0.0)' %}
+		{% assign body_container_background_padding = '0px' %}
+		{% assign body_container_background_border = ' 0px solid rgba(255, 255, 255, 0.0)' %}
+		{% assign body_container_background_radius = '0px' %}
+{% endif %}
 
 	{% endif %}
 
@@ -1056,8 +1192,6 @@ h6 {
                                       </table>
                                     </div>
                                     
-                                    <!-- BANNER --> 
-                                    
                                     <!-- INICIO SECCIÓN BIG BANNER --> 
                                     
                                     <!-- HORIZONTAL  --> 
@@ -1308,6 +1442,7 @@ h6 {
  'problack': predeterminado para terma Problack 'pro' predeterminado para terma Pro --> 
                                     {{content_blocks.${CTA-template}}}
                                     <div class="separador"></div>
+                                    <div class="separador"></div>
                                     
                                     <!-- WRAPPER DE CONTENIDOS -->
                                     
@@ -1318,50 +1453,50 @@ h6 {
                                             
                                             <!-- TAMAÑO -->
                                             
-                                            <h1 style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h1</h1>
-                                            <h2 style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h2</h2>
-                                            <h3 style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h3</h3>
-                                            <h4 style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h4</h4>
-                                            <h5 style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h5</h5>
-                                            <span class="legal" style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}}; display: block;">texto legal</span> 
+                                            <h1 role="molecula-texto" style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h1</h1>
+                                            <h2 role="molecula-texto" style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h2</h2>
+                                            <h3 role="molecula-texto" style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h3</h3>
+                                            <h4 role="molecula-texto" style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h4</h4>
+                                            <h5 role="molecula-texto" style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h5</h5>
+                                            <span role="molecula-texto" class="legal" style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}}; display: block;">texto legal</span> 
                                             
                                             <!-- COLOR BASE -->
                                             
-                                            <h1 style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h1</h1>
+                                            <h1 role="molecula-texto" style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h1</h1>
                                             
                                             <!-- SUBTONO 1 -->
                                             
-                                            <h1 style="color:{{color_acento1_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h1</h1>
+                                            <h1 role="molecula-texto" style="color:{{color_acento1_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h1</h1>
                                             
                                             <!-- SUBTONO 2 -->
                                             
-                                            <h1 style="color:{{color_acento2_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h1</h1>
+                                            <h1 role="molecula-texto" style="color:{{color_acento2_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Texto h1</h1>
                                             
                                             <!-- BOLD: SE AGREGA "font-weight: bold;" en el style  -->
                                             
-                                            <h1 style="color:{{color_texto_mail_general}}; margin:0; font-weight: bold; text-align: {{body_alineado_molecular}};">Texto h1</h1>
+                                            <h1 role="molecula-texto" style="color:{{color_texto_mail_general}}; margin:0; font-weight: bold; text-align: {{body_alineado_molecular}};">Texto h1</h1>
                                             
                                             <!-- ITALIC: SE AGREGA "font-style: italic;" en el style  -->
                                             
-                                            <h1 style="color:{{color_texto_mail_general}}; margin:0; font-style: italic; text-align: {{body_alineado_molecular}}; ">Texto h1</h1>
+                                            <h1 role="molecula-texto" style="color:{{color_texto_mail_general}}; margin:0; font-style: italic; text-align: {{body_alineado_molecular}}; ">Texto h1</h1>
                                             
                                             <!-- TACHADO: SE AGREGA "text-decoration: line-through;" en el style  -->
                                             
-                                            <h1 style="color:{{color_texto_mail_general}}; margin:0; text-decoration: line-through; text-align: {{body_alineado_molecular}}; ">Texto h1</h1>
+                                            <h1 role="molecula-texto" style="color:{{color_texto_mail_general}}; margin:0; text-decoration: line-through; text-align: {{body_alineado_molecular}}; ">Texto h1</h1>
                                             
                                             <!-- SUBRAYADO: SE AGREGA "text-decoration: underline;" en el style  -->
                                             
-                                            <h1 style="color:{{color_texto_mail_general}}; margin:0; text-decoration: underline; text-align: {{body_alineado_molecular}};">Texto h1</h1>
+                                            <h1 role="molecula-texto" style="color:{{color_texto_mail_general}}; margin:0; text-decoration: underline; text-align: {{body_alineado_molecular}};">Texto h1</h1>
                                             
                                             <!-- SUPERINDICE: SE AGREGA el texto dentro de la etiqueta <sup>  -->
                                             
-                                            <h1 style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}}; ">SI<sup>***</sup></h1>
+                                            <h1 role="molecula-texto" style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}}; ">SI<sup>***</sup></h1>
                                             
                                             <!-- MOLECULAS BODY --> 
                                             
                                             <!-- MOLECULA TAG PROMO -->
                                             
-                                            <table role="module" cellpadding="0" cellspacing="0" style="width: auto; font-family:arial,helvetica,sans-serif; margin: {{alineado_molecular_mail_body}};">
+                                            <table role="molecula-tagpromo" cellpadding="0" cellspacing="0" style="width: auto; font-family:arial,helvetica,sans-serif; margin: {{alineado_molecular_mail_body}};">
                                               <tr>
                                                 <td role="celda1" width="100%" valign="top" style="vertical-align: top; text-align:left;"><div style="color: {{color_descuento_mail_general}}; background-color:{{bg_descuento_mail_general}}; padding:2px 4px; line-height: 20px; font-weight: bold;  border-radius: 3px; display: inline-block; margin-right: 3px; ">
                                                     <h1 style="font-weight: bold">$999</h1>
@@ -1371,7 +1506,7 @@ h6 {
                                             
                                             <!-- MOLECULA TAG VERDE -->
                                             
-                                            <table role="module" cellpadding="0" cellspacing="0" style="width: auto;  font-family:arial,helvetica,sans-serif; margin: {{alineado_molecular_mail_body}}; ">
+                                            <table role="molecula-tagverde" cellpadding="0" cellspacing="0" style="width: auto;  font-family:arial,helvetica,sans-serif; margin: {{alineado_molecular_mail_body}}; ">
                                               <tr>
                                                 <td role="celda1" width="100%" valign="top" style="vertical-align: top; text-align:left;"><div style="color: {{color_creditos_mail_general}}; background-color:{{bg_creditos_mail_general}}; padding:2px 4px; line-height: 20px; font-weight: bold;  border-radius: 3px; display: inline-block; margin-right: 3px; ">
                                                     <h1 style="font-weight: bold; ">$999</h1>
@@ -1381,7 +1516,7 @@ h6 {
                                             
                                             <!-- MOLECULA TAG BASICO -->
                                             
-                                            <table role="module" cellpadding="0" cellspacing="0" style="width: auto;  font-family:arial,helvetica,sans-serif; margin: {{alineado_molecular_mail_body}}; ">
+                                            <table role="molecula-tagsimple" cellpadding="0" cellspacing="0" style="width: auto;  font-family:arial,helvetica,sans-serif; margin: {{alineado_molecular_mail_body}}; ">
                                               <tr>
                                                 <td role="celda1" width="100%" valign="top" style="vertical-align: top; text-align:left;"><div style="color: {{color_acento2_mail_general}}; background-color:{{bg_solid_generico100_mail_body}}; padding:2px 4px; line-height: 20px; font-weight: bold;  border-radius: 3px; display: inline-block; margin-right: 3px; ">
                                                     <h1 style="font-weight: bold; ">$999</h1>
@@ -1391,15 +1526,30 @@ h6 {
                                             
                                             <!-- MOLECULA SEPARADOR S -->
                                             
-											  <div style="margin-bottom: 10px;">
-                                            <div style="height: 10px; width: 50px; border-bottom: 1px solid ; border-color: {{color_acento1_mail_general}}; margin-bottom: 5px; margin: {{alineado_molecular_mail_body}};  "></div>
-												  </div>
+                                            <div role="molecula-separador" style="margin-bottom: 10px;">
+                                              <div style="height: 10px; width: 50px; border-bottom: 1px solid ; border-color: {{color_acento1_mail_general}}; margin-bottom: 5px; margin: {{alineado_molecular_mail_body}};  "></div>
+                                            </div>
+                                           
                                             
-                                            <!-- MOLECULA TAG: se puede cambiar el ícono o ocularto -->
+                                            <!-- MOLECULA ICONO: se puede cambiar el ícono o ocularto --> 
                                             
-                                            <div style="margin: {{alineado_molecular_mail_body}}; display: table;">
+                                            <!-- ICONO S: por defecto no tiene border-radius, se puede agregar uno de border-radius: 7px;  --> 
+                                            <img role="molecula-iconoS" src="https://lh3.googleusercontent.com/d/1wZxPSRbT-maSuZWDyZz99Ewi2A2RH37-" width="15" style="display: block; line-height: 15px; margin: {{alineado_molecular_mail_body}};" alt="img"> 
+                                            
+                                            <!-- ICONO M: por defecto no tiene border-radius, se puede agregar uno de border-radius: 7px;  --> 
+                                            <img role="molecula-iconoM"  src="https://lh3.googleusercontent.com/d/1vdunOvDi3k-LLdfUwk2Qpotyl9u7ionz" width="25" style="display: block; line-height: 15px; margin: {{alineado_molecular_mail_body}};" alt="img"> 
+                                            
+                                            <!-- ICONO L: por defecto tiene border-radius: 7px; se puede quitar  --> 
+                                            <img role="molecula-iconoL"  border="0" width="40" style="display:block; width:50px; border-radius: 7px; margin: {{alineado_molecular_mail_body}};" alt="LOGO" src="https://lh3.googleusercontent.com/d/1ZYWddltBXkpcjXzkdlT2fqWSSR2HYB-j"> 
+                                            
+                                            <!-- ICONO XL: por defecto tiene border-radius: 7px; se puede quitar  --> 
+                                            <img role="molecula-iconoXL"  src="https://lh3.googleusercontent.com/d/1OnoMAEG3mWUinKdMpWpqQ9lt4s3a8tiS" width="60px" style="display: block; border: 0; border-radius: 7px; line-height: 40px; margin: {{alineado_molecular_mail_body}};" alt="img"> 
+                                            
+                                            <!-- TAG: se debo poder cambiar o quitar el ícono  -->
+                                            
+                                            <div role="molecula-tag" style="margin: {{alineado_molecular_mail_body}}; display: table;">
                                               <div style="vertical-align: middle;text-align: left; width: auto; display: inline-block; background: {{bg_tag_fondo_mail_general}};  border-radius: 14px; padding: 2px 4px; margin-right: 3px;  ">
-                                                <h4 style="color: {{color_texto_mail_general}} "><img  border="0" style="height: 13px; max-height: 13px; min-height: 13px; vertical-align: middle; padding-right: 2px;line-height: 13px" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/19wcynrgz0OqdDt5S5fVf7yaSx7rAN4Fn"> tag 1 </h4>
+                                                <h4 role="molecula-texto"  style="color: {{color_texto_mail_general}} "><img role="molecula-iconoS"  border="0" style="height: 13px; max-height: 13px; min-height: 13px; vertical-align: middle; padding-right: 2px;line-height: 13px" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/19wcynrgz0OqdDt5S5fVf7yaSx7rAN4Fn"> tag 1 </h4>
                                               </div>
                                             </div>
                                             
@@ -1410,12 +1560,12 @@ h6 {
                                                 <tr> 
                                                   <!-- Celda texto -->
                                                   <th style=" "> <div>
-                                                      <h3 style="color:{{color_texto_mail_general}}; ">Supermercados</h3>
+                                                      <h3 role="molecula-texto" style="color:{{color_texto_mail_general}}; ">Supermercados</h3>
                                                     </div>
                                                   </th>
                                                   <!-- Celda pastilla -->
                                                   <th style="background: {{bg_tag_contenedor_mail_general}}; padding: 4px 7px; border-radius: 30px;"> <div>
-                                                      <h3 style="color:{{color_tag_tipografia_mail_general}}; ">Martes</h3>
+                                                      <h3 role="molecula-texto" style="color:{{color_tag_tipografia_mail_general}}; ">Martes</h3>
                                                     </div>
                                                   </th>
                                                 </tr>
@@ -1427,13 +1577,13 @@ h6 {
                                                   
                                                   <!-- Celda pastilla -->
                                                   <th style="background: {{bg_tag_contenedor_mail_general}}; padding: 4px 7px; border-radius: 30px;"> <div>
-                                                      <h3 style="color:{{color_tag_tipografia_mail_general}}; ">Martes</h3>
+                                                      <h3 role="molecula-texto" style="color:{{color_tag_tipografia_mail_general}}; ">Martes</h3>
                                                     </div>
                                                   </th>
                                                   
                                                   <!-- Celda texto -->
                                                   <th style=" "> <div>
-                                                      <h3 style="color:{{color_texto_mail_general}}; ">Supermercados</h3>
+                                                      <h3 role="molecula-texto" style="color:{{color_texto_mail_general}}; ">Supermercados</h3>
                                                     </div>
                                                   </th>
                                                 </tr>
@@ -1446,228 +1596,941 @@ h6 {
                                             <div role="componente" style="background: {{bg_solid_generico50_mail_body}}; width: auto; padding: 5px; display: table; border-radius: 40px; margin: {{alineado_molecular_mail_body}};">
                                               <table border="0" cellpadding="0" cellspacing="0" style="width: auto;">
                                                 <tr>
-                                                  <td width="25px" height="25px" valign="middle" style="text-align: center; background-color: {{bg_solid_generico100_mail_body}}; border-radius: 40px; "><img  border="0" style="height: 17px; max-height: 17px; min-height: 17px; vertical-align: middle; padding-right: 2px; line-height: 17px" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="{{icon_link_generico_mail_body}}"></td>
-                                                  <td valign="center" style="padding: 0px 5px; text-align: left;"><h4 style="color: {{color_texto_mail_general}} ">Clic aquí</h4></td>
+                                                  <td width="25px" height="25px" valign="middle" style="text-align: center; background-color: {{bg_solid_generico100_mail_body}}; border-radius: 40px; "><img role="molecula-iconoS"  border="0" style="height: 17px; max-height: 17px; min-height: 17px; vertical-align: middle; padding-right: 2px; line-height: 17px" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="{{icon_link_generico_mail_body}}"></td>
+                                                  <td valign="center" style="padding: 0px 5px; text-align: left;"><h4 role="molecula-texto" style="color: {{color_texto_mail_general}} ">Clic aquí</h4></td>
                                                 </tr>
                                               </table>
                                             </div>
                                             </a> 
                                             
-                                            <!-- MOLECULA BULLET NUMERADO: se pueden agregar textos en la celda derecha, siempre separados por un   <div class="separador-S"></div> -->
+                                            <!-- MOLECULA BULLET NUMERADO: se pueden agregar más moleculas en la celda derecha, siempre separados por un <div class="separador-S"></div> -->
                                             
                                             <div role="componente">
                                               <table border="0" cellpadding="0" cellspacing="0" style="margin: {{alineado_molecular_mail_body}};">
                                                 <tr>
-                                                  <td width="23px" valign="top" style="text-align: left; "><h4 style="color:{{color_texto_mail_general}}; border-right: 1px solid;  border-color: {{color_acento2_mail_general}};"> 1 </h4></td>
+                                                  <td width="23px" valign="top" style="text-align: left; "><h4 role="molecula-texto" style="color:{{color_texto_mail_general}}; border-right: 1px solid;  border-color: {{color_acento2_mail_general}};"> 1 </h4></td>
                                                   
                                                   <!-- celda 2 -->
-                                                  <td valign="top" style="padding-left: 7px; text-align: left;"><h3 style="color:{{color_texto_mail_general}}; ">Subtitulo</h3>
+                                                  <td valign="top" style="padding-left: 7px; text-align: left;"><h3 role="molecula-texto" style="color:{{color_texto_mail_general}}; ">Subtitulo</h3>
                                                     <div class="separador-S"></div>
-                                                    <h4 style="color:{{color_texto_mail_general}}; ">bloque de texto bloque de texto bloque de texto </h4></td>
+                                                    <h4 role="molecula-texto" style="color:{{color_texto_mail_general}}; ">bloque de texto bloque de texto bloque de texto </h4></td>
                                                 </tr>
                                               </table>
                                             </div>
                                             
-                                            <!-- MOLECULA BULLET ICONO M : se pueden agregar textos en la celda derecha, siempre separados por un   <div class="separador-S"></div> -->
+                                            <!-- MOLECULA BULLET ICONO S : se pueden agregar más moleculas en la celda derecha, siempre separados por un   <div class="separador-S"></div> -->
                                             
                                             <div role="componente">
                                               <table border="0" cellpadding="0" cellspacing="0" style="margin: {{alineado_molecular_mail_body}};">
                                                 <tr>
-                                                  <td width="15px" valign="top" style="text-align: left;"><img src="https://lh3.googleusercontent.com/d/1wZxPSRbT-maSuZWDyZz99Ewi2A2RH37-" width="15" style="display: block; line-height: 15px;" alt="img"></td>
+                                                  <td width="15px" valign="top" style="text-align: left;"><img role="molecula-iconoS"  src="https://lh3.googleusercontent.com/d/1wZxPSRbT-maSuZWDyZz99Ewi2A2RH37-" width="15" style="display: block; line-height: 15px;" alt="img"></td>
                                                   
                                                   <!-- celda 2 -->
                                                   
-                                                  <td valign="top" style="padding-left: 7px; text-align: left;"><h3 style="color:{{color_texto_mail_general}}; ">Subtitulo</h3>
+                                                  <td valign="top" style="padding-left: 7px; text-align: left;"><h3 role="molecula-texto" style="color:{{color_texto_mail_general}}; ">Subtitulo</h3>
                                                     <div class="separador-S"></div>
-                                                    <h4 style="color:{{color_texto_mail_general}}; ">bloque de texto bloque de texto bloque de texto </h4></td>
+                                                    <h4 role="molecula-texto" style="color:{{color_texto_mail_general}}; ">bloque de texto bloque de texto bloque de texto </h4></td>
                                                 </tr>
                                               </table>
                                             </div>
                                             
-                                            <!-- MOLECULA BULLET ICONO M : se pueden agregar textos en la celda derecha, siempre separados por un   <div class="separador-S"></div> -->
+                                            <!-- MOLECULA BULLET ICONO M : se pueden agregar más moleculas en la celda derecha, siempre separados por un   <div class="separador-S"></div> -->
                                             
                                             <div role="componente">
                                               <table border="0" cellpadding="0" cellspacing="0" style="margin: {{alineado_molecular_mail_body}};">
                                                 <tr>
-                                                  <td width="25px" valign="top" style="text-align: left; "><img src="https://lh3.googleusercontent.com/d/1vdunOvDi3k-LLdfUwk2Qpotyl9u7ionz" width="25" style="display: block; line-height: 15px;" alt="img"></td>
+                                                  <td width="25px" valign="top" style="text-align: left; "><img role="molecula-iconoM"  src="https://lh3.googleusercontent.com/d/1vdunOvDi3k-LLdfUwk2Qpotyl9u7ionz" width="25" style="display: block; line-height: 15px;" alt="img"></td>
                                                   
                                                   <!-- celda 2 -->
                                                   
-                                                  <td valign="top" style="padding-left: 7px; text-align: left;"><h3 style="color:{{color_texto_mail_general}}; ">Subtitulo</h3>
+                                                  <td valign="top" style="padding-left: 7px; text-align: left;"><h3 role="molecula-texto" style="color:{{color_texto_mail_general}}; ">Subtitulo</h3>
                                                     <div class="separador-S"></div>
-                                                    <h4 style="color:{{color_texto_mail_general}}; ">bloque de texto bloque de texto bloque de texto </h4></td>
+                                                    <h4 role="molecula-texto" style="color:{{color_texto_mail_general}}; ">bloque de texto bloque de texto bloque de texto </h4></td>
                                                 </tr>
                                               </table>
                                             </div>
                                             
-                                            <!-- MOLECULA BULLET ICONO L : se pueden agregar textos en la celda derecha, siempre separados por un   <div class="separador-S"></div> -->
+                                            <!-- MOLECULA BULLET ICONO L : se pueden agregar más moleculas en la celda derecha, siempre separados por un<div class="separador-S"></div> -->
                                             
                                             <table role="componente"  border="0" cellpadding="0" cellspacing="0" style="margin: {{alineado_molecular_mail_body}};">
                                               <tr>
-                                                <td width="50px" valign="top"><img src="https://lh3.googleusercontent.com/d/1OnoMAEG3mWUinKdMpWpqQ9lt4s3a8tiS" width="60px" style="display: block; border: 0; border-radius: 7px; line-height: 40px;" alt="img"></td>
+                                                <td width="50px" valign="top"><img role="molecula-iconoXL"  src="https://lh3.googleusercontent.com/d/1OnoMAEG3mWUinKdMpWpqQ9lt4s3a8tiS" width="60px" style="display: block; border: 0; border-radius: 7px; line-height: 40px;" alt="img"></td>
                                                 
                                                 <!-- celda 2 -->
-                                                <td valign="middle" style="padding-left: 7px; text-align: left;"><h3 style="color:{{color_texto_mail_general}}; ">Subtitulo</h3>
+                                                <td valign="middle" style="padding-left: 7px; text-align: left;"><h3 role="molecula-texto" style="color:{{color_texto_mail_general}}; ">Subtitulo</h3>
                                                   <div class="separador-S"></div>
-                                                  <h4 style="color:{{color_texto_mail_general}}; ">bloque de texto bloque de texto bloque de texto </h4></td>
+                                                  <h4 role="molecula-texto" style="color:{{color_texto_mail_general}}; ">bloque de texto bloque de texto bloque de texto </h4></td>
                                               </tr>
                                             </table>
                                             
-                                            <!-- MOLECULA BULLET ICONO L : se pueden agregar textos en la celda derecha, siempre separados por un   <div class="separador-S"></div> -->
+                                            <!-- MOLECULA FRANJA LOGOS : se agregan o quitan <td> para agregar o quitar logos, los logos tienen por defecto tamaño L, se debe poder cambiar, todos al tiempo-->
                                             
                                             <table style="border-collapse:collapse;border-spacing:0px; margin-bottom: 0px; width: auto; margin: {{alineado_molecular_mail_body}}; ">
                                               <tbody>
                                                 <tr>
                                                   <td style="padding:0px 2px; max-width: 80px;"><!-- LOGO 1-->
                                                     
-                                                    <div style="margin: 0 auto; width: 100%; max-width: 80px; border-radius: 150px; background-image: url(https://lh3.googleusercontent.com/d/1bgvBGbWVvEmz1kkQenLB2DJ1YSLtXl8P); background-size: 500px ; background-position: right top; vertical-align: middle;"> <img class="banner-logo1-1"  border="0" width="40" style="display:block; width:50px; border-radius: 7px;" alt="LOGO" src="https://lh3.googleusercontent.com/d/1ZYWddltBXkpcjXzkdlT2fqWSSR2HYB-j"> </div></td>
+                                                    <div style="margin: 0 auto; width: 100%; max-width: 80px; border-radius: 150px; background-image: url(https://lh3.googleusercontent.com/d/1bgvBGbWVvEmz1kkQenLB2DJ1YSLtXl8P); background-size: 500px ; background-position: right top; vertical-align: middle;"> <a href="LINKLOGO"> <img role="molecula-iconoL"  class="banner-logo1-1"  border="0" width="40" style="display:block; width:50px; border-radius: 7px;" alt="LOGO" src="https://lh3.googleusercontent.com/d/1ZYWddltBXkpcjXzkdlT2fqWSSR2HYB-j"> </a></div></td>
                                                   <td style="padding:0px 2px; max-width: 80px;"><!-- LOGO 2-->
                                                     
-                                                    <div style="margin: 0 auto; width: 100%; max-width: 80px; border-radius: 150px; background-image: url(https://lh3.googleusercontent.com/d/1bgvBGbWVvEmz1kkQenLB2DJ1YSLtXl8P); background-size: 500px ; background-position: right top; vertical-align: middle;"> <img class="banner-logo1-1"  border="0" width="40" style="display:block; width:50px; border-radius: 7px;" alt="LOGO" src="https://lh3.googleusercontent.com/d/1ZYWddltBXkpcjXzkdlT2fqWSSR2HYB-j"> </div></td>
+                                                    <div style="margin: 0 auto; width: 100%; max-width: 80px; border-radius: 150px; background-image: url(https://lh3.googleusercontent.com/d/1bgvBGbWVvEmz1kkQenLB2DJ1YSLtXl8P); background-size: 500px ; background-position: right top; vertical-align: middle;"> <a href="LINKLOGO"> <img role="molecula-iconoL"  class="banner-logo1-1"  border="0" width="40" style="display:block; width:50px; border-radius: 7px;" alt="LOGO" src="https://lh3.googleusercontent.com/d/1ZYWddltBXkpcjXzkdlT2fqWSSR2HYB-j"> </a></div></td>
                                                   <td style="padding:0px 2px; max-width: 80px;"><!-- LOGO 3-->
                                                     
-                                                    <div style="margin: 0 auto; width: 100%; max-width: 80px; border-radius: 150px; background-image: url(https://lh3.googleusercontent.com/d/1bgvBGbWVvEmz1kkQenLB2DJ1YSLtXl8P); background-size: 500px ; background-position: right top; vertical-align: middle;"> <img class="banner-logo1-1"  border="0" width="40" style="display:block; width:50px; border-radius: 7px;" alt="LOGO" src="https://lh3.googleusercontent.com/d/1ZYWddltBXkpcjXzkdlT2fqWSSR2HYB-j"></div></td>
+                                                    <div style="margin: 0 auto; width: 100%; max-width: 80px; border-radius: 150px; background-image: url(https://lh3.googleusercontent.com/d/1bgvBGbWVvEmz1kkQenLB2DJ1YSLtXl8P); background-size: 500px ; background-position: right top; vertical-align: middle;"> <a href="LINKLOGO"> <img role="molecula-iconoL"  class="banner-logo1-1"  border="0" width="40" style="display:block; width:50px; border-radius: 7px;" alt="LOGO" src="https://lh3.googleusercontent.com/d/1ZYWddltBXkpcjXzkdlT2fqWSSR2HYB-j"> </a> </div></td>
                                                   <td style="padding:0px 2px; max-width: 80px;"><!-- LOGO 4-->
                                                     
-                                                    <div style="margin: 0 auto; width: 100%; max-width: 80px; border-radius: 150px; background-image: url(https://lh3.googleusercontent.com/d/1bgvBGbWVvEmz1kkQenLB2DJ1YSLtXl8P); background-size: 500px ; background-position: right top; vertical-align: middle; margin: {{alineado_molecular_mail_body}};"> <img class="banner-logo1-1"  border="0" width="40" style="display:block; width:50px; border-radius: 7px;" alt="LOGO" src="https://lh3.googleusercontent.com/d/1ZYWddltBXkpcjXzkdlT2fqWSSR2HYB-j"> </div></td>
+                                                    <div style="margin: 0 auto; width: 100%; max-width: 80px; border-radius: 150px; background-image: url(https://lh3.googleusercontent.com/d/1bgvBGbWVvEmz1kkQenLB2DJ1YSLtXl8P); background-size: 500px ; background-position: right top; vertical-align: middle; margin: {{alineado_molecular_mail_body}};"> <a href="LINKLOGO"> <img role="molecula-iconoL"  class="banner-logo1-1"  border="0" width="40" style="display:block; width:50px; border-radius: 7px;" alt="LOGO" src="https://lh3.googleusercontent.com/d/1ZYWddltBXkpcjXzkdlT2fqWSSR2HYB-j"> </a></div></td>
                                                 </tr>
                                               </tbody>
                                             </table>
                                             
-                                            <!-- MOLECULA IMG AUTOMATICA -->
+                                            <!-- MOLECULA IMG AUTOMATICA: se puede cambiar el ancho, quitar cambiar o quitar el redondeado y hacer clickeable
+
+
+											Si el usuario activa la opción de hacer el modulo clickeable se debe agregar la etiqueta <a> cubriendo la imagen, si no se debe eliminar -->
                                             
                                             <table data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="">
                                               <tbody>
                                                 <tr>
-                                                  <td ><img src="https://lh3.googleusercontent.com/d/1U4HZfNfRWpZ0XhMCmFF-4V4U2H3W8IcN" style="display: block; border: 0; width: {{body_img_modulo_auto_ancho}}%; max-width: 480px; height: auto; margin: {{alineado_molecular_mail_body}}; " alt="img"></td>
+                                                  <td ><a href="LIKNIMAGEN"></a><img role="imagen-auto" src="https://lh3.googleusercontent.com/d/1U4HZfNfRWpZ0XhMCmFF-4V4U2H3W8IcN" style="display: block; border: 0; width: {{body_img_modulo_auto_ancho}}%; max-width: 480px; height: auto; margin: {{alineado_molecular_mail_body}}; border-radius: 20px" alt="img"> 
+                                                    <!-- Este border radius se debe poder modificar por el usuario--></td>
                                                 </tr>
                                               </tbody>
                                             </table>
                                             
-                                            <!-- DEALS -->
+                                            <!-- MODUULOS DE CONTENIDO: 
+
+SE AGREGAN UNO DEBAJO DE OTRO, SIEMPRE CON UN SEPARADOR DE POR MEDIO
+SE PUEDE CAMBIAR EL ALINEADO SEGÚN LOS COMENTARIOS DE CADA MODULO AFECTANDO LAS CLASES RELACIONADAS:
+body_alineado_molecular
+usando Left o center
+text-align: {{body_alineado_molecular}};
+margin: {{alineado_molecular_mail_body}};
+
+
+SE PUEDE AGREGAR O QUITAR FONDO DEL CONTENEDOR SEGÚN LOS COMENTARIOS DE CADA MODULO
+AFECTANDO LAS VARIABLES  RELACIONADAS
+body_container_background
+background:{{bg_contenedor1_mail_general}};
+border-radius: {{body_container_background_radius}};
+ padding: {{body_container_background_padding}}; 
+
+
+
+
+SE PUEDEN VOLVER CLICKEABLES LOS MODULOS AGREGANDO LA ETIQUETA <a> EN LAS SECCIONES QUE YA SE ENCUENTRAN LA BASE, POR DEFECTO VIENEN DESACTIVADOS, SOLO DEALS TIENEN LINK ACTIVO POR DEFECTO
+
+Si no porporciona un link para el espacio  href="", de debe agregar un texto href="LINKMODULO" con el nombre del modulo y numerarlos, esto permitirá que en la implementación encuentren facilmente los espacios de LINK eje, LINKCUPON1, LINNKCUPON2, LINKDEAL1, LINK DEAL 2, LINKCONTENEDOR1...
+
+
+PERMITE MODIFICAR ESTILOS DE TEXTO, SOLO ALGUNOS DEBEN TENER BLOQUADAS LAS OPCIONES DE CAMBIAR TAMAÑO
+	
+
+--> 
                                             
-                                            <table role="module" bgcolor="" cellpadding="0" cellspacing="6" width="100%" style="width: 100%; margin: 0 auto; font-family:arial,helvetica,sans-serif; max-width: 480px;">
+                                            <!-- MOLDULO TITULO : se pueden agregar más moleculas, siempre separados por un <div class="separador-S"></div>
+
+Si el usuario activa la opción de hacer el modulo clickeable se debe agregar la etiqueta <a> cubriendo todlo el contenedor, si no se debe eliminar 
+
+
+Se puede cambiar el alineado de loa elementos
+
+Viene por defecto sin fondo, solo viene con fondo por defecto para el tema Pro y ProBlack
+El usuario puede activar o desactivar el fondo
+
+--> 
+                                            <a href="LINKMODULO" >
+                                            <div style="background:{{bg_contenedor1_mail_general}}; border-radius: {{body_container_background_radius}};">
+                                              <table role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed; margin: 0px auto; max-width: 480px;  padding: {{body_container_background_padding}};    " >
+                                                <tbody>
+                                                  <tr>
+                                                    <td height="100%" valign="top" bgcolor="" role=""><div>
+                                                        <h2 role="molecula-texto" style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Titulo</h2>
+                                                        <!-- MOLECULA SEPARADOR S -->
+                                                        
+                                                        <div role="molecula-separador" style="margin-bottom: 10px;">
+                                                          <div style="height: 10px; width: 50px; border-bottom: 1px solid ; border-color: {{color_acento1_mail_general}}; margin-bottom: 5px; margin: {{alineado_molecular_mail_body}};  "></div>
+                                                        </div>
+                                                        <h3 role="molecula-texto" style="color:{{color_texto_mail_general}}; ">bloque de texto bloque de texto bloque de texto </h3>
+                                                      </div></td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </div>
+                                            </a> 
+                                            
+                                            <!-- MOLDULO BULLET ICONO : se pueden agregar más moleculas en la celda derecha, siempre separados por un <div class="separador-S"></div>
+
+Si el usuario activa la opción de hacer el modulo clickeable se debe agregar la etiqueta <a> cubriendo todlo el contenedor, si no se debe eliminar 
+
+--> 
+                                            <a href="LINKMODULO">
+                                            <div style="display: inline-block; background:{{bg_contenedor1_mail_general}}; border-radius: {{body_container_background_radius}}; overflow: hidden; width: 100%; max-width: 480px;">
+                                              <table role="componente"  border="0" cellpadding="0" cellspacing="0" style="margin: {{alineado_molecular_mail_body}}; width: 100%; padding: {{body_container_background_padding}}; ">
+                                                <tr>
+                                                  <td width="50px" valign="top"><img role="molecula-iconoXL"  src="https://lh3.googleusercontent.com/d/1OnoMAEG3mWUinKdMpWpqQ9lt4s3a8tiS" width="60px" style="display: block; border: 0; border-radius: 7px; line-height: 40px;" alt="img"></td>
+                                                  
+                                                  <!-- celda 2 -->
+                                                  <td valign="middle" style="padding-left: 7px; text-align: left;"><h3 role="molecula-texto" style="color:{{color_texto_mail_general}}; ">Subtitulo</h3>
+                                                    <div class="separador-S"></div>
+                                                    <h4 role="molecula-texto" style="color:{{color_texto_mail_general}}; ">bloque de texto bloque de texto bloque de texto </h4></td>
+                                                </tr>
+                                              </table>
+                                            </div>
+                                            </a> 
+                                            
+                                            <!-- 
+MODULO 1-COLUMNA:
+
+
+VARIACIONES:
+
+El usuario puede desactivar el fondo del contenedor,
+si el usuario desactiva el fondo del contenedor se afectan las vairables "Fondo" y "SinFondo" del liquid
+
+CONTENIDO: dentro se pueden insertar varios "divcomponentes",dentro de divcomponentes se insertan las moléculas 
+
+entre una molécula y otra siempre debe haber un  <div class="separador-M"> </div>
+
+Si el usuario activa la opción de hacer el modulo clickeable se debe agregar la etiqueta <a> cubriendo todlo el contenedor, si no se debe eliminar 
+
+--> 
+                                            
+                                            <a href="LINKMODULO">
+                                            <div style="display: inline-block;">
+                                              <table role="module" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed; margin: 0px auto; max-width: 480px; " >
+                                                <tbody>
+                                                  <tr>
+                                                    <td style="padding:0px 0px 0px 0px; line-height:23px; text-align:inherit; " height="100%" valign="top" bgcolor="" role=""><div role="contenedorgeneral" style="background:{{bg_contenedor1_mail_general}}; border-radius: {{body_container_background_radius}}; overflow: hidden;">
+                                                        <div role="divcomponentes" style="display: inline-block; padding: {{body_container_background_padding}};"> 
+                                                          <!-- aqui las moleculas--> 
+                                                          
+                                                        </div>
+                                                        
+                                                        <!-- Si en este módulo no hay imagen, debe eliminarse la etiqueta completa
+- la imagen siempre va a aparte de la div role="divcomponentes" 
+- si hay moleculas debajo de la iamgen se repite una  role="divcomponentes" 
+--> 
+                                                        <img role="imagen-auto" border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; max-width: 480px; margin: 0 auto; border-radius: 0px 0px 0px 0px;" alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1OEXxNDtUklgU4W8sta2zOzdZ4rZYq7PO"> 
+                                                        <!-- Este border radius se debe poder modificar por el usuario--> 
+                                                        <!-- Este src se debe poder modificar por el usuario--> 
+                                                        
+                                                      </div></td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </div>
+                                            </a> 
+                                            
+                                            <!-- 
+MODULO BENEFICIOS:
+
+
+VARIACIONES:
+
+El usuario puede desactivar el fondo del contenedor,
+si el usuario desactiva el fondo del contenedor se afectan las vairables "Fondo" y "SinFondo" del liquid
+
+CONTENIDO: dentro de role="celda2": 
+-se puede cambiar el alineado vertical-align: middle; a top o bottom
+-se puede cambiar el alineado de las moleculas
+-se pueden insertar varias moléculas 
+-entre una molécula y otra siempre debe haber un  <div class="separador-S"> </div>
+-por defecto trae una molecula de icono, y dos de texto
+se pueden eliminar o cambiar de orden, si se eliminan moléculas tambien se debe eliminar los separadores
+
+Si el usuario activa la opción de hacer el modulo clickeable se debe agregar la etiqueta <a> cubriendo todlo el contenedor, si no se debe eliminar 
+
+--> 
+                                            <a href="LINKMODULO">
+                                            <div style="border-radius: {{body_container_background_radius}}; overflow: hidden; border:{{body_container_background_border}} ">
+                                              <table  role="module"  bgcolor="" cellpadding="0" cellspacing="0" width="100%" style="width: 100%; margin: 0 auto; font-family:arial,helvetica,sans-serif; max-width: 480px; overflow: hidden; background: {{bg_contenedor1_mail_general}}; ">
+                                                <tr style="background-image: url({{img_fondo_especial_mail_general}}); background-size: cover;">
+                                                  <td width="40%" class="beneficios-mob"  style="vertical-align: top; text-align:left; overflow: hidden; padding: {{body_container_background_padding}}; "><div> <img role="imagen-auto" border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; margin: 0 auto;  border-radius: 8px; overflow: hidden; " alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1K55fPu7buJT65XOj9VqaplZD2J4WTaTb"> <!--  la url de esta imagen se puede modificar --> 
+                                                      <!-- Este border radius se debe poder modificar por el usuario--> 
+                                                      
+                                                    </div></td>
+                                                  <td role="celda2" style="vertical-align: middle; word-break: break-all; padding: 7px 7px;  "><!-- ICONO M: por defecto no tiene border-radius, se puede agregar uno de border-radius: 7px;  --> 
+                                                    <img role="molecula-iconoM" src="https://lh3.googleusercontent.com/d/13Wpazp2ezX37GZylmssneVLoF0fxq2yi" width="25" style="display: block; line-height: 15px; margin: {{alineado_molecular_mail_body}};" alt="img">
+                                                    <div class="separador-S"></div>
+                                                    <h3 style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Descuentos de hasta xxx</h3>
+                                                    <h5 role="componente" style="color: #E2E2E2; "></h5>
+                                                    <div class="separador-S"></div>
+                                                    <h4 style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">En todos tus pedidos en la app, pidiendo desde $XXXXXX</h4></td>
+                                                </tr>
+                                              </table>
+                                            </div>
+                                            </a> 
+                                            
+                                            <!-- MODULO DEALS: los deeals vienen de a dos en celdas , se puede eliminar el de la celda 2, imagen, teto y legal. Se eliminan los elementos no la celda -->
+                                            
+                                            <table role="module" border="0" cellpadding="0" cellspacing="5" width="100%" style="table-layout: fixed; margin: 0px auto; max-width: 480px; " >
+                                              
+                                              <!--SECCION IMAGENES -->
+                                              
                                               <tr> 
                                                 
-                                                <!-- CELDA 1-->
+                                                <!-- CELDA 1 -->
                                                 
-                                                <td role="celda1" width="50%" valign="top" style="vertical-align: top; text-align:left;"><a href="link1" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit; display:block;">
-                                                  <div style=" ">
-                                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                <td width="50%" style="width: 50%" ><!-- IMG CELDA 1-->
+                                                  
+                                                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="display:table;">
+                                                    <tr height="130" class="altodeal1" style="background-image: url({{img_overlay_1_mail_general}}); background-size: cover; background-position: center center;border-radius: 10px; overflow: hidden;" > 
                                                       
-                                                      <!-- INICIO DEAL--> 
+                                                      <!-- Se puede reemplazar la imagen del background-image: url(https://images.rappi.com/products/77c714d6-2d05-493e-8f33-c66711864ca7.png); para el asset de producto -->
                                                       
-                                                      <!-- IMAGEN-->
+                                                      <td valign="bottom" style="background-image: url(https://images.rappi.com/products/77c714d6-2d05-493e-8f33-c66711864ca7.png); background-size: cover; background-position: center center; border-radius: 10px; overflow: hidden; "><!-- Se puede reemplazar la imagen del src="https://lh3.googleusercontent.com/d/1ZYWddltBXkpcjXzkdlT2fqWSSR2HYB-j" para el logo si no hay url se debe eliminar la etiqueta de imagen por completo -->
+                                                        
+                                                        <div style="padding: 10px;"> <img role="molecula-iconoL"  border="0" width="40" style="display:block; width:50px; border-radius: 7px;" alt="LOGO" src="https://lh3.googleusercontent.com/d/1ZYWddltBXkpcjXzkdlT2fqWSSR2HYB-j"> </div></td>
+                                                    </tr>
+                                                  </table></td>
+                                                
+                                                <!-- CELDA 2-->
+                                                
+                                                <td width="50%" style="width: 50%" ><!-- IMG CELDA 2  -->
+                                                  
+                                                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="display:table;">
+                                                    <tr  height="130" class="altodeal1" style="background-image: url({{img_overlay_1_mail_general}}); background-size: cover; background-position: center center;border-radius: 10px; overflow: hidden;" > 
                                                       
-                                                      <tr height="130" class="altodeal1" style="background-image: url({{img_overlay_1_mail_general}}); background-size: cover; background-position: center center;border-radius: 14px; overflow: hidden;" >
-                                                        <td valign="bottom" style="background-image: url(https://images.rappi.com/products/77c714d6-2d05-493e-8f33-c66711864ca7.png); background-size: cover; background-position: center center; border-radius: 14px; overflow: hidden; "><div style="padding: 10px;"> <img class="banner-logo1-1"  border="0" width="40" style="display:block; width:50px; border-radius: 7px;" alt="LOGO" src="https://lh3.googleusercontent.com/d/1ZYWddltBXkpcjXzkdlT2fqWSSR2HYB-j"> </div></td>
-                                                      </tr>
+                                                      <!-- Se puede reemplazar la imagen del background-image: url(https://images.rappi.com/products/77c714d6-2d05-493e-8f33-c66711864ca7.png); para el asset de producto -->
                                                       
-                                                      <!-- TEXTOS-->
+                                                      <td valign="bottom" style="background-image: url(https://images.rappi.com/products/77c714d6-2d05-493e-8f33-c66711864ca7.png); background-size: cover; background-position: center center; border-radius: 10px; overflow: hidden; "><!-- Se puede reemplazar la imagen del src="https://lh3.googleusercontent.com/d/1ZYWddltBXkpcjXzkdlT2fqWSSR2HYB-j" para el logo si no hay url se debe eliminar la etiqueta de imagen por completo -->
+                                                        
+                                                        <div style="padding: 10px;"> <img role="molecula-iconoL"  border="0" width="40" style="display:block; width:50px; border-radius: 7px;" alt="LOGO" src="https://lh3.googleusercontent.com/d/1ZYWddltBXkpcjXzkdlT2fqWSSR2HYB-j"> </div></td>
+                                                    </tr>
+                                                  </table></td>
+                                              </tr>
+                                              
+                                              <!--SECCION TEXTOS -->
+                                              
+                                              <tr> 
+                                                
+                                                <!-- CELDA 1: -->
+                                                
+                                                <td width="50%" style="width: 50%; vertical-align: top;  " ><!-- Contenedor textos  --> 
+                                                  <a href="LINKDEAL" style="display: inline-block; text-decoration: none; color: {{color_texto_mail_general}}; ">
+                                                  <div style="padding:{{padd_deal_mail_general}}; background:{{bg_solid_mail_general}}; border-radius: {{body_container_background_radius-peq}}; overflow: hidden; width: 100%; "> 
+                                                    
+                                                    <!-- LINEA 1: si no existe texto para esta linea se elimina toda la etiqueta  -->
+                                                    
+                                                    <h4 role="molecula-texto"   style="color: {{color_texto_mail_general}}; margin:0;  overflow: hidden; "><strong>{{deals_copy_1_promo}}</strong></h4>
+                                                    
+                                                    <!-- LINEA 2: si no existe texto para esta linea se elimina toda la etiqueta  -->
+                                                    
+                                                    <h4 role="molecula-texto"   style="color:{{color_texto_mail_general}}; margin:0; overflow: hidden;  ">{{deals_copy_2_promo}}</h4>
+                                                    
+                                                    <!-- LINEA 3: si no existen textos para esta linea se elimina toda la etiqueta 
+Tiene 3 espacios para texto, MARKDOWN, COMPLEMENTO 1 Y COMPLEMENTO 2 -->
+                                                    
+                                                    <div style="margin-top: 4px;"> 
                                                       
-                                                      <tr>
-                                                        <td style="text-align: left; "><div style="padding:{{padd_deal_mail_general}}; "> 
-                                                            
-                                                            <!-- LINEA 1 -->
-                                                            
-                                                            <h4 style="color: {{color_texto_mail_general}}; margin:0;  overflow: hidden; "><strong>{{deals_copy_1_promo}}</strong></h4>
-                                                            
-                                                            <!-- LINEA 2 -->
-                                                            
-                                                            <h4 style="color:{{color_texto_mail_general}}; margin:0; overflow: hidden;  ">{{deals_copy_2_promo}}</h4>
-                                                            
-                                                            <!-- TEXTOS PROMOS -->
-                                                            
-                                                            <div style="margin-top: 4px;">
-                                                              <h4 style="color: {{color_descuento_mail_general}}; background-color:{{bg_descuento_mail_general}}; padding:2px 4px; line-height: 20px; font-weight: bold;  border-radius: 3px; display: inline-block; margin-right: 3px;"><img  border="0" style="height: 6px; max-height: 6px; min-height: 6px; vertical-align: middle;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="{{coronapro_mail_body}}">$999</h4>
-                                                              <h5 style="color:{{color_texto_mail_general}}; display: inline-block;">99% OFF</h5>
-                                                              <h5 style="color:{{color_texto_mail_general}}; display: inline-block;">| Antes <del>$999</del></h5>
-                                                            </div>
-                                                            
-                                                            <!-- TEXTOS RATING  -->
-                                                            <div style="margin-top: 4px;"> <h5 style="color:{{color_texto_mail_general}}; display: inline-block;">Italiana&nbsp;<img src="https://lh3.googleusercontent.com/d/1634Wp0bBuhP7itsbIdYKw6DB4F9mS8HR" alt="⭐" style="height:10px; min-height: 10px; max-height: 10px; line-height: 10px; display:inline-block; margin-left: 5px;">&nbsp;4.9</h5> <h5 style="color:{{color_texto_mail_general}}; display: inline-block;"> <img src="https://lh3.googleusercontent.com/d/1rRjb39HEa6Pqpz4cxc1vGSVvV1DLE7hQ" alt="⭐" style="height:10px; min-height: 10px; max-height: 10px; line-height: 10px; display:inline-block; margin-left: 5px;">&nbsp;xx min.</h5> </div>
-                                                            
-                                                            <!-- TAG 1 -->
-                                                            <div style="margin-top: 4px;">
-                                                              <div style="vertical-align: middle;text-align: left; width: auto; display: inline-block; background: {{bg_tag_fondo_mail_general}};  border-radius: 14px; padding: 2px 4px; margin-right: 3px; ">
-                                                                <h5 style="color: {{color_texto_mail_general}} "><img  border="0" style="height: 13px; max-height: 13px; min-height: 13px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1rofiEyeYdjqVsiEL3-NWsOfXOSMQRVNa"> tag 1 </h5>
-                                                              </div>
-                                                            </div>
-                                                            
-                                                            <!-- TAG 2 -->
-                                                            <div style="margin-top: 4px;">
-                                                              <div style="vertical-align: middle;text-align: left; width: auto; display: inline-block; background: {{bg_tag_fondo_mail_general}};  border-radius: 14px; padding: 2px 4px; margin-right: 3px; ">
-                                                                <h5 style="color: {{color_texto_mail_general}} "><img  border="0" style="height: 13px; max-height: 13px; min-height: 13px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/19wcynrgz0OqdDt5S5fVf7yaSx7rAN4Fn"> tag 1 </h5>
-                                                              </div>
-                                                            </div>
-                                                            <h4 style="color:{{color_acento2_mail_general}}; margin:0; display: inline-block; margin-top: 6px;"> <strong>Pide ahora ⤍ </strong></h4>
-                                                          </div></td>
-                                                      </tr>
+                                                      <!-- MARKDOWN: Si no hay texto se eliina le etiqueta completa | Debe tener opción para activar y desactivar la imagen llamada "Corona Pro"-->
                                                       
-                                                      <!-- FIN DEAL la sección se elimina si se quiere elininar el deal, no la cela¿da -->
+                                                      <h4 role="MARKDOWN"   style="color: {{color_descuento_mail_general}}; background-color:{{bg_descuento_mail_general}}; padding:2px 4px; line-height: 20px; font-weight: bold;  border-radius: 3px; display: inline-block; margin-right: 3px;"><img  border="0" style="height: 6px; max-height: 6px; min-height: 6px; vertical-align: middle;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="{{coronapro_mail_body}}">$999</h4>
                                                       
-                                                    </table>
+                                                      <!-- COMPLEMENTO 1: Si no hay texto se eliina le etiqueta completa -->
+                                                      
+                                                      <h5 role="COMPLEMENTO 1"   style="color:{{color_texto_mail_general}}; display: inline-block;">99% OFF</h5>
+                                                      
+                                                      <!-- COMPLEMENTO 2: Si no hay texto se eliina le etiqueta completa -->
+                                                      <h5 role="COMPLEMENTO 2"  style="color:{{color_texto_mail_general}}; display: inline-block;">| Antes <del>$999</del></h5>
+                                                    </div>
+                                                    
+                                                    <!-- TEXTOS RATING: si no existen textos para esta linea se elimina toda la etiqueta 
+Tiene 3 espacios para texto, CATEGORIA, RATNG Y TIEMPO   -->
+                                                    <div role="TESTOS RATING"  style="margin-top: 4px;">
+                                                      <h5 role="CATEGORIA"  style="color:{{color_texto_mail_general}}; display: inline-block;">Italiana</h5>
+                                                      <h5 role="RATING"  style="color:{{color_texto_mail_general}}; display: inline-block;"><img src="https://lh3.googleusercontent.com/d/1634Wp0bBuhP7itsbIdYKw6DB4F9mS8HR" alt="⭐" style="height:10px; min-height: 10px; max-height: 10px; line-height: 10px; display:inline-block; margin-left: 5px;">&nbsp;4.9</h5>
+                                                      <h5 role="TIEMPO"  style="color:{{color_texto_mail_general}}; display: inline-block;"> <img src="https://lh3.googleusercontent.com/d/1rRjb39HEa6Pqpz4cxc1vGSVvV1DLE7hQ" alt="⭐" style="height:10px; min-height: 10px; max-height: 10px; line-height: 10px; display:inline-block; margin-left: 5px;">&nbsp;xx min.</h5>
+                                                    </div>
+                                                    
+                                                    <!-- TAG1: se debo poder cambiar o quitar el ícono, si se quita, se elimina la div completa -->
+                                                    
+                                                    <div role="molecula-tag"  style="margin-top: 4px;">
+                                                      <div style="vertical-align: middle;text-align: left; width: auto; display: inline-block; background: {{bg_tag_fondo_mail_general}};  border-radius: 14px; padding: 2px 4px; margin-right: 3px; ">
+                                                        <h5 style="color: {{color_texto_mail_general}} "><img role="molecula-iconoS"  border="0" style="height: 13px; max-height: 13px; min-height: 13px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1rofiEyeYdjqVsiEL3-NWsOfXOSMQRVNa"> tag 1 </h5>
+                                                      </div>
+                                                    </div>
+                                                    
+                                                    <!-- TAG2: se debo poder cambiar o quitar el ícono, si se quita, se elimina la div completa -->
+                                                    
+                                                    <div role="molecula-tag" style="margin-top: 4px;">
+                                                      <div style="vertical-align: middle;text-align: left; width: auto; display: inline-block; background: {{bg_tag_fondo_mail_general}};  border-radius: 14px; padding: 2px 4px; margin-right: 3px; ">
+                                                        <h5 style="color: {{color_texto_mail_general}} "><img role="molecula-iconoS"  border="0" style="height: 13px; max-height: 13px; min-height: 13px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/19wcynrgz0OqdDt5S5fVf7yaSx7rAN4Fn"> tag 1 </h5>
+                                                      </div>
+                                                    </div>
+                                                    
+                                                    <!-- LLAMADO A LA ACCION: se debo poder cambiar el texto, si se quita, se elimina la div completa -->
+                                                    <h4 style="color:{{color_acento2_mail_general}}; margin:0; display: inline-block; margin-top: 6px;"> <strong>Pide ahora ⤍ </strong></h4>
                                                   </div>
                                                   </a></td>
-                                                <td role="celda1" width="50%" valign="top" style="vertical-align: top; text-align:left;"><a href="link1" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit; display:block;">
-                                                  <div style=" ">
-                                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                
+                                                <!-- CELDA 2 -->
+                                                
+                                                <td width="50%" style="width: 50%; vertical-align: top;  " ><!-- Contenedor textos CELDA 2, se puede eliminar completa la div, no la celda   --> 
+                                                  
+                                                  <a href="LINKDEAL" style="display: inline-block; text-decoration: none; color: {{color_texto_mail_general}}; ">
+                                                  <div style="padding:{{padd_deal_mail_general}}; background:{{bg_solid_mail_general}}; border-radius: {{body_container_background_radius-peq}}; overflow: hidden; width: 100%; "> 
+                                                    
+                                                    <!-- LINEA 1: si no existe texto para esta linea se elimina toda la etiqueta  -->
+                                                    
+                                                    <h4 role="molecula-texto"   style="color: {{color_texto_mail_general}}; margin:0;  overflow: hidden; "><strong>{{deals_copy_1_promo}}</strong></h4>
+                                                    
+                                                    <!-- LINEA 2: si no existe texto para esta linea se elimina toda la etiqueta  -->
+                                                    
+                                                    <h4 role="molecula-texto"   style="color:{{color_texto_mail_general}}; margin:0; overflow: hidden;  ">{{deals_copy_2_promo}}</h4>
+                                                    
+                                                    <!-- LINEA 3: si no existen textos para esta linea se elimina toda la etiqueta 
+Tiene 3 espacios para texto, MARKDOWN, COMPLEMENTO 1 Y COMPLEMENTO 2 -->
+                                                    
+                                                    <div style="margin-top: 4px;"> 
                                                       
-                                                      <!-- INICIO DEAL--> 
+                                                      <!-- MARKDOWN: Si no hay texto se eliina le etiqueta completa | Debe tener opción para activar y desactivar la imagen llamada "Corona Pro"-->
                                                       
-                                                      <!-- IMAGEN-->
+                                                      <h4 role="MARKDOWN"   style="color: {{color_descuento_mail_general}}; background-color:{{bg_descuento_mail_general}}; padding:2px 4px; line-height: 20px; font-weight: bold;  border-radius: 3px; display: inline-block; margin-right: 3px;"><img  border="0" style="height: 6px; max-height: 6px; min-height: 6px; vertical-align: middle;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="{{coronapro_mail_body}}">$999</h4>
                                                       
-                                                      <tr height="130" class="altodeal1" style="background-image: url({{img_overlay_1_mail_general}}); background-size: cover; background-position: center center;border-radius: 14px; overflow: hidden;" >
-                                                        <td valign="bottom" style="background-image: url(https://images.rappi.com/products/77c714d6-2d05-493e-8f33-c66711864ca7.png); background-size: cover; background-position: center center; border-radius: 14px; overflow: hidden; "><div style="padding: 10px;"> <img class="banner-logo1-1"  border="0" width="40" style="display:block; width:50px; border-radius: 7px;" alt="LOGO" src="https://lh3.googleusercontent.com/d/1ZYWddltBXkpcjXzkdlT2fqWSSR2HYB-j"> </div></td>
-                                                      </tr>
+                                                      <!-- COMPLEMENTO 1: Si no hay texto se eliina le etiqueta completa -->
                                                       
-                                                      <!-- TEXTOS-->
+                                                      <h5 role="COMPLEMENTO 1"   style="color:{{color_texto_mail_general}}; display: inline-block;">99% OFF</h5>
                                                       
-                                                       <tr>
-                                                        <td style="text-align: left; "><div style="padding:{{padd_deal_mail_general}}; "> 
-                                                            
-                                                            <!-- LINEA 1 -->
-                                                            
-                                                            <h4 style="color: {{color_texto_mail_general}}; margin:0;  overflow: hidden; "><strong>{{deals_copy_1_promo}}</strong></h4>
-                                                            
-                                                            <!-- LINEA 2 -->
-                                                            
-                                                            <h4 style="color:{{color_texto_mail_general}}; margin:0; overflow: hidden;  ">{{deals_copy_2_promo}}</h4>
-                                                            
-                                                            <!-- TEXTOS PROMOS -->
-                                                            
-                                                            <div style="margin-top: 4px;">
-                                                              <h4 style="color: {{color_descuento_mail_general}}; background-color:{{bg_descuento_mail_general}}; padding:2px 4px; line-height: 20px; font-weight: bold;  border-radius: 3px; display: inline-block; margin-right: 3px;"><img  border="0" style="height: 6px; max-height: 6px; min-height: 6px; vertical-align: middle;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="{{coronapro_mail_body}}">$999</h4>
-                                                              <h5 style="color:{{color_texto_mail_general}}; display: inline-block;">99% OFF</h5>
-                                                              <h5 style="color:{{color_texto_mail_general}}; display: inline-block;">| Antes <del>$999</del></h5>
-                                                            </div>
-                                                            
-                                                            <!-- TEXTOS RATING  -->
-                                                            <div style="margin-top: 4px;"> <h5 style="color:{{color_texto_mail_general}}; display: inline-block;">Italiana&nbsp;<img src="https://lh3.googleusercontent.com/d/1634Wp0bBuhP7itsbIdYKw6DB4F9mS8HR" alt="⭐" style="height:10px; min-height: 10px; max-height: 10px; line-height: 10px; display:inline-block; margin-left: 5px;">&nbsp;4.9</h5> <h5 style="color:{{color_texto_mail_general}}; display: inline-block;"> <img src="https://lh3.googleusercontent.com/d/1rRjb39HEa6Pqpz4cxc1vGSVvV1DLE7hQ" alt="⭐" style="height:10px; min-height: 10px; max-height: 10px; line-height: 10px; display:inline-block; margin-left: 5px;">&nbsp;xx min.</h5> </div>
-                                                            
-                                                            <!-- TAG 1 -->
-                                                            <div style="margin-top: 4px;">
-                                                              <div style="vertical-align: middle;text-align: left; width: auto; display: inline-block; background: {{bg_tag_fondo_mail_general}};  border-radius: 14px; padding: 2px 4px; margin-right: 3px; ">
-                                                                <h5 style="color: {{color_texto_mail_general}} "><img  border="0" style="height: 13px; max-height: 13px; min-height: 13px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1rofiEyeYdjqVsiEL3-NWsOfXOSMQRVNa"> tag 1 </h5>
-                                                              </div>
-                                                            </div>
-                                                            
-                                                            <!-- TAG 2 -->
-                                                            <div style="margin-top: 4px;">
-                                                              <div style="vertical-align: middle;text-align: left; width: auto; display: inline-block; background: {{bg_tag_fondo_mail_general}};  border-radius: 14px; padding: 2px 4px; margin-right: 3px; ">
-                                                                <h5 style="color: {{color_texto_mail_general}} "><img  border="0" style="height: 13px; max-height: 13px; min-height: 13px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/19wcynrgz0OqdDt5S5fVf7yaSx7rAN4Fn"> tag 1 </h5>
-                                                              </div>
-                                                            </div>
-                                                            <h4 style="color:{{color_acento2_mail_general}}; margin:0; display: inline-block; margin-top: 6px;"> <strong>Pide ahora ⤍ </strong></h4>
-                                                          </div></td>
-                                                      </tr>
-                                                      
-                                                      <!-- FIN DEAL la sección se elimina si se quiere elininar el deal, no la cela¿da -->
-                                                    </table>
+                                                      <!-- COMPLEMENTO 2: Si no hay texto se eliina le etiqueta completa -->
+                                                      <h5 role="COMPLEMENTO 2"  style="color:{{color_texto_mail_general}}; display: inline-block;">| Antes <del>$999</del></h5>
+                                                    </div>
+                                                    
+                                                    <!-- TEXTOS RATING: si no existen textos para esta linea se elimina toda la etiqueta 
+Tiene 3 espacios para texto, CATEGORIA, RATNG Y TIEMPO   -->
+                                                    <div role="TESTOS RATING"  style="margin-top: 4px;">
+                                                      <h5 role="CATEGORIA"  style="color:{{color_texto_mail_general}}; display: inline-block;">Italiana</h5>
+                                                      <h5 role="RATING"  style="color:{{color_texto_mail_general}}; display: inline-block;"><img src="https://lh3.googleusercontent.com/d/1634Wp0bBuhP7itsbIdYKw6DB4F9mS8HR" alt="⭐" style="height:10px; min-height: 10px; max-height: 10px; line-height: 10px; display:inline-block; margin-left: 5px;">&nbsp;4.9</h5>
+                                                      <h5 role="TIEMPO"  style="color:{{color_texto_mail_general}}; display: inline-block;"> <img src="https://lh3.googleusercontent.com/d/1rRjb39HEa6Pqpz4cxc1vGSVvV1DLE7hQ" alt="⭐" style="height:10px; min-height: 10px; max-height: 10px; line-height: 10px; display:inline-block; margin-left: 5px;">&nbsp;xx min.</h5>
+                                                    </div>
+                                                    
+                                                    <!-- TAG1: se debo poder cambiar o quitar el ícono, si se quita, se elimina la div completa -->
+                                                    
+                                                    <div role="molecula-tag"  style="margin-top: 4px;">
+                                                      <div style="vertical-align: middle;text-align: left; width: auto; display: inline-block; background: {{bg_tag_fondo_mail_general}};  border-radius: 14px; padding: 2px 4px; margin-right: 3px; ">
+                                                        <h5 style="color: {{color_texto_mail_general}} "><img role="molecula-iconoS"  border="0" style="height: 13px; max-height: 13px; min-height: 13px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1rofiEyeYdjqVsiEL3-NWsOfXOSMQRVNa"> tag 1 </h5>
+                                                      </div>
+                                                    </div>
+                                                    
+                                                    <!-- TAG2: se debo poder cambiar o quitar el ícono, si se quita, se elimina la div completa -->
+                                                    
+                                                    <div role="molecula-tag" style="margin-top: 4px;">
+                                                      <div style="vertical-align: middle;text-align: left; width: auto; display: inline-block; background: {{bg_tag_fondo_mail_general}};  border-radius: 14px; padding: 2px 4px; margin-right: 3px; ">
+                                                        <h5 style="color: {{color_texto_mail_general}} "><img role="molecula-iconoS"  border="0" style="height: 13px; max-height: 13px; min-height: 13px; vertical-align: middle; padding-right: 2px;" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/19wcynrgz0OqdDt5S5fVf7yaSx7rAN4Fn"> tag 1 </h5>
+                                                      </div>
+                                                    </div>
+                                                    
+                                                    <!-- LLAMADO A LA ACCION: se debo poder cambiar el texto, si se quita, se elimina la div completa -->
+                                                    <h4 style="color:{{color_acento2_mail_general}}; margin:0; display: inline-block; margin-top: 6px;"> <strong>Pide ahora ⤍ </strong></h4>
                                                   </div>
                                                   </a></td>
                                               </tr>
-                                            </table></td>
+                                              
+                                              <!-- SECCION LEGALES: La sección de legales viene desactivada por defecto, si se activa se activan las dos celdas, igual que las celdas superiores se puede quitar el contenido pero no la celda  -->
+                                              
+                                              <tr> 
+                                                
+                                                <!-- CELDA DE LEGALES 1 -->
+                                                
+                                                <td width="50%" style="width: 50%;" ><div style="padding: 6px 0px; vertical-align: top;   "> 
+                                                    <!-- Texto Legales:  se debo poder cambiar el texto, si se quita, se elimina la etiqueta completa --> 
+                                                    <span role="molecula-texto" class="legal" style="color:{{color_textos_legales_mail_general}}; margin:0; display: block;">Aplican términos y condiciones | </span> </div></td>
+                                                
+                                                <!-- CELDA DE LEGALES 2 -->
+                                                
+                                                <td width="50%" style="width: 50%;" ><div style="padding: 6px 0px; vertical-align: top;   "> 
+                                                    <!-- Texto Legales:  se debo poder cambiar el texto, si se quita, se elimina la etiqueta completa --> 
+                                                    <span role="molecula-texto" class="legal" style="color:{{color_textos_legales_mail_general}}; margin:0; display: block;">Aplican términos y condiciones | </span> </div></td>
+                                              </tr>
+                                            </table>
+                                            
+                                            <!-- MODULO CUPONES: los módulos de cupón siempre deben venir en la fuente por pares
+de modo que por cada 2 cupones se inserta la siguiente tabla completa, y en cada td el cupón correspondiente 
+
+HAY DOS TIPOS DE CUPON
+TITULO
+Y CUPON
+
+siempre debe haber 2
+
+
+Para este módulo debe venir por defecto el fondo activado, aplicando las variables para "Fondo" del liquid
+En este modulo el fondo NO se puede desactivar
+En este modulo el alineado NO se puede cambiar
+
+Se pueden moficar pesos de texto
+
+
+-->
+                                            
+                                            <table role="module" border="0" cellpadding="0" cellspacing="5" width="100%" style="table-layout: fixed; margin: 0px auto; max-width: 480px; " >
+                                              <tr> 
+                                                
+                                                <!-- CELDA DE TITULO:  -->
+                                                
+                                                <td role="titulocupon"  width="50%" style="width: 50%; vertical-align: middle; border-radius: {{body_container_background_radius}};  ;background: {{bg_contenedor1_mail_general}};  " ><!-- si la celda de titulo se activa par hacer clickeable, se agrega la etiqueta <a>  --> 
+                                                  
+                                                  <a href="LINKDEAL" style="display: inline-block; text-decoration: none; color: {{color_texto_mail_general}}; ">
+                                                  <div  style="float: left; text-align:left; padding: 0px; word-break: break-all; width: 100%; "> 
+                                                    
+                                                    <!-- esta imagen no se puede quitar del cupón --> 
+                                                    
+                                                    <img role="imagenfull" border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; margin: 0 auto; margin-bottom: 20px; line-height: 0px;  " alt="tag" data-proportionally-constrained="true" data-responsive="false" src="{{body_container_img_dots}}">
+                                                    <div style="padding: 7px "> 
+                                                      <!-- TAG: se debe poder cambiar o quitar el ícono, o quitar el tag, si se quita el tag se debe eliminar toda la molecula  -->
+                                                      
+                                                      <div role="molecula-tag" style="margin: 0px; display: table;">
+                                                        <div style="vertical-align: middle;text-align: left; width: auto; display: inline-block; background: {{bg_tag_contenedor_mail_general}};  border-radius: 14px; padding: 2px 6px; margin-right: 3px;  ">
+                                                          <h4 role="molecula-texto"  style="color: {{color_texto_mail_general}} "><img role="molecula-iconoS"  border="0" style="height: 13px; max-height: 13px; min-height: 13px; vertical-align: middle; line-height: 13px" alt="Rappi" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1wZxPSRbT-maSuZWDyZz99Ewi2A2RH37-"></h4>
+                                                        </div>
+                                                      </div>
+                                                      <!-- En el siguiente texto se puede cambiar el texto para Titulo Cupones -->
+                                                      
+                                                      <h1 role="molecula-texto" style="color:{{color_texto_mail_general}}; margin:0; text-align: left;">Aca un<br>
+                                                        titulo</h1>
+                                                    </div>
+                                                    
+                                                    <!-- esta imagen no se puede quitar del cupón --> 
+                                                    <img role="imagenfull" border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; margin: 0 auto; margin-top: 20px; line-height: 0px;    " alt="tag" data-proportionally-constrained="true" data-responsive="false" src="{{body_container_img_dots}}"> </div>
+                                                  </a></td>
+                                                
+                                                <!-- CELDA DE CUPÓN: En esta celda se puede cambiar el orden de las moléculas, elminar molecular o agregar moleculas nuevas  -->
+                                                
+                                                <td role="cupon" width="50%" style="width: 50%; vertical-align: top; border-radius: {{body_container_background_radius}};  ;background: {{bg_contenedor1_mail_general}};  " ><!-- si la celda de cupon se activa par hacer clickeable, se agrega la etiqueta <a>  --> 
+                                                  
+                                                  <a href="LINKCUPON" style="display: inline-block; text-decoration: none; color: {{color_texto_mail_general}}; ">
+                                                  <div> 
+                                                    
+                                                    <!-- el src de la siguiente imagen se reemplaza por el usuario --> 
+                                                    
+                                                    <img role="imagenfull" border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; margin: 0 auto; border-radius: 0px 0px 0px 0px;" alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/17zBTLASXQzFtt9NtEP3h0qudKBhcZRMA"> 
+                                                    
+                                                    <!-- esta imagen no se puede quitar del cupón --> 
+                                                    <img  border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; margin: 0 auto; line-height: 0px;" alt="tag" data-proportionally-constrained="true" data-responsive="false" src="{{body_container_img_dots}}">
+                                                    <div  style="float: left; text-align:left; padding: 6px; word-break: break-all; width: 100%;"> 
+                                                      
+                                                      <!-- MOLECULA TEXTO + PASTILLA: se puede cambiar el orden de las celdas "th" o se puede usar una sola, texto o pastilla, es decir que se debe poder apagar el th que no se quiere usar -->
+                                                      
+                                                      <table style="margin: 0px;">
+                                                        <thead>
+                                                          <tr> 
+                                                            <!-- Celda pastilla -->
+                                                            <th style="background: {{bg_tag_contenedor_mail_general}}; padding: 4px 7px; border-radius: 30px;"> <div>
+                                                                <h5 role="molecula-texto" style="color:{{color_tag_tipografia_mail_general}}; ">Solo en</h5>
+                                                              </div>
+                                                            </th>
+                                                            
+                                                            <!-- Celda texto -->
+                                                            <th style=" "> <div>
+                                                                <h5 role="molecula-texto" style="color:{{color_texto_mail_general}}; ">Restaurantes</h5>
+                                                              </div>
+                                                            </th>
+                                                          </tr>
+                                                        </thead>
+                                                      </table>
+                                                      <div> 
+                                                        
+                                                        <!-- en el siguiente span se inserta el texto, permite usar modificadores de texto
+-->
+                                                        
+                                                        <h1 role="molecula-texto" style="color:{{color_acento2_mail_general}}; margin:0; text-align: left;">Aca un<br>
+                                                          markdown</h1>
+                                                      </div>
+                                                      <div class="separador-S"></div>
+                                                      
+                                                      <!-- en el siguient bullet permite modificar el icono y el texto,se puede quitar el ícono quitando todo el <td> -->
+                                                      
+                                                      <div role="componente">
+                                                        <table border="0" cellpadding="0" cellspacing="0" style="margin: {{alineado_molecular_mail_body}}; width: 90%;">
+                                                          <tr>
+                                                            <td width="15px" valign="top" style="text-align: left;"><img role="molecula-iconoS"  src="https://lh3.googleusercontent.com/d/1wZxPSRbT-maSuZWDyZz99Ewi2A2RH37-" width="15" style="display: block; line-height: 15px;" alt="img"></td>
+                                                            
+                                                            <!-- celda 2 -->
+                                                            
+                                                            <td valign="top" style="padding-left: 7px; text-align: left;"><h4 role="molecula-texto" style="color:{{color_texto_mail_general}}; ">Cupón xxxxxxxxxxx </h4></td>
+                                                          </tr>
+                                                        </table>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  </a></td>
+                                              </tr>
+                                              
+                                              <!-- SECCION LEGALES: La sección de legales viene desactivada por defecto, si se activa se activan las dos celdas, igual que las celdas superiores se puede quitar el contenido pero no la celda  -->
+                                              
+                                              <tr> 
+                                                
+                                                <!-- CELDA DE LEGALES 1 -->
+                                                
+                                                <td width="50%" style="width: 50%;" ><div style="padding: 6px 0px; vertical-align: top;   "> 
+                                                    <!-- Texto Legales:  se debo poder cambiar el texto, si se quita, se elimina la etiqueta completa --> 
+                                                    <span role="molecula-texto" class="legal" style="color:{{color_textos_legales_mail_general}}; margin:0; display: block;">Aplican términos y condiciones | </span> </div></td>
+                                                
+                                                <!-- CELDA DE LEGALES 2 -->
+                                                
+                                                <td width="50%" style="width: 50%;" ><div style="padding: 6px 0px; vertical-align: top;   "> 
+                                                    <!-- Texto Legales:  se debo poder cambiar el texto, si se quita, se elimina la etiqueta completa --> 
+                                                    <span role="molecula-texto" class="legal" style="color:{{color_textos_legales_mail_general}}; margin:0; display: block;">Aplican términos y condiciones | </span> </div></td>
+                                              </tr>
+                                            </table>
+                                            
+                                            <!-- FIN CUPONES este es el fin de la tabla para 2 cupones, si hay otro par se repite la tabla --> 
+                                            
+                                            <!-- MODULO 3 COLUMNAS: se inserta la tabla completa, se puede quitar el fondo afectando las clase relacionadas con el estilo "Sinfondo" celda por celda, no se quita el fondo de las 3 celdas al tiempo
+
+Se puede cambiar el alineado de los contenidos afectando las variables alineado_molecular_mail_body y body_alineado_molecular
+
+Cada celda se puede hacer clickeable con la etiqueta <a>, si no se hace clickeable se debe eliminar la eiqueya.
+
+-->
+                                            
+                                            <table role="module" data-type="text" border="0" cellpadding="0" cellspacing="5" width="100%" style="table-layout: fixed; margin: 0px auto; max-width: 480px; " >
+                                              <tbody>
+                                                <tr> 
+                                                  
+                                                  <!-- CELDA 1 -->
+                                                  
+                                                  <td style="padding:0px 0px 0px 0px; line-height:23px; text-align:inherit; " height="100%" valign="top" bgcolor="" role=""><!-- CONTENIDO CELDA 1 --> 
+                                                    <a href="LINKCELDA1">
+                                                    <div role="contenedorgeneral" style="background:{{bg_contenedor1_mail_general}}; border-radius: {{body_container_background_radius}}; overflow: hidden;"> 
+                                                      
+                                                      <!-- Las moleculas se insertan en este contenedor, Siempre separadas por un    <div class="separador-S"></div> -->
+                                                      
+                                                      <div role="divcomponentes" style="display: table; padding: {{body_container_background_padding-peq}}; width: 100%; "> 
+                                                        <!-- aqui las moleculas--> 
+                                                        
+                                                        <!-- ICONO M: por defecto no tiene border-radius, se puede agregar uno de border-radius: 7px;  --> 
+                                                        <img role="molecula-iconoM"  src="https://lh3.googleusercontent.com/d/13Wpazp2ezX37GZylmssneVLoF0fxq2yi" width="25" style="display: block; line-height: 15px; margin: {{alineado_molecular_mail_body}};" alt="img">
+                                                        <div class="separador-S"></div>
+                                                        <!-- este texto e puede modificar o quitar, se recomienda usar textos cortos y tamaños pequeños  -->
+                                                        
+                                                        <h4 role="molecula-texto" style="color:{{color_texto_mail_general}}; text-align: {{body_alineado_molecular}}; ">Texto corto </h4>
+                                                      </div>
+                                                      
+                                                      <!-- Esta imagen full se puede cambiar la url o eliminar, si se eliminar la iamgen se debe quitar la etiqueta completa --> 
+                                                      
+                                                      <img border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; margin: 0 auto; " alt="-" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1GvgYi4hdEYq1b71GrXp-UVfidhkEVeE1?v1"> </div>
+                                                    </a></td>
+                                                  
+                                                  <!-- CELDA 2 -->
+                                                  
+                                                  <td style="padding:0px 0px 0px 0px; line-height:23px; text-align:inherit; " height="100%" valign="top" bgcolor="" role=""><!-- CONTENIDO CELDA 2 --> 
+                                                    <a href="LINKCELDA1">
+                                                    <div role="contenedorgeneral" style="background:{{bg_contenedor1_mail_general}}; border-radius: {{body_container_background_radius}}; overflow: hidden;"> 
+                                                      
+                                                      <!-- Las moleculas se insertan en este contenedor, Siempre separadas por un    <div class="separador-S"></div> -->
+                                                      
+                                                      <div role="divcomponentes" style="display: table; padding: {{body_container_background_padding-peq}};  width: 100%;"> 
+                                                        <!-- aqui las moleculas--> 
+                                                        
+                                                        <!-- ICONO M: por defecto no tiene border-radius, se puede agregar uno de border-radius: 7px;  --> 
+                                                        <img role="molecula-iconoM"  src="https://lh3.googleusercontent.com/d/13Wpazp2ezX37GZylmssneVLoF0fxq2yi" width="25" style="display: block; line-height: 15px; margin: {{alineado_molecular_mail_body}};" alt="img">
+                                                        <div class="separador-S"></div>
+                                                        <!-- este texto e puede modificar o quitar, se recomienda usar textos cortos y tamaños pequeños  -->
+                                                        
+                                                        <h4 role="molecula-texto" style="color:{{color_texto_mail_general}};  text-align: {{body_alineado_molecular}}; ">Texto corto </h4>
+                                                      </div>
+                                                      
+                                                      <!-- Esta imagen full se puede cambiar la url o eliminar, si se eliminar la iamgen se debe quitar la etiqueta completa --> 
+                                                      
+                                                      <img border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; margin: 0 auto; " alt="-" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1c5vhJ8Hvr-weWRB5n3xKICSbou2mrcxd?v1"> </div>
+                                                    </a></td>
+                                                  
+                                                  <!-- CELDA 3 -->
+                                                  
+                                                  <td style="padding:0px 0px 0px 0px; line-height:23px; text-align:inherit; " height="100%" valign="top" bgcolor="" role=""><!-- CONTENIDO CELDA 3 --> 
+                                                    
+                                                    <a href="LINKCELDA3">
+                                                    <div role="contenedorgeneral" style="background:{{bg_contenedor1_mail_general}}; border-radius: {{body_container_background_radius}}; overflow: hidden;"> 
+                                                      
+                                                      <!-- Las moleculas se insertan en este contenedor, Siempre separadas por un    <div class="separador-S"></div> -->
+                                                      
+                                                      <div role="divcomponentes" style="display: table; padding: {{body_container_background_padding-peq}};  width: 100%;"> 
+                                                        <!-- aqui las moleculas--> 
+                                                        
+                                                        <!-- ICONO M: por defecto no tiene border-radius, se puede agregar uno de border-radius: 7px;  --> 
+                                                        <img role="molecula-iconoM"  src="https://lh3.googleusercontent.com/d/13Wpazp2ezX37GZylmssneVLoF0fxq2yi" width="25" style="display: block; line-height: 15px; margin: {{alineado_molecular_mail_body}};" alt="img">
+                                                        <div class="separador-S"></div>
+                                                        <!-- este texto e puede modificar o quitar, se recomienda usar textos cortos y tamaños pequeños  -->
+                                                        
+                                                        <h4 role="molecula-texto" style="color:{{color_texto_mail_general}};  text-align: {{body_alineado_molecular}}; ">Texto corto </h4>
+                                                      </div>
+                                                      
+                                                      <!-- Esta imagen full se puede cambiar la url o eliminar, si se eliminar la iamgen se debe quitar la etiqueta completa --> 
+                                                      
+                                                      <img border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; margin: 0 auto; " alt="-" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1Ff8AXjzhjsXyBrUwk4S4A02gjOpAg3a0?v1"> </div>
+                                                    </a></td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                            
+                                            <!-- MODULO 2 COLUMNAS:
+
+Se debe replicar la tabla en su versión escritorio y mobile, todos los moficiadores se deben aplicar a ambos formatos
+
+-Se puede cambiar el orden de las celdas
+-Se puede cambiar el alineado
+-Se puede quitar el fondo del contenedor general y
+-Se puede quitar el fondo de la imagen de forma independiente
+-Se puede hacer clickeable o no
+-En el campo de imagen se puede tener con padding o sin padding
+-En el campo de moléculas se pueden insertar varias, en ambos formatos por igual
+
+--> 
+                                            
+                                            <a href="LINKMODULOCOULUMNAS">
+                                            <div style="display: inline-block; background:{{bg_contenedor1_mail_general}}; border-radius: {{body_container_background_radius}}; overflow: hidden;"> 
+                                              
+                                              <!--  la siguiente es la tabla para escritorio 
+
+-->
+                                              
+                                              <table class="mobile_hide" role="module"  bgcolor="" cellpadding="0" cellspacing="0" width="100%" style="width: 100%; margin: 0 auto; font-family:arial,helvetica,sans-serif; max-width: 480px; table-layout: responsive; overflow: hidden">
+                                                <tr style="">
+                                                  <td role="columna-textos"  style="vertical-align: middle; text-align:left; word-break: break-all; "><div style="float: left; text-align: left; padding: {{body_container_background_padding}};"> 
+                                                      
+                                                      <!-- 
+En el siguiente contenedor se pueden insertar moléculas -->
+                                                      
+                                                      <div style="float: left; width: 100%; ">
+                                                        <h2 role="molecula-texto" style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Titulo</h2>
+                                                        <!-- MOLECULA SEPARADOR S -->
+                                                        
+                                                        <div role="molecula-separador" style="margin-bottom: 10px;">
+                                                          <div style="height: 10px; width: 50px; border-bottom: 1px solid ; border-color: {{color_acento1_mail_general}}; margin-bottom: 5px; margin: {{alineado_molecular_mail_body}};  "></div>
+                                                        </div>
+                                                        <h3 role="molecula-texto" style="color:{{color_texto_mail_general}}; ">bloque de texto bloque de texto bloque de texto </h3>
+                                                      </div>
+                                                    </div></td>
+                                                  
+                                                  <!-- El background de la siguiente celda se puede quitar -->
+                                                  
+                                                  <td width="50%" style="vertical-align: middle; text-align:center; background-image: url({{img_overlay_2_mail_general}}); background-size: cover; background-position: center center; overflow: hidden; border-radius: 10px; "><!-- DEBE VENIR POR DEFECTO CON LA IMAGEN CO ANCHO MODIFICABLE --> 
+                                                    
+                                                    <!-- OPCIÓN IMAGEN FULL, CONTENEDOR SIN PADDING -->
+                                                    
+                                                    <div> <img border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; margin: 0 auto; border-radius: 12px; vertical-align: middle;" alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1Xs3HucYUDlfipuPnegf5ZXO3w2Z5m28u"> 
+                                                      
+                                                      <!-- Este src se debe reemplazar por el usuario--> 
+                                                      
+                                                    </div>
+                                                    
+                                                    <!-- OPCIÓN IMAGEN ANCHO MODIFICABLE, CONTENEDOR CON PADDING -->
+                                                    
+                                                    <div style="padding: 10px;"> <img border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: {{body_img_modulo_auto_ancho}}%; max-width: 240px; margin: 0 auto; border-radius: 12px; vertical-align: middle;" alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/14VKG5CPVNPIVbOQYkyHgtxfW1uLorjXP"> 
+                                                      
+                                                      <!-- Este src se debe reemplazar por el usuario--> 
+                                                      
+                                                    </div></td>
+                                                </tr>
+                                              </table>
+                                              
+                                              <!--  la siguiente es la tabla para mobile -->
+                                              
+                                              <table role="module" class="desktop_hide" bgcolor="" cellpadding="0" cellspacing="0" width="100%" style="width: 100%; margin: 0 auto; font-family:arial,helvetica,sans-serif; max-width: 480px; border-radius: {{body_container_background_radius}}; overflow: hidden">
+                                                <tr style=""> 
+                                                  
+                                                  <!-- En el siguiente contenedor se replican las moléculas de escritorio -->
+                                                  
+                                                  <td role="columna-textos"  style="vertical-align: middle; text-align:left; word-break: break-all; padding: {{body_container_background_padding}};"><h2 role="molecula-texto" style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Titulo</h2>
+                                                    
+                                                    <!-- MOLECULA SEPARADOR S -->
+                                                    
+                                                    <div role="molecula-separador" style="margin-bottom: 10px;">
+                                                      <div style="height: 10px; width: 50px; border-bottom: 1px solid ; border-color: {{color_acento1_mail_general}}; margin-bottom: 5px; margin: {{alineado_molecular_mail_body}};  "></div>
+                                                    </div>
+                                                    <h3 role="molecula-texto" style="color:{{color_texto_mail_general}}; ">bloque de texto bloque de texto bloque de texto </h3></td>
+                                                </tr>
+                                                <tr style="">
+                                                  <td width="100%" style="vertical-align: middle; text-align:left; background-image: url({{img_overlay_2_mail_general}}); background-size: cover; background-position: center center;border-radius: 10px; overflow: hidden; "><!-- OPCIÓN IMAGEN FULL, CONTENEDOR SIN PADDING -->
+                                                    
+                                                    <div> <img border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: 100%; margin: 0 auto; border-radius: 12px; vertical-align: middle;" alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1Xs3HucYUDlfipuPnegf5ZXO3w2Z5m28u"> 
+                                                      
+                                                      <!-- Este src se debe reemplazar por el usuario--> 
+                                                      
+                                                    </div>
+                                                    
+                                                    <!-- OPCIÓN IMAGEN ANCHO MODIFICABLE, CONTENEDOR CON PADDING -->
+                                                    
+                                                    <div style="padding: 10px;"> <img border="0" style="display:block;  text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px;  width: {{body_img_modulo_auto_ancho}}%; max-width: 240px; margin: 0 auto; border-radius: 12px; vertical-align: middle;" alt="tag" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/14VKG5CPVNPIVbOQYkyHgtxfW1uLorjXP"> 
+                                                      
+                                                      <!-- Este src se debe reemplazar por el usuario--> 
+                                                      
+                                                    </div></td>
+                                                </tr>
+                                              </table>
+                                            </div>
+                                            </a> 
+                                            <!-- FIN dos columnas--> 
+                                            
+                                            <!-- MODULO LOGOS :
+
+Se debe replicar la tabla en su versión escritorio y mobile, todos los moficiadores se deben aplicar a ambos formatos
+
+-Se puede cambiar el orden de las celdas
+-Se puede cambiar el alineado
+-Se puede quitar el fondo del contenedor general
+-Se puede hacer clickeable todo el modulo o logo a logo
+-En el campo de logos se puede tener grilla con 3, 4 o 6 logos
+-En el campo de moléculas se pueden insertar varias, en ambos formatos por igual
+
+--> 
+                                            
+                                            <a href="LINKMODULOCOULUMNAS">
+                                            <div style="display: inline-block; background:{{bg_contenedor1_mail_general}}; border-radius: {{body_container_background_radius}}; overflow: hidden;"> 
+                                              
+                                              <!--  la siguiente es la tabla para escritorio 
+
+-->
+                                              
+                                              <table class="mobile_hide" role="module"  bgcolor="" cellpadding="0" cellspacing="0" width="100%" style="width: 100%; margin: 0 auto; font-family:arial,helvetica,sans-serif; max-width: 480px; table-layout: responsive; overflow: hidden">
+                                                <tr style="">
+                                                  <td role="columna-textos"  style="vertical-align: middle; text-align:left; word-break: break-all; "><div style="float: left; text-align: left; padding: {{body_container_background_padding}};"> 
+                                                      
+                                                      <!-- 
+En el siguiente contenedor se pueden insertar moléculas -->
+                                                      
+                                                      <div style="float: left; width: 100%; ">
+                                                        <h2 role="molecula-texto" style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Titulo</h2>
+                                                        <!-- MOLECULA SEPARADOR S -->
+                                                        
+                                                        <div role="molecula-separador" style="margin-bottom: 10px;">
+                                                          <div style="height: 10px; width: 50px; border-bottom: 1px solid ; border-color: {{color_acento1_mail_general}}; margin-bottom: 5px; margin: {{alineado_molecular_mail_body}};  "></div>
+                                                        </div>
+                                                        <h3 role="molecula-texto" style="color:{{color_texto_mail_general}}; ">bloque de texto bloque de texto bloque de texto </h3>
+                                                      </div>
+                                                    </div></td>
+                                                  
+                                                  <!-- EN LA SIGUIENTE CELDA SE PUEDE CAMBIAR EL TIPO DE GRILLA -->
+                                                  
+                                                  <td width="60%" style="vertical-align: middle; text-align:center; overflow: hidden; border-radius: 10px; "><!-- DEBE VENIR CON LA GRILLA PARA 3 LOGOS POR DEFECTO --> 
+                                                    
+                                                    <!-- En cada td se debe poder reemplazar el background-image para reemplazar cada logo,
+viene por defecto con la etiqueta <a> de cada logo activa, si se desactiva se quita la etiqueta <a>
+| La imagen vacia dentro de la celda no se quita ni se modifica
+--> 
+                                                    
+                                                    <!-- GRILLA DE 3 LOGOS -->
+                                                    
+                                                    <table>
+                                                      <tbody>
+                                                        <tr>
+                                                          <td role="logo1" style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; " ><a href="AQUIELLINKDELOGO1" style="display: block;"> <img border="0" style="width: 100%; margin: 0 auto;  " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"> </a></td>
+                                                          <td role="logo2" style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; "  ><a href="AQUIELLINKDELOGO2" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                          <td role="logo3"  style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; " ><a href="AQUIELLINKDELOGO3" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                        </tr>
+                                                      </tbody>
+                                                    </table>
+                                                    
+                                                    <!-- GRILLA DE 4 LOGOS -->
+                                                    
+                                                    <table>
+                                                      <thead>
+                                                        <tr>
+                                                          <th style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; "> <a href="AQUIELLINKDELOGO1" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto;  " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a> </th>
+                                                          <th style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; "> <a href="AQUIELLINKDELOGO2" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a> </th>
+                                                        </tr>
+                                                      </thead>
+                                                      <tbody>
+                                                        <tr>
+                                                          <td style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; " ><a href="AQUIELLINKDELOGO3" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto;  " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                          <td style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; " ><a href="AQUIELLINKDELOGO4" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto;  " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                        </tr>
+                                                      </tbody>
+                                                    </table>
+                                                    
+                                                    <!-- GRILLA DE 6 LOGOS -->
+                                                    
+                                                    <table>
+                                                      <tbody>
+                                                        <tr>
+                                                          <td role="logo1" style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; " ><a href="AQUIELLINKDELOGO1" style="display: block;"> <img border="0" style="width: 100%; margin: 0 auto;  " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"> </a></td>
+                                                          <td role="logo2" style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; "  ><a href="AQUIELLINKDELOGO2" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                          <td role="logo3" style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; "  ><a href="AQUIELLINKDELOGO2" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                        </tr>
+                                                        <tr>
+                                                          <td role="logo4" style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; " ><a href="AQUIELLINKDELOGO4" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                          <td role="logo5"  style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; "><a href="AQUIELLINKDELOGO5" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                          <td role="logo6"  style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; " ><a href="AQUIELLINKDELOGO6" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                        </tr>
+                                                      </tbody>
+                                                    </table></td>
+                                                </tr>
+                                              </table>
+                                              
+                                              <!--  la siguiente es la tabla para mobile -->
+                                              
+                                              <table role="module" class="desktop_hide" bgcolor="" cellpadding="0" cellspacing="0" width="100%" style="width: 100%; margin: 0 auto; font-family:arial,helvetica,sans-serif; max-width: 480px; border-radius: {{body_container_background_radius}}; overflow: hidden">
+                                                <tr style=""> 
+                                                  
+                                                  <!-- En el siguiente contenedor se replican las moléculas de escritorio -->
+                                                  
+                                                  <td role="columna-textos"  style="vertical-align: middle; text-align:left; word-break: break-all; padding: {{body_container_background_padding}};"><h2 role="molecula-texto" style="color:{{color_texto_mail_general}}; margin:0; text-align: {{body_alineado_molecular}};">Titulo</h2>
+                                                    
+                                                    <!-- MOLECULA SEPARADOR S -->
+                                                    
+                                                    <div role="molecula-separador" style="margin-bottom: 10px;">
+                                                      <div style="height: 10px; width: 50px; border-bottom: 1px solid ; border-color: {{color_acento1_mail_general}}; margin-bottom: 5px; margin: {{alineado_molecular_mail_body}};  "></div>
+                                                    </div>
+                                                    <h3 role="molecula-texto" style="color:{{color_texto_mail_general}}; ">bloque de texto bloque de texto bloque de texto </h3></td>
+                                                </tr>
+                                                <tr style="">
+                                                  <td width="100%" style="vertical-align: middle; text-align:left;  "><!-- Se replica la grilla insertada en la versión escritorio del modulo
+--> 
+                                                    
+                                                    <!-- GRILLA DE 3 LOGOS -->
+                                                    
+                                                    <table>
+                                                      <tbody>
+                                                        <tr>
+                                                          <td role="logo1" style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; " ><a href="AQUIELLINKDELOGO1" style="display: block;"> <img border="0" style="width: 100%; margin: 0 auto;  " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"> </a></td>
+                                                          <td role="logo2" style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; "  ><a href="AQUIELLINKDELOGO2" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                          <td role="logo3"  style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; " ><a href="AQUIELLINKDELOGO3" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                        </tr>
+                                                      </tbody>
+                                                    </table>
+                                                    
+                                                    <!-- GRILLA DE 4 LOGOS -->
+                                                    
+                                                    <table>
+                                                      <thead>
+                                                        <tr>
+                                                          <th style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; "> <a href="AQUIELLINKDELOGO1" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto;  " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a> </th>
+                                                          <th style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; "> <a href="AQUIELLINKDELOGO2" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a> </th>
+                                                        </tr>
+                                                      </thead>
+                                                      <tbody>
+                                                        <tr>
+                                                          <td style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; " ><a href="AQUIELLINKDELOGO3" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto;  " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                          <td style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; " ><a href="AQUIELLINKDELOGO4" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto;  " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                        </tr>
+                                                      </tbody>
+                                                    </table>
+                                                    
+                                                    <!-- GRILLA DE 6 LOGOS -->
+                                                    
+                                                    <table>
+                                                      <tbody>
+                                                        <tr>
+                                                          <td role="logo1" style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; " ><a href="AQUIELLINKDELOGO1" style="display: block;"> <img border="0" style="width: 100%; margin: 0 auto;  " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"> </a></td>
+                                                          <td role="logo2" style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; "  ><a href="AQUIELLINKDELOGO2" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                          <td role="logo3" style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; "  ><a href="AQUIELLINKDELOGO2" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                        </tr>
+                                                        <tr>
+                                                          <td role="logo4" style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; " ><a href="AQUIELLINKDELOGO4" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                          <td role="logo5"  style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; "><a href="AQUIELLINKDELOGO5" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                          <td role="logo6"  style="background-image: url(https://lh3.googleusercontent.com/d/1B4hOqqkpKSu2cQHale6dE-hfLX6yfO7O); background-size: cover; background-position: center center; border-radius: 7px; " ><a href="AQUIELLINKDELOGO6" style="display: block;"><img border="0" style="width: 100%; margin: 0 auto; " alt="LOGO" data-proportionally-constrained="true" data-responsive="false" src="https://lh3.googleusercontent.com/d/1_q4ca1b7DkKOGnFqwVfKMTFTmhMp0E2A"></a></td>
+                                                        </tr>
+                                                      </tbody>
+                                                    </table></td>
+                                                </tr>
+                                              </table>
+                                            </div>
+                                            </a> 
+                                            <!-- FIN dos columnas--> 
+                                            
+                                            <!-- FIN CONTENIDOS--></td>
                                         </tr>
                                       </tbody>
                                     </table>

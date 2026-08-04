@@ -73,8 +73,7 @@ Cada archivo contiene únicamente el `<tr>` del header (con su comentario identi
 | `molecula_textom_horizontal.html` / `molecula_textom_vertical.html` | Texto vivo `.bnr-md` (`banner_copy_modulo_textom`), tamaño fijo inline (no depende del largo) |
 | `molecula_img_automatica_horizontal.html` / `molecula_img_automatica_vertical.html` | Imagen automática (`banner_img_modulo_auto_ancho`) — pieza distinta a `modulo_img_automatica_horizontal.html` |
 | `molecula_cta_interno_horizontal.html` (`cta_alineado: 'left'`) / `molecula_cta_interno_vertical.html` (`cta_alineado: 'center'`) | CTA embebido dentro del banner |
-
-`modulo_texto_complementario.html` (sin sufijo) sigue siendo el único archivo para el texto de body (`<h4>`) que acompaña al texto destacado del banner. Su propio comentario interno marca como pendiente dividirlo en `modulo_texto_complemento_horizontal.html` / `_vertical.html`, pero esa versión todavía no existe en el sistema.
+| `molecula_texto_complementario_horizontal.html` / `molecula_texto_complementario_vertical.html` | Texto de body (`<h4>`) que acompaña al texto destacado del banner — contenido pendiente de insertar manualmente en cada uno, es distinto por orientación |
 
 El tamaño de las clases `bnr-*` usadas en las moléculas de créditos, promo y texto XL depende de si el banner que las envuelve está marcado con `id="BANNER_HORIZONTAL"` o `id="BANNER_VERTICAL"` (ver `01-foundations/global-styles/global-styles.html`). Los tamaños de escritorio de estas clases se aplican inline (vía las variables Liquid de largo de texto en `01-foundations/global-styles/head-meta-tags.html`); las clases `bnr-*` en el `<head>` solo cubren el override de mobile.
 
@@ -96,19 +95,25 @@ Aquí viven los bricks más versátiles. Se combinan libremente según las neces
 | `title/modulo-titulo.html` | Único módulo que se usa SIN contenedor. Solo título destacado. |
 | `3columnas/modulo-3-columnas.html` | Tres columnas con imagen + texto |
 | `2columnas/modulo-2-columnas.html` | Dos columnas con imagen + subtítulo + texto. Incluye versión escritorio y mobile (con `mobile_hide` y `desktop_hide`) |
-| `logos/modulo-logos.html` | Grid de logos en bloques de 3, 4 o 6 |
+| `logos/modulo-logos.html` | Módulo completo (título + subtítulo + grid de logos). La grid interna se reemplaza por una de las tres de abajo según cuántos logos traiga la fuente |
 | `1columna/modulo-1columna.html` | El más versátil: imagen + componentes (bullet logo, bullet icono, bullet numerado) |
+| `bullet/modulo_bullet.html` | Módulo con contenedor que envuelve una sola molécula bullet (ícono + subtítulo + texto) |
+
+#### `04_content-modules/logos/` — Grillas por cantidad de logos
+
+| Archivo | Descripción |
+|---------|-------------|
+| `grilla3logos.html` | 1 fila de 3 celdas (`logo1`/`logo2`/`logo3`) |
+| `grilla4logos.html` | Grid 2×2 (`thead` con 2 celdas + `tbody` con 2 celdas) |
+| `grilla6logos.html` | 2 filas de 3 celdas (`logo1`...`logo6`) |
+
+`modulo-logos.html` trae dos tablas completas (escritorio con `class="mobile_hide"` y mobile con `class="desktop_hide"`, mismo patrón que `modulo-2-columnas.html`). En cada una hay un placeholder que marca dónde insertar la grilla — **se inserta solo una** de las tres de arriba (la misma en ambas tablas), según la cantidad de logos que traiga la fuente. El título/subtítulo se replica igual en ambas tablas.
 
 `_contenidos_wrapper.html` es la envolvente `<div>`/`<table>`/`<tbody>` común a la zona de CONTENIDOS del mail (donde se insertan los módulos elegidos, separados por `<div class="separador">`); se conserva sin cambios, igual que `_header-wrapper.html` en `01_headers/`.
 
 #### Componentes internos de `1columna/modulo-1columna.html`
 
-Dentro de `modulo-1columna.html` viven sub-piezas que se identifican con `role="componente"`:
-- **BULLET LOGO** — Logo + subtítulo + texto al lado
-- **BULLET ICONO** — Ícono pequeño + subtítulo + texto
-- **BULLET NUMERADO** — Número grande + subtítulo + texto
-
-Estos componentes están dentro del archivo `modulo-1columna.html` para mantener su contexto. Se pueden combinar libremente dentro del módulo, separados por `<div class="separador-M">`.
+`modulo-1columna.html` ya no embebe las moléculas directamente: es un contenedor genérico (`role="contenedorgeneral"` + `divcomponentes`) con el placeholder `<!-- aqui las moleculas-->` donde se insertan las piezas de `content_moleculas/` que la fuente pida (bullets, tags, etc.), separadas por `<div class="separador-M">`. Puede llevar además una imagen automática opcional debajo.
 
 #### `04_content-modules/content_moleculas/`
 
@@ -118,19 +123,19 @@ Moléculas de contenido extraídas de `06-examples/template_maestro_original.htm
 |---------|-------------|
 | `molecula_tag_promo.html` | Badge de monto destacado ("$999") con fondo/color de descuento |
 | `molecula_tag_verde.html` | Igual que `molecula_tag_promo`, con fondo/color de créditos |
+| `molecula_tag_basico.html` | Igual que `molecula_tag_promo`/`molecula_tag_verde`, con fondo/color genérico (`bg_solid_generico100_mail_body`) |
 | `molecula_separador_s.html` | Línea decorativa corta (50px) bajo un título, color acento 1 — no confundir con la utilidad de espaciado `.separador-S` |
+| `molecula_icono.html` | Los 4 tamaños de ícono suelto (S 15px, M 25px, L 40px, XL 60px) — cada uno es un `<img>` independiente, se usa el que corresponda |
 | `molecula_tag_icono.html` | Pill con ícono + texto pequeño (ícono y texto ocultables/cambiables) |
-| `molecula_texto_pastilla.html` | Tabla de 2 celdas: una pastilla (ej. día) + un texto plano al lado, orden intercambiable |
+| `molecula_texto_pastilla.html` | Tabla de 2 celdas: una pastilla (ej. día) + un texto plano al lado, orden intercambiable (pastilla a la izquierda o a la derecha) |
 | `molecula_link_interno.html` | Link circular con ícono + texto ("Clic aquí") |
 | `molecula_bullet_numerado.html` | Número + subtítulo + texto, separados por `.separador-S` |
 | `molecula_bullet_icono_s.html` | Bullet con ícono de 15px + subtítulo + texto |
 | `molecula_bullet_icono_m.html` | Bullet con ícono de 25px + subtítulo + texto |
-| `molecula_bullet_icono_l.html` | Bullet con imagen de 50-60px + subtítulo + texto |
+| `molecula_bullet_icono_l.html` | Bullet con imagen de 60px + subtítulo + texto |
+| `molecula_franja_logos.html` | Fila de logos circulares (se agregan/quitan `<td>` para más o menos logos) |
+| `molecula_img_automatica.html` | Imagen de ancho variable, opcionalmente clickeable |
 | `modificadores-texto.html` | No es una molécula (por eso no lleva el prefijo `molecula_`) — es la referencia de modificadores de texto (tamaño h1-h5/.legal, subtono 1/2, bold, italic, tachado, subrayado, superíndice) que vive justo antes de las moléculas en el HTML maestro |
-
-⚠️ En el HTML original, `molecula_bullet_icono_s.html` y `molecula_bullet_icono_m.html` compartían el mismo nombre de comentario (`MOLECULA BULLET ICONO M`, uno con ícono de 15px y otro de 25px) — se renombró el de 15px a "S" para seguir el patrón S/M/L. Confirmar con el equipo si es correcto.
-
-⚠️ `molecula_bullet_icono_*` se superpone conceptualmente con los sub-componentes BULLET ICONO / BULLET NUMERADO ya documentados dentro de `1columna/modulo-1columna.html` (arriba) — son piezas distintas (una vive suelta, la otra embebida en el módulo), pendiente confirmar si deben unificarse.
 
 #### `04_content-modules/deals/`
 
@@ -143,6 +148,7 @@ Moléculas de contenido extraídas de `06-examples/template_maestro_original.htm
 | Archivo | Descripción |
 |---------|-------------|
 | `cupones-modulo.html` | Tabla completa con 2 celdas (cupón title + cupón normal, o 2 cupones normales) |
+| `celda_cupon_titulo.html` | Celda "Cupón Title" suelta (`role="titulocupon"`): imagen top + tag/ícono + título — reemplaza a un cupón normal cuando la cantidad es impar |
 
 **Reglas importantes:**
 - Los cupones siempre vienen en **pares**. Por cada 2 cupones se inserta la tabla completa.
