@@ -85,6 +85,17 @@ Cada header soporta estas variantes de cobranding, todas con la misma estructura
 3. **Cobranding M** (`cobranding-m`) — Tamaño mediano.
 4. **Cobranding L** (`cobranding-l`) — Tamaño grande.
 
+Los 4 grupos de tamaño de header (`#HEADER1`-`#HEADER4`, ver `01-foundations/global-styles/global-styles.html`) tienen su propio valor de `cobranding-l`. Actualizado (+5%) el 2026-08-04:
+
+| Grupo | Marcas | `cobranding-l` escritorio | `cobranding-l` mobile |
+|---|---|---|---|
+| HEADER1 | Rappi, SoyRappi, RappiTravel | ~~39px~~ → **41px** | ~~36px~~ → **38px** |
+| HEADER2 | RappiPro, RappiTurbo, RappiProBlack, Defensoría | ~~33px~~ → **35px** | ~~31px~~ → **33px** |
+| HEADER3 | RappiTurbo Restaurantes | ~~45px~~ → **47px** | ~~42px~~ → **44px** |
+| HEADER4 | RappiEntregador, Contenido aliado | ~~28px~~ → **29px** | ~~26px~~ → **27px** |
+
+Estos son los valores de referencia a llevar al sistema de diseño en Figma (tokens de `cobranding-l` por grupo de header).
+
 ### El wrapper compartido
 El archivo `_header-wrapper.html` (con guion bajo) es la **envolvente común a todos los headers**. Cuando armas un mail, el flujo es: insertas el wrapper, y dentro del wrapper insertas el `<tr>` de uno de los 40 archivos específicos (10 marcas × claro/oscuro × centrado/columnas).
 
