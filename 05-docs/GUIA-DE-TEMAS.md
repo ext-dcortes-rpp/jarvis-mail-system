@@ -71,8 +71,34 @@ Dentro de cada rama del `{% if %}` se asignan estas variables (todas con el sufi
 |---|---|
 | `bg_descuento_mail_general` / `color_descuento_mail_general` | Componente de descuento |
 | `bg_creditos_mail_general` / `color_creditos_mail_general` | Componente de créditos |
-| `color_textos_legales_mail_general` | Color de la letra legal — solo asignado en oscuros/invertidos y premium |
+| `color_textos_legales_mail_general` | Color de la letra legal — asignado en los 11 temas (en la mayoría de pastel coincide con `color_texto_mail_general`, pero es un token propio y puede diferenciarse a futuro) |
 | `color_footer_mail_general` | `font_style_look` del footer: `'negro'` en pastel y oscuros/invertidos, `'pro'` en Pro/ProBlack |
+
+### Espaciados internos (banner y deal)
+| Variable | Controla |
+|---|---|
+| `padd_banner_mail_general` | Padding del banner — `'0px 0px'` en los 6 temas pastel, `'15px 10px'` en los 5 temas oscuros/invertidos + premium |
+| `padd_deal_mail_general` | Padding del deal — `'5px 0px'` en pastel + oscuros/invertidos (9 temas), `'6px 8px'` en Pro/ProBlack |
+
+### Contenedor de fondo del body — toggle Fondo/Sinfondo
+Variables nuevas (no estaban en versiones anteriores de esta guía). Se activan con un toggle por tema:
+
+| Variable | Controla |
+|---|---|
+| `body_container_background` | Toggle `'Fondo'` (default) / `'Sinfondo'`. Al activar `'Sinfondo'` se sobreescriben las 4 variables siguientes y `img_fondo_especial_mail_general` en los 11 temas |
+| `body_container_background_padding` | `10px` en `'Fondo'`, `0px` en `'Sinfondo'` |
+| `body_container_background_border` | Borde del contenedor — se anula (`0px solid rgba(255,255,255,0.0)`) en `'Sinfondo'` |
+| `body_container_background_radius` / `body_container_background_radius-peq` | `16px` / `8px` en `'Fondo'`, `0px` ambos en `'Sinfondo'` |
+| `body_container_img_dots` | Imagen decorativa de puntos sobre el contenedor, propia de cada tema |
+
+Usado por los 8 módulos de `04_content-modules/` que envuelven contenido en un contenedor genérico (1/2/3 Columnas, Wrapper, Beneficios, Bullet, Logos, Título).
+
+### Adicionales de body / cupón Pro
+| Variable | Controla |
+|---|---|
+| `coronapro_mail_body` | Ícono de corona junto al precio `$999` en los tags de deal/cupón |
+| `bg_solid_generico100_mail_body` / `bg_solid_generico50_mail_body` | Fondo genérico sólido / al 50% de opacidad, para bloques de body |
+| `icon_link_generico_mail_body` | Ícono de link genérico usado en contenido |
 
 ---
 

@@ -37,8 +37,7 @@ Siempre. Cada mail incluye `head-meta-tags.html` y `global-styles.html` en el `<
 
 ### Reglas críticas
 - **No agregues clases nuevas aquí** sin discutirlo con el equipo.
-- **No quites comentarios condicionales** — todavía quedan algunos con la nomenclatura anterior (`/* si Tipo de Kv = ... */`) en componentes no migrados; son la fuente de verdad hasta que se actualicen al sistema de temas.
-- Si necesitas un color o un tamaño nuevo, primero pregunta al equipo de diseño si encaja en el sistema.
+- Si necesitas un color, tamaño, radio o padding nuevo, primero revisa si ya existe un token que encaje (ver Figma Tokens y `GUIA-DE-TEMAS.md`) antes de crear uno.
 
 ### Aplicar el tema
 Las variables del tema (`bg_solid_mail_general`, `background-image` de `.gradmobile`, background del header, etc.) se aplican en las zonas correspondientes del mail según `GUIA-DE-TEMAS.md`. Consulta esa guía para los valores exactos y qué falta por migrar (sección "Estado actual / pendientes").
