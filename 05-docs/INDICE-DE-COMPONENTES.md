@@ -39,23 +39,27 @@ Más el archivo `_header-wrapper.html` (la envolvente común a los 40 anteriores
 
 (`modulo_img_variable` y `modulo_texto_secundario` se eliminaron por no ser necesarios.)
 
-## CTAs · 1 brick
+## CTAs · 2 archivos, 1 brick conceptual
 
 | Componente | Archivo |
 |------------|---------|
-| CTA template | `02-components/03_ctas/cta-template.html` |
+| Cómo se llama (define variables) | `02-components/03_ctas/cta-llamado.html` |
+| El botón (content block, 8 variantes de `style_Look`) | `02-components/03_ctas/cta-template.html` |
 
-## Deals · fuera de uso (0 bricks activos)
+## Deals · 1 brick activo
 
-Ya no se usan en el sistema. Se conservan como `02-components/04_content-modules/deals/deal-large.backup.html` y `02-components/04_content-modules/deals/deal-small.backup.html` para no perder el trabajo — no están enlazados desde ningún template ni desde el visualizador.
+| Componente | Archivo |
+|------------|---------|
+| Deals en columnas (activo) | `02-components/04_content-modules/deals/deal_columnas.html` |
 
-⚠️ La carpeta también tiene `deal_columnas.html`, sin documentar todavía — pendiente confirmar con el equipo si reemplaza a los backups.
+De a pares en una grilla de 2 celdas (50/50); si la cantidad es impar, se elimina el contenido de la celda derecha (la celda queda vacía). `deal-large.html` y `deal-small.html` ya no se usan — se conservan como `deal-large.backup.html` / `deal-small.backup.html` para no perder el trabajo, no enlazados desde ningún template ni visualizador.
 
-## Coupons · 1 brick · NUEVO
+## Coupons · 1 brick, 2 archivos · NUEVO
 
 | Componente | Archivo | Líneas en HTML original |
 |------------|---------|------------------------|
-| Módulo cupones | `02-components/04_content-modules/coupons/cupones-modulo.html` | 1893-1977 |
+| Módulo cupones (2 celdas, siempre en pares) | `02-components/04_content-modules/coupons/cupones-modulo.html` | 1893-1977 |
+| Celda de título suelta (reemplaza a la celda 1) | `02-components/04_content-modules/coupons/celda_cupon_titulo.html` | — |
 
 ## Benefits · 1 brick · NUEVO
 
@@ -63,13 +67,14 @@ Ya no se usan en el sistema. Se conservan como `02-components/04_content-modules
 |------------|---------|------------------------|
 | Módulo beneficios | `02-components/04_content-modules/benefits/modulo-beneficios.html` | 1979-2012 |
 
-## Content modules · 5 bricks
+## Content modules · 6 bricks
 
 | Componente | Archivo | Líneas en HTML original |
 |------------|---------|------------------------|
 | Módulo título | `02-components/04_content-modules/title/modulo-titulo.html` | 1822-1857 |
+| Módulo bullet | `02-components/04_content-modules/bullet/modulo_bullet.html` | — |
 | Módulo 3 columnas | `02-components/04_content-modules/3columnas/modulo-3-columnas.html` | 1859-1891 |
-| Módulo contenido principal | `02-components/04_content-modules/1columna/modulo-1columna.html` | 2014-2173 |
+| Módulo 1 columna (bloques de moléculas + imagen full-width, en cualquier orden) | `02-components/04_content-modules/1columna/modulo-1columna.html` | 2014-2173 |
 | Módulo 2 columnas | `02-components/04_content-modules/2columnas/modulo-2-columnas.html` | 2175-2274 |
 | Módulo logos | `02-components/04_content-modules/logos/modulo-logos.html` | 2276-2405 |
 
@@ -79,11 +84,14 @@ Ya no se usan en el sistema. Se conservan como `02-components/04_content-modules
 |------------|---------|------------------------|
 | Imagen de cierre | `02-components/05_closing/cierre.html` | 2407-2420 |
 
-## Footer · 1 brick
+## Footer · 1 brick, 4 archivos (1 orquestador + 3 variantes)
 
-| Componente | Archivo | Líneas en HTML original |
-|------------|---------|------------------------|
-| Footer general | `02-components/06_footer/footer.html` | 2430-2460 |
+| Componente | Archivo |
+|------------|---------|
+| Orquestador (elige la variante y los toggles) | `02-components/06_footer/footer.html` |
+| General — la más usada, toda comunicación a usuarios | `02-components/06_footer/footer_general.html` |
+| Sin Amor — sin WhatsApp, comunicaciones más formales | `02-components/06_footer/footer_sinamor.html` |
+| RTS — predeterminado para repartidores/colaboradores | `02-components/06_footer/footer_rts.html` |
 
 ## Foundations · 2 archivos
 
@@ -96,18 +104,18 @@ Ya no se usan en el sistema. Se conservan como `02-components/04_content-modules
 
 ## Resumen
 
-**Total de bricks (componentes): 22**
+**Total de bricks (componentes): 24**
 - 10 headers (marcas)
 - 2 banners
 - 1 CTA
-- 0 deals (fuera de uso, ver arriba)
-- 1 cupones (NUEVO)
-- 1 beneficios (NUEVO)
-- 5 módulos de contenido
+- 1 deals (activo: `deal_columnas.html`)
+- 1 cupones
+- 1 beneficios
+- 6 módulos de contenido (título, bullet, 3 columnas, 1 columna, 2 columnas, logos)
 - 1 cierre
-- 1 footer
+- 1 footer (3 variantes: general, sin amor, rts)
 
-**Total de archivos en `02-components/`: 81** (41 en `01_headers/` + 22 en `02_banners/` (incluye `banner_moleculas/`) + 2 en `03_ctas/` + 11 en `04_content-modules/` + 1 en `05_closing/` + 4 en `06_footer/`)
+**Total de archivos en `02-components/`: 103** (41 en `01_headers/` + 24 en `02_banners/` (incluye `banner_moleculas/`) + 2 en `03_ctas/` + 31 en `04_content-modules/` (incluye `content_moleculas/`, grillas de logos, backups de deals) + 1 en `05_closing/` + 4 en `06_footer/`)
 
 **Total de archivos de foundations: 2**
 

@@ -4,7 +4,15 @@
 
 Esta es la carpeta más importante del repositorio. Aquí viven todos los bloques visuales que se combinan para armar un mail. Cada subcarpeta agrupa un tipo de pieza.
 
-Las subcarpetas de abajo (`01_headers`, `02_banners`...) son la estructura operativa actual. En paralelo, el sistema también se piensa en términos de Atomic Design (átomos → moléculas → organismos) — ver `05-docs/ATOMIC-DESIGN.md` para las reglas y el estado de esa clasificación.
+Las subcarpetas de abajo (`01_headers`, `02_banners`...) son la estructura operativa actual. En paralelo, el sistema también se piensa en términos de Atomic Design (átomos → moléculas → organismos) — ambas vistas describen las mismas piezas, solo que agrupadas distinto.
+
+## Atomic Design (resumen)
+
+Ver **`05-docs/ATOMIC-DESIGN.md`** para el detalle completo (tablas, mockups simulados, snippets HTML y hallazgos de auditoría) — este es solo un resumen de las 3 páginas del Figma del sistema (`Doc-DS-Mails`).
+
+- **Átomos** — la pieza mínima sin contenedor propio: spacers verticales (`.separador` / `-M` / `-S` / `molecula-separador`), modificadores de texto (bold, tachado, vertical, interletrado...), el logo según los 10 contextos donde aparece, la imagen según los 12 tamaños donde aparece, tags/badges (genéricos vs. "$999"), y los 8 estilos de CTA (`style_Look`).
+- **Moléculas** — átomos combinados con reglas propias, todavía sin contexto de página: el header (logo+cobranding, 2 estructuras × 4 tamaños), las 8 moléculas del banner (`banner_moleculas/`), las moléculas de contenido (`content_moleculas/`: bullets, tags/pastillas, combos exclusivos de Deals, link interno, franja de logos), y la tabla de cierre.
+- **Organismos** — el bloque completo y autocontenido (`table role="module"`): Big Banner (vertical/horizontal), Módulo Título, Deals en Columnas, Módulo Cupones, Módulo Bullet, Módulo Beneficios, Módulo 1 Columna, Módulo Dos Columnas, Módulo Logos, Módulo 3 Columnas, y el Footer (General / Sin Amor / RTS, con tabla de variables por país cada uno).
 
 ## Subcarpetas
 
@@ -141,21 +149,21 @@ Moléculas de contenido extraídas de `06-examples/template_maestro_original.htm
 
 `deal-large.html` y `deal-small.html` ya no se usan en el sistema. Se conservan en la carpeta renombrados como `deal-large.backup.html` / `deal-small.backup.html` para no perder el trabajo, pero no están enlazados desde ningún template ni desde el visualizador.
 
-⚠️ **Sin documentar:** la carpeta también tiene `deal_columnas.html` (tabla de 2 celdas, deal a la izquierda y a la derecha) — no está descrito en ningún doc todavía ni enlazado desde el visualizador. Pendiente confirmar con el equipo si es el reemplazo activo de los backups o un work in progress.
+El archivo activo es **`deal_columnas.html`**: deals de a pares en una grilla de 2 celdas (50/50), con imagen + texto (título, descuento, rating, tags, CTA) por celda. Cuando la cantidad es impar, se elimina todo el contenido de la celda derecha (la celda queda vacía, la grilla no se rompe). Ver `05-docs/ATOMIC-DESIGN.md`, Organismos 6.4, para el detalle completo.
 
-#### `04_content-modules/coupons/` — Módulo de cupones · NUEVO
+#### `04_content-modules/coupons/` — Módulo de cupones
 
 | Archivo | Descripción |
 |---------|-------------|
-| `cupones-modulo.html` | Tabla completa con 2 celdas (cupón title + cupón normal, o 2 cupones normales) |
-| `celda_cupon_titulo.html` | Celda "Cupón Title" suelta (`role="titulocupon"`): imagen top + tag/ícono + título — reemplaza a un cupón normal cuando la cantidad es impar |
+| `cupones-modulo.html` | Tabla completa con 2 celdas de cupón normal (siempre de a pares) |
+| `celda_cupon_titulo.html` | Celda de título suelta (`role="titulocupon"`) — reemplaza a la **celda 1** cuando se necesita un título en vez de un cupón; la celda 2 siempre queda como cupón normal |
 
 **Reglas importantes:**
 - Los cupones siempre vienen en **pares**. Por cada 2 cupones se inserta la tabla completa.
-- Cuando hay cantidad impar de cupones, se usa la celda **Cupón Title** (`role="title"`) en lugar del segundo cupón. Esa celda lleva ícono + título y reemplaza a un cupón normal.
-- Cada cupón puede tener: imagen top, tag (día/horario), vertical, value prop (mandatorio), complemento (opcional), y legal (opcional).
-- El value prop usa color `#DAA868` para los temas Pro/ProBlack y `{{color_acento1_mail_general}}` (o el destacado del tema) para el resto.
-- Los legales van en un `<tr>` separado debajo de la fila de cupones.
+- La celda 1 puede convertirse en celda de título (`celda_cupon_titulo.html`) — es una decisión de contenido, no una regla automática de balanceo par/impar. Esa celda tiene su propia estructura: línea punteada arriba y abajo (ninguna removible), tag con ícono, y un H1 título grande — **no** es el mismo patrón que `title/modulo-titulo.html`.
+- Cada celda de cupón normal tiene: imagen de producto (reemplazable), línea punteada fija (no removible), pastilla + texto (cada uno apagable), MARKDOWN (H1, texto grande), separador, y bullet (ícono removible + texto).
+- El fondo de la celda **siempre está activo** (no se puede desactivar) y el alineado es fijo — solo se pueden modificar los pesos de texto.
+- Los legales van en una fila separada debajo de la fila de cupones, desactivada por defecto.
 
 #### `04_content-modules/benefits/` — Módulo de beneficios · NUEVO
 

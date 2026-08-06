@@ -12,7 +12,7 @@ Esta guía explica brick por brick cómo se usa cada componente del sistema. Es 
 2. [Headers · la identidad del remitente](#2-headers--la-identidad-del-remitente)
 3. [Banners · la cabecera visual](#3-banners--la-cabecera-visual)
 4. [CTAs · el botón de acción](#4-ctas--el-botón-de-acción)
-5. [Deals · promociones de productos (fuera de uso)](#5-deals--promociones-de-productos-fuera-de-uso)
+5. [Deals · promociones de productos](#5-deals--promociones-de-productos)
 6. [Coupons · cupones de descuento](#6-coupons--cupones-de-descuento)
 7. [Benefits · beneficios del programa](#7-benefits--beneficios-del-programa)
 8. [Content Modules · los bricks combinables del cuerpo](#8-content-modules--los-bricks-combinables-del-cuerpo)
@@ -148,30 +148,27 @@ El banner es donde más reglas de tema se aplican: background-color, background-
 
 📁 `02-components/03_ctas/`
 
-### El único archivo: `cta-template.html`
+### Dos archivos: `cta-llamado.html` + `cta-template.html`
 
-Es un bloque Liquid con 3 variables:
+> **Cambio v1.2:** el botón ya no se llama directo. `cta-llamado.html` define 4 variables y luego invoca `{{content_blocks.${CTA-template}}}` (el botón en sí, vive como content block de Braze):
 
 ```liquid
+{% assign cta_alineado = 'center' %}
 {% assign text_cta = 'Súper completo en 10 min' %}
 {% assign deeplink_cta = '#' %}
-{% assign style_Look = 'blanco' %}
+{% assign style_Look = 'neon' %}
 {{content_blocks.${CTA-template}}}
 ```
 
 ### ¿Qué cambia entre un CTA y otro?
 
-Solo el contenido de las 3 variables:
-- **`text_cta`** — el texto del botón
+El contenido de las 4 variables:
+- **`cta_alineado`** — `'left'` o `'center'`
+- **`text_cta`** — el texto del botón (máx. 35 caracteres, se trunca automático)
 - **`deeplink_cta`** — la URL a la que lleva el botón
-- **`style_Look`** — el estilo visual del botón, que depende del fondo donde se inserta:
+- **`style_Look`** — el estilo visual del botón. Hay **8 variantes reales**: `'neon'` (default), `'blanconeon'`, `'negroneon'`, `'verde'`, `'blancogris'`, `'negrogris'`, `'problack'`, `'pro'`.
 
-| Si el "Fondo" en la fuente es... | `style_Look` debe ser... |
-|----------------------------------|--------------------------|
-| Gris | `'blanco'` |
-| Neon | `'blanco'` |
-| Pro | `'pro'` |
-| ProBlack | `'problack'` |
+> ⚠️ **`style_Look='blanco'` es un alias legacy** idéntico a `'blanconeon'` — sigue existiendo en el archivo pero **no se usa en código nuevo**. Ver `05-docs/ATOMIC-DESIGN.md`, Átomos 4.6, para el detalle de cada variante (fondo, ícono de flecha, comportamiento mobile).
 
 ### Regla #1 · Puede haber varios CTAs en un mail
 Un mail puede tener 1, 2 o 3 CTAs intercalados a lo largo del body. La fuente te dice cuántos y dónde.
@@ -185,13 +182,33 @@ Si el componente anterior es un módulo (`role="module"`), insertas el separador
 
 ---
 
-## 5. Deals · promociones de productos (fuera de uso)
+## 5. Deals · promociones de productos
 
 📁 `02-components/04_content-modules/deals/`
 
-`deal-large.html` y `deal-small.html` ya no se usan en el sistema. Se conservaron renombrados como `deal-large.backup.html` / `deal-small.backup.html` para no perder el trabajo, pero no están enlazados desde ningún template ni desde el visualizador — no usar como referencia para mails nuevos.
+### El archivo activo: `deal_columnas.html`
 
-⚠️ **Sin documentar:** la carpeta también tiene `deal_columnas.html` (tabla de 2 celdas) — todavía sin describir en ningún doc ni enlazado desde el visualizador. Pendiente confirmar con el equipo si es el reemplazo activo de los backups.
+Los deals vienen de a **PARES** en una grilla de 2 celdas (50/50). Cada celda tiene un bloque de imagen (overlay + producto + logo opcional) y un bloque de texto (título, descuento, rating, tags, CTA). Pensado para promociones frecuentes en la app: da espacio para destacar tanto la promo como el restaurante/comercio.
+
+### Regla #1 · Los deals siempre van en pares
+Por cada 2 deals, una tabla completa nueva (misma lógica que Coupons).
+
+### Regla #2 · Cantidad impar = celda derecha vacía
+Cuando el número de deals es impar, se elimina **todo el contenido** de la celda derecha (imagen, texto, legal) — la celda permanece vacía, pero la grilla nunca se rompe en una sola columna. No se reemplaza por ningún tipo de celda especial.
+
+### Regla #3 · Piezas internas de cada celda
+- **Imagen** — overlay + imagen de producto (reemplazable) + logo opcional (se elimina la etiqueta si no hay logo).
+- **Línea 1 / Línea 2** — título y descripción, se eliminan si no hay texto.
+- **MARKDOWN** — descuento destacado con ícono Corona Pro togglable.
+- **COMPLEMENTO 1 / COMPLEMENTO 2** — texto adicional (ej. "99% OFF" / "| Antes $999"), cada uno independiente.
+- **TEXTOS RATING** — CATEGORIA + RATING + TIEMPO, cada uno independiente y removible.
+- **TAG1 / TAG2** — hasta 2 tags con ícono removible.
+- **CTA** — texto editable (ej. "Pide ahora ⤍").
+- **Legales** — fila aparte, desactivada por defecto.
+
+Es el **único módulo de contenido con link activo de fábrica** (`href="LINKDEAL"`).
+
+> `deal-large.html` y `deal-small.html` ya no se usan. Se conservan renombrados como `deal-large.backup.html` / `deal-small.backup.html` para no perder el trabajo — **no usar como referencia para mails nuevos**: no tienen el sistema de escalado dinámico por variante que documentaban versiones previas de este archivo, ya no existe en el sistema actual.
 
 ---
 
@@ -201,34 +218,31 @@ Si el componente anterior es un módulo (`role="module"`), insertas el separador
 
 ### El único archivo: `cupones-modulo.html`
 
-Es una tabla que contiene **2 celdas por fila**. Cada celda es un cupón. Pueden ser:
-- Dos cupones normales (cuando hay cantidad par)
-- Un Cupón Title + un cupón normal (cuando hay cantidad impar y se necesita "balancear")
+Es una tabla que contiene **2 celdas por fila**. Cada celda es un cupón, y por defecto ambas lo son.
 
 ### Regla #1 · Los cupones siempre van en pares
-Si hay 4 cupones, se insertan 2 tablas (cada una con 2 cupones). Si hay 6, se insertan 3 tablas. **Por cada 2 cupones, una tabla completa nueva.**
+Por cada 2 cupones, se repite la tabla completa (mismo patrón que Deals).
 
-### Regla #2 · Cantidad impar = usar Cupón Title
-Cuando la fuente trae cantidad impar de cupones (1, 3, 5...), la última celda se convierte en **Cupón Title**:
-- Tiene `role="title"`
-- Lleva un ícono y un título grande (ej: "Tus cupones del mes")
-- Reemplaza a un cupón normal en esa celda
+### Regla #2 · La celda 1 puede convertirse en TÍTULO
+En vez de dos cupones, la **celda 1** puede reemplazarse por la celda suelta `celda_cupon_titulo.html` (`role="titulocupon"`), dejando la **celda 2** siempre como un cupón normal. Es una decisión de contenido, no una regla automática de balanceo par/impar. Esta celda de título tiene su **propia estructura** — no es el mismo patrón que `modulo-titulo.html`:
+- Línea punteada arriba Y abajo (`{{body_container_img_dots}}`) — ninguna de las dos se puede quitar.
+- Tag con ícono (`role="molecula-tag"`, ícono cambiable o removible; si se quita el ícono, se elimina toda la molécula).
+- H1 `role="molecula-texto"` — el título grande ("Aca un título").
+- Módulo clickeable opcional vía `<a href="LINKTITULO">`.
 
-### Regla #3 · Las piezas internas de cada cupón
-Un cupón normal puede tener:
-- **Imagen top** — la imagen principal del cupón (mandatoria)
-- **Tag** — etiqueta superior con día/horario (opcional, si no hay se elimina el `<th>`)
-- **Vertical** — categoría del partner (opcional)
-- **Value prop** — el texto grande tipo "$10.000 de descuento" (mandatorio)
-- **Complemento** — texto adicional con ícono (opcional, si no hay se elimina el div completo)
-- **Legal** — texto fino debajo (opcional, va en un `<tr>` aparte)
+### Regla #3 · Las piezas internas de cada celda de cupón
+- **Imagen de producto** (`role="imagenfull"`) — reemplazable.
+- **Línea punteada** (`{{body_container_img_dots}}`) — decorativa, **NO se puede quitar**.
+- **Pastilla + texto** (ej. "Solo en" / "Restaurantes") — se puede usar solo una, o ambas, en cualquier orden.
+- **MARKDOWN** (h1, color `{{color_acento2_mail_general}}`) — el texto grande del cupón, admite modificadores de texto.
+- **Separador** — línea antes del bullet.
+- **Bullet** — ícono (removible eliminando el `<td>` completo) + texto editable.
 
-### Regla #4 · Color del value prop según KV
-- Pro/ProBlack → `#DAA868` (dorado)
-- Los demás → color destacado del KV correspondiente
+### Regla #4 · El fondo de la celda SIEMPRE está activo
+A diferencia de otros módulos de contenido, en Cupones el fondo (`{{bg_contenedor1_mail_general}}`) **no se puede desactivar**, y el alineado es fijo — solo se pueden modificar los pesos de texto.
 
-### Regla #5 · Los legales viven en un `<tr>` aparte
-Los legales NO van dentro del cupón. Van en una fila separada debajo de la fila principal, alineados al cupón al que pertenecen. Si solo un cupón tiene legal, la celda del otro va vacía.
+### Regla #5 · Los legales viven en una fila aparte
+Los legales NO van dentro del cupón. Van en una fila separada debajo de la fila principal, desactivada por defecto — si se activa, se activan las dos celdas juntas.
 
 ---
 
@@ -239,8 +253,8 @@ Los legales NO van dentro del cupón. Van en una fila separada debajo de la fila
 ### El único archivo: `modulo-beneficios.html`
 
 Es una **card horizontal** dividida en 2 columnas:
-- Izquierda: imagen del beneficio
-- Derecha: ícono + subtítulo + texto descriptivo
+- Celda 1: imagen (`imagen-auto`, reemplazable)
+- Celda 2 (`role="celda2"`): ícono + subtítulo + texto, separados por `separador-S`
 
 ### Regla #1 · Por cada beneficio, una tabla nueva
 Si la fuente trae 3 beneficios, se insertan **3 tablas de beneficios seguidas**, no se combinan en una sola.
@@ -248,14 +262,16 @@ Si la fuente trae 3 beneficios, se insertan **3 tablas de beneficios seguidas**,
 ### Regla #2 · Entre beneficios va un separador
 Como cualquier módulo (`role="module"`), entre dos beneficios consecutivos va un `<div class="separador">`.
 
-### Regla #3 · Piezas internas opcionales
-Cada beneficio puede tener:
-- **Imagen** del beneficio (mandatoria)
-- **Ícono** pequeño arriba del subtítulo (opcional)
-- **Subtítulo** (h5) (opcional, se elimina si no aplica)
-- **Texto descriptivo** (opcional, se elimina si no aplica)
+### Regla #3 · La proporción de las celdas CAMBIA entre desktop y mobile
+En desktop la celda de imagen es más angosta que la de texto (**40% / 60%**, clase `.beneficios-mob`); en mobile ambas celdas pasan a **50% / 50%**. No es un ajuste manual — el CSS mobile lo hace solo.
 
-### Regla #4 · No cambies el `vertical-align`
+### Regla #4 · Celda 2 está abierta
+A diferencia de otros módulos con estructura fija, la celda 2 admite **varias moléculas** (no solo un ícono+subtítulo+texto) — al eliminar una, elimina también su separador correspondiente.
+
+### Regla #5 · El fondo del contenedor es opcional
+Se puede usar el módulo **con o sin fondo** (`{{bg_contenedor1_mail_general}}`).
+
+### Regla #6 · No cambies el `vertical-align`
 Dentro del archivo hay comentarios que dicen `<!-- no cambies este vertical align -->`. Respétalos. El alineado vertical es parte del diseño y no debe modificarse.
 
 ---
@@ -266,62 +282,43 @@ Dentro del archivo hay comentarios que dicen `<!-- no cambies este vertical alig
 
 Esta es la carpeta más versátil. Aquí viven los bricks que más se combinan según las necesidades del mail.
 
-### Los 5 módulos
+### Los módulos de esta carpeta
 
 | Archivo | Descripción |
 |---------|-------------|
-| `title/modulo-titulo.html` | Único módulo SIN contenedor de fondo. Solo un título destacado. |
-| `3columnas/modulo-3-columnas.html` | Tres columnas con imagen + texto cada una |
-| `2columnas/modulo-2-columnas.html` | Dos columnas: una con textos, otra con imagen. Incluye versión escritorio y mobile. |
-| `logos/modulo-logos.html` | Grid de logos en bloques de 3, 4 o 6 |
-| `1columna/modulo-1columna.html` | El más versátil: imagen + componentes (bullet logo, bullet icono, bullet numerado) |
+| `title/modulo-titulo.html` | Título (H2) + separador opcional + bloque de texto (H3). Sin contenedor de fondo por defecto (encendido por defecto solo en Pro/ProBlack). |
+| `bullet/modulo_bullet.html` | Ícono (intercambiable S/M/L/XL) + subtítulo + texto, en su propio contenedor. Se puede usar con o sin fondo. |
+| `3columnas/modulo-3-columnas.html` | Tres columnas idénticas, cada una con ícono+texto+imagen full — misma estructura en desktop y mobile |
+| `2columnas/modulo-2-columnas.html` | Celda imagen + celda de moléculas, orden intercambiable. Incluye versión escritorio (`mobile_hide`) y mobile (`desktop_hide`) — se duplica la tabla completa |
+| `logos/modulo-logos.html` | Mismo patrón que 2 Columnas (tabla duplicada), celda de moléculas + grid de logos de 3, 4 o 6 |
+| `1columna/modulo-1columna.html` | El más versátil: uno o varios bloques de moléculas + una imagen full-width opcional, en el orden que se necesite |
 
-### Reglas comunes a los 5 módulos
+Ver `05-docs/ATOMIC-DESIGN.md` (Organismos 6.3–6.11) para la anatomía completa, el HTML real y los "elementos editables" de cada uno.
 
-- Cada módulo es `role="module"` (excepto el de título que no tiene contenedor).
+### Reglas comunes
+
+- Cada módulo es `role="module"` (excepto el de Título, que no lleva contenedor de fondo por defecto).
 - Entre dos módulos consecutivos siempre va un `<div class="separador">`.
 - No modificas la estructura interna, solo las URLs de imágenes y los textos.
 
-### Foco · módulo contenido
+### Foco · módulo 1 columna
 
-Este es el más complejo y el que más se usa. Su estructura interna:
+Ya **no** embebe tipos de bullet fijos. Es un contenedor genérico: uno o varios bloques `divcomponentes` (moléculas separadas por `separador-M`) y, aparte, una imagen full-width (`imagen-auto`) opcional. Ambos bloques se mueven, duplican u omiten libremente:
 
 ```
 modulo-1columna
-├── imagen full (opcional)
-├── divcomponentes
-│   ├── componente 1
-│   ├── componente 2
-│   └── componente 3
-├── imagen full (opcional, si va abajo)
-└── divcomponentes (si hay componentes debajo de la imagen)
+├── divcomponentes (moléculas de content_moleculas/, cualquier combinación)
+├── imagen-auto (opcional, se elimina la etiqueta completa si no se usa)
+└── divcomponentes (opcional, si hace falta otro bloque de moléculas debajo de la imagen)
 ```
 
-Dentro del `divcomponentes` van los **3 tipos de bullet**:
+Combinaciones válidas: Moléculas+Imagen, Imagen+Moléculas, Moléculas+Imagen+Moléculas (o más repeticiones). Si necesitas un ícono+subtítulo+texto en su propio contenedor con fondo propio, ese es **Módulo Bullet** (`bullet/modulo_bullet.html`), no una molécula embebida en 1 Columna.
 
-#### Bullet Logo (`role="componente"`)
-Logo de 50px + subtítulo + texto al lado. Para destacar partners o productos con marca.
+### Foco · módulo 2 columnas y módulo logos
 
-#### Bullet Icono (`role="componente"`)
-Ícono pequeño de 25px + subtítulo + texto. Para listar features o beneficios sin marca.
+Ambos comparten el mismo patrón: **se duplica la tabla completa**, una versión con `class="mobile_hide"` (2 columnas lado a lado en desktop) y otra con `class="desktop_hide"` (celdas apiladas en mobile). Cualquier cambio se aplica a **ambas** versiones — si son N módulos en la fuente, se insertan 2N tablas en el HTML.
 
-#### Bullet Numerado (`role="componente"`)
-Número grande con borde derecho + subtítulo + texto. Para pasos secuenciales (1, 2, 3...).
-
-**Cualquier combinación de estos 3 tipos puede ir dentro de un mismo módulo contenido**, separados por `<div class="separador-M">`.
-
-### Foco · módulo 2 columnas
-
-Tiene una particularidad: **hay versión escritorio y versión mobile separadas**. Las clases `mobile_hide` y `desktop_hide` controlan cuál se muestra en cada dispositivo. Cuando lo uses, **inserta ambas versiones**, no solo una.
-
-### Foco · módulo logos
-
-El alto del contenedor cambia según la cantidad de logos:
-- **2 o 3 logos** → `height: auto`
-- **4 logos** → `height: 295px;`
-- **5 o 6 logos** → `height: 200px;`
-
-Esto está documentado dentro del archivo como comentario.
+En Módulo Logos, la celda de logos es más ancha que la de moléculas (60%/40%). Las grillas válidas son 3, 4 o 6 logos (solo una por instancia, según `grilla3/4/6logos.html`); con 5 logos se usa la grilla de 6 y la 6ª celda queda con el fondo placeholder (no se quita ni se modifica).
 
 ---
 
@@ -333,22 +330,16 @@ Esto está documentado dentro del archivo como comentario.
 
 Es una tabla simple con una imagen de cierre (típicamente la firma "Rappi" en versión imagen).
 
-### Regla #1 · NO va en Pro ni ProBlack
-**Esta es la regla más importante del sistema.** Si el KV es Pro o ProBlack, ELIMINAS la tabla completa. No la dejes con `display: none`, no la dejes vacía: la borras del HTML.
+### Regla #1 · NO va si el tema es Pro o ProBlack
+**Esta es la regla más importante del sistema.** Si `tema_general_mail_general` es Pro o ProBlack, ELIMINAS la tabla completa. No la dejes con `display: none`, no la dejes vacía: la borras del HTML.
+
+> ⚠️ **Auditoría:** esta regla está documentada así en Figma (Moléculas 5.4) pero hoy **no está implementada** en `template_maestro_original.html` — la tabla de cierre se renderiza para los 11 temas sin excepción. Pendiente de confirmar con el equipo si se implementa o se actualiza la regla.
 
 ### Regla #2 · NO va si la fuente dice "sin cierre"
-Si la columna "Pide img" de la fuente trae el valor "sin cierre", también eliminas la tabla.
+Si la columna "Pide img" de la fuente trae exactamente el valor `"sin cierre"`, se elimina la etiqueta `<img>` por completo (la tabla contenedora queda vacía).
 
-### Regla #3 · La URL de la imagen depende del KV
-Para Genérico, Turbo y Neutro, la URL de la imagen viene de la base de datos de assets:
-
-| KV | Tipo de imagen de cierre |
-|----|-------------------------|
-| Genérico | Firma RappiFirma |
-| Turbo | Firma RappiTurboFirma |
-| Neutro | Firma neutra |
-
-La URL exacta se busca en la TAXONOMÍA ASSETS (Google Sheets).
+### Regla #3 · La URL de la imagen depende del texto "Pide img", no del tema
+La base de datos tiene **10 variantes** de firma, cada una asociada a un texto exacto de "Pide img" (ej. "Pide un Rappi", "Pedí un Rappi", "Pídelo por Rappi mx", "Pede um Rappi", y sus 4 equivalentes de RappiTurbo + 2 co-branded con Carulla/MiComisariato). Si "Pide img" coincide con uno de esos 10 textos, se usa la URL correspondiente; si no coincide con nada, se conserva la imagen que ya trae la plantilla base. El detalle completo (los 10 textos y sus URLs) está en `05-docs/ATOMIC-DESIGN.md`, Moléculas 5.4.
 
 ### Regla #4 · El cierre va al final del body
 El cierre va después del último módulo/CTA y antes del footer. **No** va dentro de los módulos.
@@ -362,9 +353,9 @@ Después de la tabla de cierre **no debe haber más CTAs ni módulos de contenid
 
 📁 `02-components/06_footer/`
 
-### El único archivo: `footer.html`
+### El orquestador: `footer.html`
 
-Es un bloque Liquid con 5 variables:
+Es un bloque Liquid con 5 variables que decide qué content block de legales insertar:
 
 ```liquid
 {% assign cond = '' %}
@@ -383,20 +374,22 @@ Es un bloque Liquid con 5 variables:
 | Variable | Qué hace | Cómo se llena |
 |----------|----------|---------------|
 | `cond` | Texto de legales adicionales | Si la fuente trae "Legales adicionales", se inserta. Si no, queda vacío `''`. |
-| `font_style_look` | Estilo visual del footer | `'negro'` para Genérico/Turbo/Neutro, `'pro'` para Pro/ProBlack |
+| `font_style_look` | Estilo visual del footer | Ya **no se elige a mano** — toma el valor de `{{color_footer_mail_general}}`, definido por el tema activo (ver `GUIA-DE-TEMAS.md`): `'negro'` en la mayoría de los 11 temas, `'pro'` en Pro/ProBlack |
 | `show_legal_tyc` | Mostrar términos y condiciones | `true` si fuente trae "Legal promos = TRUE", si no `false` |
 | `show_legal_turbo` | Mostrar legal Turbo | `true` si fuente trae "Legal turbo = TRUE", si no `false` |
 | `show_legal_liquor` | Mostrar legal licores | `true` si fuente trae "Legal licores = TRUE", si no `false` |
 
-### Regla #3 · Hay dos versiones de footer
-La línea `{{content_blocks.${FOOTER_q1_2024_legales}}}` cambia según el tipo de footer:
+### Regla #3 · Hay TRES variantes de legales, no dos
 
-| Si "Tipo de Footer" es... | Esa línea queda como... |
-|---------------------------|------------------------|
-| General | `{{content_blocks.${FOOTER_q1_2024_legales}}}` (como en la base) |
-| Sin amor | `{{content_blocks.${FOOTER_VERSION2}}}` |
+La línea `{{content_blocks.${...}}}` cambia según cuál de los 3 archivos de footer aplica al mail:
 
-El resto del footer se conserva idéntico.
+| Variante | Content block | Cuándo se usa |
+|---|---|---|
+| General (`footer_general.html`) | `{{content_blocks.${FOOTER_q1_2024_legales}}}` | La más usada — toda comunicación dirigida a usuarios |
+| Sin amor (`footer_sinamor.html`) | `{{content_blocks.${FOOTER_VERSION2}}}` | Comunicaciones más formales — sin WhatsApp, sin "Hecho con Amor" |
+| RTS (`footer_rts.html`) | `{{content_blocks.${FOOTER_RTS_q3_2024_legales}}}` | Predeterminado para comunicaciones a repartidores/colaboradores de delivery — legales y canales propios ("Soy Rappi") |
+
+Lo único que cambia por fuente es cuál de las 3 variantes se referencia y los toggles `show_legal_*`. Detalle completo de cada una (estilos, variables por país, hallazgos de auditoría) en `05-docs/ATOMIC-DESIGN.md`, Organismos 6.12.
 
 ### Regla #4 · Links dentro de "Legales adicionales"
 Si el texto de `cond` trae un link, se envuelve en una etiqueta `<a>` con estilo específico:
@@ -416,12 +409,12 @@ PASO 1 → un header de headers/                      (siempre, 1 solo)
 PASO 2 → un banner de banners/                      (siempre, 1 solo)
 PASO 3 → [zona libre del cuerpo]:
            - CTAs                                   (0 a N)
-           - deals (max 4)                          (0 a 4)
-           - coupons (en pares)                     (0, 2, 4...)
-           - benefits                               (0 a N)
-           - content-modules                        (0 a N)
-PASO 4 → cierre.html                                (solo si el tema NO es Pro/ProBlack)
-PASO 5 → footer.html                                (siempre)
+           - deals (en pares; impar = celda vacía)   (0, 2, 4...)
+           - coupons (en pares)                      (0, 2, 4...)
+           - benefits                                (0 a N)
+           - content-modules                         (0 a N)
+PASO 4 → cierre.html                                (debería omitirse si el tema es Pro/ProBlack — ver nota de auditoría en la sección 9)
+PASO 5 → footer.html                                (siempre — General, Sin Amor o RTS según el mail)
 ```
 
 ### Reglas de espaciado dentro del paso 3

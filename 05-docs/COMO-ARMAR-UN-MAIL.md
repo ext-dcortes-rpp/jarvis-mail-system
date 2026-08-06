@@ -28,15 +28,16 @@ Las piezas internas (tag, imagen, créditos, textos) están en `02-components/02
 ### Paso 4 — Inserta los bricks del cuerpo
 Aquí se decide qué piezas y en qué orden:
 
-- **CTA** → `02-components/03_ctas/cta-template.html`
-- **Deal grande / small** → `02-components/04_content-modules/deals/`
+- **CTA** → `02-components/03_ctas/cta-llamado.html` (define las variables) + `cta-template.html` (el botón, vía content block)
+- **Deals** → `02-components/04_content-modules/deals/deal_columnas.html` (siempre en pares; `deal-large/small.backup.html` ya no se usan)
 - **Cupones** → `02-components/04_content-modules/coupons/cupones-modulo.html` (siempre en pares)
 - **Beneficios** → `02-components/04_content-modules/benefits/modulo-beneficios.html` (uno por beneficio)
 - **Módulo título** → `02-components/04_content-modules/title/modulo-titulo.html`
+- **Módulo bullet** → `02-components/04_content-modules/bullet/modulo_bullet.html`
 - **Módulo 3 columnas** → `02-components/04_content-modules/3columnas/modulo-3-columnas.html`
 - **Módulo 2 columnas** → `02-components/04_content-modules/2columnas/modulo-2-columnas.html`
 - **Módulo logos** → `02-components/04_content-modules/logos/modulo-logos.html`
-- **Módulo contenido** → `02-components/04_content-modules/1columna/modulo-1columna.html`
+- **Módulo 1 columna** → `02-components/04_content-modules/1columna/modulo-1columna.html` (bloques de moléculas + imagen full-width, en el orden que se necesite)
 
 **Reglas de espaciado entre bricks:**
 
@@ -77,7 +78,7 @@ De `02-components/06_footer/footer.html`. **El footer SIEMPRE va.** Solo cambias
 
 ### Cupones
 - Siempre en **pares**. La tabla contiene 2 celdas por fila.
-- Si hay cantidad impar, una celda se convierte en "Cupón Title" (con ícono + título).
+- La celda 1 puede reemplazarse por la celda suelta `celda_cupon_titulo.html` (título en vez de cupón) — es una decisión de contenido, no una regla automática por par/impar.
 - Los legales se ponen en un `<tr>` aparte debajo de la fila principal.
 
 ### Beneficios
