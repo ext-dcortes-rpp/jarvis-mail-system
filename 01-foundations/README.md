@@ -2,7 +2,7 @@
 
 > Las reglas del LEGO.
 
-Aquí viven las reglas que cualquier brick respeta: qué es el sistema, qué nunca se puede romper, los tokens (paleta, tipografía, separadores, radios, padding) y los 11 temas que los consumen. **Nadie debería tocar esta carpeta sin coordinarlo con el equipo de diseño**, porque cualquier cambio aquí afecta a TODOS los mails.
+Aquí viven las reglas que cualquier brick respeta: qué es el sistema, qué nunca se puede romper, los tokens (paleta, tipografía, separadores, radios, padding) y los 12 temas que los consumen. **Nadie debería tocar esta carpeta sin coordinarlo con el equipo de diseño**, porque cualquier cambio aquí afecta a TODOS los mails.
 
 Este README refleja 1:1 las 3 hojas de Figma **Doc-DS-Mails**: **Foundations**, **Tokens** y **Temas**. Si hay diferencia entre el HTML y cualquiera de los dos (Figma o este archivo), **gana el HTML** — toda esta documentación existe para reflejarlo, no al revés.
 
@@ -40,7 +40,7 @@ El sistema sigue las 5 capas de Atomic Design de Brad Frost, adaptadas a la real
 | **Atoms** | El componente más pequeño visible. Un texto h4, un tag, un swatch, un CTA aislado. | Tag, h4 título, separador 16px |
 | **Molecules** | Combinación de átomos que cumple una micro-función. No tiene contexto de página todavía. | Bullet con logo + texto, cupón |
 | **Organisms** | Bloques completos que viven en el HTML como `<table role="module">`. Aquí ya hay contexto. | Big Banner, Big Deal, Módulo Beneficios |
-| **Templates** | El mail completo ensamblado, una variación por tema (de los 11 en `tema_general_mail_general`). Es la salida final. | Template Pro, Template Dark Turbo, Template Beige 100 |
+| **Templates** | El mail completo ensamblado, una variación por tema (de los 12 en `tema_general_mail_general`). Es la salida final. | Template Pro, Template Dark Turbo, Template Beige 100 |
 
 Ver la versión ampliada de esta clasificación, pieza por pieza, en `05-docs/ATOMIC-DESIGN.md`.
 
@@ -55,7 +55,7 @@ Reglas extraídas directamente del HTML maestro. Romperlas rompe Braze, rompe el
 | **Estructura intacta** | No cambiar estructuras de la plantilla base ni inventar módulos nuevos. Trabajar siempre desde los módulos ya definidos. |
 | **Separador obligatorio** | Entre dos `role="module"` consecutivos del mismo tipo, insertar siempre `<div class="separador"></div>`. Entre dos `role="componente"`, `<div class="separador-M"></div>`. |
 | **Imágenes desde la TAXONOMÍA** | Las URL de imágenes siempre vienen del Google Sheet TAXONOMÍA ASSETS. No inventar URLs. |
-| **Cierre en Pro/ProBlack** | Si `tema_general_mail_general = 'pro'` o `'problack'`, el cierre (firma RappiFirma) no debería mostrarse — no ocultar con `display:none`, borrar la tabla del HTML. ⚠ Auditoría de código: `template_maestro_original.html` hoy NO implementa esta exclusión — el CIERRE se renderiza igual para los 11 temas, sin condicional. Pendiente de confirmar si la regla sigue vigente o si hay que actualizar el HTML maestro. |
+| **Cierre en Pro/ProBlack** | Si `tema_general_mail_general = 'pro'` o `'problack'`, el cierre (firma RappiFirma) no debería mostrarse — no ocultar con `display:none`, borrar la tabla del HTML. ⚠ Auditoría de código: `template_maestro_original.html` hoy NO implementa esta exclusión — el CIERRE se renderiza igual para los 12 temas, sin condicional. Pendiente de confirmar si la regla sigue vigente o si hay que actualizar el HTML maestro. |
 
 ### 1.5 · Quién mantiene este sistema
 
@@ -126,6 +126,7 @@ Las variables Liquid que arma cada tema (light mode) están definidas en `head-m
 | Categoría | Variable | Tipo | Para qué se usa |
 |---|---|---|---|
 | **Estructura visual** | `bg_solid_mail_general` | COLOR | Fondo del body del mail. Sólido. |
+| | `bg_rgb_mail_general` | COLOR | Mismo tono que `bg_solid_mail_general`, en formato `rgba(x,x,x,0.7)`. Variable de definición — hoy no se consume en ningún HTML del sistema, preparada para usos futuros que necesiten transparencia sobre el fondo sólido. ◀ NUEVO |
 | | `bg_img_mail_general` | IMAGE | Imagen de fondo del mail (solo Dark neon/Turbo/Neutro y Pro/ProBlack; los pastel no la usan). |
 | | `bg_img_size_mail_general` | SPACING | Tamaño de `bg_img`. Dark: `"100% auto"`. Pro/ProBlack: `"100% 100%"`. |
 | | `bg_header_mail_general` | IMAGE | Imagen del header superior (banda con logo Rappi). |
@@ -183,13 +184,15 @@ Family: Arial/Helvetica sans-serif. `body`, `p` y `div` heredan `14px`. Los tama
 
 | Elemento | Desktop (font / line-height) | Mobile (font / line-height) | Dónde se usa |
 |---|---|---|---|
-| `h1` | 26px / 28px | 26px / 28px | Cupones (título grande) · precios destacados |
-| `h2` | 21px / 22px | 21px / 22px | Complemento · Contenido · Columnas (encabezados de sección) |
-| `h3` | 16px / 17px | 16px / 17px | Título · Logos · 2 Columnas (subtítulo) · Bullet numerado · Pastilla/Tag · Beneficios (headline) |
-| `h4` | 14px / 15px | 14px / 15px | Deals (copy y CTA) · Tag con ícono · Banner (tags) · Bullet · 3 Columnas · Cupones |
-| `h5` | 12px / 13px | 12px / 13px | Deals (% off, precio, categoría, rating) · Cupones (pills) |
-| `h6` | 10px / 11px | 10px / 11px | Reservado en la escala — sin uso actual en los módulos del código |
-| `.legal` | 8px / 9px | 8px / 9px | Legales (módulo LEGAL · Deals · Cupones) |
+| `h1` | 26px / 29px | 26px / 29px | Cupones (título grande) · precios destacados |
+| `h2` | 21px / 23px | 21px / 23px | Complemento · Contenido · Columnas (encabezados de sección) |
+| `h3` | 16px / 18px | 16px / 18px | Título · Logos · 2 Columnas (subtítulo) · Bullet numerado · Pastilla/Tag · Beneficios (headline) |
+| `h4` | 14px / 16px | 14px / 16px | Deals (copy y CTA) · Tag con ícono · Banner (tags) · Bullet · 3 Columnas · Cupones |
+| `h5` | 12px / 14px | 12px / 14px | Deals (% off, precio, categoría, rating) · Cupones (pills) |
+| `h6` | 10px / 12px | 10px / 12px | Reservado en la escala — sin uso actual en los módulos del código |
+| `.legal` | 8px / 10px | 8px / 10px | Legales (módulo LEGAL · Deals · Cupones) |
+
+> ◀ Ajuste: se sumó +1px de line-height a las 7 filas de arriba (solo interlineado, el font-size no cambió), tanto en el bloque base como en los dos `@media` de `global-styles.html`.
 
 Mobile repite el mismo valor a propósito: `@media (max-width: 480px)` y `(max-width: 620px)` re-declaran `h1`-`h6`/`.legal` con `!important`, pero sin cambiar el número. A diferencia de `bnr-*` (abajo), esta escala **no** varía por breakpoint.
 
@@ -199,14 +202,16 @@ Las clases `.txts` y `.txtl` ya no existen en el sistema — se quitaron de `glo
 
 | Clase | Escritorio horizontal | Escritorio vertical | Mobile (ambas orientaciones) |
 |---|---|---|---|
-| `.bnr-xl` | 80px / 80px | 125px / 125px | 110px / 110px |
-| `.bnr-lg` | 35px / 35px | 62px / 62px | 63px / 63px |
-| `.bnr-md` | 30px / 31px | 50px / 51px | 55px / 55px |
-| `.bnr-hasta-xl` | 19px / 19px | 25px / 25px | 27px / 27px |
-| `.bnr-hasta-lg` | 10px / 10px | 15px / 15px | 16px / 16px |
-| `.bnr-sm` | 14px / 15px | 16px / 18px | 17px / 19px |
+| `.bnr-xl` | 80px / 80px | 125px / 125px | 110px / 111px |
+| `.bnr-lg` | 35px / 35px | 62px / 62px | 63px / 64px |
+| `.bnr-md` | 30px / 31px | 50px / 51px | 45px / 46px |
+| `.bnr-hasta-xl` | 19px / 19px | 25px / 25px | 27px / 28px |
+| `.bnr-hasta-lg` | 10px / 10px | 15px / 15px | 16px / 17px |
+| `.bnr-sm` | 14px / 15px | 16px / 18px | 17px / 20px |
 
 `.bnr-xl`/`.bnr-lg` se eligen dinámicamente vía Liquid según el largo del texto (variables `*_class`, `*_fontsize`, `*_lineheight` en `head-meta-tags.html`). Ver el detalle en `02-components/README.md`.
+
+> ◀ Ajuste: +1px de line-height en mobile para las 6 clases (font-size sin cambios). De paso se corrigió un bug de sync: `.bnr-md` mobile tenía `font-size: 55px` (copiaba el line-height por error) — el valor correcto es `45px`, igual que documentaba la columna de escritorio vertical.
 
 ### 2.4 · Separadores y spacing
 
@@ -254,12 +259,12 @@ El sistema define 3 variables Liquid de padding que cambian según el tema o un 
 
 | Token | Valor | Nº temas | Módulos donde se usa |
 |---|---|---|---|
-| `padd_banner_mail_general` | `'0px 0px'` | 6 (pastel) | Banners — `big-banner-horizontal.html`, `big-banner-vertical.html` |
+| `padd_banner_mail_general` | `'0px 0px'` | 7 (pastel) | Banners — `big-banner-horizontal.html`, `big-banner-vertical.html` |
 | `padd_banner_mail_general` | `'15px 10px'` | 5 (dark + premium) | Banners — mismos archivos |
-| `padd_deal_mail_general` | `'5px 0px'` | 9 (pastel + dark neutro) | Deals — `deal_columnas.html` |
+| `padd_deal_mail_general` | `'5px 0px'` | 10 (pastel + dark neutro) | Deals — `deal_columnas.html` |
 | `padd_deal_mail_general` | `'6px 8px'` | 2 (Pro, ProBlack) | Deals — mismo archivo |
-| `body_container_background_padding` | `'10px'` | 11 — estado por defecto `'Fondo'` | Content-modules: 1/2/3 Columnas, Wrapper, Beneficios, Bullet, Logos, Título — 8 módulos |
-| `body_container_background_padding` | `'0px'` | 11 — toggle `'Sinfondo'` | Mismos 8 módulos |
+| `body_container_background_padding` | `'10px'` | 12 — estado por defecto `'Fondo'` | Content-modules: 1/2/3 Columnas, Wrapper, Beneficios, Bullet, Logos, Título — 8 módulos |
+| `body_container_background_padding` | `'0px'` | 12 — toggle `'Sinfondo'` | Mismos 8 módulos |
 
 ---
 
@@ -267,17 +272,17 @@ El sistema define 3 variables Liquid de padding que cambian según el tema o un 
 
 *(Figma → hoja "Temas")*
 
-### Los 11 temas
+### Los 12 temas
 
 | Grupo | Comportamiento | Temas |
 |---|---|---|
-| **Pastel** (6) | Fondos claros y suaves | Beige 100, Beige 150, Rosa 100, Púrpura 100, Celeste 100, Verde 100 |
+| **Pastel** (7) | Fondos claros y suaves | Beige 100, Beige 150, Rosa 100, Púrpura 100, Celeste 100, Verde 100, Gris 100 |
 | **Invertidos** (3) | Fondo oscuro por defecto | Dark neon, Dark Turbo, Dark Neutro |
 | **Premium** (2) | Fondo fijo, look editorial | Pro, ProBlack |
 
 ### Qué documenta cada card de tema
 
-Cada una de las 11 cards en Figma registra el mismo set de ~19-21 tokens (varía si el tema tiene banner con tono/gradiente propio), en modo LIGHT y DARK:
+Cada una de las 12 cards en Figma registra el mismo set de ~19-21 tokens (varía si el tema tiene banner con tono/gradiente propio), en modo LIGHT y DARK:
 
 Fondo · Texto · Acento 1 · Acento 2 · Contenedor 1 · Contenedor 2 (celda) · Tag / fondo · Tag / contenedor · Tipografía tag · *(Banner · tono, solo invertidos/premium)* · *(Banner · gradiente, solo Dark neon)* · Textos legales · Imagen 1 · Imagen 2 · Imagen · fondo especial · Descuento · fondo · Descuento · texto · Créditos · fondo · Créditos · texto · Fondo body · 100% · Fondo body · 50%.
 
@@ -295,6 +300,7 @@ El modo **DARK** de cada card es forward-looking: el HTML actual solo implementa
 | Púrpura 100 | Pastel | `#E8E2FB` | `#2F2C3F` | `#7C52D8` | `#FF441F` |
 | Celeste 100 | Pastel | `#C8E9FE` | `#123344` | `#4DA5CB` | `#FF441F` |
 | Verde 100 | Pastel | `#C0FDD3` | `#102E14` | `#248F63` | `#FF441F` |
+| Gris 100 | Pastel | `#ECEFF3` | `#191919` | `#7D8188` | `#FF441F` |
 | Dark neon | Invertido | `#040404` | `#E2E2E2` | `#FFEBC2` | `#FF441F` |
 | Dark Turbo | Invertido | `#040404` | `#E2E2E2` | `#F2ED93` | `#FF441F` |
 | Dark Neutro | Invertido | `#040404` | `#E2E2E2` | `#FFEBC2` | `#FF441F` |
@@ -313,6 +319,7 @@ El modo **DARK** de cada card es forward-looking: el HTML actual solo implementa
 | Púrpura 100 | `#C2AEF2` @40% | `#FFFFFF` @50% | `#FBDB20` / `#000000` | `#29D884` / `#083410` |
 | Celeste 100 | `#7DBFDC` @40% | `#FFFFFF` @50% | `#FBDB20` / `#000000` | `#29D884` / `#083410` |
 | Verde 100 | `#48846C` @30% | `#FFFFFF` @50% | `#FBDB20` / `#000000` | `#29D884` / `#083410` |
+| Gris 100 | `#DCDFE3` @50% | `#FFFFFF` @50% | `#FBDB20` / `#000000` | `#29D884` / `#083410` |
 | Dark neon | `#1D1D1D` | `#2A2B2B` | `#FBDB20` / `#000000` | `#29D884` / `#083410` |
 | Dark Turbo | `#1D1D1D` | `#2A2B2B` | `#FBDB20` / `#000000` | `#29D884` / `#083410` |
 | Dark Neutro | `#1D1D1D` | `#2A2B2B` | `#FBDB20` / `#000000` | `#29D884` / `#083410` |
@@ -333,6 +340,7 @@ Estas tablas cubren los tokens de identidad visual más consultados. Para el res
 | Púrpura 100 | Estructura estándar. Gradiente `#7C52D8`. |
 | Celeste 100 | Estructura estándar. Gradiente `#4DA5CB`. |
 | Verde 100 | Acento 1 cambia en dark. Tag sobre contenedor oscuro y sólido, con tipografía de tag invertida (clara). Imagen 1 = blanco. |
+| Gris 100 | Tono neutro sin dorado — la vía media entre los pasteles de color y los premium. Acento 1 gris (`#7D8188` light / `#B8BCC2` dark). Imagen no invierte en dark — se mantiene `#B8BCC2` en ambos modos. Uso: comunicaciones operativas/informativas donde no aplica ni el color ni el dorado. |
 | Dark neon | Invertido: light usa tonos oscuros, dark los invierte a claros. Banner = gradiente neón (documentado, no conectado al HTML aún) + tono de banner. |
 | Dark Turbo | Invertido. Banner sin gradiente: solo tono de banner verde. Tags verdes. |
 | Dark Neutro | Invertido. Banner neutro sin gradiente. |
@@ -349,7 +357,7 @@ Para el detalle variable-por-variable de cada tema (valores exactos, reglas de n
 Bloque `<style>` completo del HTML base: tipografías (sección 2.3), clases utilitarias `.separador*` (sección 2.4), reglas para `table.wrapper`, las dos media queries (`max-width: 480px` y `620px`), clases de header/banner/cupones/alineación.
 
 ### `global-styles/head-meta-tags.html`
-Meta tags del `<head>` (viewport, charset, conditionals MSO para Outlook) y la sección Liquid **TEMAS**: el `{% if tema_general_mail_general == '...' %}` que define, para cada uno de los 11 temas, todas las variables de la sección 2.2.
+La sección Liquid **TEMAS**: el `{% if tema_general_mail_general == '...' %}` que define, para cada uno de los 12 temas, todas las variables de la sección 2.2. (Los meta tags del `<head>` — viewport, charset, conditionals MSO — viven físicamente en `global-styles.html`, ver abajo.)
 
 ### `tokens/`
 Sigue vacía. Hoy los tokens viven como clases CSS en `global-styles.html` y variables Liquid en `head-meta-tags.html`. Si se migra a archivos CSS dedicados, la referencia de valores es todo lo de arriba (y Figma).

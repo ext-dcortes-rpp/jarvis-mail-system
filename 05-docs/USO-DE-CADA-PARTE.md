@@ -333,7 +333,7 @@ Es una tabla simple con una imagen de cierre (típicamente la firma "Rappi" en v
 ### Regla #1 · NO va si el tema es Pro o ProBlack
 **Esta es la regla más importante del sistema.** Si `tema_general_mail_general` es Pro o ProBlack, ELIMINAS la tabla completa. No la dejes con `display: none`, no la dejes vacía: la borras del HTML.
 
-> ⚠️ **Auditoría:** esta regla está documentada así en Figma (Moléculas 5.4) pero hoy **no está implementada** en `template_maestro_original.html` — la tabla de cierre se renderiza para los 11 temas sin excepción. Pendiente de confirmar con el equipo si se implementa o se actualiza la regla.
+> ⚠️ **Auditoría:** esta regla está documentada así en Figma (Moléculas 5.4) pero hoy **no está implementada** en `template_maestro_original.html` — la tabla de cierre se renderiza para los 12 temas sin excepción. Pendiente de confirmar con el equipo si se implementa o se actualiza la regla.
 
 ### Regla #2 · NO va si la fuente dice "sin cierre"
 Si la columna "Pide img" de la fuente trae exactamente el valor `"sin cierre"`, se elimina la etiqueta `<img>` por completo (la tabla contenedora queda vacía).
@@ -374,7 +374,7 @@ Es un bloque Liquid con 5 variables que decide qué content block de legales ins
 | Variable | Qué hace | Cómo se llena |
 |----------|----------|---------------|
 | `cond` | Texto de legales adicionales | Si la fuente trae "Legales adicionales", se inserta. Si no, queda vacío `''`. |
-| `font_style_look` | Estilo visual del footer | Ya **no se elige a mano** — toma el valor de `{{color_footer_mail_general}}`, definido por el tema activo (ver `GUIA-DE-TEMAS.md`): `'negro'` en la mayoría de los 11 temas, `'pro'` en Pro/ProBlack |
+| `font_style_look` | Estilo visual del footer | Ya **no se elige a mano** — toma el valor de `{{color_footer_mail_general}}`, definido por el tema activo (ver `GUIA-DE-TEMAS.md`): `'negro'` en la mayoría de los 12 temas, `'pro'` en Pro/ProBlack |
 | `show_legal_tyc` | Mostrar términos y condiciones | `true` si fuente trae "Legal promos = TRUE", si no `false` |
 | `show_legal_turbo` | Mostrar legal Turbo | `true` si fuente trae "Legal turbo = TRUE", si no `false` |
 | `show_legal_liquor` | Mostrar legal licores | `true` si fuente trae "Legal licores = TRUE", si no `false` |

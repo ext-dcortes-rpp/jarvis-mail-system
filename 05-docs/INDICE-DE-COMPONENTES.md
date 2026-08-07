@@ -2,7 +2,7 @@
 
 Mapa rápido de todos los bricks disponibles. Para cada uno: qué hace y dónde vive.
 
-> **Nota sobre las líneas de "HTML original":** las columnas de línea de este documento se escribieron cuando `06-examples/template_maestro_original.html` era un archivo de ~2.487 líneas. Ese archivo hoy tiene 1475 líneas — se recortó/simplificó y ya no conserva la mayoría de esas secciones en esas posiciones. Las referencias de línea que siguen (CTA, deals, cupones, beneficios, módulos de contenido, cierre, footer) están desactualizadas y no deberían usarse como fuente de verdad; pendiente recalcularlas o quitarlas.
+> **Nota sobre las líneas de "HTML original":** recalculadas contra `06-examples/template_maestro_original.html` en su estado actual (2.632 líneas, tras sumar el tema Gris 100 + `bg_rgb_mail_general` en los 12 temas). Si el archivo vuelve a reestructurarse, estas líneas quedarán desactualizadas otra vez — ante cualquier duda, `grep` el rol/clase real en el archivo en vez de confiar en el número.
 
 ## Headers · 10 bricks (marcas) · 41 archivos
 
@@ -58,31 +58,31 @@ De a pares en una grilla de 2 celdas (50/50); si la cantidad es impar, se elimin
 
 | Componente | Archivo | Líneas en HTML original |
 |------------|---------|------------------------|
-| Módulo cupones (2 celdas, siempre en pares) | `02-components/04_content-modules/coupons/cupones-modulo.html` | 1893-1977 |
-| Celda de título suelta (reemplaza a la celda 1) | `02-components/04_content-modules/coupons/celda_cupon_titulo.html` | — |
+| Módulo cupones (2 celdas, siempre en pares) | `02-components/04_content-modules/coupons/cupones-modulo.html` | 2100-2230 |
+| Celda de título suelta (reemplaza a la celda 1) | `02-components/04_content-modules/coupons/celda_cupon_titulo.html` | 2122-2151 (inline dentro del ejemplo de cupones) |
 
 ## Benefits · 1 brick · NUEVO
 
 | Componente | Archivo | Líneas en HTML original |
 |------------|---------|------------------------|
-| Módulo beneficios | `02-components/04_content-modules/benefits/modulo-beneficios.html` | 1979-2012 |
+| Módulo beneficios | `02-components/04_content-modules/benefits/modulo-beneficios.html` | 1878-1916 |
 
 ## Content modules · 6 bricks
 
 | Componente | Archivo | Líneas en HTML original |
 |------------|---------|------------------------|
-| Módulo título | `02-components/04_content-modules/title/modulo-titulo.html` | 1822-1857 |
-| Módulo bullet | `02-components/04_content-modules/bullet/modulo_bullet.html` | — |
-| Módulo 3 columnas | `02-components/04_content-modules/3columnas/modulo-3-columnas.html` | 1859-1891 |
-| Módulo 1 columna (bloques de moléculas + imagen full-width, en cualquier orden) | `02-components/04_content-modules/1columna/modulo-1columna.html` | 2014-2173 |
-| Módulo 2 columnas | `02-components/04_content-modules/2columnas/modulo-2-columnas.html` | 2175-2274 |
-| Módulo logos | `02-components/04_content-modules/logos/modulo-logos.html` | 2276-2405 |
+| Módulo título | `02-components/04_content-modules/title/modulo-titulo.html` | 1783-1813 |
+| Módulo bullet | `02-components/04_content-modules/bullet/modulo_bullet.html` | 1814-1834 |
+| Módulo 3 columnas | `02-components/04_content-modules/3columnas/modulo-3-columnas.html` | 2232-2319 |
+| Módulo 1 columna (bloques de moléculas + imagen full-width, en cualquier orden) | `02-components/04_content-modules/1columna/modulo-1columna.html` | 1835-1877 |
+| Módulo 2 columnas | `02-components/04_content-modules/2columnas/modulo-2-columnas.html` | 2320-2417 |
+| Módulo logos | `02-components/04_content-modules/logos/modulo-logos.html` | 2419-2583 |
 
 ## Cierre · 1 brick
 
 | Componente | Archivo | Líneas en HTML original |
 |------------|---------|------------------------|
-| Imagen de cierre | `02-components/05_closing/cierre.html` | 2407-2420 |
+| Imagen de cierre | `02-components/05_closing/cierre.html` | 2590-2600 |
 
 ## Footer · 1 brick, 4 archivos (1 orquestador + 3 variantes)
 
@@ -97,8 +97,8 @@ De a pares en una grilla de 2 celdas (50/50); si la cantidad es impar, se elimin
 
 | Archivo | Función | Líneas en HTML original |
 |---------|---------|------------------------|
-| `01-foundations/global-styles/head-meta-tags.html` | Meta tags y conditional comments Outlook | 429-451 |
-| `01-foundations/global-styles/global-styles.html` | Bloque `<style>` completo + media queries | 452-884 |
+| `01-foundations/global-styles/head-meta-tags.html` | Bloque Liquid de temas — un `{% if tema_general_mail_general == '...' %}` por cada uno de los 12 temas | 1-629 |
+| `01-foundations/global-styles/global-styles.html` | `<head>` completo: meta tags, conditionals MSO para Outlook, bloque `<style>` y las dos media queries | 630-1185 |
 
 ---
 
@@ -119,4 +119,4 @@ De a pares en una grilla de 2 celdas (50/50); si la cantidad es impar, se elimin
 
 **Total de archivos de foundations: 2**
 
-Este documento reemplaza un HTML monolítico original de ~2.487 líneas; hoy esa referencia histórica (`06-examples/template_maestro_original.html`) tiene 1475 líneas — ver la nota al inicio sobre por qué las columnas de línea ya no son confiables.
+Este documento reemplaza al HTML monolítico de referencia (`06-examples/template_maestro_original.html`), que hoy tiene 2.632 líneas y sirve como catálogo de ejemplo de casi todas las piezas del sistema (declara el tema al inicio, luego banner, CTAs, deals, cupones, beneficios, módulos de contenido, cierre y footer, en ese orden).

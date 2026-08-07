@@ -16,7 +16,7 @@ Si abres una caja de LEGO encuentras tres cosas: las **piezas** (los bricks), la
 |------|--------------|
 | Las reglas de color y forma | `01-foundations/` |
 | Los bricks individuales | `02-components/` |
-| Las skins (los 11 temas: Beige, Rosa, Púrpura, Celeste, Verde, Dark neon/Turbo/Neutro, Pro, ProBlack) | Liquid en `01-foundations/global-styles/head-meta-tags.html` |
+| Las skins (los 12 temas: Beige, Rosa, Púrpura, Celeste, Verde, Gris, Dark neon/Turbo/Neutro, Pro, ProBlack) | Liquid en `01-foundations/global-styles/head-meta-tags.html` |
 | Los modelos ya armados | `03-templates/` |
 
 ## Cómo se arma un mail
@@ -73,13 +73,13 @@ jarvis-mail-system/
 1. **Cero Inserción Autónoma.** Nadie inventa módulos nuevos. Si no existe en este repo, no existe.
 2. **Los componentes no se modifican.** Se usan tal cual están. Lo que cambia entre un mail y otro son las imágenes, textos y los componentes que se incluyen u omiten.
 3. **Los comentarios `INICIO` / `FIN` y las instrucciones internas se conservan SIEMPRE.** Son parte del componente. No son adornos.
-4. **El tema se resuelve por Liquid, no se mezcla a mano.** Los 11 temas viven como variables `{% assign %}` en `01-foundations/global-styles/head-meta-tags.html`, condicionadas por `tema_general_mail_general`; los componentes no se modifican para cambiar de tema.
+4. **El tema se resuelve por Liquid, no se mezcla a mano.** Los 12 temas viven como variables `{% assign %}` en `01-foundations/global-styles/head-meta-tags.html`, condicionadas por `tema_general_mail_general`; los componentes no se modifican para cambiar de tema.
 
 ## Documentación clave
 
 Antes de producir tu primer mail, lee estos dos documentos en orden:
 
-1. **[Guía completa de Temas](05-docs/GUIA-DE-TEMAS.md)** — Los 11 temas del sistema, qué variables Liquid define cada uno, y las reglas particulares por grupo (pastel, oscuros/invertidos, premium).
+1. **[Guía completa de Temas](05-docs/GUIA-DE-TEMAS.md)** — Los 12 temas del sistema, qué variables Liquid define cada uno, y las reglas particulares por grupo (pastel, oscuros/invertidos, premium).
 2. **[Uso correcto de cada parte](05-docs/USO-DE-CADA-PARTE.md)** — Guía brick por brick: cuándo usar cada componente, sus reglas internas, las piezas opcionales, y el orden recomendado de ensamblaje.
 
 Documentación complementaria en `05-docs/`:

@@ -44,7 +44,7 @@ Dentro de cada carpeta, los 4 archivos:
 
 Cada archivo contiene únicamente el `<tr>` del header (con su comentario identificador); el archivo `_header-wrapper.html` es la envolvente `<table>`/`<tbody>` común a todos y se conserva sin cambios.
 
-**La elección de marca es independiente del tema del mail** (`tema_general_mail_general` en `05-docs/GUIA-DE-TEMAS.md`): cualquiera de los 10 headers puede combinarse con cualquiera de los 11 temas.
+**La elección de marca es independiente del tema del mail** (`tema_general_mail_general` en `05-docs/GUIA-DE-TEMAS.md`): cualquiera de los 10 headers puede combinarse con cualquiera de los 12 temas.
 
 ### `02_banners/` — La cabecera visual del mail
 

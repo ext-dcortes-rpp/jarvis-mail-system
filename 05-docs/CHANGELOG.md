@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.6.0] - Tema Gris 100, `bg_rgb_mail_general` y ajuste de interlineado
+
+### Agregado
+- **Tema Gris 100** — séptimo tema pastel del sistema (ahora 12 en total: 7 pastel + 3 oscuros/invertidos + 2 premium). Comunicación neutra, sin dorado, con acento gris (`#7D8188` light / `#B8BCC2` dark). Rama `{% elsif tema_general_mail_general == 'gris100' %}` en `01-foundations/global-styles/head-meta-tags.html` y en la copia embebida de `06-examples/template_maestro_original.html`. Las imágenes reutilizan las URLs del tema ProBlack — todavía no tiene asset propio.
+- **`bg_rgb_mail_general`** en los 12 temas, debajo de `bg_solid_mail_general` — mismo tono en formato `rgba(x,x,x,0.7)`. Variable de definición: hoy no se consume en ningún HTML del sistema, queda lista para usos futuros que necesiten transparencia sobre el fondo sólido (overlays, sombras). Agregada tanto en `head-meta-tags.html` como en `template_maestro_original.html`.
+
+### Cambiado
+- **Interlineado +1px** en toda la tipografía de `01-foundations/global-styles/global-styles.html`: `h1`-`h6`, `.legal` y las 6 clases `bnr-*` (`xl`/`lg`/`md`/`hasta-xl`/`hasta-lg`/`sm`), en el bloque base y en los dos `@media` (`max-width: 480px` y `620px`). Solo `line-height` — ningún `font-size` cambió.
+- `06-examples/template_maestro_original.html`: se reemplazó el `<head>` completo por la versión actualizada de `global-styles.html`. De paso corrigió dos divergencias que ya existían entre el maestro y el foundation real: `.bnr-md` en mobile tenía `font-size: 55px` (debía ser `45px`, igual que su propio `line-height`) y `cobranding-l` tenía valores desalineados (`36/31/42/26` en vez de `38/33/44/27`).
+- Documentación (`05-docs/GUIA-DE-TEMAS.md`, `01-foundations/README.md`, `05-docs/INDICE-DE-COMPONENTES.md`) actualizada: menciones de "11 temas" pasan a "12", tabla de tamaños de texto y de `bnr-*` con los valores nuevos, y líneas de `template_maestro_original.html` recalculadas (el archivo pasó de 2.580 a 2.632 líneas por las adiciones de arriba).
+- Figma **Doc-DS-Mails** sincronizado en paralelo: `02 · Tokens`, `03 · Temas`, `08 · HTML Bridge` y `10 · Changelog` (entrada `v2.2`) reflejan los mismos cambios de esta versión.
+
 ## [0.5.0] - Eliminación del esqueleto (base-template) y renumeración de carpetas
 
 ### Eliminado

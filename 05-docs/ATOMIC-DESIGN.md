@@ -900,6 +900,8 @@ Comparte exactamente los mismos valores de Legal Turbo / Legal Liquor / Legales 
 
 > ⚠ **Auditoría:** las variables de WhatsApp (`color_textwa`, `color_bordewa`, `color_fondowa`, `walogo`, `wa-copy`, `wa-texto`, `deeplink_whatsapp`) se siguen asignando en el bloque STYLE LOOK/LEGALES, pero nunca se usan — el archivo no tiene botón de WhatsApp en el body. Lo mismo pasa con `img-amor`: se asigna en los 4 estilos pero tampoco se usa.
 
+> ℹ️ **Nota — `cafe` y `blanco` no son una inconsistencia:** el Changelog del sistema (Figma, página 10) documenta que la migración a 11 Temas redujo el footer a 2 estilos (`negro`/`pro`). Los estilos `cafe` y `blanco` de Sin Amor y RTS siguen vivos en el HTML a propósito — `footer_sinamor.html`/`footer_rts.html` son content blocks de Braze, y borrarlos rompería mails antiguos que ya los referencian por nombre. Simplemente ya no se documentan como opción vigente para mails nuevos.
+
 #### C · Footer RTS (Repartidores) — `06_footer/footer_rts.html`
 
 Predeterminado para comunicaciones a **repartidores/colaboradores de delivery**. Son comunicaciones de la marca a los colaboradores, no a usuarios: los legales y los canales de comunicación que se mencionan son los de repartidores ("Soy Rappi" / "Rappi Entregador"), no los del footer de usuarios.
