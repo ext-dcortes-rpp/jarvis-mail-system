@@ -434,7 +434,6 @@ Mientras armas la zona libre del cuerpo, recuerda los separadores:
 | Dos módulos (`role="module"`) consecutivos | `<div class="separador"></div>` |
 | Un módulo y un CTA | `<div class="separador"></div>` |
 | Después de un CTA | `<div class="separador"></div>` (excepto si va el cierre debajo) |
-| Antes o después de un deal | NADA (los deals tienen su propio aire) |
 | Entre cupones del mismo módulo | va dentro de la misma tabla, no separador |
 | Entre dos beneficios consecutivos | `<div class="separador"></div>` |
 
