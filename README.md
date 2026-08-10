@@ -70,7 +70,7 @@ jarvis-mail-system/
 
 ## Reglas de oro
 
-1. **Cero Inserción Autónoma.** Nadie inventa módulos nuevos. Si no existe en este repo, no existe.
+1. **Módulos nuevos parten de los existentes.** Ya no es una prohibición total, pero cualquier módulo nuevo debe basarse en la estructura de los que ya están probados y funcionan en la mayoría de dispositivos — no se inventa desde cero.
 2. **Los componentes no se modifican.** Se usan tal cual están. Lo que cambia entre un mail y otro son las imágenes, textos y los componentes que se incluyen u omiten.
 3. **Los comentarios `INICIO` / `FIN` y las instrucciones internas se conservan SIEMPRE.** Son parte del componente. No son adornos.
 4. **El tema se resuelve por Liquid, no se mezcla a mano.** Los 12 temas viven como variables `{% assign %}` en `01-foundations/global-styles/head-meta-tags.html`, condicionadas por `tema_general_mail_general`; los componentes no se modifican para cambiar de tema.

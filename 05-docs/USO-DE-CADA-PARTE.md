@@ -40,7 +40,7 @@ Siempre. Cada mail incluye `head-meta-tags.html` y `global-styles.html` en el `<
 - Si necesitas un color, tamaño, radio o padding nuevo, primero revisa si ya existe un token que encaje (ver Figma Tokens y `GUIA-DE-TEMAS.md`) antes de crear uno.
 
 ### Aplicar el tema
-Las variables del tema (`bg_solid_mail_general`, `background-image` de `.gradmobile`, background del header, etc.) se aplican en las zonas correspondientes del mail según `GUIA-DE-TEMAS.md`. Consulta esa guía para los valores exactos y qué falta por migrar (sección "Estado actual / pendientes").
+Las variables del tema (`bg_solid_mail_general`, `background-image` de `.fondomobile`, background del header vía `.bg-headermobile`, etc.) se aplican en las zonas correspondientes del mail según `GUIA-DE-TEMAS.md`. Consulta esa guía para los valores exactos y qué falta por migrar (sección "Estado actual / pendientes").
 
 ---
 
@@ -106,21 +106,18 @@ El archivo `_header-wrapper.html` (con guion bajo) es la **envolvente común a t
 
 ### Los 2 banners disponibles
 
-| Archivo | Cuándo se usa |
+| Archivo | Formato |
 |---------|---------------|
-| `big-banner-horizontal.html` | Cuando el mail tiene módulos en el body además de CTA y cierre |
-| `big-banner-vertical.html` | Cuando el mail solo tiene CTA y cierre (mail simple) |
+| `big-banner-horizontal.html` | Ancho — imagen obligatoria |
+| `big-banner-vertical.html` | Alto / portrait |
 
 `banner-editorial.html` y `_banner-section-close.html` se eliminaron del sistema.
 
 ### Regla #1 · Solo UNO por mail
 Igual que el header, un mail tiene exactamente un banner.
 
-### Regla #2 · Eliges según la composición del mail, no según el tema
-El tema define los colores del banner; el **tipo de banner se elige según qué módulos tendrá el mail**:
-
-- **¿El mail solo tiene CTA + cierre?** → big banner vertical
-- **¿El mail tiene módulos de contenido, deals, cupones, beneficios?** → big banner horizontal
+### Regla #2 · Es obligatorio y es la apertura, no un adorno
+El banner es **obligatorio** en todo mail — no es un adorno del contenido, es la apertura: debe dejar claro de qué trata el mail, siendo directo sobre el beneficio o contenido que se quiere comunicar. En formato horizontal, el uso de imagen es obligatorio. La elección entre horizontal/vertical no sigue una regla fija por composición del mail — se elige según qué formato comunica mejor la apertura de ese mail en particular.
 
 ### Regla #3 · Las piezas internas del banner viven en `banner_moleculas/`
 📁 `02-components/02_banners/banner_moleculas/` — piezas que se combinan dentro de cada banner. La mayoría vienen en pareja horizontal/vertical porque los tamaños de escritorio se aplican inline según en qué banner se insertan:
@@ -141,6 +138,11 @@ Piezas de `MODULO MOLECULAS` (MOLECULAS, se combinan libremente dentro de esa ta
 
 ### Regla #4 · El banner cambia mucho según el tema
 El banner es donde más reglas de tema se aplican: background-color, background-image, color de textos, bgcolor del tag, border-radius. Antes de armar el banner, consulta `GUIA-DE-TEMAS.md` para los valores exactos (los comentarios internos del banner todavía usan la nomenclatura anterior; los valores de referencia son los de esa guía).
+
+### Regla #5 · Jerarquías de texto: banner vs. body
+Dentro de un mismo banner, el tamaño mayor (`bnr-xl`) se usa una sola vez. Los tamaños `bnr-*` son exclusivos del banner — no se recomienda usarlos en el body, donde se usan los tamaños `h1` a `h6`.
+
+`banner_copy_modulo_promo`, `banner_copy_modulo_creditos` y `banner_copy_modulo_textoxl` cambian de tamaño automáticamente según su largo (Liquid en `head-meta-tags.html`): ≤4 caracteres usa `bnr-xl` (80px), >4 caracteres usa `bnr-lg` (35px) — el usuario no elige la clase. `banner_copy_modulo_textom` no tiene esta lógica, queda fijo en `bnr-md`.
 
 ---
 
@@ -198,8 +200,8 @@ Cuando el número de deals es impar, se elimina **todo el contenido** de la celd
 
 ### Regla #3 · Piezas internas de cada celda
 - **Imagen** — overlay + imagen de producto (reemplazable) + logo opcional (se elimina la etiqueta si no hay logo).
-- **Línea 1 / Línea 2** — título y descripción, se eliminan si no hay texto.
-- **MARKDOWN** — descuento destacado con ícono Corona Pro togglable.
+- **Línea 1 / Línea 2** — título y descripción, se eliminan si no hay texto. Se truncan a 50 caracteres (`truncate: 50` en `head-meta-tags.html`) para no pasar de 2 líneas en la celda.
+- **MARKDOWN** — descuento destacado con ícono Corona Pro togglable. Tamaño fijo, sin lógica de largo de texto.
 - **COMPLEMENTO 1 / COMPLEMENTO 2** — texto adicional (ej. "99% OFF" / "| Antes $999"), cada uno independiente.
 - **TEXTOS RATING** — CATEGORIA + RATING + TIEMPO, cada uno independiente y removible.
 - **TAG1 / TAG2** — hasta 2 tags con ícono removible.
@@ -207,6 +209,9 @@ Cuando el número de deals es impar, se elimina **todo el contenido** de la celd
 - **Legales** — fila aparte, desactivada por defecto.
 
 Es el **único módulo de contenido con link activo de fábrica** (`href="LINKDEAL"`).
+
+### Regla #4 · Diseñado para promos, pero flexible
+El módulo está especialmente diseñado para promociones, pero se puede usar para otro tipo de contenido adaptando los textos y usando las moléculas del módulo para distribuir los textos de las promos en el nuevo contenido.
 
 > `deal-large.html` y `deal-small.html` ya no se usan. Se conservan renombrados como `deal-large.backup.html` / `deal-small.backup.html` para no perder el trabajo — **no usar como referencia para mails nuevos**: no tienen el sistema de escalado dinámico por variante que documentaban versiones previas de este archivo, ya no existe en el sistema actual.
 
@@ -294,6 +299,9 @@ Esta es la carpeta más versátil. Aquí viven los bricks que más se combinan s
 | `1columna/modulo-1columna.html` | El más versátil: uno o varios bloques de moléculas + una imagen full-width opcional, en el orden que se necesite |
 
 Ver `05-docs/ATOMIC-DESIGN.md` (Organismos 6.3–6.11) para la anatomía completa, el HTML real y los "elementos editables" de cada uno.
+
+### Cómo elegir un módulo
+Se elige según la cantidad de información que se necesita comunicar y los elementos que cada módulo ya trae para ayudar a jerarquizar esa información — no por preferencia visual.
 
 ### Reglas comunes
 

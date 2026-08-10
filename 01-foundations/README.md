@@ -50,10 +50,12 @@ Reglas extraídas directamente del HTML maestro. Romperlas rompe Braze, rompe el
 
 | Regla | Detalle |
 |---|---|
-| **Cero inserción autónoma** | PROHIBIDO agregar etiquetas HTML, meta tags, estilos globales o contenedores que no existan exactamente en la plantilla base. Tratar la plantilla como string literal. |
+| **Cambios de estilo: global-styles y head-meta-tags** | Si se agrega o modifica un estilo, va en `global-styles.html` o `head-meta-tags.html` — nunca suelto en un componente. Los estilos de escritorio se mantienen en su mayoría inline en los propios componentes; no se migran a la hoja global. El `<script type="application/ld+json">` ya no va después de `</html>` — hoy vive dentro del `<head>`, al inicio de `global-styles.html`. |
+| **Estructura de tablas y divs** | El esqueleto del mail (filas, columnas, módulos) se mantiene siempre en tablas (`<table>/<tr>/<td>`) — es lo que garantiza el render en Outlook y clientes de mail viejos. Los `<div>` se usan solo en casos puntuales: separadores, tags, contenedores redondeados, decoraciones. Nunca reemplazan la estructura de tablas. |
+| **Cero inserción autónoma** | Ya no es una prohibición total: si necesitás un módulo nuevo, partí siempre de la estructura de los módulos existentes — ya están probados y funcionan en la mayoría de dispositivos y clientes de mail. No se inventa desde cero; se adapta lo que ya existe. |
 | **No optimizar el código** | Mantener espacios en blanco, tabulaciones, comentarios y condicionales de Outlook exactamente como están. No "embellecer" el código. |
-| **Estructura intacta** | No cambiar estructuras de la plantilla base ni inventar módulos nuevos. Trabajar siempre desde los módulos ya definidos. |
-| **Separador obligatorio** | Entre dos `role="module"` consecutivos del mismo tipo, insertar siempre `<div class="separador"></div>`. Entre dos `role="componente"`, `<div class="separador-M"></div>`. |
+| **Padding ya definido — no se inventa** | La tabla general (`role="paddedcontainer"`, padding `20px 15px 0px 15px`) ya alinea todos los módulos entre sí. Cada módulo además tiene su propio padding según tenga o no fondo (`body_container_background_padding`, ver 2.6). No se agregan márgenes/padding ad-hoc por fuera de estos dos sistemas. |
+| **Separadores obligatorios** | Entre dos `role="module"` consecutivos, `<div class="separador"></div>` (16px) — obligatorio. Dentro de un módulo, `<div class="separador-M"></div>` (10px) separa moléculas/componentes y `<div class="separador-S"></div>` (4px) da aire mínimo entre átomos. |
 | **Imágenes desde la TAXONOMÍA** | Las URL de imágenes siempre vienen del Google Sheet TAXONOMÍA ASSETS. No inventar URLs. |
 | **Cierre en Pro/ProBlack** | Si `tema_general_mail_general = 'pro'` o `'problack'`, el cierre (firma RappiFirma) no debería mostrarse — no ocultar con `display:none`, borrar la tabla del HTML. ⚠ Auditoría de código: `template_maestro_original.html` hoy NO implementa esta exclusión — el CIERRE se renderiza igual para los 12 temas, sin condicional. Pendiente de confirmar si la regla sigue vigente o si hay que actualizar el HTML maestro. |
 
@@ -215,7 +217,7 @@ Las clases `.txts` y `.txtl` ya no existen en el sistema — se quitaron de `glo
 
 ### 2.4 · Separadores y spacing
 
-Divs vacíos con altura fija. Se insertan entre módulos para crear ritmo visual — **no** usar `margin`/`padding` en los módulos para esto.
+Divs vacíos con altura fija. Se insertan entre y dentro de módulos para crear ritmo visual. Esto es distinto del padding del sistema: la tabla general (`role="paddedcontainer"`, padding `20px 15px 0px 15px`) ya alinea todos los módulos, y cada módulo tiene su propio padding según tenga o no fondo (`body_container_background_padding`, ver 2.6) — no se agregan márgenes/padding nuevos por fuera de esos dos sistemas para lograr espaciado; para eso están los separadores.
 
 | Clase | Tamaño | Cuándo se usa | Módulos donde se usa |
 |---|---|---|---|
