@@ -182,21 +182,23 @@ Variables adicionales no incluidas en el índice original de Figma pero sí en e
 
 ### 2.3 · Tamaños de texto por módulo
 
-Family: Arial/Helvetica sans-serif. `body`, `p` y `div` heredan `14px`. Los tamaños de `h1`-`h6` y `.legal` son **iguales en escritorio y en mobile** (`@media max-width: 480px` y `620px` sólo repiten el mismo valor con `!important`, no lo cambian):
+Family: Arial/Helvetica sans-serif. `body`, `p` y `div` heredan `14px`. Los tamaños de `h1`-`h6` y `.legal` en **mobile son 2px menores que en escritorio** (font-size y line-height, ambos), declarados con `!important` en los dos `@media` (`max-width: 480px` y `620px` — valores idénticos entre ambos):
 
 | Elemento | Desktop (font / line-height) | Mobile (font / line-height) | Dónde se usa |
 |---|---|---|---|
-| `h1` | 26px / 29px | 26px / 29px | Cupones (título grande) · precios destacados |
-| `h2` | 21px / 23px | 21px / 23px | Complemento · Contenido · Columnas (encabezados de sección) |
-| `h3` | 16px / 18px | 16px / 18px | Título · Logos · 2 Columnas (subtítulo) · Bullet numerado · Pastilla/Tag · Beneficios (headline) |
-| `h4` | 14px / 16px | 14px / 16px | Deals (copy y CTA) · Tag con ícono · Banner (tags) · Bullet · 3 Columnas · Cupones |
-| `h5` | 12px / 14px | 12px / 14px | Deals (% off, precio, categoría, rating) · Cupones (pills) |
-| `h6` | 10px / 12px | 10px / 12px | Reservado en la escala — sin uso actual en los módulos del código |
-| `.legal` | 8px / 10px | 8px / 10px | Legales (módulo LEGAL · Deals · Cupones) |
+| `h1` | 26px / 29px | **24px / 27px** | Cupones (título grande) · precios destacados |
+| `h2` | 21px / 23px | **19px / 21px** | Complemento · Contenido · Columnas (encabezados de sección) |
+| `h3` | 16px / 18px | **14px / 16px** | Título · Logos · 2 Columnas (subtítulo) · Bullet numerado · Pastilla/Tag · Beneficios (headline) |
+| `h4` | 14px / 16px | **12px / 14px** | Deals (copy y CTA) · Tag con ícono · Banner (tags) · Bullet · 3 Columnas · Cupones |
+| `h5` | 12px / 14px | **10px / 12px** | Deals (% off, precio, categoría, rating) · Cupones (pills) |
+| `h6` | 10px / 12px | **8px / 10px** | Reservado en la escala — sin uso actual en los módulos del código |
+| `.legal` | 8px / 10px | **6px / 8px** | Legales (módulo LEGAL · Deals · Cupones) |
 
 > ◀ Ajuste: se sumó +1px de line-height a las 7 filas de arriba (solo interlineado, el font-size no cambió), tanto en el bloque base como en los dos `@media` de `global-styles.html`.
+>
+> ◀ Ajuste (2026-08-20): mobile deja de ser igual a escritorio — pasa a ser **-2px en font-size y line-height** en las 7 filas, en los dos `@media` de `global-styles.html` (y su copia embebida en `template_maestro_original.html`). El desktop no cambió. Reflejado también en Figma (`Doc-DS-Mails` → hoja de Foundations, "2.3 · Tamaños de texto por módulo"), donde de paso se corrigieron los line-height de escritorio del bloque CSS de referencia (estaban desalineados en -1px respecto al HTML real).
 
-Mobile repite el mismo valor a propósito: `@media (max-width: 480px)` y `(max-width: 620px)` re-declaran `h1`-`h6`/`.legal` con `!important`, pero sin cambiar el número. A diferencia de `bnr-*` (abajo), esta escala **no** varía por breakpoint.
+Mobile ya no repite el mismo valor: `@media (max-width: 480px)` y `(max-width: 620px)` re-declaran `h1`-`h6`/`.legal` con `!important`, 2px menores que su equivalente de escritorio en font-size y line-height. Igual que `bnr-*` (abajo), esta escala **sí** varía por breakpoint.
 
 Las clases `.txts` y `.txtl` ya no existen en el sistema — se quitaron de `global-styles.html`.
 
@@ -221,9 +223,11 @@ Divs vacíos con altura fija. Se insertan entre y dentro de módulos para crear 
 
 | Clase | Tamaño | Cuándo se usa | Módulos donde se usa |
 |---|---|---|---|
-| `.separador` | 16px | Entre dos `role="module"` consecutivos. Obligatorio si son del mismo tipo. | Cierre (05_closing) |
+| `.separador` | 16px | Entre dos `role="module"` consecutivos del mismo tipo. Obligatorio. También se usa como separador de nivel superior entre banner y CTA, entre CTA y el wrapper de contenido (doble, 32px), y antes del cierre. | Cierre (05_closing), banner→CTA, CTA→contenido |
 | `.separador-M` | 10px | Entre dos `role="componente"` dentro del mismo módulo. | 1 Columna |
 | `.separador-S` | 4px | Spacing muy fino para casos especiales. | 3 Columnas, Beneficios, Bullet (+ variantes S/M/L), Bullet numerado, Cupones, Título — 7 módulos |
+
+Catálogo de referencia (snippet HTML de los 3, con comentario identificador por tamaño) ◀ NUEVO: `02-components/04_content-modules/content_moleculas/molecula_separadores.html` y `02-components/02_banners/banner_moleculas/molecula_separadores.html` — mismo contenido, uno por contexto. No confundir con `content_moleculas/molecula_separador_s.html`, que es una línea decorativa (`role="molecula-separador"`), no un espaciador.
 
 ### 2.5 · Tokens de radio
 
@@ -267,6 +271,7 @@ El sistema define 3 variables Liquid de padding que cambian según el tema o un 
 | `padd_deal_mail_general` | `'6px 8px'` | 2 (Pro, ProBlack) | Deals — mismo archivo |
 | `body_container_background_padding` | `'10px'` | 12 — estado por defecto `'Fondo'` | Content-modules: 1/2/3 Columnas, Wrapper, Beneficios, Bullet, Logos, Título — 8 módulos |
 | `body_container_background_padding` | `'0px'` | 12 — toggle `'Sinfondo'` | Mismos 8 módulos |
+| `body_container_background_padding-peq` | `'7px'` | 12 | Content-modules: 3 Columnas (`divcomponentes` de cada una de las 3 celdas) ◀ NUEVO — hermano de `body_container_background_radius-peq` (2.5); se usaba en el HTML sin estar asignado en ningún tema, agregado a los 12 en `head-meta-tags.html` |
 
 ---
 

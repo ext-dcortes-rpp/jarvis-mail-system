@@ -1,11 +1,8 @@
-
 <!--
-
 -----------------------
 Copy-related variables:
 -----------------------
 {% assign text_cta = text_cta | truncate: 35 %}
-
 
 ----------------------------
 -------- STYLE LOOK --------
@@ -79,6 +76,7 @@ Copy-related variables:
 
 {% endif %}
 -->
+
 <head>
 <style type="text/css">
 body a {
@@ -92,65 +90,71 @@ a {
     text-decoration: none!important;
 }
 
-
 @media (max-width:480px) {
-
-.borde_mobile  {
+.borde_mobile {
     border: 1px solid rgba(125, 129, 136, 0.5) !important;
-	border-radius: 100px !important;
+    border-radius: 100px !important;
 }
-
-
+	
+.cta-mobiletxt {
+	font-size: 14px !important;
+	line-height: 15px!important; 
+}
 }
 
 @media (max-width:620px) {
-
-.borde_mobile  {
+.borde_mobile {
     border: 1px solid rgba(125, 129, 136, 0.5) !important;
-	border-radius: 100px !important;
+    border-radius: 100px !important;
+}
+.cta-mobiletxt {
+	font-size: 14px !important;
+	line-height: 15px!important; 
 }
 }
-
 </style>
 </head>
 <body style="width: 100%; height:auto;font-family:Helvetica,Tahoma,Verdana,Sans-serif; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; padding: 0; Margin: 0;">
-	
 
-			  
-	<!-- Botón CTA -->
+<!-- Botón CTA --> 
 <a originalsrc="{{deeplink_cta}}" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="{{deeplink_cta}}" data-linkindex="0" style="text-decoration: none; color: {{color_letra}};">
-
-  <div style="">
-    <!--{% if cta_alineado == 'left'  %}--> 
-                    
-                     <table class="{{estilomobile}}" bgcolor="{{background_color}}" cellpadding="0" cellspacing="0"  style="width: auto; border-radius: 60px; overflow: hidden; margin-bottom: 10px; " valign="middle" >
-						
-                      <!--{% elsif cta_alineado == 'center'  %}--> 
-                      
-						  
-                     <table class="{{estilomobile}}" bgcolor="{{background_color}}" cellpadding="0" cellspacing="0"  style="margin: 0 auto; width: auto; border-radius: 60px; overflow: hidden; margin-bottom: 10px; " valign="middle" >
-                     
-                      
-                      <!--{% else %}--> 
-						 
-						 <table class="{{estilomobile}}" bgcolor="{{background_color}}" cellpadding="0" cellspacing="0"  style="margin: 0 auto; width: auto; border-radius: 60px; overflow: hidden; margin-bottom: 10px; " valign="middle" >
-                      
-                      <!--{% endif %}--> 
-      <tbody>
-        <tr style="border-radius: 55px; overflow: hidden; text-decoration: none; padding: 0px 10px; background-image: url({{cta_bg_frame}}); background-size: 100% 100%; background-position: center; background-repeat: no-repeat;">
-          <td height="100%" style="border-radius: 55px;  background-image: url({{cta_style_bg}}); background-size: auto 70%; background-position: 97% center; background-repeat: no-repeat; padding: 5px; text-decoration: none;">
-            <div class="{{estilomobiletxt}}" style="font-size: 16px; line-height: 18px; text-align: center; color: {{color_letra}}; padding: 5px 10px; text-decoration: none; font-family: Helvetica, Tahoma, Verdana, Sans-serif; margin: 0 auto;">
-              <span style="padding-right: 30px;">{{text_cta}}</span> <!-- TEXTO CTA -->
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<div style=""> 
+  <!--{% if cta_alineado == 'left'  %}-->
+  
+  <table class="{{estilomobile}}" bgcolor="{{background_color}}" cellpadding="0" cellspacing="0"  style="width: auto; border-radius: 60px; overflow: hidden; margin-bottom: 10px; " valign="middle" >
+    <tbody>
+      <tr style="border-radius: 55px; overflow: hidden; text-decoration: none; padding: 0px 10px; background-image: url({{cta_bg_frame}}); background-size: 100% 100%; background-position: center; background-repeat: no-repeat;">
+        <td height="100%" style="border-radius: 55px;  background-image: url({{cta_style_bg}}); background-size: auto 70%; background-position: 97% center; background-repeat: no-repeat; padding: 5px; text-decoration: none;"><div class="cta-mobiletxt" style="font-size: 16px; line-height: 18px; text-align: center; color: {{color_letra}}; padding: 5px 10px; text-decoration: none; font-family: Helvetica, Tahoma, Verdana, Sans-serif; margin: 0 auto;"> <span style="padding-right: 30px;">{{text_cta}}</span> <!-- TEXTO CTA --> 
+          </div></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <!--{% elsif cta_alineado == 'center'  %}-->
+  
+  <table class="{{estilomobile}}" bgcolor="{{background_color}}" cellpadding="0" cellspacing="0"  style="margin: 0 auto; width: auto; border-radius: 60px; overflow: hidden; margin-bottom: 10px; " valign="middle" >
+    <tbody>
+      <tr style="border-radius: 55px; overflow: hidden; text-decoration: none; padding: 0px 10px; background-image: url({{cta_bg_frame}}); background-size: 100% 100%; background-position: center; background-repeat: no-repeat;">
+        <td height="100%" style="border-radius: 55px;  background-image: url({{cta_style_bg}}); background-size: auto 70%; background-position: 97% center; background-repeat: no-repeat; padding: 5px; text-decoration: none;"><div class="cta-mobiletxt" style="font-size: 16px; line-height: 18px; text-align: center; color: {{color_letra}}; padding: 5px 10px; text-decoration: none; font-family: Helvetica, Tahoma, Verdana, Sans-serif; margin: 0 auto;"> <span style="padding-right: 30px;">{{text_cta}}</span> <!-- TEXTO CTA --> 
+          </div></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <!--{% else %}-->
+  
+  <table class="{{estilomobile}}" bgcolor="{{background_color}}" cellpadding="0" cellspacing="0"  style="margin: 0 auto; width: auto; border-radius: 60px; overflow: hidden; margin-bottom: 10px; " valign="middle" >
+    <tbody>
+      <tr style="border-radius: 55px; overflow: hidden; text-decoration: none; padding: 0px 10px; background-image: url({{cta_bg_frame}}); background-size: 100% 100%; background-position: center; background-repeat: no-repeat;">
+        <td height="100%" style="border-radius: 55px;  background-image: url({{cta_style_bg}}); background-size: auto 70%; background-position: 97% center; background-repeat: no-repeat; padding: 5px; text-decoration: none;"><div class="cta-mobiletxt" style="font-size: 16px; line-height: 18px; text-align: center; color: {{color_letra}}; padding: 5px 10px; text-decoration: none; font-family: Helvetica, Tahoma, Verdana, Sans-serif; margin: 0 auto;"> <span style="padding-right: 30px;">{{text_cta}}</span> <!-- TEXTO CTA --> 
+          </div></td>
+      </tr>
+    </tbody>
+  </table>
+  <!--{% endif %}--> 
+  
+</div>
 </a>
-    
-    
-
 </body>
 
 <!-- /Botón CTA End -->
@@ -166,6 +170,3 @@ Style related variables:
 
 -->
 
-
-
- 

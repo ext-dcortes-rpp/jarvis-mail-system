@@ -16,7 +16,7 @@ Imagina una caja de LEGO con dos tipos de cosas:
 - **¿Qué módulos?** Solo banner + CTA, o algo más complejo con deals, cupones, beneficios y módulos de contenido.
 
 ### Paso 2 — Agrega un header
-De `02-components/01_headers/`, elige la carpeta de marca y dentro de ella el archivo según fondo (claro/oscuro) y disposición (centrado/columnas). Las instrucciones de cobranding (sin / S / M / L) están en los comentarios del archivo.
+De `02-components/01_headers/`, elige la carpeta de marca y dentro de ella el archivo según fondo (claro/oscuro) y disposición (centrado/columnas). Las instrucciones de cobranding (sin / S / M / L / XL) están en los comentarios del archivo.
 
 ### Paso 3 — Agrega un banner
 De `02-components/02_banners/`, elige `big-banner-horizontal.html` o `big-banner-vertical.html`. Las piezas internas (tag, imagen, créditos, textos) están en `02-components/02_banners/banner_moleculas/`.

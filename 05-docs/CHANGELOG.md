@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.7.0] - Cobranding XL, mobile -2px en tipografía body, y catálogo de separadores
+
+### Agregado
+- **`.cobranding-xl`** — quinta variante de cobranding (además de sin-cobranding/S/M/L), una por cada uno de los 4 grupos de header (`#HEADER1`-`#HEADER4`). Mobile en `global-styles.html` (los dos `@media`) y en la copia embebida de `template_maestro_original.html`: 43px/38px/51px/30px. Escritorio inline en los 40 archivos de header (`02-components/01_headers/*/`): 46px/40px/53px/32px. Valor derivado continuando una vez más la tasa de crecimiento M→L (no el patrón +10pp de S→M→L, que tras el ajuste +5% de L habría dado un salto insignificante). Reflejado en Figma (`Doc-DS-Mails` → `05 · Molecules` → "5.1 · Header (Logo + Cobranding)": tablas, preview desktop/mobile y las 20 clases documentadas).
+- **`body_container_background_padding-peq`** en los 12 temas de `head-meta-tags.html` y en la copia embebida de `template_maestro_original.html` (`'7px'`) — hermano de `body_container_background_radius-peq`, usado por el Módulo 3 Columnas (`modulo-3-columnas.html`) pero nunca antes asignado en ningún tema.
+- **`molecula_separadores.html`** — catálogo de referencia con los 3 spacers (`.separador`/`.separador-M`/`.separador-S`, con comentario identificador por tamaño), uno en `04_content-modules/content_moleculas/` y otro en `02_banners/banner_moleculas/` (mismo contenido, un archivo por contexto).
+
+### Cambiado
+- **Mobile -2px en `h1`-`h6` y `.legal`**: dejan de ser iguales a escritorio. En los dos `@media` de `global-styles.html` (y su copia embebida en `template_maestro_original.html`), font-size y line-height de las 7 filas bajan 2px respecto al valor de escritorio (ej. `h1` 26px/29px escritorio → 24px/27px mobile). El bloque base (escritorio) no cambió. Sincronizado en Figma (`Doc-DS-Mails` → Foundations → "2.3 · Tamaños de texto por módulo"), donde de paso se corrigieron los line-height de escritorio del bloque CSS de referencia (estaban desalineados en -1px respecto al HTML real desde el ajuste de interlineado de la v0.6.0).
+- `banner_moleculas/`: las 17 moléculas que usaban `margin-bottom: 7px` para separar su `<table>` interna ahora usan `padding-bottom: 7px` — el margin no se estaba aplicando de forma consistente en clientes de mail.
+- Documentación actualizada en paralelo: `01-foundations/README.md` (tablas de tamaños de texto, separadores y padding tokens), `05-docs/USO-DE-CADA-PARTE.md` (Regla #3 del cobranding, ahora 5 tamaños), `05-docs/ATOMIC-DESIGN.md` (rango del logo/cobranding, sección 5.1 del header, spacers), `05-docs/GUIA-DE-TEMAS.md` (`radius-peq`/`padding-peq`), `05-docs/INDICE-DE-COMPONENTES.md` (conteo de archivos: 103 → 105) y `02-components/README.md` (los 2 nuevos catálogos de separadores).
+
 ## [0.6.0] - Tema Gris 100, `bg_rgb_mail_general` y ajuste de interlineado
 
 ### Agregado

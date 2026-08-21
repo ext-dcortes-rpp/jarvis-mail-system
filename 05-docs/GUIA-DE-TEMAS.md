@@ -89,7 +89,9 @@ Variables nuevas (no estaban en versiones anteriores de esta guía). Se activan 
 | `body_container_background` | Toggle `'Fondo'` (default) / `'Sinfondo'`. Al activar `'Sinfondo'` se sobreescriben las 4 variables siguientes y `img_fondo_especial_mail_general` en los 12 temas |
 | `body_container_background_padding` | `10px` en `'Fondo'`, `0px` en `'Sinfondo'` |
 | `body_container_background_border` | Borde del contenedor — se anula (`0px solid rgba(255,255,255,0.0)`) en `'Sinfondo'` |
-| `body_container_background_radius` / `body_container_background_radius-peq` | `16px` / `8px` en `'Fondo'`, `0px` ambos en `'Sinfondo'` |
+| `body_container_background_radius` | `16px` en `'Fondo'`, `0px` en `'Sinfondo'` |
+| `body_container_background_radius-peq` | `8px` en los 12 temas. ⚠ NO se sobreescribe en `'Sinfondo'` — queda en `8px` siempre, a diferencia de `body_container_background_radius` |
+| `body_container_background_padding-peq` | `7px` en los 12 temas ◀ NUEVO — hermano de `radius-peq`, usado por el Módulo 3 Columnas. Tampoco se sobreescribe en `'Sinfondo'` |
 | `body_container_img_dots` | Imagen decorativa de puntos sobre el contenedor, propia de cada tema |
 
 Usado por los 8 módulos de `04_content-modules/` que envuelven contenido en un contenedor genérico (1/2/3 Columnas, Wrapper, Beneficios, Bullet, Logos, Título).

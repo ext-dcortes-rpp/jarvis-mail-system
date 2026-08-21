@@ -82,6 +82,7 @@ Cada archivo contiene únicamente el `<tr>` del header (con su comentario identi
 | `molecula_img_automatica_horizontal.html` / `molecula_img_automatica_vertical.html` | Imagen automática (`banner_img_modulo_auto_ancho`) — pieza distinta a `modulo_img_automatica_horizontal.html` |
 | `molecula_cta_interno_horizontal.html` (`cta_alineado: 'left'`) / `molecula_cta_interno_vertical.html` (`cta_alineado: 'center'`) | CTA embebido dentro del banner |
 | `molecula_texto_complementario_horizontal.html` / `molecula_texto_complementario_vertical.html` | Texto de body (`<h4>`) que acompaña al texto destacado del banner — contenido pendiente de insertar manualmente en cada uno, es distinto por orientación |
+| `molecula_separadores.html` | ◀ NUEVO — no es una pieza combinable del banner: catálogo de referencia con los 3 spacers (`.separador` 16px / `.separador-M` 10px / `.separador-S` 4px), uno por comentario identificador. Mismo contenido que su par en `content_moleculas/` |
 
 El tamaño de las clases `bnr-*` usadas en las moléculas de créditos, promo y texto XL depende de si el banner que las envuelve está marcado con `id="BANNER_HORIZONTAL"` o `id="BANNER_VERTICAL"` (ver `01-foundations/global-styles/global-styles.html`). Los tamaños de escritorio de estas clases se aplican inline (vía las variables Liquid de largo de texto en `01-foundations/global-styles/head-meta-tags.html`); las clases `bnr-*` en el `<head>` solo cubren el override de mobile.
 
@@ -143,6 +144,7 @@ Moléculas de contenido extraídas de `06-examples/template_maestro_original.htm
 | `molecula_bullet_icono_l.html` | Bullet con imagen de 60px + subtítulo + texto |
 | `molecula_franja_logos.html` | Fila de logos circulares (se agregan/quitan `<td>` para más o menos logos) |
 | `molecula_img_automatica.html` | Imagen de ancho variable, opcionalmente clickeable |
+| `molecula_separadores.html` | ◀ NUEVO — catálogo de referencia con los 3 spacers (`.separador` 16px / `.separador-M` 10px / `.separador-S` 4px), uno por comentario identificador. No confundir con `molecula_separador_s.html` (línea decorativa, distinta cosa). Mismo contenido que su par en `banner_moleculas/` |
 | `modificadores-texto.html` | No es una molécula (por eso no lleva el prefijo `molecula_`) — es la referencia de modificadores de texto (tamaño h1-h5/.legal, subtono 1/2, bold, italic, tachado, subrayado, superíndice) que vive justo antes de las moléculas en el HTML maestro |
 
 #### `04_content-modules/deals/`

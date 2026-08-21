@@ -11,9 +11,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- BLOQUEO de dark mode: los templates traen sus colores de marca y el
+     auto-dark de Apple Mail (iOS/macOS) los reinterpretaba (fondo oscuro →
+     gris claro). "light only" declara que el correo SOLO soporta su esquema
+     tal cual — Apple Mail lo respeta y no toca nada. Gmail ignora estas
+     metas, pero su transformación sí respeta fondos de color. -->
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light only">
 <!--[if !mso]><!-->
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<!--<![endif]--> 
+<!--<![endif]-->
 <!--[if (gte mso 9)|(IE)]>
           <xml>
             <o:OfficeDocumentSettings>
@@ -21,7 +28,7 @@
               <o:PixelsPerInch>96</o:PixelsPerInch>
             </o:OfficeDocumentSettings>
           </xml>
-          <![endif]--> 
+          <![endif]-->
 <!--[if (gte mso 9)|(IE)]>
       <style type="text/css">
         body {width: 600px;margin: 0 auto;}
@@ -31,6 +38,12 @@
       </style>
     <![endif]-->
 <style type="text/css">
+
+:root {
+    color-scheme: light only;
+    supported-color-schemes: light only;
+}
+
 body, p, div {
     font-family: arial, helvetica, sans-serif;
     font-size: 14px;
@@ -197,6 +210,11 @@ a.bulletproof-button {
     max-height: 38px !important;
     min-height: 38px !important;
 }
+#HEADER1 .cobranding-xl {
+    height: 43px !important;
+    max-height: 43px !important;
+    min-height: 43px !important;
+}
 /* TAMAÑO 2 - Turbo, Pro, ProBlack, Defensoría */
 #HEADER2 .logo-base2 {
     height: 24px !important;
@@ -217,6 +235,11 @@ a.bulletproof-button {
     height: 33px !important;
     max-height: 33px !important;
     min-height: 33px !important;
+}
+#HEADER2 .cobranding-xl {
+    height: 38px !important;
+    max-height: 38px !important;
+    min-height: 38px !important;
 }
 /* TAMAÑO 3 - Turbo Rest */
 #HEADER3 .logo-base3 {
@@ -239,6 +262,11 @@ a.bulletproof-button {
     max-height: 44px !important;
     min-height: 44px !important;
 }
+#HEADER3 .cobranding-xl {
+    height: 51px !important;
+    max-height: 51px !important;
+    min-height: 51px !important;
+}
 /* TAMAÑO 4 - RappiEntregador y Contenido aliado */
 #HEADER4 .logo-base4 {
     height: 20px !important;
@@ -260,6 +288,11 @@ a.bulletproof-button {
     max-height: 27px !important;
     min-height: 27px !important;
 }
+#HEADER4 .cobranding-xl {
+    height: 30px !important;
+    max-height: 30px !important;
+    min-height: 30px !important;
+}
 .altobanner1 {
     height: 85vw !important;
 }
@@ -274,32 +307,32 @@ a.bulletproof-button {
     margin: 0 auto !important;
 }
 h1 {
-    font-size: 26px!important;
-    line-height: 29px!important;
+    font-size: 24px!important;
+    line-height: 27px!important;
 }
 h2 {
-    font-size: 21px!important;
-    line-height: 23px!important;
+    font-size: 19px!important;
+    line-height: 21px!important;
 }
 h3 {
-    font-size: 16px!important;
-    line-height: 18px!important;
-}
-h4 {
     font-size: 14px!important;
     line-height: 16px!important;
 }
-h5 {
+h4 {
     font-size: 12px!important;
     line-height: 14px!important;
 }
-h6 {
+h5 {
     font-size: 10px!important;
     line-height: 12px!important;
 }
-.legal {
+h6 {
     font-size: 8px!important;
     line-height: 10px!important;
+}
+.legal {
+    font-size: 6px!important;
+    line-height: 8px!important;
 }
 /* ===== BANNER "texto vivo" (bnr-*) - Mobile: ambas orientaciones convergen ===== */
 #BANNER_HORIZONTAL .bnr-xl, #BANNER_VERTICAL .bnr-xl {
@@ -407,6 +440,11 @@ a.bulletproof-button {
     max-height: 38px !important;
     min-height: 38px !important;
 }
+#HEADER1 .cobranding-xl {
+    height: 43px !important;
+    max-height: 43px !important;
+    min-height: 43px !important;
+}
 /* TAMAÑO 2 - Turbo, Pro, ProBlack, Defensoría */
 #HEADER2 .logo-base2 {
     height: 24px !important;
@@ -427,6 +465,11 @@ a.bulletproof-button {
     height: 33px !important;
     max-height: 33px !important;
     min-height: 33px !important;
+}
+#HEADER2 .cobranding-xl {
+    height: 38px !important;
+    max-height: 38px !important;
+    min-height: 38px !important;
 }
 /* TAMAÑO 3 - Turbo Rest */
 #HEADER3 .logo-base3 {
@@ -449,6 +492,11 @@ a.bulletproof-button {
     max-height: 44px !important;
     min-height: 44px !important;
 }
+#HEADER3 .cobranding-xl {
+    height: 51px !important;
+    max-height: 51px !important;
+    min-height: 51px !important;
+}
 /* TAMAÑO 4 - RappiEntregador y Contenido aliado */
 #HEADER4 .logo-base4 {
     height: 20px !important;
@@ -470,6 +518,11 @@ a.bulletproof-button {
     max-height: 27px !important;
     min-height: 27px !important;
 }
+#HEADER4 .cobranding-xl {
+    height: 30px !important;
+    max-height: 30px !important;
+    min-height: 30px !important;
+}
 .altobanner1 {
     height: 85vw !important;
 }
@@ -484,32 +537,32 @@ a.bulletproof-button {
     margin: 0 auto !important;
 }
 h1 {
-    font-size: 26px!important;
-    line-height: 29px!important;
+    font-size: 24px!important;
+    line-height: 27px!important;
 }
 h2 {
-    font-size: 21px!important;
-    line-height: 23px!important;
+    font-size: 19px!important;
+    line-height: 21px!important;
 }
 h3 {
-    font-size: 16px!important;
-    line-height: 18px!important;
-}
-h4 {
     font-size: 14px!important;
     line-height: 16px!important;
 }
-h5 {
+h4 {
     font-size: 12px!important;
     line-height: 14px!important;
 }
-h6 {
+h5 {
     font-size: 10px!important;
     line-height: 12px!important;
 }
-.legal {
+h6 {
     font-size: 8px!important;
     line-height: 10px!important;
+}
+.legal {
+    font-size: 6px!important;
+    line-height: 8px!important;
 }
 /* ===== BANNER "texto vivo" (bnr-*) - Mobile: ambas orientaciones convergen ===== */
 #BANNER_HORIZONTAL .bnr-xl, #BANNER_VERTICAL .bnr-xl {

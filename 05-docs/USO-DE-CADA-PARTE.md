@@ -76,24 +76,25 @@ Dentro de la carpeta de la marca elegida, se usa exactamente 1 de estos 4 archiv
 | `columnas-claro.html` | Claro | Logo a la izquierda, cobranding a la derecha, sin divider |
 | `columnas-oscuro.html` | Oscuro | Logo a la izquierda, cobranding a la derecha, sin divider |
 
-### Regla #3 · El cobranding tiene 4 tamaños
+### Regla #3 · El cobranding tiene 5 tamaños
 Cada header soporta estas variantes de cobranding, todas con la misma estructura (logo + tag del partner), cambiando solo el tamaño:
 
 1. **Sin cobranding** — Solo el logo/divider. Es el modo por defecto.
 2. **Cobranding S** (`cobranding-s`) — Tamaño pequeño.
 3. **Cobranding M** (`cobranding-m`) — Tamaño mediano.
 4. **Cobranding L** (`cobranding-l`) — Tamaño grande.
+5. **Cobranding XL** (`cobranding-xl`) — Tamaño extra grande. ◀ NUEVO
 
-Los 4 grupos de tamaño de header (`#HEADER1`-`#HEADER4`, ver `01-foundations/global-styles/global-styles.html`) tienen su propio valor de `cobranding-l`. Actualizado (+5%) el 2026-08-04:
+Los 4 grupos de tamaño de header (`#HEADER1`-`#HEADER4`, ver `01-foundations/global-styles/global-styles.html`) tienen su propio valor de `cobranding-l` y `cobranding-xl`. `cobranding-l` actualizado (+5%) el 2026-08-04; `cobranding-xl` agregado después, continuando la misma tasa de crecimiento M→L una vez más:
 
-| Grupo | Marcas | `cobranding-l` escritorio | `cobranding-l` mobile |
+| Grupo | Marcas | `cobranding-l` escritorio / mobile | `cobranding-xl` escritorio / mobile |
 |---|---|---|---|
-| HEADER1 | Rappi, SoyRappi, RappiTravel | ~~39px~~ → **41px** | ~~36px~~ → **38px** |
-| HEADER2 | RappiPro, RappiTurbo, RappiProBlack, Defensoría | ~~33px~~ → **35px** | ~~31px~~ → **33px** |
-| HEADER3 | RappiTurbo Restaurantes | ~~45px~~ → **47px** | ~~42px~~ → **44px** |
-| HEADER4 | RappiEntregador, Contenido aliado | ~~28px~~ → **29px** | ~~26px~~ → **27px** |
+| HEADER1 | Rappi, SoyRappi, RappiTravel | 41px / 38px | **46px / 43px** |
+| HEADER2 | RappiPro, RappiTurbo, RappiProBlack, Defensoría | 35px / 33px | **40px / 38px** |
+| HEADER3 | RappiTurbo Restaurantes | 47px / 44px | **53px / 51px** |
+| HEADER4 | RappiEntregador, Contenido aliado | 29px / 27px | **32px / 30px** |
 
-Estos son los valores de referencia a llevar al sistema de diseño en Figma (tokens de `cobranding-l` por grupo de header).
+Estos valores ya están reflejados en los 40 archivos de header (inline, escritorio) y en `global-styles.html` (clases `.cobranding-xl` por `#HEADERn`, mobile) y en el Figma del sistema de diseño (`Doc-DS-Mails` → `05 · Molecules` → "5.1 · Header (Logo + Cobranding)").
 
 ### El wrapper compartido
 El archivo `_header-wrapper.html` (con guion bajo) es la **envolvente común a todos los headers**. Cuando armas un mail, el flujo es: insertas el wrapper, y dentro del wrapper insertas el `<tr>` de uno de los 40 archivos específicos (10 marcas × claro/oscuro × centrado/columnas).

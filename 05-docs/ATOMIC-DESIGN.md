@@ -48,7 +48,7 @@ Los átomos de espaciado. Los primeros tres son divs vacíos de alto fijo — pu
 
 | Clase | Tamaño | Uso |
 |---|---|---|
-| `.separador` | 16px | Entre dos `role="module"` del mismo tipo |
+| `.separador` | 16px | Entre bloques grandes de nivel superior: dos `role="module"` consecutivos del mismo tipo, banner→CTA, CTA→wrapper de contenido, y antes del cierre |
 | `.separador-M` | 10px | Entre dos `role="componente"` |
 | `.separador-S` | 4px | Espaciado fino para casos especiales |
 | `molecula-separador` | contenedor 10px alto · línea 50×1px | Línea visible, color `{{color_acento1_mail_general}}`. Bajo títulos (2 Columnas, Logos, Módulo Título) |
@@ -60,7 +60,7 @@ Los átomos de espaciado. Los primeros tres son divs vacíos de alto fijo — pu
 ▭                     ▭                     ▭                    color acento1)
 ```
 
-Ver **Tokens 2.4** para las reglas de uso detalladas de `.separador` / `.separador-M` / `.separador-S`.
+Ver **Tokens 2.4** para las reglas de uso detalladas de `.separador` / `.separador-M` / `.separador-S`. Los 3 se catalogan como snippet de referencia en `04_content-modules/content_moleculas/molecula_separadores.html` y en `02_banners/banner_moleculas/molecula_separadores.html` (uno por contexto, mismo contenido) — no confundir con `molecula_separador_s.html`, que es la línea decorativa (`molecula-separador`). ◀ NUEVO
 
 ### 4.2 · Modificadores de texto
 
@@ -97,7 +97,7 @@ El logo no es un átomo de un solo tamaño: cambia de tamaño según el módulo.
 |---|---|---|---|
 | 15px | Ícono genérico S | `role="molecula-iconoS"` | Content-modules — slot genérico |
 | 21–34px (según marca) | Header — logo principal | `.logo-base1` … `.logo-base4` | Headers — 4 grupos de marca, ver `USO-DE-CADA-PARTE.md` |
-| 24–47px (según marca/tamaño) | Header — cobranding | `.cobranding-s` / `-m` / `-l` | Headers, cobranding activo |
+| 24–53px (según marca/tamaño) | Header — cobranding | `.cobranding-s` / `-m` / `-l` / `-xl` | Headers, cobranding activo |
 | 25px | Ícono genérico M | `role="molecula-iconoM"` | Content-modules |
 | 38px (max-height) | Cierre — firma "RappiFirma" | `05_closing/cierre.html` | Cierre del mail |
 | 50px | Ícono genérico L / logo aliado | `role="molecula-iconoL"` | Franja de Logos, Deals |
@@ -108,7 +108,7 @@ El logo no es un átomo de un solo tamaño: cambia de tamaño según el módulo.
 
 ```
 15px   ▪            Ícono S
-21-47  ▪▪           Header (logo / cobranding)
+21-53  ▪▪           Header (logo / cobranding)
 25px   ▪▪           Ícono M
 38px   ▪▪▪          Cierre "RappiFirma"
 50px   ▪▪▪▪         Ícono L / logo aliado
@@ -232,7 +232,7 @@ Una molécula todavía no tiene contexto de página completa — eso la distingu
 
 ### 5.1 · Header (Logo + Cobranding)
 
-Header armado con logo base + divider + cobranding. Dos estructuras — **Centrado** y **Columnas** — cada una con 4 formatos (logo+cobranding S/M/L, y logo solo). El alto es fijo por grupo de marca; el ancho se ajusta automático. Los tamaños **sí cambian** entre desktop y mobile (valor propio por grupo en `global-styles.html`, no un 90% plano).
+Header armado con logo base + divider + cobranding. Dos estructuras — **Centrado** y **Columnas** — cada una con 5 formatos (logo+cobranding S/M/L/XL, y logo solo). El alto es fijo por grupo de marca; el ancho se ajusta automático. Los tamaños **sí cambian** entre desktop y mobile (valor propio por grupo en `global-styles.html`, no un 90% plano).
 
 ```
 Centrado — PEQUEÑO                    Columnas — PEQUEÑO
@@ -244,16 +244,16 @@ Centrado — PEQUEÑO                    Columnas — PEQUEÑO
 
 **Tamaños de header — todas las variaciones** (F = px Figma, ≈ = aprox. HTML):
 
-| Grupo | Aplica a | Logo (desktop) | Cob S | Cob M | Cob L |
-|---|---|---|---|---|---|
-| 1 | Rappi, Travel, SoyRappi | F70/≈30 | F77/≈33 | F84/≈36 | F95/≈41 |
-| 2 | Turbo, Pro, ProBlack, Defensoría | F60/≈26 | F66/≈28 | F72/≈31 | F82/≈35 |
-| 3 | Turbo Rest | F80/≈34 | F88/≈38 | F96/≈41 | F109/≈47 |
-| 4 | RappiEntregador, Contenido aliado | F50/≈21 | F55/≈24 | F60/≈26 | F67/≈29 |
+| Grupo | Aplica a | Logo (desktop) | Cob S | Cob M | Cob L | Cob XL |
+|---|---|---|---|---|---|---|
+| 1 | Rappi, Travel, SoyRappi | F70/≈30 | F77/≈33 | F84/≈36 | F95/≈41 | F107/≈46 |
+| 2 | Turbo, Pro, ProBlack, Defensoría | F60/≈26 | F66/≈28 | F72/≈31 | F82/≈35 | F93/≈40 |
+| 3 | Turbo Rest | F80/≈34 | F88/≈38 | F96/≈41 | F109/≈47 | F124/≈53 |
+| 4 | RappiEntregador, Contenido aliado | F50/≈21 | F55/≈24 | F60/≈26 | F67/≈29 | F75/≈32 |
 
-Mobile (mismo agrupamiento): Grupo 1 → logo F63/≈28, Cob S/M/L F69·76·86 / ≈31·34·38 · Grupo 2 → F54/≈24, F59·65·75/≈26·29·33 · Grupo 3 → F72/≈32, F79·86·100/≈35·38·44 · Grupo 4 → F45/≈20, F50·54·61/≈22·24·27.
+Mobile (mismo agrupamiento): Grupo 1 → logo F63/≈28, Cob S/M/L/XL F69·76·86·97 / ≈31·34·38·43 · Grupo 2 → F54/≈24, F59·65·75·87/≈26·29·33·38 · Grupo 3 → F72/≈32, F79·86·100·116/≈35·38·44·51 · Grupo 4 → F45/≈20, F50·54·61·69/≈22·24·27·30.
 
-4 tamaños × (logo-base + cobranding S/M/L) = **16 clases HTML**. Aproximación calibrada con el ejemplo Size-1: desktop ≈ Figma×0.43, mobile ≈ Figma×0.44 — ajustable en implementación.
+4 tamaños × (logo-base + cobranding S/M/L/XL) = **20 clases HTML**. Aproximación calibrada con el ejemplo Size-1: desktop ≈ Figma×0.43, mobile ≈ Figma×0.44 — ajustable en implementación. `cobranding-xl` deriva de continuar una vez más la tasa de crecimiento M→L (no del patrón +10 puntos porcentuales de S→M→L, que habría dado un salto insignificante tras el ajuste +5% de L del 2026-08-04).
 
 ### 5.2 · Moléculas de banner
 
