@@ -67,16 +67,29 @@ De `02-components/06_footer/footer.html`. **El footer SIEMPRE va.** Solo cambias
 ## El mail terminado
 
 ```
-[_header-wrapper.html ← contiene: header elegido]
-   ↓
-[banner elegido]
-   ↓
-[_contenidos_wrapper.html ← contiene: CTAs, deals, cupones, beneficios, módulos en orden libre]
-   ↓
-[cierre.html — opcional]
-   ↓
-[footer.html]
+┌─ _header-wrapper.html ──────────────────────────┐
+│   └─ header elegido                             │
+└──────────────────────────────────────────────────┘
+                       ↓
+┌─ banner elegido ─────────────────────────────────┐
+└──────────────────────────────────────────────────┘
+                       ↓
+┌─ _contenidos_wrapper.html ───────────────────────┐
+│   ├─ CTAs                                        │
+│   ├─ deals                                       │
+│   ├─ cupones                                     │
+│   ├─ beneficios                                  │
+│   └─ módulos de contenido (orden libre)          │
+└──────────────────────────────────────────────────┘
+                       ↓
+┌─ cierre.html — opcional ─────────────────────────┐
+└──────────────────────────────────────────────────┘
+                       ↓
+┌─ footer.html ────────────────────────────────────┐
+└──────────────────────────────────────────────────┘
 ```
+
+`_header-wrapper.html` y `_contenidos_wrapper.html` son contenedores: no se editan, solo se les inserta dentro el header/módulos elegidos. `banner elegido`, `cierre.html` y `footer.html` no tienen wrapper propio — van directo en la cadena.
 
 ## Reglas especiales para módulos nuevos
 

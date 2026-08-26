@@ -116,7 +116,8 @@ Los colores universales del sistema — los que **NO** cambian entre temas. Los 
 | Token | Hex | Uso |
 |---|---|---|
 | `neutral/950` | `#040404` | Negro profundo. `bg_solid` en Dark neon/Turbo/Neutro. |
-| `neutral/900` | `#2A2B2B` | Gris muy oscuro. `bg_solid` en Pro. `bg_contenedor2` en Darks. |
+| `neutral/900` | `#2A2B2B` | Gris muy oscuro. `bg_contenedor2` en Darks. |
+| `neutral/925` | `#121212` | Gris casi negro. `bg_solid` en Pro (fijo). |
 | `neutral/850` | `#1D1D1D` | Gris oscuro. `bg_contenedor1` en Darks. `bg_contenedor2` en Pro. |
 | `neutral/200` | `#E2E2E2` | Gris muy claro. `color_texto` en Darks (sobre fondo negro). |
 | `neutral/100` | `#ECEFF3` | Casi blanco frío. `bg_solid` en ProBlack. |
@@ -311,7 +312,7 @@ El modo **DARK** de cada card es forward-looking: el HTML actual solo implementa
 | Dark neon | Invertido | `#040404` | `#E2E2E2` | `#FFEBC2` | `#FF441F` |
 | Dark Turbo | Invertido | `#040404` | `#E2E2E2` | `#F2ED93` | `#FF441F` |
 | Dark Neutro | Invertido | `#040404` | `#E2E2E2` | `#FFEBC2` | `#FF441F` |
-| Pro | Premium | `#2A2B2B` | `#EEEEEE` | `#DAA868` | `#A2A2A2` |
+| Pro | Premium | `#121212` | `#EEEEEE` | `#DAA868` | `#A2A2A2` |
 | ProBlack | Premium | `#ECEFF3` | `#191919` | `#D89950` | `#919AAA` |
 
 `color_acento2_mail_general` (Acento 2) es el rojo Rappi `#FF441F` en TODOS los temas — excepto Pro (`#A2A2A2`, gris) y ProBlack (`#919AAA`, gris), que son premium y usan gris en su lugar.
@@ -351,7 +352,7 @@ Estas tablas cubren los tokens de identidad visual más consultados. Para el res
 | Dark neon | Invertido: light usa tonos oscuros, dark los invierte a claros. Banner = gradiente neón (documentado, no conectado al HTML aún) + tono de banner. |
 | Dark Turbo | Invertido. Banner sin gradiente: solo tono de banner verde. Tags verdes. |
 | Dark Neutro | Invertido. Banner neutro sin gradiente. |
-| Pro | Premium. Fondo `#2A2B2B` fijo en ambos modos → la tipografía se resuelve por superficie. Acento 2 gris. Adicionales dorados. |
+| Pro | Premium. Fondo `#121212` fijo en ambos modos → la tipografía se resuelve por superficie. Acento 2 gris. Adicionales dorados. |
 | ProBlack | Premium. Fondo `#ECEFF3` fijo. Contenedores claros (light) / negros (dark). Tipografía por superficie. Adicionales dorados. |
 
 Para el detalle variable-por-variable de cada tema (valores exactos, reglas de negocio, qué falta migrar) ver `05-docs/GUIA-DE-TEMAS.md` — esa guía es el complemento operativo de esta sección.
