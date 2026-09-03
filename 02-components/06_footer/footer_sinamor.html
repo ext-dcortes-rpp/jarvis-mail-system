@@ -6,70 +6,153 @@
 
 	{% if font_style_look == 'negro' %}
 		{% assign color_letra = '#7D8188' %}
-		{% assign color_textwa = '#0DAE09' %}
-		{% assign color_bordewa = '2px solid #0DAE09' %}
+		{% assign color_borde_footer = ' 1px solid #7D8188' %}
+		{% assign color_textwa = '#7D8188' %}
+		{% assign color_bordewa = '2px solid #7D8188' %}
 		{% assign walogo = 'https://lh3.googleusercontent.com/d/1F18vChiw3QITlsMJErccLGkDTHTbnJvY' %}
 		{% assign color_fondowa = 'rgba(115,195,91,0.1)' %}
 		{% assign logo = 'https://lh3.googleusercontent.com/d/1jUTxnpXK0J43xxT6mbnvAuHBlRUa0gc1' %}
 		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
-		{% assign img-amor = 'https://lh3.googleusercontent.com/d/1YyaYertMcTnLywsk9dk7yFTe_4bMFOD3' %}
 		{% assign show_hr = false %}
-        {% if ${user_id} contains 'BR' %}
-        {% assign img-amor = 'https://lh3.googleusercontent.com/d/1ud9FQo9bAVuSSrcsGGVcfVDR15i6yRTq' %}
-    {% endif %}
 
-	{% elsif font_style_look == 'cafe' %}
+	{% elsif font_style_look == 'beige100' %}
 		{% assign color_letra = '#633D11' %}
+		{% assign color_borde_footer = '1px solid #FE3F23' %}
+		{% assign color_textwa = '#633D11' %}
+		{% assign color_bordewa = '2px solid #633D11' %}
+		{% assign color_fondowa = 'rgba(115,195,91,0.1)' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/1F18vChiw3QITlsMJErccLGkDTHTbnJvY' %}
+		{% assign logo = 'https://lh3.googleusercontent.com/d/1l2pSc8pTHDt-pXx9LgxA20oVe1qXe7hn' %}
+		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
+		{% assign show_hr = false %}
+
+	{% elsif font_style_look == 'beige150' %}
+		{% assign color_letra = '#633D11' %}
+		{% assign color_borde_footer = '1px solid #FE3F23' %}
 		{% assign color_textwa = '#0DAE09' %}
 		{% assign color_bordewa = '2px solid #0DAE09' %}
 		{% assign color_fondowa = 'rgba(115,195,91,0.1)' %}
 		{% assign walogo = 'https://lh3.googleusercontent.com/d/1F18vChiw3QITlsMJErccLGkDTHTbnJvY' %}
 		{% assign logo = 'https://lh3.googleusercontent.com/d/1l2pSc8pTHDt-pXx9LgxA20oVe1qXe7hn' %}
-		{% assign img-amor = 'https://lh3.googleusercontent.com/d/1F3SJ0pyMl3gqW8PyJswrAH0GdKhWwTHD' %}
 		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
 		{% assign show_hr = false %}
-        {% if ${user_id} contains 'BR' %}
-        {% assign img-amor = 'https://lh3.googleusercontent.com/d/1KJFIXGsAj73Z3jm7zDfV0ZhqrbYLMgoU' %}
-    {% endif %}
+
+	{% elsif font_style_look == 'rosa100' %}
+		{% assign color_letra = '#4F145E' %}
+		{% assign color_borde_footer = '1px solid #FE3F23' %}
+		{% assign color_textwa = '#0DAE09' %}
+		{% assign color_bordewa = '2px solid #0DAE09' %}
+		{% assign color_fondowa = 'rgba(115,195,91,0.1)' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/1F18vChiw3QITlsMJErccLGkDTHTbnJvY' %}
+		{% assign logo = 'https://lh3.googleusercontent.com/d/1l2pSc8pTHDt-pXx9LgxA20oVe1qXe7hn' %}
+		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
+		{% assign show_hr = false %}
+
+	{% elsif font_style_look == 'purpura100' %}
+		{% assign color_letra = '#4C2B8C' %}
+		{% assign color_borde_footer = '1px solid #FE3F23' %}
+		{% assign color_textwa = '#0DAE09' %}
+		{% assign color_bordewa = '2px solid #0DAE09' %}
+		{% assign color_fondowa = 'rgba(115,195,91,0.1)' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/1F18vChiw3QITlsMJErccLGkDTHTbnJvY' %}
+		{% assign logo = 'https://lh3.googleusercontent.com/d/1l2pSc8pTHDt-pXx9LgxA20oVe1qXe7hn' %}
+		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
+		{% assign show_hr = false %}
+
+	{% elsif font_style_look == 'celeste100' %}
+		{% assign color_letra = '#0F3749' %}
+		{% assign color_borde_footer = '1px solid #FE3F23' %}
+		{% assign color_textwa = '#0DAE09' %}
+		{% assign color_bordewa = '2px solid #0DAE09' %}
+		{% assign color_fondowa = 'rgba(115,195,91,0.1)' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/1F18vChiw3QITlsMJErccLGkDTHTbnJvY' %}
+		{% assign logo = 'https://lh3.googleusercontent.com/d/1l2pSc8pTHDt-pXx9LgxA20oVe1qXe7hn' %}
+		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
+		{% assign show_hr = false %}
+
+	{% elsif font_style_look == 'verde100' %}
+		{% assign color_letra = '#102E14' %}
+		{% assign color_borde_footer = '1px solid #102E14' %}
+		{% assign color_textwa = '#0DAE09' %}
+		{% assign color_bordewa = '2px solid #0DAE09' %}
+		{% assign color_fondowa = 'rgba(115,195,91,0.1)' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/1F18vChiw3QITlsMJErccLGkDTHTbnJvY' %}
+		{% assign logo = 'https://lh3.googleusercontent.com/d/1l2pSc8pTHDt-pXx9LgxA20oVe1qXe7hn' %}
+		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
+		{% assign show_hr = false %}
+
+	{% elsif font_style_look == 'gris100' %}
+		{% assign color_letra = '#000000' %}
+		{% assign color_borde_footer = '1px solid #FE3F23' %}
+		{% assign color_textwa = '#0DAE09' %}
+		{% assign color_bordewa = '2px solid #0DAE09' %}
+		{% assign color_fondowa = 'rgba(115,195,91,0.1)' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/1F18vChiw3QITlsMJErccLGkDTHTbnJvY' %}
+		{% assign logo = 'https://lh3.googleusercontent.com/d/1l2pSc8pTHDt-pXx9LgxA20oVe1qXe7hn' %}
+		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
+		{% assign show_hr = false %}
 
 	{% elsif font_style_look == 'pro' %}
-		{% assign color_letra = '#7D8188' %}
-		{% assign color_textwa = '#F49502' %}
-		{% assign color_bordewa = '2px solid #F49502' %}
+		{% assign color_letra = '#9EA1A2' %}
+		{% assign color_borde_footer = '1px solid #9EA1A2' %}
+		{% assign color_textwa = '#9EA1A2' %}
+		{% assign color_bordewa = '2px solid #9EA1A2' %}
 		{% assign color_fondowa = 'rgba(244,149,2,0.0)' %}
 		{% assign walogo = 'https://lh3.googleusercontent.com/d/16AStlqgQyi2OeNp62kekDDpf8lGhVM1k' %}
 		{% assign color_membresia = '#7D8188' %}
 		{% assign show_hr = true %}
 		{% assign logo = 'https://lh3.googleusercontent.com/d/15j7YHNv1qVdDAWUNs_G6OhQImaYbNz2g' %}
 		{% assign bigote = 'https://lh3.googleusercontent.com/d/1dL43rjEJfev_We8qjnbFx_mk7HUJ7N7j' %}
-		{% assign img-amor = 'https://lh3.googleusercontent.com/d/1eGtd155KXr5bd_B2hSo27xPkYj9mKErp' %}
-        {% if ${user_id} contains 'BR' %}
-        {% assign img-amor = 'https://lh3.googleusercontent.com/d/1fMO_apmLSG4UkEvyJ1g6dym9A6oaX4XB' %}
-        {% endif %}
-	{% elsif font_style_look == 'blanco' %}
-         {% assign background_colour = 'transparent' %}
-		{% assign color_letra = '#FFFFFF' %}
-		{% assign logo = 'https://lh3.googleusercontent.com/d/13fInYFB5qKUpniUQhPN54WF2lBY2770h' %}
-		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
-		{% assign show_hr = false %}
-        {% if ${user_id} contains 'CL' %}
-        {% assign imgchile = 'https://lh3.googleusercontent.com/d/1ap3V0qcokYXYBDZ_yR4EPdpPzd9KYyBN' %}
-    {% endif %}
+
 	{% else %}
-        {% assign background_colour = '#FFFFFF' %}
-		{% assign color_letra = '#919AAA' %}
-		{% assign color_textwa = '#0DAE09' %}
-		{% assign color_bordewa = '2px solid #0DAE09' %}
+       {% assign color_letra = '#7D8188' %}
+		{% assign color_borde_footer = '#7D8188' %}
+		{% assign color_textwa = '#7D8188' %}
+		{% assign color_bordewa = '2px solid #7D8188' %}
 		{% assign walogo = 'https://lh3.googleusercontent.com/d/1F18vChiw3QITlsMJErccLGkDTHTbnJvY' %}
 		{% assign color_fondowa = 'rgba(115,195,91,0.1)' %}
 		{% assign logo = 'https://lh3.googleusercontent.com/d/1jUTxnpXK0J43xxT6mbnvAuHBlRUa0gc1' %}
 		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
-		{% assign img-amor = 'https://lh3.googleusercontent.com/d/1YyaYertMcTnLywsk9dk7yFTe_4bMFOD3' %}
 		{% assign show_hr = false %}
-        {% if ${user_id} contains 'BR' %}
-        {% assign img-amor = 'https://lh3.googleusercontent.com/d/1ud9FQo9bAVuSSrcsGGVcfVDR15i6yRTq' %}
-    {% endif %}
 
+{% endif %}
+
+
+----------------------------------
+--------------- FIRMA -------------
+----------------------------------
+{% assign firma = firma | default: 'sin firma' %}
+
+{% if firma == 'general' %}
+	{% if ${user_id} contains 'AR' or ${user_id} contains 'UY' or ${user_id} contains 'CR' %}
+		{% assign img-firma = 'https://lh3.googleusercontent.com/d/1OjjCUGpJkErIll85wuNPnScv7xaIJC2U' %}
+	{% elsif ${user_id} contains 'MX' %}
+		{% assign img-firma = 'https://lh3.googleusercontent.com/d/1XYWhQr9gm2EKabK2_YHoYCtxG9YUYEbX' %}
+	{% elsif ${user_id} contains 'BR' %}
+		{% assign img-firma = 'https://lh3.googleusercontent.com/d/19Ij8uZN9yQ1I4-4cOIBo583KmDfnPcKc' %}
+	{% else %}
+		{% assign img-firma = 'https://lh3.googleusercontent.com/d/1uXDc5UOBORQmPiS-fav5iJQwQMy8KbJi' %}
+	{% endif %}
+{% elsif firma == 'turbo' %}
+	{% if ${user_id} contains 'CO' %}
+		{% assign img-firma = 'https://lh3.googleusercontent.com/d/1OytxlcxaHB0F3JJ07TW0DIs95GpS_FYq' %}
+	{% elsif ${user_id} contains 'EC' %}
+		{% assign img-firma = 'https://lh3.googleusercontent.com/d/16SwlZXMeKb5tek9u5-HxLlInIMhGupCX' %}
+	{% elsif ${user_id} contains 'MX' %}
+		{% assign img-firma = 'https://lh3.googleusercontent.com/d/1XEJYDiQV5X9kKYrCwDKHfllOedor3dU3' %}
+	{% elsif ${user_id} contains 'AR' or ${user_id} contains 'UY' or ${user_id} contains 'CR' %}
+		{% assign img-firma = 'https://lh3.googleusercontent.com/d/1ye7JyRDZDz9iIkZLLT7fkL3dEX2UIhGw' %}
+	{% elsif ${user_id} contains 'BR' %}
+		{% assign img-firma = 'https://lh3.googleusercontent.com/d/1gekH3zsdMvSvW6VhQ4WTbdHqxnTlmmmL' %}
+	{% else %}
+		{% assign img-firma = 'https://lh3.googleusercontent.com/d/1gGDpCIil0rP0l25pc0n8b3uZMIWoXxlO' %}
+	{% endif %}
+{% else %}
+	{% assign img-firma = 'https://lh3.googleusercontent.com/d/1PnaP1k0YqwVbr3oMvLIHnWdGopEH23lR' %}
+{% endif %}
+
+{% if font_style_look == 'pro' %}
+	{% assign img-firma = 'https://lh3.googleusercontent.com/d/1_F8tVia9lbp9aOmD24CqTSWzOebR5Wvr' %}
 {% endif %}
 
 
@@ -337,6 +420,18 @@
 -->
 
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- BLOQUEO de dark mode: los templates traen sus colores de marca y el
+     auto-dark de Apple Mail (iOS/macOS) los reinterpretaba (fondo oscuro →
+     gris claro). "light only" declara que el correo SOLO soporta su esquema
+     tal cual — Apple Mail lo respeta y no toca nada. Gmail ignora estas
+     metas, pero su transformación sí respeta fondos de color. -->
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light only">
+<!--[if !mso]><!-->
+
 <style type="text/css">
 body a {
     text-decoration: none !important;
@@ -350,127 +445,91 @@ a {
 }
 
 @media (max-width:480px) {
-p {
+.txtfooter {
     font-size: 8px!important;
-    line-height: 9px!important;
+    line-height: 8px !important;
 }
 	
-.btn_wa {
-	width: 90% !important;
+.altofooter1 {
+	height: auto!important;
 }
+	
+.columns {
+    width: 100% !important;
+}
+.column {
+    width: 100% !important;
+    padding: 0px 0px 0px 0px !important;
+    height: auto !important;
+}
+	
 }
 
 @media (max-width:620px) {
-p {
+.txtfooter {
     font-size: 8px!important;
-    line-height: 9px!important;
+    line-height: 8px !important;
+}
+	.altofooter1 {
+	height: auto!important;
 }
 	
-.btn_wa {
-	width: 90% !important;
+.columns {
+    width: 100% !important;
+}
+.column {
+    width: 100% !important;
+    padding: 0px 0px 0px 0px !important;
+    height: auto !important;
 }
 }
 </style>
 </head>
-<body style="width: 100%; height:auto;font-family:Helvetica,Tahoma,Verdana,Sans-serif; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; padding: 0; Margin: 0; border-spacing: 0; border-collapse: collapse;">
-<table cellspacing="0" cellpadding="0" align="center" border="0" style="width:100%; max-width: 600px; border-spacing: 0; border-collapse: collapse; margin-bottom: 0px; ">
+
+<body style="width: 100%; height:auto;font-family:Helvetica,Tahoma,Verdana,Sans-serif; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; padding: 0px; Margin: 0; border-spacing: 0;">
+
+	<div style="padding: 0px 15px">
+
+<table width="480" style="width:480px; border-spacing:0; border-collapse: separate; margin:30px auto;" cellpadding="0" cellspacing="0" align="center" border="0" bgcolor="" class="column column-0">
   <tbody>
-    <tr style="background-image: url({{bigote}}); background-position: center bottom; background-size: 100% auto; background-repeat: no-repeat;text-decoration: none; padding: 0px; margin: 0px; border-spacing: 0; border-collapse: collapse; ">
-      <td height="100%" style="padding: 0px; margin: 0px; border-spacing: 0; border-collapse: collapse; " >
-		  
-		  
-		  <table cellspacing="0" cellpadding="0" align="center" border="0" style="width:100%; border-spacing: 0; border-collapse: collapse; margin-bottom: 0px;">
-          <tbody align="center">
-        
-           
-			
-            <!--{% if cond != nil %}--> 
-            <!--{% if show_hr == true %}-->
-            <tr>
-              <td align="center" style="padding: 20px 20px 10px 20px; margin-bottom: 20px; max-width: 480px; "><p style="-webkit-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 10px;  margin: 0px; color: {{color_membresia}};margin: 0 auto; max-width: 480px; "> {{pro_membresia}} </p></td>
-            </tr>
+  
+    <tr style="">
+      <td style="padding:0px 0px;margin:0px; vertical-align: middle; border-top: {{color_borde_footer}}; padding-top: 7px;  "><div> <a href="{{centro_ayuda_url}}" style="text-decoration: none; color: {{color_letra}}"> <span class="txtfooter" style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 9px;  color: {{color_letra}};"> {{centro_ayuda}} </span></a> <span class="txtfooter" style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 9px;  color: {{color_letra}};">&nbsp;|&nbsp; </span> <a href="{{aviso_privacidad_url}}" style="text-decoration: none; color: {{color_letra}}"> <span class="txtfooter" style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 9px;  color: {{color_letra}};"> {{aviso_privacidad}} </span></a> <span class="txtfooter" style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 9px;  color: {{color_letra}};">&nbsp;|&nbsp; </span> <a href="{{terminos_y_condiciones_url}}" style="text-decoration: none; color: {{color_letra}}"> <span class="txtfooter" style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 9px;  color: {{color_letra}};"> {{terminos_y_condiciones}} </span></a> <span class="txtfooter" style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 9px;  color: {{color_letra}};">&nbsp;|&nbsp; </span> {% if ${user_id} contains 'CO' %} <a href="{{preference_center.${EMAIL_PREFERENCE_CENTER_CO}}}" style="text-decoration: none; color: {{color_letra}}"> {% elsif ${user_id} contains 'MX' %} <a href="{{preference_center.${EMAIL_PREFERENCE_CENTER_MX}}}" style="text-decoration: none; color: {{color_letra}}"> {% elsif ${user_id} contains 'BR' %} <a href="{{preference_center.${EMAIL_PREFERENCE_CENTER_BR}}}" style="text-decoration: none; color: {{color_letra}}"> {% elsif ${user_id} contains 'PE'
+          or ${user_id} contains 'EC'
+          or ${user_id} contains 'CL'
+          or ${user_id} contains 'AR'
+          or ${user_id} contains 'UY'
+          or ${user_id} contains 'CR' %} <a href="{{preference_center.${EMAIL_PREFERENCE_CENTER_LATAM}}}" style="text-decoration: none; color: {{color_letra}}"> {% endif %} <span class="txtfooter" style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 9px;  color: {{color_letra}};"> {{cancelar_suscription}} </span></a> </div>
+        <div>
+          <p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 12px;  padding: 0px; margin: 0 auto; max-width: 480px; color: {{color_letra}};"><br>
+            {{bottom_line_1}} {{bottom_line_2}} | 
+            {{aplican_tyc}} 
+            {{aplican_tyc-titulorest}} <a href="{{aplican_tyc_url}}" style="text-decoration: none; color: {{color_letra}} ">{{aplican_tyc_url}} </a> {{aplican_tyc-titulosuper}} <a href="{{aplican_tyc_url}}" style="text-decoration: none; color: {{color_letra}} ">{{aplican_tycsuper_url}} </a> 
+            <!--{% if cond != nil %}-->{{cond}} <!--{% endif %}--> 
+            <!--{% if show_legal_turbo == true %}-->{{legal_turbo_copy}} 
+            {{legal_turbo_titulosuper}} <a href="{{legal_turbo_url}}" style="text-decoration: none; color: {{color_letra}}; ">{{legal_turbo_url}} </a> {{legal_turbo_titulorest}} <a href="{{legal_turbo_url}}" style="text-decoration: none; color: {{color_letra}};">{{legal_turbo_rest}} </a> 
             <!--{% endif %}--> 
-            <!--{% endif %}-->
-            <tr>
-              <td style="padding: 0px 20px; ">
-				  
-				  
-				  <table cellspacing="0" cellpadding="0" align="center" border="0" style=" max-height:auto; border-spacing: 3px; max-width: 480px; ">
-                  <tbody align="center">
-                    <tr>
-                      <td style="padding: 1% 0% 0% 0%;" align="center"><a href="{{centro_ayuda_url}}" style="text-decoration: none; color: {{color_letra}}">
-                        <p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 10px; line-height: 10px;  color: {{color_letra}};"> {{centro_ayuda}} </p>
-                        </a></td>
-                      <td style="padding: 1% 0% 0% 0%;" align="center"><p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 10px; line-height: 10px;  color: {{color_letra}};">&nbsp;|&nbsp;</p></td>
-                      <td style="padding: 1% 0% 0% 0%;" align="center"><a href="{{aviso_privacidad_url}}" style="text-decoration: none; color: {{color_letra}}">
-                        <p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif;font-size: 10px;  line-height: 10px; color: {{color_letra}};"> {{aviso_privacidad}} </p>
-                        </a></td>
-                      <td style="padding: 1% 0% 0% 0%;" align="center"><p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 10px; line-height: 10px;  color: {{color_letra}};">&nbsp;|&nbsp;</p></td>
-                      <td style="padding: 1% 0% 0% 0%;" align="center"><a href="{{terminos_y_condiciones_url}}" style="text-decoration: none; color: {{color_letra}}">
-                        <p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif;font-size: 10px; line-height: 10px;  color: {{color_letra}};"> {{terminos_y_condiciones}} </p>
-                        </a></td>
-                      <td style="padding: 1% 0% 0% 0%;" align="center"><p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 10px; line-height: 10px;  color: {{color_letra}};">&nbsp;|&nbsp;</p></td>
-                      <td style="padding: 1% 0% 0% 0%;" align="center">
-                        
-                        
-                        
-                        
-                        {% if ${user_id} contains 'CO' %}
-                          <a href="{{preference_center.${EMAIL_PREFERENCE_CENTER_CO}}}" style="text-decoration: none; color: {{color_letra}}">
-
-                        {% elsif ${user_id} contains 'MX' %}
-                          <a href="{{preference_center.${EMAIL_PREFERENCE_CENTER_MX}}}" style="text-decoration: none; color: {{color_letra}}">
-
-                        {% elsif ${user_id} contains 'BR' %}
-                          <a href="{{preference_center.${EMAIL_PREFERENCE_CENTER_BR}}}" style="text-decoration: none; color: {{color_letra}}">
-
-                        {% elsif ${user_id} contains 'PE'
-                          or ${user_id} contains 'EC'
-                          or ${user_id} contains 'CL'
-                          or ${user_id} contains 'AR'
-                          or ${user_id} contains 'UY'
-                          or ${user_id} contains 'CR' %}
-                          <a href="{{preference_center.${EMAIL_PREFERENCE_CENTER_LATAM}}}" style="text-decoration: none; color: {{color_letra}}">
-                          {% endif %}
-    
-                        <p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif;font-size: 10px; line-height: 10px; color: {{color_letra}};"> {{cancelar_suscription}} </p>
-                        </a></td>
-                    </tr>
-                  </tbody>
-                </table></td>
-            </tr>
-            <tr>
-              <td align="center" style="padding: 0px 20px;"><p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 12px;  padding: 0px; margin: 0 auto; max-width: 480px; color: {{color_letra}};"> {{bottom_line_1}} {{bottom_line_2}} | 
-                  {{aplican_tyc}} 
-                  {{aplican_tyc-titulorest}} <a href="{{aplican_tyc_url}}" style="text-decoration: none; color: {{color_letra}} ">{{aplican_tyc_url}} </a> {{aplican_tyc-titulosuper}} <a href="{{aplican_tyc_url}}" style="text-decoration: none; color: {{color_letra}} ">{{aplican_tycsuper_url}} </a> 
-                  <!--{% if cond != nil %}-->{{cond}} <!--{% endif %}--> 
-                  <!--{% if show_legal_turbo == true %}-->{{legal_turbo_copy}} 
-                  {{legal_turbo_titulosuper}} <a href="{{legal_turbo_url}}" style="text-decoration: none; color: {{color_letra}}; ">{{legal_turbo_url}} </a> {{legal_turbo_titulorest}} <a href="{{legal_turbo_url}}" style="text-decoration: none; color: {{color_letra}};">{{legal_turbo_rest}} </a> 
-                  <!--{% endif %}--> 
-                  
-                  <!--{% if show_legal_liquor == true %}--> 
-                  
-                  {% if ${user_id} contains "PE" %} <span style="letter-spacing: 0.3em; font-size: 9px; margin-top: 3px; line-height: 11px "><br>
-                  {{legal_liquor_copy}} </span> <!--{% if legal_liquor_img != blank %}--> <!--{% endif %}--> 
-                  
-                  {% else %} 
-                  <!--{% if legal_liquor_copy != blank %}-->{{legal_liquor_copy}}<!--{% endif %}--> 
-                  <!--{% if legal_liquor_img != blank %}--> <!--{% endif %}--> 
-                  {% endif %} 
-                  
-                  <!--{% endif %}--> 
-                  
-                </p></td>
-            </tr>
-            <tr>
-              <td align="center" style="padding: 20px 0px 20px 0px;"><img style="max-width:170px; width:auto; height:auto; float:center;" alt="Rappi" src="{{logo}}"></td>
-            </tr>
-          </tbody>
-        </table>
-        <img style="width:100%;height:auto;margin: 0 auto;  border-spacing: 0; border-collapse: collapse; padding: 0px;"  alt="Rappi" src="https://lh3.googleusercontent.com/d/189y5oKqF1B1plR5A5fdpfgoVkpD9HRs3"></td>
+            
+            <!--{% if show_legal_liquor == true %}--> 
+            
+            {% if ${user_id} contains "PE" %} <span style="letter-spacing: 0.3em; font-size: 9px; margin-top: 3px; line-height: 11px "><br>
+            {{legal_liquor_copy}} </span> <!--{% if legal_liquor_img != blank %}--> <!--{% endif %}--> 
+            
+            {% else %} 
+            <!--{% if legal_liquor_copy != blank %}-->{{legal_liquor_copy}}<!--{% endif %}--> 
+            <!--{% if legal_liquor_img != blank %}--> <!--{% endif %}--> 
+            {% endif %} 
+            
+            <!--{% endif %}--> 
+            
+          </p>
+          <p style="-webkit-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 10px;  margin: 0px; color: {{color_membresia}};margin: 0 auto; max-width: 480px; "><br>
+            {{pro_membresia}} </p>
+        </div></td>
     </tr>
   </tbody>
 </table>
+	  </div>
 </body>
 <!--
 ---------------------
@@ -478,6 +537,7 @@ p {
 ---------------------
 Style related variables:
 {% assign font_style_look = '' %}
+{% assign firma = '' %}
 {% assign show_legal_tyc = '' %}
 {% assign color_letra = '' %}
 {% assign logo = '' %}

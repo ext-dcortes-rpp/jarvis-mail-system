@@ -6,48 +6,153 @@
 
 	{% if font_style_look == 'negro' %}
 		{% assign color_letra = '#7D8188' %}
-		{% assign color_textwa = '#0DAE09' %}
-		{% assign color_bordewa = '2px solid #0DAE09' %}
-		{% assign walogo = 'https://lh3.googleusercontent.com/d/1F18vChiw3QITlsMJErccLGkDTHTbnJvY' %}
+		{% assign color_borde_footer = ' 1px solid #7D8188' %}
+		{% assign color_textwa = '#7D8188' %}
+		{% assign color_bordewa = '2px solid #7D8188' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/1i5UoD4PfTvMP723o8aEFNStFErMb_82q' %}
 		{% assign color_fondowa = 'rgba(115,195,91,0.1)' %}
 		{% assign logo = 'https://lh3.googleusercontent.com/d/1jUTxnpXK0J43xxT6mbnvAuHBlRUa0gc1' %}
 		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
-		{% assign img-amor = 'https://lh3.googleusercontent.com/d/1YyaYertMcTnLywsk9dk7yFTe_4bMFOD3' %}
 		{% assign show_hr = false %}
-        {% if ${user_id} contains 'BR' %}
-        {% assign img-amor = 'https://lh3.googleusercontent.com/d/1ud9FQo9bAVuSSrcsGGVcfVDR15i6yRTq' %}
-    {% endif %}
+
+	{% elsif font_style_look == 'beige100' %}
+		{% assign color_letra = '#633D11' %}
+		{% assign color_borde_footer = '1px solid #FE3F23' %}
+		{% assign color_textwa = '#633D11' %}
+		{% assign color_bordewa = '2px solid #633D11' %}
+		{% assign color_fondowa = 'rgba(115,195,91,0.1)' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/1i5UoD4PfTvMP723o8aEFNStFErMb_82q' %}
+		{% assign logo = 'https://lh3.googleusercontent.com/d/1l2pSc8pTHDt-pXx9LgxA20oVe1qXe7hn' %}
+		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
+		{% assign show_hr = false %}
+
+	{% elsif font_style_look == 'beige150' %}
+		{% assign color_letra = '#633D11' %}
+		{% assign color_borde_footer = '1px solid #FE3F23' %}
+		{% assign color_textwa = '#0DAE09' %}
+		{% assign color_bordewa = '2px solid #0DAE09' %}
+		{% assign color_fondowa = 'rgba(115,195,91,0.1)' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/1i5UoD4PfTvMP723o8aEFNStFErMb_82q' %}
+		{% assign logo = 'https://lh3.googleusercontent.com/d/1l2pSc8pTHDt-pXx9LgxA20oVe1qXe7hn' %}
+		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
+		{% assign show_hr = false %}
+
+	{% elsif font_style_look == 'rosa100' %}
+		{% assign color_letra = '#4F145E' %}
+		{% assign color_borde_footer = '1px solid #FE3F23' %}
+		{% assign color_textwa = '#0DAE09' %}
+		{% assign color_bordewa = '2px solid #0DAE09' %}
+		{% assign color_fondowa = 'rgba(115,195,91,0.1)' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/1i5UoD4PfTvMP723o8aEFNStFErMb_82q' %}
+		{% assign logo = 'https://lh3.googleusercontent.com/d/1l2pSc8pTHDt-pXx9LgxA20oVe1qXe7hn' %}
+		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
+		{% assign show_hr = false %}
+
+	{% elsif font_style_look == 'purpura100' %}
+		{% assign color_letra = '#4C2B8C' %}
+		{% assign color_borde_footer = '1px solid #FE3F23' %}
+		{% assign color_textwa = '#0DAE09' %}
+		{% assign color_bordewa = '2px solid #0DAE09' %}
+		{% assign color_fondowa = 'rgba(115,195,91,0.1)' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/1i5UoD4PfTvMP723o8aEFNStFErMb_82q' %}
+		{% assign logo = 'https://lh3.googleusercontent.com/d/1l2pSc8pTHDt-pXx9LgxA20oVe1qXe7hn' %}
+		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
+		{% assign show_hr = false %}
+
+	{% elsif font_style_look == 'celeste100' %}
+		{% assign color_letra = '#0F3749' %}
+		{% assign color_borde_footer = '1px solid #FE3F23' %}
+		{% assign color_textwa = '#0DAE09' %}
+		{% assign color_bordewa = '2px solid #0DAE09' %}
+		{% assign color_fondowa = 'rgba(115,195,91,0.1)' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/1i5UoD4PfTvMP723o8aEFNStFErMb_82q' %}
+		{% assign logo = 'https://lh3.googleusercontent.com/d/1l2pSc8pTHDt-pXx9LgxA20oVe1qXe7hn' %}
+		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
+		{% assign show_hr = false %}
+
+	{% elsif font_style_look == 'verde100' %}
+		{% assign color_letra = '#102E14' %}
+		{% assign color_borde_footer = '1px solid #102E14' %}
+		{% assign color_textwa = '#0DAE09' %}
+		{% assign color_bordewa = '2px solid #0DAE09' %}
+		{% assign color_fondowa = 'rgba(115,195,91,0.1)' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/1i5UoD4PfTvMP723o8aEFNStFErMb_82q' %}
+		{% assign logo = 'https://lh3.googleusercontent.com/d/1l2pSc8pTHDt-pXx9LgxA20oVe1qXe7hn' %}
+		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
+		{% assign show_hr = false %}
+
+	{% elsif font_style_look == 'gris100' %}
+		{% assign color_letra = '#000000' %}
+		{% assign color_borde_footer = '1px solid #FE3F23' %}
+		{% assign color_textwa = '#0DAE09' %}
+		{% assign color_bordewa = '2px solid #0DAE09' %}
+		{% assign color_fondowa = 'rgba(115,195,91,0.1)' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/1i5UoD4PfTvMP723o8aEFNStFErMb_82q' %}
+		{% assign logo = 'https://lh3.googleusercontent.com/d/1l2pSc8pTHDt-pXx9LgxA20oVe1qXe7hn' %}
+		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
+		{% assign show_hr = false %}
 
 	{% elsif font_style_look == 'pro' %}
-		{% assign color_letra = '#7D8188' %}
-		{% assign color_textwa = '#F49502' %}
-		{% assign color_bordewa = '2px solid #F49502' %}
+		{% assign color_letra = '#9EA1A2' %}
+		{% assign color_borde_footer = '1px solid #9EA1A2' %}
+		{% assign color_textwa = '#9EA1A2' %}
+		{% assign color_bordewa = '2px solid #9EA1A2' %}
 		{% assign color_fondowa = 'rgba(244,149,2,0.0)' %}
-		{% assign walogo = 'https://lh3.googleusercontent.com/d/16AStlqgQyi2OeNp62kekDDpf8lGhVM1k' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/1i5UoD4PfTvMP723o8aEFNStFErMb_82q' %}
 		{% assign color_membresia = '#7D8188' %}
 		{% assign show_hr = true %}
 		{% assign logo = 'https://lh3.googleusercontent.com/d/15j7YHNv1qVdDAWUNs_G6OhQImaYbNz2g' %}
 		{% assign bigote = 'https://lh3.googleusercontent.com/d/1dL43rjEJfev_We8qjnbFx_mk7HUJ7N7j' %}
-		{% assign img-amor = 'https://lh3.googleusercontent.com/d/1eGtd155KXr5bd_B2hSo27xPkYj9mKErp' %}
-        {% if ${user_id} contains 'BR' %}
-        {% assign img-amor = 'https://lh3.googleusercontent.com/d/1fMO_apmLSG4UkEvyJ1g6dym9A6oaX4XB' %}
-        {% endif %}
 
 	{% else %}
-        {% assign background_colour = '#FFFFFF' %}
-		{% assign color_letra = '#919AAA' %}
-		{% assign color_textwa = '#0DAE09' %}
-		{% assign color_bordewa = '2px solid #0DAE09' %}
-		{% assign walogo = 'https://lh3.googleusercontent.com/d/1F18vChiw3QITlsMJErccLGkDTHTbnJvY' %}
+       {% assign color_letra = '#7D8188' %}
+		{% assign color_borde_footer = '#7D8188' %}
+		{% assign color_textwa = '#7D8188' %}
+		{% assign color_bordewa = '2px solid #7D8188' %}
+		{% assign walogo = 'https://lh3.googleusercontent.com/d/1i5UoD4PfTvMP723o8aEFNStFErMb_82q' %}
 		{% assign color_fondowa = 'rgba(115,195,91,0.1)' %}
 		{% assign logo = 'https://lh3.googleusercontent.com/d/1jUTxnpXK0J43xxT6mbnvAuHBlRUa0gc1' %}
 		{% assign bigote = 'https://lh3.googleusercontent.com/d/1m3sibudK6RTejw-GIy4-pbjhYamNWyFO' %}
-		{% assign img-amor = 'https://lh3.googleusercontent.com/d/1YyaYertMcTnLywsk9dk7yFTe_4bMFOD3' %}
 		{% assign show_hr = false %}
-        {% if ${user_id} contains 'BR' %}
-        {% assign img-amor = 'https://lh3.googleusercontent.com/d/1ud9FQo9bAVuSSrcsGGVcfVDR15i6yRTq' %}
-    {% endif %}
 
+{% endif %}
+
+
+----------------------------------
+--------------- FIRMA -------------
+----------------------------------
+{% assign firma = firma | default: 'sin firma' %}
+
+{% if firma == 'general' %}
+	{% if ${user_id} contains 'AR' or ${user_id} contains 'UY' or ${user_id} contains 'CR' %}
+		{% assign img-firma = 'https://lh3.googleusercontent.com/d/1OjjCUGpJkErIll85wuNPnScv7xaIJC2U' %}
+	{% elsif ${user_id} contains 'MX' %}
+		{% assign img-firma = 'https://lh3.googleusercontent.com/d/1XYWhQr9gm2EKabK2_YHoYCtxG9YUYEbX' %}
+	{% elsif ${user_id} contains 'BR' %}
+		{% assign img-firma = 'https://lh3.googleusercontent.com/d/19Ij8uZN9yQ1I4-4cOIBo583KmDfnPcKc' %}
+	{% else %}
+		{% assign img-firma = 'https://lh3.googleusercontent.com/d/1uXDc5UOBORQmPiS-fav5iJQwQMy8KbJi' %}
+	{% endif %}
+{% elsif firma == 'turbo' %}
+	{% if ${user_id} contains 'CO' %}
+		{% assign img-firma = 'https://lh3.googleusercontent.com/d/1OytxlcxaHB0F3JJ07TW0DIs95GpS_FYq' %}
+	{% elsif ${user_id} contains 'EC' %}
+		{% assign img-firma = 'https://lh3.googleusercontent.com/d/16SwlZXMeKb5tek9u5-HxLlInIMhGupCX' %}
+	{% elsif ${user_id} contains 'MX' %}
+		{% assign img-firma = 'https://lh3.googleusercontent.com/d/1XEJYDiQV5X9kKYrCwDKHfllOedor3dU3' %}
+	{% elsif ${user_id} contains 'AR' or ${user_id} contains 'UY' or ${user_id} contains 'CR' %}
+		{% assign img-firma = 'https://lh3.googleusercontent.com/d/1ye7JyRDZDz9iIkZLLT7fkL3dEX2UIhGw' %}
+	{% elsif ${user_id} contains 'BR' %}
+		{% assign img-firma = 'https://lh3.googleusercontent.com/d/1gekH3zsdMvSvW6VhQ4WTbdHqxnTlmmmL' %}
+	{% else %}
+		{% assign img-firma = 'https://lh3.googleusercontent.com/d/1gGDpCIil0rP0l25pc0n8b3uZMIWoXxlO' %}
+	{% endif %}
+{% else %}
+	{% assign img-firma = 'https://lh3.googleusercontent.com/d/1PnaP1k0YqwVbr3oMvLIHnWdGopEH23lR' %}
+{% endif %}
+
+{% if font_style_look == 'pro' %}
+	{% assign img-firma = 'https://lh3.googleusercontent.com/d/1_F8tVia9lbp9aOmD24CqTSWzOebR5Wvr' %}
 {% endif %}
 
 
@@ -85,8 +190,8 @@
         {% assign legal_turbo_copy = "*El tiempo de entrega puede variar dependiendo de las condiciones climáticas y de tráfico." %}
         {% assign terminos_y_condiciones_url = "https://legal.rappi.com.co/argentina/terminos-y-condiciones-rappi-2/" %}
         {% assign legal_liquor_copy = "Beber con moderación. Prohibida su venta a menores de 18 años." %}
-	    {% assign wa-copy = "Encontrá promos exclusivas en el canal de WhatsApp " %}
-	    {% assign wa-texto = "¡UNITE ACÁ!" %}
+	    {% assign wa-copy = "Promos en Whatsapp" %}
+		{% assign wa-copy1 = "Unite a nuestros canales y<br><strong>recibí promos exclusivas<strong>" %}
 	    {% assign deeplink_whatsapp = "https://whatsapp.com/channel/0029VazNdlY4SpkFw7X3m03m" %}
 	    {% assign aplican_tyc = "Aplican Términos y Condiciones |" %}
   	    {% assign centro_ayuda = "Centro de ayuda" %}
@@ -101,8 +206,8 @@
         {% assign aviso_privacidad_url = "https://legal.rappi.com.co/brazil/aviso-de-privacidade-e-politicas-de-uso-das-informacao-utilizadas-pela-rappi/" %}
         {% assign terminos_y_condiciones_url = "https://legal.rappi.com.co/brazil/termos-e-condicoes-de-uso-da-plataforma-rappi/" %}
         {% assign legal_liquor_copy = "Aprecie com moderação. Venda e consumo proibidos para menores de 18 anos.Se beber não dirija." %}
-        {% assign wa-copy = "Entre no canal e descubra promoções exclusivas" %}
-        {% assign wa-texto = "JUNTE-SE AQUI" %}
+       {% assign wa-copy = "Promoções no Whatsapp" %}
+		{% assign wa-copy1 = "Junte-se aos nossos canais e <br><strong>receba promoções exclusivas<strong>" %}
         {% assign deeplink_whatsapp = "https://whatsapp.com/channel/0029VbABTyM8V0tt6EY1JO2p" %}
         {% assign aplican_tyc = "Aplicam-se T&C | " %}
         {% assign centro_ayuda = "Ajuda" %}
@@ -119,8 +224,8 @@
         {% assign legal_turbo_copy = "*El tiempo de entrega es estimado y depende de condiciones climáticas y de tráfico: " %}
         {% assign legal_turbo_url = "https://legal.rappi.com.co/colombia/terminos-y-condiciones-del-boton-turbo/" %}
         {% assign legal_liquor_copy = "El exceso de alcohol es perjudicial para la salud. Ley 30 de 1986. Prohíbase el expendio de bebidas embriagantes a menores de edad y mujeres embarazadas. Ley 124 de 1994." %}
-        {% assign wa-copy = "Encuentra promos exclusivas en el canal de WhatsApp" %}
-        {% assign wa-texto = "ÚNETE AQUÍ" %}
+       {% assign wa-copy = "Promos en Whatsapp" %}
+		{% assign wa-copy1 = "Únete a nuestros canales y<br><strong>recibe promos exclusivas<strong>" %}
         {% assign deeplink_whatsapp = "https://whatsapp.com/channel/0029VazYoNjEFeXfW1NaPE0f" %}
         {% assign aplican_tyc = "Aplican Términos y Condiciones |" %}
         {% assign centro_ayuda = "Centro de ayuda" %}
@@ -137,8 +242,8 @@
         {% assign legal_turbo_copy = "*El tiempo de entrega puede variar dependiendo de las condiciones climáticas, de tráfico u otros factores." %}
         {% assign legal_turbo_url = "https://promos.rappi.com/chile/2023/5/1/trminos-y-condiciones-botn-turbo" %}
         {% assign legal_liquor_img = {{$imgchile}} %}
-        {% assign wa-copy = "Encuentra promos exclusivas en el canal de WhatsApp" %}
-        {% assign wa-texto = "ÚNETE AQUÍ" %}
+         {% assign wa-copy = "Promos en Whatsapp" %}
+		{% assign wa-copy1 = "Únete a nuestros canales y<br><strong>recibe promos exclusivas<strong>" %}
         {% assign deeplink_whatsapp = "https://whatsapp.com/channel/0029Vb7ux1c17EmzIJmOCB3Z" %}
         {% assign aplican_tyc = "Aplican Términos y Condiciones |" %}
         {% assign centro_ayuda = "Centro de ayuda" %}
@@ -154,8 +259,8 @@
         {% assign terminos_y_condiciones_url = "https://legal.rappi.com.co/costa-rica/terminos-y-condiciones-rappi-3/" %}
         {% assign legal_turbo_copy = "" %}
         {% assign legal_liquor_copy = "El exceso de alcohol es nocivo para la salud." %}
-        {% assign wa-copy = "Encontrá promos exclusivas en el canal de WhatsApp" %}
-        {% assign wa-texto = "¡UNITE ACÁ!" %}
+        {% assign wa-copy = "Promos en Whatsapp" %}
+		{% assign wa-copy1 = "Unite a nuestros canales y<br><strong>recibí promos exclusivas<strong>" %}
         {% assign deeplink_whatsapp = "#" %}
         {% assign aplican_tyc = "Aplican Términos y Condiciones |" %}
         {% assign centro_ayuda = "Centro de ayuda" %}
@@ -174,8 +279,8 @@
         {% assign legal_turbo_url = "https://promos.rappi.com/ecuador/turbo-ec" %}
         {% assign legal_turbo_rest = "https://promos.rappi.com/ecuador/turbo-restaurantes" %}
         {% assign legal_liquor_copy = "Advertencia: “El consumo excesivo de alcohol puede perjudicar su salud. Ministerio de Salud Pública del Ecuador”." %}
-        {% assign wa-copy = "Encuentra promos exclusivas en el canal de WhatsApp" %}
-        {% assign wa-texto = "ÚNETE AQUÍ" %}
+         {% assign wa-copy = "Promos en Whatsapp" %}
+		{% assign wa-copy1 = "Únete a nuestros canales y<br><strong>recibe promos exclusivas<strong>" %}
         {% assign deeplink_whatsapp = "https://whatsapp.com/channel/0029Vb09QNeLikg1xo8dfL38" %}
         {% assign aplican_tyc = "Aplican Términos y Condiciones |" %}
         {% assign centro_ayuda = "Centro de ayuda" %}
@@ -192,8 +297,8 @@
         {% assign legal_turbo_copy = "*El tiempo de entrega puede variar dependiendo de las condiciones climáticas, de tráfico u otros factores. ( Turbo supermercado: Solo válido en CDMX, Monterrey, Guadalajara, Puebla y Mérida.)" %}
         {% assign legal_turbo_url = "" %}
         {% assign legal_liquor_copy = "El abuso en el consumo de este producto es nocivo para la salud." %}
-        {% assign wa-copy = "Encuentra promos exclusivas en el canal de WhatsApp" %}
-        {% assign wa-texto = "ÚNETE AQUÍ" %}
+         {% assign wa-copy = "Promos en Whatsapp" %}
+		{% assign wa-copy1 = "Únete a nuestros canales y<br><strong>recibe promos exclusivas<strong>" %}
         {% assign deeplink_whatsapp = "https://linktr.ee/rappimx?lt_utm_source=lt_admin_share_link#452913383" %}
         {% assign aplican_tyc = "Aplican Términos y Condiciones |" %}
         {% assign centro_ayuda = "Centro de ayuda" %}
@@ -212,8 +317,8 @@
         {% assign legal_turbo_url = "https://promos.rappi.com/peru/turbo-fresh" %}
         {% assign legal_turbo_rest = "https://promos.rappi.com/peru/turbo-restaurantes" %}
         {% assign legal_liquor_copy = "TOMAR BEBIDAS ALCOHÓLICAS EN EXCESO ES DAÑINO." %}
-        {% assign wa-copy = "Encuentra promos exclusivas en el canal de WhatsApp" %}
-        {% assign wa-texto = "ÚNETE AQUÍ" %}
+         {% assign wa-copy = "Promos en Whatsapp" %}
+		{% assign wa-copy1 = "Únete a nuestros canales y<br><strong>recibe promos exclusivas<strong>" %}
         {% assign deeplink_whatsapp = "https://whatsapp.com/channel/0029Vb4K60yJf05coAzPI92y" %}
         {% assign aplican_tyc = "Aplican Términos y Condiciones |" %}
         {% assign centro_ayuda = "Centro de ayuda" %}
@@ -228,8 +333,8 @@
         {% assign terminos_y_condiciones_url = "https://legal.rappi.com.co/uruguay/terminos-y-condiciones-de-uso-de-plataforma-rappi/" %}
         {% assign legal_turbo_copy = "*El tiempo de entrega puede variar dependiendo de las condiciones climáticas y de tráfico." %}
         {% assign legal_liquor_copy = "Beber con moderación. Prohibida su venta a menores de 18 años." %}
-	    {% assign wa-copy = "Encontrá promos exclusivas en el canal de WhatsApp" %}
-	    {% assign wa-texto = "¡UNITE ACÁ!" %}
+	    {% assign wa-copy = "Promos en Whatsapp" %}
+		{% assign wa-copy1 = "Unite a nuestros canales y<br><strong>recibí promos exclusivas<strong>" %}
 	    {% assign deeplink_whatsapp = "#" %}
 	    {% assign aplican_tyc = "Aplican Términos y Condiciones |" %}
 	    {% assign centro_ayuda = "Centro de ayuda" %}
@@ -315,6 +420,18 @@
 -->
 
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- BLOQUEO de dark mode: los templates traen sus colores de marca y el
+     auto-dark de Apple Mail (iOS/macOS) los reinterpretaba (fondo oscuro →
+     gris claro). "light only" declara que el correo SOLO soporta su esquema
+     tal cual — Apple Mail lo respeta y no toca nada. Gmail ignora estas
+     metas, pero su transformación sí respeta fondos de color. -->
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light only">
+<!--[if !mso]><!-->
+
 <style type="text/css">
 body a {
     text-decoration: none !important;
@@ -328,146 +445,132 @@ a {
 }
 
 @media (max-width:480px) {
-p {
+.txtfooter {
     font-size: 8px!important;
-    line-height: 9px!important;
+    line-height: 8px !important;
 }
-	
-.btn_wa {
-	width: 90% !important;
+.txtfooterwas {
+    font-size: 14px!important;
+    line-height: 13px !important;
+}
+.altofooter1 {
+    height: auto!important;
+}
+.columns {
+    width: 100% !important;
+}
+.column {
+    width: 100% !important;
+    padding: 0px 0px 0px 0px !important;
+    height: auto !important;
 }
 }
 
 @media (max-width:620px) {
-p {
+.txtfooter {
     font-size: 8px!important;
-    line-height: 9px!important;
+    line-height: 8px !important;
 }
-	
-.btn_wa {
-	width: 90% !important;
+.txtfooterwas {
+    font-size: 14px!important;
+    line-height: 13px !important;
+}
+.altofooter1 {
+    height: auto!important;
+}
+.columns {
+    width: 100% !important;
+}
+.column {
+    width: 100% !important;
+    padding: 0px 0px 0px 0px !important;
+    height: auto !important;
 }
 }
 </style>
 </head>
-<body style="width: 100%; height:auto;font-family:Helvetica,Tahoma,Verdana,Sans-serif; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; padding: 0; Margin: 0; border-spacing: 0; border-collapse: collapse;">
-<table cellspacing="0" cellpadding="0" align="center" border="0" style="width:100%; max-width: 600px; border-spacing: 0; border-collapse: collapse; margin-bottom: 0px; ">
-  <tbody>
-    <tr style="background-image: url({{bigote}}); background-position: center bottom; background-size: 100% auto; background-repeat: no-repeat;text-decoration: none; padding: 0px; margin: 0px; border-spacing: 0; border-collapse: collapse; ">
-      <td height="100%" style="padding: 0px; margin: 0px; border-spacing: 0; border-collapse: collapse; " >
-		  
-		  
-		  <table cellspacing="0" cellpadding="0" align="center" border="0" style="width:100%; border-spacing: 0; border-collapse: collapse; margin-bottom: 0px;">
-          <tbody align="center">
-        
-            <tr>
-              <td style="padding:  30px 0px 0px 0px; -webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif;" align="center">
-                <!-- Botón CTA --> 
-                <a href="{{deeplink_whatsapp}}" target="_blank" style="text-decoration: none; ">
-                <div>
-                  <table class="btn_wa" style="margin: 0 auto; border-radius: 55px; width: 90%; max-width: 480px; text-decoration: none; margin-top: 10px; margin-bottom: 0px;" valign="middle">
-                    <tbody>
-                      <tr>
-                        <td height="100%" style="border-radius: 55px; padding: 5px 5px; text-decoration: none; vertical-align: middle; background: {{color_fondowa}}; border: {{color_bordewa}}; vertical-align: middle;"><div style="text-align: center; color: {{color_textwa}}; padding: 0px 5px; text-decoration: none; font-family: Helvetica, Tahoma, Verdana, Sans-serif;  "> <span style="font-size: 12px; "><img border="0" alt="" style="padding-right:6px; height: 12px;max-height: 14px; min-height: 14px; width: auto; padding-top: 1px;" src="{{walogo}}">{{wa-copy}}</span> 
-                            <!-- TEXTO CTA --> 
-                          </div></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                </a></td>
-            </tr>
-			  
-			     <tr>
-              <td align="center" style="padding:10px 20px 0px 20px; "><img style="width:90%; max-width:350px; height:auto; margin: 0 auto;" alt="Hecho con Amor en Latinoamérica" src="{{img-amor}}"></td>
-            </tr>
-            <!--{% if cond != nil %}--> 
-            <!--{% if show_hr == true %}-->
-            <tr>
-              <td align="center" style="padding: 20px 20px 10px 20px; margin-bottom: 20px; max-width: 480px; "><p style="-webkit-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 10px;  margin: 0px; color: {{color_membresia}};margin: 0 auto; max-width: 480px; "> {{pro_membresia}} </p></td>
-            </tr>
-            <!--{% endif %}--> 
-            <!--{% endif %}-->
-            <tr>
-              <td style="padding: 0px 20px; ">
-				  
-				  
-				  <table cellspacing="0" cellpadding="0" align="center" border="0" style=" max-height:auto; border-spacing: 3px; max-width: 480px; ">
-                  <tbody align="center">
-                    <tr>
-                      <td style="padding: 1% 0% 0% 0%;" align="center"><a href="{{centro_ayuda_url}}" style="text-decoration: none; color: {{color_letra}}">
-                        <p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 10px; line-height: 10px;  color: {{color_letra}};"> {{centro_ayuda}} </p>
-                        </a></td>
-                      <td style="padding: 1% 0% 0% 0%;" align="center"><p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 10px; line-height: 10px;  color: {{color_letra}};">&nbsp;|&nbsp;</p></td>
-                      <td style="padding: 1% 0% 0% 0%;" align="center"><a href="{{aviso_privacidad_url}}" style="text-decoration: none; color: {{color_letra}}">
-                        <p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif;font-size: 10px;  line-height: 10px; color: {{color_letra}};"> {{aviso_privacidad}} </p>
-                        </a></td>
-                      <td style="padding: 1% 0% 0% 0%;" align="center"><p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 10px; line-height: 10px;  color: {{color_letra}};">&nbsp;|&nbsp;</p></td>
-                      <td style="padding: 1% 0% 0% 0%;" align="center"><a href="{{terminos_y_condiciones_url}}" style="text-decoration: none; color: {{color_letra}}">
-                        <p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif;font-size: 10px; line-height: 10px;  color: {{color_letra}};"> {{terminos_y_condiciones}} </p>
-                        </a></td>
-                      <td style="padding: 1% 0% 0% 0%;" align="center"><p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 10px; line-height: 10px;  color: {{color_letra}};">&nbsp;|&nbsp;</p></td>
-                      <td style="padding: 1% 0% 0% 0%;" align="center">
-                        
-                        
-                        
-                        
-                        {% if ${user_id} contains 'CO' %}
-                          <a href="{{preference_center.${EMAIL_PREFERENCE_CENTER_CO}}}" style="text-decoration: none; color: {{color_letra}}">
 
-                        {% elsif ${user_id} contains 'MX' %}
-                          <a href="{{preference_center.${EMAIL_PREFERENCE_CENTER_MX}}}" style="text-decoration: none; color: {{color_letra}}">
-
-                        {% elsif ${user_id} contains 'BR' %}
-                          <a href="{{preference_center.${EMAIL_PREFERENCE_CENTER_BR}}}" style="text-decoration: none; color: {{color_letra}}">
-
-                        {% elsif ${user_id} contains 'PE'
-                          or ${user_id} contains 'EC'
-                          or ${user_id} contains 'CL'
-                          or ${user_id} contains 'AR'
-                          or ${user_id} contains 'UY'
-                          or ${user_id} contains 'CR' %}
-                          <a href="{{preference_center.${EMAIL_PREFERENCE_CENTER_LATAM}}}" style="text-decoration: none; color: {{color_letra}}">
-                          {% endif %}
-    
-                        <p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif;font-size: 10px; line-height: 10px; color: {{color_letra}};"> {{cancelar_suscription}} </p>
-                        </a></td>
-                    </tr>
-                  </tbody>
-                </table></td>
-            </tr>
-            <tr>
-              <td align="center" style="padding: 0px 20px;"><p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 12px;  padding: 0px; margin: 0 auto; max-width: 480px; color: {{color_letra}};"> {{bottom_line_1}} {{bottom_line_2}} | 
-                  {{aplican_tyc}} 
-                  {{aplican_tyc-titulorest}} <a href="{{aplican_tyc_url}}" style="text-decoration: none; color: {{color_letra}} ">{{aplican_tyc_url}} </a> {{aplican_tyc-titulosuper}} <a href="{{aplican_tyc_url}}" style="text-decoration: none; color: {{color_letra}} ">{{aplican_tycsuper_url}} </a> 
-                  <!--{% if cond != nil %}-->{{cond}} <!--{% endif %}--> 
-                  <!--{% if show_legal_turbo == true %}-->{{legal_turbo_copy}} 
-                  {{legal_turbo_titulosuper}} <a href="{{legal_turbo_url}}" style="text-decoration: none; color: {{color_letra}}; ">{{legal_turbo_url}} </a> {{legal_turbo_titulorest}} <a href="{{legal_turbo_url}}" style="text-decoration: none; color: {{color_letra}};">{{legal_turbo_rest}} </a> 
-                  <!--{% endif %}--> 
-                  
-                  <!--{% if show_legal_liquor == true %}--> 
-                  
-                  {% if ${user_id} contains "PE" %} <span style="letter-spacing: 0.3em; font-size: 9px; margin-top: 3px; line-height: 11px "><br>
-                  {{legal_liquor_copy}} </span> <!--{% if legal_liquor_img != blank %}--> <!--{% endif %}--> 
-                  
-                  {% else %} 
-                  <!--{% if legal_liquor_copy != blank %}-->{{legal_liquor_copy}}<!--{% endif %}--> 
-                  <!--{% if legal_liquor_img != blank %}--> <!--{% endif %}--> 
-                  {% endif %} 
-                  
-                  <!--{% endif %}--> 
-                  
-                </p></td>
-            </tr>
-            <tr>
-              <td align="center" style="padding: 20px 0px 20px 0px;"><img style="max-width:170px; width:auto; height:auto; float:center;" alt="Rappi" src="{{logo}}"></td>
-            </tr>
-          </tbody>
-        </table>
-        <img style="width:100%;height:auto;margin: 0 auto;  border-spacing: 0; border-collapse: collapse; padding: 0px;"  alt="Rappi" src="https://lh3.googleusercontent.com/d/189y5oKqF1B1plR5A5fdpfgoVkpD9HRs3"></td>
-    </tr>
-  </tbody>
-</table>
+<body style="width: 100%; height:auto;font-family:Helvetica,Tahoma,Verdana,Sans-serif; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; padding: 0px; Margin: 0; border-spacing: 0;">
+<div style="padding: 0px 15px">
+  <table width="480" style="width:480px; border-spacing:0; border-collapse: separate; margin:30px auto;" cellpadding="0" cellspacing="0" align="center" border="0" bgcolor="" class="column column-0">
+    <tbody>
+      <tr valign="middle">
+        <td style="padding:0px 0px;margin:0px;border-spacing:0; vertical-align: middle; background-image: url({{bg_bannerimg_mail_general}}); background-size: 100% 100%; background-position: center top; overflow: hidden;"><div>
+            <table width="240" style="width:240px;" cellpadding="0" cellspacing="0" align="left" border="0" class="column column-0">
+              <tbody>
+                <tr>
+                  <td class="altofooter1" style="margin:0px;border-spacing:0; overflow: hidden; vertical-align: bottom; height: 90px;"><img border="0" style="display:block; color:#000000; text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px; height: 25px; min-height: 25px; max-height: 25px;  width: auto; max-width: 200px; margin-bottom: 10px;" alt="-" data-proportionally-constrained="true" data-responsive="false" src="{{img-firma}}"></td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <!-- MODULO PARA IMG FIJA -->
+            <table width="240" style="width:240px; padding: 0px 0px 0px 0px" cellpadding="0" cellspacing="0" align="left" border="0"  class="column column-1">
+              <tbody>
+                <tr style="" >
+                  <td class="altofooter1" style="padding:0px 0px 7px 0px;margin:0px;border-spacing:0;vertical-align: top;  "><div style=""> 
+                      <!-- Botón CTA --> 
+                      <a href="{{deeplink_whatsapp}}" target="_blank" style="text-decoration: none; ">
+                      <div>
+						  
+						  <span class="txtfooterwas" style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 16px; line-height: 17px;  color: {{color_letra}};"> {{wa-copy1}} </span>
+                        <table class="btn_wa" style="border-radius: 55px; padding: 0px 2px; text-decoration: none; vertical-align: middle; border:{{color_bordewa}}; width: auto; text-decoration: none; margin-top: 10px;" valign="middle">
+                          <tbody>
+                            <tr>
+                              <td style=" vertical-align: middle;">
+                                <div style="text-align: center; color: {{color_textwa}}; text-decoration: none; font-family: Helvetica, Tahoma, Verdana, Sans-serif;  "> <span style="font-size: 12px; "><img border="0" alt="" style="padding-right:6px; height: 21px;max-height: 21px; min-height: 21px; width: auto; padding-top: 1px; line-height: 2px;" src="{{walogo}}"></span> 
+                                  <!-- TEXTO CTA --> 
+                                </div></td> <td style=" vertical-align: middle;">
+                                <div style="text-align: center; color: {{color_textwa}}; text-decoration: none; font-family: Helvetica, Tahoma, Verdana, Sans-serif;padding: 0px 5px; "> <span style="font-size: 14px; ">{{wa-copy}}</span> 
+                                  <!-- TEXTO CTA --> 
+                                </div></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      </a> </div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div></td>
+      </tr>
+      <tr style="">
+        <td style="padding:0px 0px;margin:0px; vertical-align: middle; border-top: {{color_borde_footer}}; padding-top: 7px;   "><div> <a href="{{centro_ayuda_url}}" style="text-decoration: none; color: {{color_letra}}"> <span class="txtfooter" style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 9px;  color: {{color_letra}};"> {{centro_ayuda}} </span></a> <span class="txtfooter" style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 9px;  color: {{color_letra}};">&nbsp;|&nbsp; </span> <a href="{{aviso_privacidad_url}}" style="text-decoration: none; color: {{color_letra}}"> <span class="txtfooter" style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 9px;  color: {{color_letra}};"> {{aviso_privacidad}} </span></a> <span class="txtfooter" style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 9px;  color: {{color_letra}};">&nbsp;|&nbsp; </span> <a href="{{terminos_y_condiciones_url}}" style="text-decoration: none; color: {{color_letra}}"> <span class="txtfooter" style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 9px;  color: {{color_letra}};"> {{terminos_y_condiciones}} </span></a> <span class="txtfooter" style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 9px;  color: {{color_letra}};">&nbsp;|&nbsp; </span> {% if ${user_id} contains 'CO' %} <a href="{{preference_center.${EMAIL_PREFERENCE_CENTER_CO}}}" style="text-decoration: none; color: {{color_letra}}"> {% elsif ${user_id} contains 'MX' %} <a href="{{preference_center.${EMAIL_PREFERENCE_CENTER_MX}}}" style="text-decoration: none; color: {{color_letra}}"> {% elsif ${user_id} contains 'BR' %} <a href="{{preference_center.${EMAIL_PREFERENCE_CENTER_BR}}}" style="text-decoration: none; color: {{color_letra}}"> {% elsif ${user_id} contains 'PE'
+            or ${user_id} contains 'EC'
+            or ${user_id} contains 'CL'
+            or ${user_id} contains 'AR'
+            or ${user_id} contains 'UY'
+            or ${user_id} contains 'CR' %} <a href="{{preference_center.${EMAIL_PREFERENCE_CENTER_LATAM}}}" style="text-decoration: none; color: {{color_letra}}"> {% endif %} <span class="txtfooter" style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none;font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 9px;  color: {{color_letra}};"> {{cancelar_suscription}} </span></a> </div>
+          <div>
+            <p style="-webkit-text-size-adjust: none; -ms-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 12px;  padding: 0px; margin: 0 auto; max-width: 480px; color: {{color_letra}};"><br>
+              {{bottom_line_1}} {{bottom_line_2}} | 
+              {{aplican_tyc}} 
+              {{aplican_tyc-titulorest}} <a href="{{aplican_tyc_url}}" style="text-decoration: none; color: {{color_letra}} ">{{aplican_tyc_url}} </a> {{aplican_tyc-titulosuper}} <a href="{{aplican_tyc_url}}" style="text-decoration: none; color: {{color_letra}} ">{{aplican_tycsuper_url}} </a> 
+              <!--{% if cond != nil %}-->{{cond}} <!--{% endif %}--> 
+              <!--{% if show_legal_turbo == true %}-->{{legal_turbo_copy}} 
+              {{legal_turbo_titulosuper}} <a href="{{legal_turbo_url}}" style="text-decoration: none; color: {{color_letra}}; ">{{legal_turbo_url}} </a> {{legal_turbo_titulorest}} <a href="{{legal_turbo_url}}" style="text-decoration: none; color: {{color_letra}};">{{legal_turbo_rest}} </a> 
+              <!--{% endif %}--> 
+              
+              <!--{% if show_legal_liquor == true %}--> 
+              
+              {% if ${user_id} contains "PE" %} <span style="letter-spacing: 0.3em; font-size: 9px; margin-top: 3px; line-height: 11px "><br>
+              {{legal_liquor_copy}} </span> <!--{% if legal_liquor_img != blank %}--> <!--{% endif %}--> 
+              
+              {% else %} 
+              <!--{% if legal_liquor_copy != blank %}-->{{legal_liquor_copy}}<!--{% endif %}--> 
+              <!--{% if legal_liquor_img != blank %}--> <!--{% endif %}--> 
+              {% endif %} 
+              
+              <!--{% endif %}--> 
+              
+            </p>
+            <p style="-webkit-text-size-adjust: none; font-family:Helvetica,Tahoma,Verdana,Sans-serif; font-size: 9px; line-height: 10px;  margin: 0px; color: {{color_letra}};margin: 0 auto; max-width: 480px; "><br>
+              {{pro_membresia}} </p>
+          </div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 </body>
 <!--
 ---------------------
@@ -475,6 +578,7 @@ p {
 ---------------------
 Style related variables:
 {% assign font_style_look = '' %}
+{% assign firma = '' %}
 {% assign show_legal_tyc = '' %}
 {% assign color_letra = '' %}
 {% assign logo = '' %}
