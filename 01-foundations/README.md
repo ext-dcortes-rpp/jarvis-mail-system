@@ -166,7 +166,7 @@ Variables adicionales no incluidas en el índice original de Figma pero sí en e
 <!-- head-meta-tags.html detecta el valor y setea el resto: -->
 {% if tema_general_mail_general == 'beige100' %}
   {% assign bg_solid_mail_general = '#FFF0DD' %}
-  {% assign color_texto_mail_general = '#2B2316' %}
+  {% assign color_texto_mail_general = '#633D11' %}
   {% assign color_acento1_mail_general = '#D89950' %}
   {% assign color_acento2_mail_general = '#FF441F' %}
   {% assign bg_contenedor1_mail_general = 'rgba(242,211,174,0.5)' %}
@@ -302,12 +302,12 @@ El modo **DARK** de cada card es forward-looking: el HTML actual solo implementa
 
 | Tema | Grupo | Fondo | Texto | Acento 1 | Acento 2 |
 |---|---|---|---|---|---|
-| Beige 100 | Pastel | `#FFF0DD` | `#2B2316` | `#D89950` | `#FF441F` |
-| Beige 150 | Pastel | `#F9DFC6` | `#3D2C1A` | `#D89950` | `#FF441F` |
-| Rosa 100 | Pastel | `#FBE8FD` | `#312334` | `#B451C0` | `#FF441F` |
-| Púrpura 100 | Pastel | `#E8E2FB` | `#2F2C3F` | `#7C52D8` | `#FF441F` |
-| Celeste 100 | Pastel | `#C8E9FE` | `#123344` | `#4DA5CB` | `#FF441F` |
-| Verde 100 | Pastel | `#C0FDD3` | `#102E14` | `#248F63` | `#FF441F` |
+| Beige 100 | Pastel | `#FFF0DD` | `#633D11` | `#D89950` | `#FF441F` |
+| Beige 150 | Pastel | `#F9DFC6` | `#633D11` | `#D89950` | `#FF441F` |
+| Rosa 100 | Pastel | `#FBE8FD` | `#4F145E` | `#B451C0` | `#FF441F` |
+| Púrpura 100 | Pastel | `#E8E2FB` | `#0B1066` | `#7C52D8` | `#FF441F` |
+| Celeste 100 | Pastel | `#C8E9FE` | `#0F3749` | `#4DA5CB` | `#FF441F` |
+| Verde 100 | Pastel | `#CBFCD9` | `#00453E` | `#248F63` | `#FF441F` |
 | Gris 100 | Pastel | `#ECEFF3` | `#191919` | `#7D8188` | `#FF441F` |
 | Dark neon | Invertido | `#040404` | `#E2E2E2` | `#FFEBC2` | `#FF441F` |
 | Dark Turbo | Invertido | `#040404` | `#E2E2E2` | `#F2ED93` | `#FF441F` |
