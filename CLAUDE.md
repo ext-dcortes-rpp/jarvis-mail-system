@@ -226,19 +226,23 @@ La razón cobranding/logo es constante — ×1.1 (S), ×1.2 (M), ×1.36 (L), ×1
 
 Nombres actuales: `fondo`, `texto`, `acento/1`, `acento/2`, `contenedor/1`, `contenedor/2`, `tag/fondo`, `tag/contenedor`, `tag/texto`, `legales`, `imagen/1`, `imagen/2`, `descuento/fondo`, `descuento/texto`, `creditos/fondo`, `creditos/texto`, `fondo-body/100`, `fondo-body/50`.
 
-**Nodos clave en `03 · Temas`:**
+**Convención de ubicación:** cada componente que se crea vive **junto a su hoja de documentación**, dentro de una sección llamada `Ds` en esa misma página. El header, documentado en `5.1 · Header`, tiene sus component sets en la sección `Ds` de `05 · Molecules`.
 
-| Nodo | Qué es |
-|---|---|
-| `568:24535` | `TEMAS · Sistema actualizado (12)` — las 12 tarjetas de tema, fuente de verdad de color |
-| `1315:78` / `1315:91` / `1315:104` | `PREVIEW DESK` / `PREVIEW_MOBILE` / `PREVIEW_DARK` |
-| `1315:174` | `TEMAS_PRVIEW` — 12 bloques `PALETA-AJUSTADA` con columnas LIGHT/DARK |
-| `1330:11481` / `1330:2738` | Hojas gigantes de headers dibujados, fondo claro / oscuro |
-| `1339:3113` / `1339:6164` | Component sets `Header · Desktop` / `Header · Mobile` |
+**Nodos clave** (verificados el 2026-09-12 — el archivo se reorganiza seguido, confirma antes de confiar en un id):
+
+| Nodo | Página | Qué es |
+|---|---|---|
+| `568:24535` | `03 · Temas` | `TEMAS · Sistema actualizado (12)` — las 12 tarjetas de tema, **fuente de verdad de color** |
+| `600:151` | `05 · Molecules` | `5.1 · Header (Logo + Cobranding)` — la guía de tamaños y composición |
+| `1344:2` | `05 · Molecules` | Sección `Ds` — contenedor de los componentes de esta página |
+| `1339:3113` / `1339:6164` | `05 · Molecules` → `Ds` | Component sets `Header · Desktop` / `Header · Mobile` |
+| `1333:783` / `1333:798` / `1333:813` | `07 · Templates` | `PREVIEW DESK` / `PREVIEW_MOBILE` / `PREVIEW_DARK` |
+
+> **Mover entre páginas cambia los ids.** Los previews pasaron de `03 · Temas` a `07 · Templates` y sus ids cambiaron por completo (`1315:78/91/104` → `1333:783/798/813`). Mover por script con `appendChild` sí conserva el id — así se movieron los component sets, y por eso sus instancias no se rompieron. Si un id de esta tabla devuelve `null`, busca por nombre antes de darlo por perdido.
 
 **Estructura de una tarjeta de tema:** 3 columnas hermanas — `[TOKEN, LIGHT, DARK]`. La de TOKEN tiene celdas de 1 hijo TEXT (el nombre de la fila); LIGHT y DARK tienen celdas de 2 hijos `[swatch, TEXT con el hex]`. **Mapea por la etiqueta de TOKEN, nunca por índice**: el número de filas varía por tema. Las tarjetas **no llevan el nombre del tema como texto** — se identifican por la tríada fondo/texto/acento1 de las celdas 1/2/3.
 
-**Estructura de `TEMAS_PRVIEW`:** cada fila es `[swatch, Frame-etiqueta]` donde la etiqueta son 3 TEXT `[hex, "color solido"/"Opacidad NN%", rol]`. El swatch **no siempre es el hermano anterior**: las filas de tipografía van envueltas en un `Frame 15978811xx` con un TEXT "Lorem ipsum" anidado, y la fila `Fondo general` no tiene swatch propio — es el fill de la columna.
+**La hoja `TEMAS_PRVIEW`** (auditada en septiembre, ver §9) **fue eliminada del archivo**, igual que las dos hojas `MODULO` de 28511px con el arte de headers del que se cosecharon los 10 logos. El arte sobrevive dentro de los component sets; si hace falta el original hay que recuperarlo del historial de versiones de Figma.
 
 **Los component sets de header son los primeros componentes del archivo.** Antes no había ni un COMPONENT ni un COMPONENT_SET en ninguna página: todo eran frames sueltos. Si buscas "el componente de X" y no aparece, es por eso.
 
@@ -278,6 +282,14 @@ Cabos sueltos marcados y no resueltos: `61927:18241` (fondo dark de la leyenda B
 
 ## 9 · Bitácora
 
+### 2026-09-12 · Reorganización del Figma
+
+Los previews pasaron a `07 · Templates` (`PREVIEW DESK` `1333:783`, `PREVIEW_MOBILE` `1333:798`, `PREVIEW_DARK` `1333:813`) y los dos component sets del header a `05 · Molecules`, dentro de una sección nueva llamada **`Ds`** (`1344:2`) — junto a su hoja de documentación, que es la convención a seguir de aquí en adelante.
+
+Los sets se movieron por script con `appendChild`, así que conservaron sus ids y las 2 instancias de los previews siguen vinculadas. Los previews, movidos a mano, sí cambiaron de id.
+
+**Se eliminaron del archivo** la hoja `TEMAS_PRVIEW` y las dos hojas `MODULO` de 28511px con el arte de headers. El arte de los 10 logos sobrevive clonado dentro de los component sets.
+
 ### 2026-09-12 · Moléculas de banner con fondo en `<div>`
 
 Las 4 moléculas de promo y créditos (horizontal y vertical) pasan de `<table bgcolor>` a un `<div>` con `background` en CSS, para que el `rgba()` de verde100 / pro / problack se vea. Ver [§4.1](#41--bgcolor-no-acepta-rgba). De paso se corrigieron `font-siaze` → `font-size`, llaves mal cerradas en dos comentarios y declaraciones duplicadas.
@@ -299,6 +311,8 @@ La colección `Temas` pasó de 12 a 24 modos, con los 12 `<Tema> · Dark` poblad
 408 filas revisadas contra las variables: 143 discrepancias, 133 corregidas. Los tipos de error, por si reaparecen: etiquetas hex copiadas de otro tema, etiquetas con el color ya compuesto en vez del crudo, y `Fondo general` dark con valores de la convención vieja. Quedaron 10 filas sin resolver (pendiente #3).
 
 También se corrigió la variable `fondo` de Verde 100, de `#C0FDD3` a `#CBFCD9`: aquí la hoja y el código tenían razón y la variable estaba desactualizada.
+
+> La hoja `TEMAS_PRVIEW` fue eliminada del archivo el 2026-09-12. Las correcciones siguen válidas en las variables y en las tarjetas de tema, que son la fuente de verdad.
 
 ### 2026-09-11 · Unificación de descuento y créditos
 
