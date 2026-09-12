@@ -94,7 +94,21 @@ Los 4 grupos de tamaño de header (`#HEADER1`-`#HEADER4`, ver `01-foundations/gl
 | HEADER3 | RappiTurbo Restaurantes | 47px / 44px | **53px / 51px** |
 | HEADER4 | RappiEntregador, Contenido aliado | 29px / 27px | **32px / 30px** |
 
-Estos valores ya están reflejados en los 40 archivos de header (inline, escritorio) y en `global-styles.html` (clases `.cobranding-xl` por `#HEADERn`, mobile) y en el Figma del sistema de diseño (`Doc-DS-Mails` → `05 · Molecules` → "5.1 · Header (Logo + Cobranding)").
+Estos valores ya están reflejados en los 40 archivos de header (inline, escritorio) y en `global-styles.html` (clases `.cobranding-xl` por `#HEADERn`, mobile) y en el Figma del sistema de diseño (`Doc-DS-Mails` → `05 · Molecules` → "5.1 · Header (Logo + Cobranding)"). Desde el 2026-09-11 el header también existe allí como component set — `Header · Desktop` y `Header · Mobile` en la página `03 · Temas`, con las propiedades Logo / Estructura / Fondo / Cobranding.
+
+### Regla #4 · El divider sigue a la marca, no al tema
+El separador vertical entre el logo y el cobranding tiene dos reglas propias:
+
+1. **Solo aparece si hay cobranding**, y solo en `centrado-*`. Los archivos `columnas-*` no lo traen en ninguna de las 10 marcas. En el HTML está dentro de la misma celda del cobranding, por eso el comentario `SEPARADOR REGLAMENTARIO SIEMPRE QUE HAYA COBRANDING`.
+2. **Su color depende de la marca, no del tema del mail.** Hay 3 assets en total:
+
+| Fondo | Asset | Marcas |
+|---|---|---|
+| Claro | Degradado coral/rojo (el del logo Rappi) | Rappi, RappiTravel, SoyRappi, RappiTurbo, RappiTurbo Rest, RappiEntregador |
+| Claro | Sólido oscuro | Defensoría, RappiPro, RappiProBlack, Contenido aliado |
+| Oscuro | Sólido blanco | las 10 marcas |
+
+No es un token de tema: no cambia al pasar de Beige 100 a Rosa 100 ni a ningún otro. Tampoco puede modelarse como variable de color, porque en 6 de las 10 marcas es un degradado.
 
 ### El wrapper compartido
 El archivo `_header-wrapper.html` (con guion bajo) es la **envolvente común a todos los headers**. Cuando armas un mail, el flujo es: insertas el wrapper, y dentro del wrapper insertas el `<tr>` de uno de los 40 archivos específicos (10 marcas × claro/oscuro × centrado/columnas).

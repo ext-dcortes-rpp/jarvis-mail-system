@@ -70,8 +70,8 @@ Dentro de cada rama del `{% if %}` se asignan estas variables (todas con el sufi
 ### Adicionales, legales y footer
 | Variable | Controla |
 |---|---|
-| `bg_descuento_mail_general` / `color_descuento_mail_general` | Componente de descuento |
-| `bg_creditos_mail_general` / `color_creditos_mail_general` | Componente de créditos |
+| `bg_descuento_mail_general` / `color_descuento_mail_general` | Componente de descuento. Fondo y texto cambian por tema — ver la tabla en `01-foundations/README.md`. En pastel/dark el fondo es `bg_tag_fondo_mail_general` con alfa 1.0 (hex sólido, porque `bgcolor` no acepta `rgba()`) |
+| `bg_creditos_mail_general` / `color_creditos_mail_general` | Componente de créditos. Comparte fondo Y texto con descuento dentro de cada tema; se distinguen solo por su contenido |
 | `color_textos_legales_mail_general` | Color de la letra legal — asignado en los 12 temas (en la mayoría de pastel coincide con `color_texto_mail_general`, pero es un token propio y puede diferenciarse a futuro) |
 | `color_footer_mail_general` | `font_style_look` del footer: `'negro'` en pastel y oscuros/invertidos, `'pro'` en Pro/ProBlack |
 
@@ -109,7 +109,7 @@ Usado por los 8 módulos de `04_content-modules/` que envuelven contenido en un 
 
 **Temas invertidos (Dark neon / Dark Turbo / Dark Neutro):** su fondo por defecto es oscuro (`#040404`). No dependen de `bg_solid_mail_general` para el fondo del wrapper general, sino de `bg_img_mail_general` + `bg_img_size_mail_general`.
 
-**Temas premium (Pro / ProBlack):** el fondo es fijo — Pro usa `#121212`, ProBlack usa `#ECEFF3` —, así que la legibilidad la dan los contenedores. En Pro, `color_acento2_mail_general` es gris (no rojo) y las variables de descuento/créditos usan tonos dorados en vez del amarillo/verde estándar.
+**Temas premium (Pro / ProBlack):** el fondo es fijo — Pro usa `#121212`, ProBlack usa `#ECEFF3` —, así que la legibilidad la dan los contenedores. En Pro, `color_acento2_mail_general` es gris (no rojo), y las variables de descuento/créditos usan un dorado tostado propio, `rgba(204,152,78,0.5)`, que no deriva del tag. Verde 100 es la tercera excepción, con `rgba(52,200,90,0.4)`; en los 9 temas restantes el fondo sí deriva del tag.
 
 **Tags:** el color del tag depende de la superficie real donde se apoya (fondo vs. contenedor), no del nombre del contenedor. `color_tag_tipografia_mail_general` está definido en los 12 temas para que el texto del tag siempre sea legible sobre su propio fondo.
 

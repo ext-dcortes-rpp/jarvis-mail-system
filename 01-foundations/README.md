@@ -91,25 +91,33 @@ Los colores universales del sistema — los que **NO** cambian entre temas. Los 
 | `brand/neon-pink` | `#FF4583` | Stop 3 del gradiente Dark neon. |
 | `brand/neon-tono` | `#FE3F23` | `bg_banner_tono` en Dark neon. |
 
-**Descuento y créditos · Pastel/Dark** — constantes universales, no cambian por tema:
+**Descuento y créditos** — ya no son constantes universales; ahora **ambos tokens comparten fondo y texto dentro de cada tema**, y lo que los distingue es el contenido del badge, no el color.
+
+- **Fondo:** en 6 de los 7 temas pastel y en los 3 oscuros es el color de `bg_tag_fondo` del tema **con alfa 1.0 en vez de 0.5**, escrito como hex sólido. Tres temas son la excepción y no derivan del tag: Pro y ProBlack usan un dorado tostado propio, `rgba(204,152,78,0.5)`, y Verde 100 un verde propio, `rgba(52,200,90,0.4)`.
+- **Texto:** es el `color_texto` del tema (la tipografía general), con tres excepciones definidas a mano — Verde 100, Pro y ProBlack.
+
+| Tema | `bg_descuento` = `bg_creditos` | `color_descuento` = `color_creditos` | Contraste |
+|---|---|---|---|
+| Beige 100 / Beige 150 | `#E5B67F` | `#633D11` | 5.14:1 |
+| Rosa 100 | `#CA80D2` | `#4F145E` | 4.72:1 |
+| Púrpura 100 | `#9F80E5` | `#0B1066` | 5.23:1 |
+| Celeste 100 | `#7DBFDC` | `#0F3749` | 6.23:1 |
+| Verde 100 | `rgba(52,200,90,0.4)` ⚠️ | `#003832` ⚠️ | 6.90-9.08:1 |
+| Gris 100 | `#C9CDD2` | `#191919` | 11.01:1 |
+| Dark neon / Dark Neutro | `#2A2B2B` | `#E2E2E2` | 10.96:1 |
+| Dark Turbo | `#003A34` | `#E2E2E2` | 9.80:1 |
+| Pro | `rgba(204,152,78,0.5)` | `#FEE4C0` ⚠️ | 5.16–6.30:1 |
+| ProBlack | `rgba(204,152,78,0.5)` | `#000000` ⚠️ | 12.45:1 |
+
+⚠️ Excepciones. En el **fondo**, tres temas no derivan del tag: Verde 100 (`rgba(52,200,90,0.4)`), Pro y ProBlack (`rgba(204,152,78,0.5)`). En el **texto**: Verde 100 usa `#003832` en vez de `#00453E` (su `color_tag_tipografia`, `#CDFAD6`, no sirve porque está pensado para el contenedor oscuro, no para este tono claro); Pro usa el crema `#FEE4C0` en vez de `#EEEEEE`; ProBlack usa negro puro en vez de `#191919`. En esos tres temas el contraste se da como rango porque el fondo es semitransparente y compone distinto según la superficie que tenga debajo.
+
+> ⚠️ **Compatibilidad:** estos tokens de fondo se usan tanto en CSS (`background-color:`) como en el atributo HTML `bgcolor=""`, y `bgcolor` **no acepta `rgba()`**. Por eso los 9 temas que derivan del tag usan hex sólido. En Verde 100, Pro y ProBlack el `rgba` se ignora en los 7 usos vía `bgcolor` y en Outlook de escritorio (Windows): ahí el badge sale sin fondo. Equivalentes ya compuestos por si se necesita un fallback hex: Verde 100 sobre su fondo (`#CBFCD9`) da `#8FE7A6`; Pro sobre `#121212` da `#6F5530`; ProBlack sobre `#ECEFF3` da `#DCC4A1`.
 
 | Token | Hex | Uso |
 |---|---|---|
-| `system/descuento-bg` | `#FBDB20` | `bg_descuento` en Pastel/Dark. Amarillo Rappi promo. |
-| `system/descuento-text` | `#000000` | `color_descuento` en Pastel/Dark. |
-| `system/creditos-bg` | `#29D884` | `bg_creditos` en Pastel/Dark. Verde créditos. |
-| `system/creditos-text` | `#083410` | `color_creditos` en Pastel/Dark. |
 | `system/legales` | `#7D8188` | `color_textos_legales`. Gris legales, universal. |
-
-**Descuento y créditos · Pro/ProBlack** — variante premium dorada:
-
-| Token | Hex | Uso |
-|---|---|---|
-| `system/descuento-bg-pro` | `#F8D263` | `bg_descuento` en Pro/ProBlack. Dorado suave. |
-| `system/descuento-text-pro` | `#000000` | `color_descuento` en Pro/ProBlack. |
-| `system/creditos-bg-pro` | `#CC984E` | `bg_creditos` en Pro/ProBlack. Dorado tostado. |
-| `system/creditos-text-pro` | `#FEE4C0` | `color_creditos` en Pro/ProBlack. Crema. |
 | `system/gold-pro` | `#DAA868` | Dorado premium. Separador Pro, acento decorativo. |
+| `system/gold-pro-badge` | `rgba(204,152,78,0.5)` | `bg_descuento` y `bg_creditos` en Pro/ProBlack. Dorado tostado al 50%. |
 
 **Neutros base** — fondos, textos y contenedores reutilizados por varios temas:
 
@@ -321,20 +329,20 @@ El modo **DARK** de cada card es forward-looking: el HTML actual solo implementa
 
 | Tema | Contenedor 1 | Contenedor 2 | Descuento (fondo / texto) | Créditos (fondo / texto) |
 |---|---|---|---|---|
-| Beige 100 | `#F2D3AE` @50% | `#FFFFFF` @50% | `#FBDB20` / `#000000` | `#29D884` / `#083410` |
-| Beige 150 | `#E5B67F` @50% | `#FFFFFF` @50% | `#FBDB20` / `#000000` | `#29D884` / `#083410` |
-| Rosa 100 | `#DFB0E4` @40% | `#FFFFFF` @50% | `#FBDB20` / `#000000` | `#29D884` / `#083410` |
-| Púrpura 100 | `#C2AEF2` @40% | `#FFFFFF` @50% | `#FBDB20` / `#000000` | `#29D884` / `#083410` |
-| Celeste 100 | `#7DBFDC` @40% | `#FFFFFF` @50% | `#FBDB20` / `#000000` | `#29D884` / `#083410` |
-| Verde 100 | `#48846C` @30% | `#FFFFFF` @50% | `#FBDB20` / `#000000` | `#29D884` / `#083410` |
-| Gris 100 | `#DCDFE3` @50% | `#FFFFFF` @50% | `#FBDB20` / `#000000` | `#29D884` / `#083410` |
-| Dark neon | `#1D1D1D` | `#2A2B2B` | `#FBDB20` / `#000000` | `#29D884` / `#083410` |
-| Dark Turbo | `#1D1D1D` | `#2A2B2B` | `#FBDB20` / `#000000` | `#29D884` / `#083410` |
-| Dark Neutro | `#1D1D1D` | `#2A2B2B` | `#FBDB20` / `#000000` | `#29D884` / `#083410` |
-| Pro | `#1D1D1D` | `#040404` | `#F8D263` / `#000000` | `#CC984E` / `#FEE4C0` |
-| ProBlack | `#FBFBFB` | `#FBFBFB` | `#F8D263` / `#000000` | `#CC984E` / `#FEE4C0` |
+| Beige 100 | `#F2D3AE` @50% | `#FFFFFF` @50% | `#E5B67F` / `#633D11` | `#E5B67F` / `#633D11` |
+| Beige 150 | `#E5B67F` @50% | `#FFFFFF` @50% | `#E5B67F` / `#633D11` | `#E5B67F` / `#633D11` |
+| Rosa 100 | `#DFB0E4` @40% | `#FFFFFF` @50% | `#CA80D2` / `#4F145E` | `#CA80D2` / `#4F145E` |
+| Púrpura 100 | `#C2AEF2` @40% | `#FFFFFF` @50% | `#9F80E5` / `#0B1066` | `#9F80E5` / `#0B1066` |
+| Celeste 100 | `#7DBFDC` @40% | `#FFFFFF` @50% | `#7DBFDC` / `#0F3749` | `#7DBFDC` / `#0F3749` |
+| Verde 100 | `#48846C` @30% | `#FFFFFF` @50% | `rgba(52,200,90,0.4)` / `#003832` | `rgba(52,200,90,0.4)` / `#003832` |
+| Gris 100 | `#DCDFE3` @50% | `#FFFFFF` @50% | `#C9CDD2` / `#191919` | `#C9CDD2` / `#191919` |
+| Dark neon | `#1D1D1D` | `#2A2B2B` | `#2A2B2B` / `#E2E2E2` | `#2A2B2B` / `#E2E2E2` |
+| Dark Turbo | `#1D1D1D` | `#2A2B2B` | `#003A34` / `#E2E2E2` | `#003A34` / `#E2E2E2` |
+| Dark Neutro | `#1D1D1D` | `#2A2B2B` | `#2A2B2B` / `#E2E2E2` | `#2A2B2B` / `#E2E2E2` |
+| Pro | `#1D1D1D` | `#040404` | `rgba(204,152,78,0.5)` / `#FEE4C0` | `rgba(204,152,78,0.5)` / `#FEE4C0` |
+| ProBlack | `#FBFBFB` | `#FBFBFB` | `rgba(204,152,78,0.5)` / `#000000` | `rgba(204,152,78,0.5)` / `#000000` |
 
-Descuento y créditos son constantes universales para Pastel + Invertidos (amarillo/verde Rappi); Pro y ProBlack son los únicos con su propia variante dorada — coincide 1:1 con la paleta primitiva de la sección 2.1.
+Descuento y créditos ya no son constantes universales: dentro de cada tema comparten fondo y texto entre sí, y ambos varían de un tema a otro. En los 10 temas pastel/dark el fondo deriva del tag del tema (alfa 1.0) y el texto de su tipografía general; Pro y ProBlack son la excepción, con un dorado tostado propio. Ver el detalle y las excepciones en la sección 2.1.
 
 Estas tablas cubren los tokens de identidad visual más consultados. Para el resto (Tag/fondo, Tag/contenedor, Tipografía tag, Imágenes, Banner tono/gradiente, y el modo DARK completo) ver la card del tema en Figma → Temas, o `05-docs/GUIA-DE-TEMAS.md`.
 

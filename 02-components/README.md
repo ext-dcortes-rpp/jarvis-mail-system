@@ -44,6 +44,8 @@ Dentro de cada carpeta, los 4 archivos:
 
 Cada archivo contiene únicamente el `<tr>` del header (con su comentario identificador); el archivo `_header-wrapper.html` es la envolvente `<table>`/`<tbody>` común a todos y se conserva sin cambios.
 
+**El divider** solo existe en los `centrado-*` y solo cuando hay cobranding (en el HTML vive dentro de la celda del cobranding). Su color lo define la marca, no el tema: degradado coral/rojo en Rappi, RappiTravel, SoyRappi, Turbo, Turbo Rest y RappiEntregador; sólido oscuro en Defensoría, Pro, ProBlack y Contenido aliado; y un único blanco para las 10 en fondo oscuro. Ver la Regla #4 en `05-docs/USO-DE-CADA-PARTE.md`.
+
 **La elección de marca es independiente del tema del mail** (`tema_general_mail_general` en `05-docs/GUIA-DE-TEMAS.md`): cualquiera de los 10 headers puede combinarse con cualquiera de los 12 temas.
 
 ### `02_banners/` — La cabecera visual del mail

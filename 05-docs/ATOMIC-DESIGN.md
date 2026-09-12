@@ -161,12 +161,14 @@ Pills chicas que clasifican contenido o destacan un precio/crédito. Dos familia
 | "Solo en" | Pastilla chica (h5) | radio 30px · padding 4px 7px · texto 12/13px · Cupones (`molecula_texto_pastilla`) |
 | "Martes" | Pastilla grande (h3) | radio 30px · padding 4px 7px · texto 16/17px · Content-modules ("Texto + Pastilla") |
 
-**2 · Badges — Tag Promo / Verde / Básico:** h1, padding 2px 4px, radio 3px, line-height 20px. Colores fijos por función (no por tema), salvo una variante dorada en Pro/ProBlack.
+**2 · Badges — Tag Promo / Verde / Básico:** h1, padding 2px 4px, radio 3px, line-height 20px. Tanto el **fondo como el texto cambian por tema**, y Tag Promo (`bg_descuento_mail_general`) y Tag Verde (`bg_creditos_mail_general`) comparten ambos valores dentro de un mismo tema: ya no se distinguen por color, solo por su contenido y, en el badge de Deal, por la corona.
 
-| Theme group | Descuento (Tag Promo) | Créditos (Tag Verde) |
+| Theme group | Fondo | Texto |
 |---|---|---|
-| Pastel / Dark | `50% OFF` — bg `#FBDB20` · texto `#000000` | `120 créditos` — bg `#29D884` · texto `#083410` |
-| Pro / ProBlack | `50% OFF` — bg `#F8D263` (dorado) · texto `#000000` | `120 créditos` — bg `#CC984E` (dorado tostado) · texto `#FEE4C0` |
+| Pastel / Dark (10 temas) | `bg_tag_fondo_mail_general` del tema con alfa 1.0 (hex sólido) — salvo Verde 100, con verde propio `rgba(52,200,90,0.4)` | `color_texto_mail_general` del tema — salvo Verde 100, que usa `#003832` |
+| Pro / ProBlack | `rgba(204,152,78,0.5)` — dorado tostado propio, no deriva del tag | Pro `#FEE4C0` · ProBlack `#000000` |
+
+> Nota: el nombre "Tag Verde" quedó como referencia histórica del archivo (`molecula_tag_verde.html`); su fondo ya no es verde salvo en Verde 100. Ver la tabla por tema en `01-foundations/README.md` para los valores exactos.
 
 - **Tag Básico:** `color_acento2_mail_general` sobre `bg_solid_generico100_mail_body` — agrupación distinta (blanco en pastel+ProBlack, negro en dark+Pro).
 - **Tag Promo + ícono:** el badge de precio del Deal antepone la corona (`coronapro_mail_body`, 6px) al monto.
@@ -254,6 +256,13 @@ Centrado — PEQUEÑO                    Columnas — PEQUEÑO
 Mobile (mismo agrupamiento): Grupo 1 → logo F63/≈28, Cob S/M/L/XL F69·76·86·97 / ≈31·34·38·43 · Grupo 2 → F54/≈24, F59·65·75·87/≈26·29·33·38 · Grupo 3 → F72/≈32, F79·86·100·116/≈35·38·44·51 · Grupo 4 → F45/≈20, F50·54·61·69/≈22·24·27·30.
 
 4 tamaños × (logo-base + cobranding S/M/L/XL) = **20 clases HTML**. Aproximación calibrada con el ejemplo Size-1: desktop ≈ Figma×0.43, mobile ≈ Figma×0.44 — ajustable en implementación. `cobranding-xl` deriva de continuar una vez más la tasa de crecimiento M→L (no del patrón +10 puntos porcentuales de S→M→L, que habría dado un salto insignificante tras el ajuste +5% de L del 2026-08-04).
+
+**El divider** es un átomo aparte, con dos reglas propias que no se deducen del logo ni del tema:
+
+- **Solo existe cuando hay cobranding**, y solo en la estructura Centrado. En `Columnas` no aparece en ninguno de los 40 archivos. En el HTML vive dentro de la celda del cobranding, de ahí el comentario `SEPARADOR REGLAMENTARIO SIEMPRE QUE HAYA COBRANDING`.
+- **Su color lo define la marca, no el tema.** En fondo claro hay **dos** assets: uno con el degradado coral/rojo del logo Rappi (Rappi, RappiTravel, SoyRappi, Turbo, Turbo Rest, RappiEntregador) y uno sólido oscuro (Defensoría, Pro, ProBlack, Contenido aliado). En fondo oscuro hay **un único** asset blanco para las 10 marcas. No es un token de tema y no debe modelarse como variable: no cambia cuando cambia el tema del mail, y en 6 de 10 marcas es un degradado, que una variable de color no puede almacenar.
+
+**En Figma** el header existe como component set desde el 2026-09-11: `Header · Desktop` y `Header · Mobile`, en la página `03 · Temas`, 200 variantes cada uno, con las propiedades `Logo` (10 marcas) × `Estructura` (Centrado / Columnas) × `Fondo` (Claro / Oscuro) × `Cobranding` (Sin / S / M / L / XL). El tamaño no es una propiedad elegible: viene implícito en la marca. El cobranding es un frame vacío con relleno sólido — negro sobre fondo claro, blanco sobre oscuro — pensado como marcador para que el usuario pegue ahí el logo del aliado. Hay instancias colocadas en los slots `HEADERS` de PREVIEW DESK y PREVIEW_MOBILE.
 
 ### 5.2 · Moléculas de banner
 
