@@ -29,6 +29,7 @@ Más el archivo `_header-wrapper.html` (la envolvente común a los 40 anteriores
 |------------|---------|
 | Big banner horizontal | `02-components/02_banners/big-banner-horizontal.html` |
 | Big banner vertical | `02-components/02_banners/big-banner-vertical.html` |
+| Imagen full width ◀ NUEVO | `02-components/02_banners/imagen-full-width.html` |
 
 `banner-editorial.html` y `_banner-section-close.html` se eliminaron del sistema. Las piezas internas del banner viven en `02-components/02_banners/banner_moleculas/` (23 archivos actualmente):
 - **MODULOS** fijos (se conservan tal cual en `big-banner-*.html`, no son MOLECULAS): `modulo_tags_horizontal/vertical`, `modulo_img_altofijo_horizontal/vertical`, `modulo_img_automatica_horizontal` (distinta de `molecula_img_automatica_*`).

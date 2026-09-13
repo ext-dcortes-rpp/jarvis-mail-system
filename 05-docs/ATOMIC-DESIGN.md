@@ -19,6 +19,7 @@ Este documento es el equivalente en repo a las páginas **`04 · Atoms`**, **`05
   - [5.3 · Moléculas de contenido](#53--moléculas-de-contenido)
   - [5.4 · Tabla de cierre](#54--tabla-de-cierre-️-ver-nota)
 - [Organismos](#organismos)
+  - [6.0 · HERO SECTION — el contenedor superior](#60--hero-section--el-contenedor-superior)
   - [6.1 · Big Banner · Vertical](#61--big-banner--vertical)
   - [6.2 · Big Banner · Horizontal](#62--big-banner--horizontal)
   - [6.3 · Módulo Título](#63--módulo-título)
@@ -386,6 +387,32 @@ Debajo de esta sección **no se debe insertar** ningún módulo de contenido o C
 **La pieza de LEGO con estructura fija**, compuesta de varias moléculas combinadas — banners, deals, módulos en columnas, cupones. Cada organismo es autocontenido: tiene su propio padding, su propia lógica, y vive como bloque completo (`table role="module"`) dentro del HTML.
 
 > La numeración de abajo (6.1–6.12) sigue las etiquetas internas de cada sección en Figma, que están limpias y consecutivas. Algunos nombres de capa (layer name, panel de outline de Figma) quedaron desincronizados por ediciones concurrentes — es puramente cosmético del panel de capas y no afecta el contenido; se ignoran acá.
+
+### 6.0 · HERO SECTION — el contenedor superior
+
+Refactor iniciado el 2026-09-12. La parte superior del mail dejó de ser una secuencia suelta de bloques y pasó a ser un contenedor: la tabla `role="HERO-SECTION"` de 600px, con `background-image` propio, que agrupa en orden **header · banner · imagen full width**.
+
+```
+<a>  ← un solo link para todo el HERO
+  <div style="display:contents;">      ← no rompe el layout de tablas
+    <table role="HERO-SECTION" width="600">
+      1 · header            (02-components/01_headers/…)
+      2 · banner            (big-banner-horizontal | big-banner-vertical)
+      3 · imagen full width (imagen-full-width.html, opcional)
+    </table>
+  </div>
+</a>
+```
+
+Tres reglas que se desprenden de esto y que afectan a los componentes:
+
+- **Ningún componente del HERO lleva `<a>` propio.** El link es del contenedor. Los dos archivos de banner tenían el suyo y se les quitó, junto con su `margin-top: 15px`.
+- **El padding lateral en mobile lo dan los componentes**, con la clase `mobile_paading` (`padding-left/right: 15px !important` en las dos media queries de `global-styles.html`). Va en la tabla interna de los 40 headers y en el `<div>` que envuelve cada banner. La imagen full width **no la lleva**: debe ocupar los 600px completos.
+- **El `paddedcontainer` general pasó a `padding:0px`** — antes tenía `20px 15px 0px 15px`. El padding lateral ya no es del contenedor, es de cada pieza.
+
+El banner vertical creció de 480px a 600px y ganó `border-collapse: collapse;`. El horizontal se mantiene en 480px.
+
+El contenedor hermano es **CONTENTS**, el interior del mail. Arrancó el 2026-09-13: todavía no es una tabla propia, por ahora es el marcador `<!-- INICIO SECCIÓN CONTENTS -->` y su contenido. **Abre con el CTA reglamentario**, que dejó de ir pegado debajo del banner — el banner ahora vive dentro del HERO.
 
 ### 6.1 · Big Banner · Vertical
 

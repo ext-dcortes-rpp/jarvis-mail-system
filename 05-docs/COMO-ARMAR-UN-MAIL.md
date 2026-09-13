@@ -15,11 +15,22 @@ Imagina una caja de LEGO con dos tipos de cosas:
 - **¿Qué marca de header?** Rappi, Travel, SoyRappi, Turbo, Turbo Rest, Pro, ProBlack, Defensoría, RappiEntregador o Contenido aliado.
 - **¿Qué módulos?** Solo banner + CTA, o algo más complejo con deals, cupones, beneficios y módulos de contenido.
 
+### Los dos contenedores: HERO y CONTENTS — léelo antes de los pasos 2 y 3
+
+El mail se arma en dos contenedores. **HERO** es la parte superior y agrupa en este orden: **header · banner · imagen full width** (la imagen es opcional). **CONTENTS** es el interior, y **abre con el CTA reglamentario**. El esqueleto está en `06-examples/estructura_general.html`, con todos los huecos marcados.
+
+> El CTA obligatorio **ya no va pegado debajo del banner**: el banner vive dentro del HERO, y el CTA es el primer elemento de CONTENTS.
+
+Dos reglas del HERO que cambian cómo se insertan sus piezas:
+
+1. **Un solo link para todo.** El `<a>` envuelve el HERO completo, así que header, banner e imagen apuntan al mismo destino. Los archivos de banner ya **no** traen `<a>` propio: si ves uno, es un residuo y hay que quitarlo — dos `<a>` anidados no son válidos.
+2. **El padding lateral en mobile lo dan los componentes, no el contenedor.** Se hace con la clase `mobile_paading`, que ya viene aplicada en los headers y en el `<div>` que envuelve cada banner. La imagen full width no la lleva a propósito: debe ocupar los 600px completos.
+
 ### Paso 2 — Agrega un header
 De `02-components/01_headers/`, elige la carpeta de marca y dentro de ella el archivo según fondo (claro/oscuro) y disposición (centrado/columnas). Las instrucciones de cobranding (sin / S / M / L / XL) están en los comentarios del archivo.
 
 ### Paso 3 — Agrega un banner
-De `02-components/02_banners/`, elige `big-banner-horizontal.html` o `big-banner-vertical.html`. Las piezas internas (tag, imagen, créditos, textos) están en `02-components/02_banners/banner_moleculas/`.
+De `02-components/02_banners/`, elige `big-banner-horizontal.html` o `big-banner-vertical.html` y pégalo en el hueco del banner dentro del HERO. Las piezas internas (tag, imagen, créditos, textos) están en `02-components/02_banners/banner_moleculas/`. Si el mail lleva imagen a sangre al pie del HERO, agrega después `imagen-full-width.html`.
 
 El banner es **obligatorio** en todo mail — no es un adorno del contenido, es la apertura: debe dejar claro de qué trata el mail, siendo directo sobre el beneficio o contenido que se quiere comunicar. En formato horizontal, el uso de imagen es obligatorio.
 

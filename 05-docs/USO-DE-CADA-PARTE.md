@@ -187,14 +187,19 @@ El contenido de las 4 variables:
 
 > ⚠️ **`style_Look='blanco'` es un alias legacy** idéntico a `'blanconeon'` — sigue existiendo en el archivo pero **no se usa en código nuevo**. Ver `05-docs/ATOMIC-DESIGN.md`, Átomos 4.6, para el detalle de cada variante (fondo, ícono de flecha, comportamiento mobile).
 
-### Regla #1 · Puede haber varios CTAs en un mail
+### Regla #1 · El CTA reglamentario abre la sección CONTENTS
+Todo mail lleva un CTA obligatorio, y su sitio cambió con el refactor de estructura: **ya no va pegado debajo del banner**. El banner ahora vive dentro del HERO, y el CTA reglamentario es el **primer elemento de la sección CONTENTS**, justo después de que cierra el HERO.
+
+Se puede eliminar si la fuente no lo pide, pero por defecto va.
+
+### Regla #2 · Puede haber varios CTAs en un mail
 Un mail puede tener 1, 2 o 3 CTAs intercalados a lo largo del body. La fuente te dice cuántos y dónde.
 
-### Regla #2 · Separadores alrededor del CTA
+### Regla #3 · Separadores alrededor del CTA
 - **Después de un CTA** siempre va un `<div class="separador"></div>` ANTES del siguiente componente.
 - **Excepción:** si justo debajo del CTA va el cierre, NO se inserta el separador.
 
-### Regla #3 · El CTA siempre va con el `<div class="separador">` antes
+### Regla #4 · El CTA siempre va con el `<div class="separador">` antes
 Si el componente anterior es un módulo (`role="module"`), insertas el separador entre módulo y CTA.
 
 ---

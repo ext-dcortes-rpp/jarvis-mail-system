@@ -48,14 +48,20 @@ Cada archivo contiene únicamente el `<tr>` del header (con su comentario identi
 
 **La elección de marca es independiente del tema del mail** (`tema_general_mail_general` en `05-docs/GUIA-DE-TEMAS.md`): cualquiera de los 10 headers puede combinarse con cualquiera de los 12 temas.
 
-### `02_banners/` — La cabecera visual del mail
+### `02_banners/` — Los bloques visuales del HERO
 
-2 formatos. **Se usa solo UNO por mail.**
+3 archivos. De los dos banners **se usa solo UNO por mail**; la imagen full width es opcional.
 
 | Archivo | Cuándo se usa |
 |---------|---------------|
-| `big-banner-horizontal.html` | Mails con módulos de contenido en el body además de cierre y CTA |
-| `big-banner-vertical.html` | Mails que solo tienen CTA y cierre, o banners con logos |
+| `big-banner-horizontal.html` | Mails con módulos de contenido en el body además de cierre y CTA. Tabla de 480px. |
+| `big-banner-vertical.html` | Mails que solo tienen CTA y cierre, o banners con logos. Tabla de 600px. |
+| `imagen-full-width.html` ◀ NUEVO | Imagen a sangre al pie del HERO. Opcional. |
+
+**Los tres viven dentro de la HERO SECTION** (ver `06-examples/estructura_general.html`), junto al header. Dos consecuencias que hay que respetar al insertarlos:
+
+- **Ninguno lleva `<a>` propio.** El link envuelve el HERO completo, así que header, banner e imagen son todos clicables con el mismo destino. Si un archivo de banner vuelve a aparecer con su propio `<a>`, es un residuo: anidar dos `<a>` no es válido.
+- **Los banners van dentro de un `<div class="mobile_paading">`**, que les da el padding lateral en mobile. Ese div ya viene en cada archivo. La imagen full width **no lo lleva**, justamente porque debe ocupar los 600px completos.
 
 `banner-editorial.html` y `_banner-section-close.html` se eliminaron del sistema.
 

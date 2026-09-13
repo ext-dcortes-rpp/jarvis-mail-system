@@ -17,9 +17,41 @@ Si vas a tocar colores, temas, componentes o el Figma del sistema, lee esto ante
 | `03-templates/` | Plantillas armadas. |
 | `04-assets/` | Imágenes y referencias. |
 | `05-docs/` | `ATOMIC-DESIGN.md` (la especificación), `USO-DE-CADA-PARTE.md` (reglas de uso), `GUIA-DE-TEMAS.md`, `COMO-ARMAR-UN-MAIL.md`, `INDICE-DE-COMPONENTES.md`, `CHANGELOG.md`. |
-| `06-examples/` | `template_maestro_original.html` — **el mail completo de referencia**. Trae su propia copia embebida de los temas y del `<head>`. |
+| `06-examples/` | `template_maestro_original.html` — **el mail completo de referencia**. Trae su propia copia embebida de los temas y del `<head>`. `estructura_general.html` — **el esqueleto**: la estructura del mail con comentarios marcando dónde entra cada pieza, sin contenido real. |
 
 **Dos archivos definen los temas y deben cambiarse siempre juntos:** `01-foundations/global-styles/head-meta-tags.html` y `06-examples/template_maestro_original.html`. El resto de componentes solo consume las variables.
+
+### 1.1 · Estructura del mail — HERO y CONTENTS
+
+Refactor iniciado el 2026-09-12. El mail se organiza en dos contenedores: **HERO** (parte superior) y **CONTENTS** (interior).
+
+**HERO** es la tabla `role="HERO-SECTION"` de 600px, con `background-image` propio, y agrupa en orden: **header · banner · imagen full width** (la imagen es opcional).
+
+```html
+<a role="horizontal" href="AQUIELLINKDELBANNER" style="text-decoration: none; display: block; ">
+<div style="display:contents;">        <!-- contents para no romper el layout de tablas -->
+  <table role="HERO-SECTION" width="600" …>
+    …  1 · header
+       2 · banner  (dentro de <div class="mobile_paading">)
+       3 · imagen full width  (sin mobile_paading)
+  </table>
+</div>
+</a>
+```
+
+**Tres reglas que se desprenden de esto:**
+
+1. **Un solo `<a>` para todo el HERO.** Ningún componente lleva link propio. `big-banner-horizontal.html` y `big-banner-vertical.html` tenían el suyo y se les quitó, junto con su `margin-top: 15px`. Dos `<a>` anidados no son válidos.
+2. **El padding lateral en mobile lo dan los componentes**, no el contenedor, mediante la clase `mobile_paading` (con la errata en el nombre — respetarla):
+   ```css
+   .mobile_paading { padding-left: 15px!important; padding-right: 15px!important; }
+   ```
+   Vive en las dos media queries de `global-styles.html` y en la copia embebida del maestro. Va en la tabla interna de los 40 headers, en el `<div>` que envuelve cada banner y en el `<tr>` de `modulo_img_automatica_horizontal.html`. La imagen full width **no la lleva** a propósito: debe ocupar los 600px completos.
+3. **El `paddedcontainer` general pasó a `padding:0px`** (antes `20px 15px 0px 15px`).
+
+**Medidas:** el banner vertical creció de 480px a 600px y ganó `border-collapse: collapse;`. El horizontal sigue en 480px. Los 40 headers comparten la misma tabla — `width:100%; max-width: 480px; margin:0 auto;` (32) o eso más `border-radius: 10px; overflow: hidden;` (8) — y su `div id="HEADERn"` lleva `padding: 0px 0px 15px 0px`.
+
+**CONTENTS arrancó el 2026-09-13**, pero todavía **no es una tabla propia**: por ahora es el marcador `<!-- INICIO SECCIÓN CONTENTS -->` y su contenido. **Abre con el CTA reglamentario**, que dejó de ir pegado debajo del banner. Cuando se cree la tabla contenedora en el maestro, replicarla en `estructura_general.html`. **No inventarle estructura antes de que exista allí.**
 
 ---
 
@@ -277,10 +309,35 @@ Cabos sueltos marcados y no resueltos: `61927:18241` (fondo dark de la leyenda B
 | 7 | Contenido aliado: su logo está dibujado a 31px, no a los 50px del grupo 4. Es un wordmark de texto y escalarlo cambiaría el diseño | Figma + docs | **Requiere decisión** |
 | 8 | La línea de `padd_banner` dice "6 temas pastel"; son 7 | `GUIA-DE-TEMAS.md` | Pendiente |
 | 9 | `CHANGELOG.md` no tiene entradas de nada de esto | Repo | Deliberado hasta ahora |
+| 10 | `CONTENTS` existe como marcador y ya contiene el CTA reglamentario, pero **aún no es una tabla contenedora** como sí lo es `HERO-SECTION`. Cuando se cree en el maestro, replicarla en `estructura_general.html` | `template_maestro_original.html` | En curso |
+| 11 | El `<a>` que envuelve el HERO conserva `role="horizontal"`, que era el rol del banner horizontal. Si dentro van a convivir header y ambos tipos de banner, ese atributo queda describiendo algo que ya no es | `template_maestro_original.html` | A definir al meter los banners |
+| 12 | En el header de ejemplo del maestro, el primer cobranding perdió su `class="cobranding-s"` (las otras tres sí la tienen). Confirmado como error; **no se replicó** a los 40 archivos, que la conservan | `template_maestro_original.html` | Sin corregir en el maestro |
 
 ---
 
 ## 9 · Bitácora
+
+### 2026-09-13 · Arranca CONTENTS y se mueve el CTA reglamentario
+
+El maestro suma el marcador `<!-- INICIO SECCIÓN CONTENTS -->` y el comentario `<!-- COMPONENTE IMAGEN FULL WIDTH -->`, y se limpian los comentarios sobrantes del banner que habían quedado tras el refactor del HERO.
+
+**Cambia una regla del sistema:** el CTA reglamentario ya no va pegado debajo del banner — ahora es el **primer elemento de CONTENTS**. Actualizado en `05-docs/USO-DE-CADA-PARTE.md` (nueva Regla #1 de la sección 4, con las otras tres renumeradas), `05-docs/COMO-ARMAR-UN-MAIL.md`, `05-docs/ATOMIC-DESIGN.md` §6.0 y `06-examples/estructura_general.html`.
+
+CONTENTS todavía **no es una tabla contenedora** como `HERO-SECTION`: es el marcador y su contenido.
+
+### 2026-09-13 · HERO completo: banner e imagen full width
+
+El HERO pasa de contener solo el header a contener **header · banner · imagen full width**. Los dos banners se insertan dentro de un `<div class="mobile_paading">`; el vertical creció a 600px con `border-collapse: collapse`. Nace `02-components/02_banners/imagen-full-width.html`.
+
+Propagado a: los 40 headers (`div id="HEADERn"` a `padding: 0px 0px 15px 0px` y se les quitó el `bgcolor=""` de la tabla), los dos archivos de banner, `modulo_img_automatica_horizontal.html` (clase en su `<tr>`), `estructura_general.html` (HERO con los tres huecos comentados) y los docs: `02-components/README.md`, `05-docs/ATOMIC-DESIGN.md` (nueva §6.0), `05-docs/COMO-ARMAR-UN-MAIL.md` y `05-docs/INDICE-DE-COMPONENTES.md`.
+
+`global-styles.html` no necesitó cambios: el CSS del maestro y el del foundation son idénticos.
+
+### 2026-09-12 · Refactor de estructura: HERO
+
+Nace el contenedor `HERO-SECTION` y el `<a>` del banner pasa a envolverlo (ver §1.1). Propagado a los 40 headers (clase `mobile_paading` + anchos unificados), a los dos archivos de banner (se les quitó el `<a>` propio y el `margin-top`), a `global-styles.html` (la clase en las dos media queries) y a `estructura_general.html` (HERO completo + `paddedcontainer` a `padding:0px`).
+
+`CONTENTS` queda pendiente de crear en el maestro.
 
 ### 2026-09-12 · Reorganización del Figma
 
