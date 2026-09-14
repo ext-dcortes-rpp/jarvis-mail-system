@@ -233,6 +233,8 @@ Excepciones: en Rosa, Púrpura y Celeste se bajó el alfa del contenedor de 0.40
 
 La razón cobranding/logo es constante — ×1.1 (S), ×1.2 (M), ×1.36 (L), ×1.55 (XL) — y sirve para derivar cualquier marca nueva. En HTML son 20 clases (`logo-base1..4` + `cobranding-s|m|l|xl` por `#HEADER1..4`); desktop inline en los 40 archivos, mobile en `global-styles.html`.
 
+**Los números del cobranding son topes, no medidas fijas** (2026-09-14). El cobranding va `width: auto; height: auto` dentro de `max-width: 180px` × `max-height: Npx`, para que un logo aliado apaisado baje de alto en vez de deformarse. Antes `height`/`max-height`/`min-height` tenían el mismo valor clavado y la imagen se aplastaba al topar los 180px. La corrección tiene dos mitades y **ambas son necesarias**: el inline en los 160 `<img>` de los 40 archivos más el maestro, y los 32 bloques `.cobranding-*` de `global-styles.html` — que llevan `!important` y, sin tocar, pisaban el arreglo en mobile. Cada `<img>` conserva el atributo HTML `height="N"` como respaldo para Outlook de escritorio, que ignora `max-width`/`max-height`. Los `logo-base*` **no** se tocaron: son logos de marca, de proporción conocida, y ahí el alto clavado es correcto.
+
 **El divider** tiene dos reglas que no se deducen de nada:
 
 1. **Solo existe cuando hay cobranding**, y solo en `centrado-*`. En HTML vive dentro de la celda del cobranding — de ahí el comentario `SEPARADOR REGLAMENTARIO SIEMPRE QUE HAYA COBRANDING`. Los `columnas-*` no lo traen en ninguna marca.
@@ -248,15 +250,55 @@ La razón cobranding/logo es constante — ×1.1 (S), ×1.2 (M), ×1.36 (L), ×1
 
 ---
 
+
+### 6.2 · CTA
+
+Component set `CTA` (`1371:87`), en la sección `Ds` de `04 · Atoms`. **10 variantes**: `Color` (Tema · neon · verde · blanco · negro) × `Tamaño` (Big · Small).
+
+**El componente es el contenedor, no el botón.** Cada variante es el frame `CALL TO ACTION`, con auto-layout vertical y su **padding inferior**, y dentro el pill. Se hizo así a propósito: ese padding separa el CTA de lo que viene debajo y tiene que viajar con el componente.
+
+```
+COMPONENT  (auto-layout VERTICAL · ancho FIXED · alto HUG · padding-bottom)
+  └─ CTA   (el pill)
+       Big   → layoutSizingHorizontal = FILL   (toma el ancho del contenedor)
+       Small → layoutSizingHorizontal = HUG    (abraza su texto)
+```
+
+**Por qué Big usa FILL y no un ancho fijo:** si el pill tuviera 960 grabados, al pasar a Small y volver a Big no recuperaba el ancho. Con FILL, Big deriva su ancho del contenedor, así que el ciclo Big → Small → Big es reversible. Verificado.
+
+> ⚠️ **El contenedor debe tener ancho fijo, nunca hug.** Un contenedor hug con un hijo en FILL colapsa al mínimo — es exactamente el bug que tuvo el preview de escritorio, que se encogió de 960 a 224.
+
+El valor **`Tema`** tiene sus rellenos vinculados a `cta/fondo` y `cta/texto`, así que **sigue el modo del frame** donde vive la instancia. Los otros cuatro son overrides manuales de color fijo, equivalentes a `style_Look` en `cta-template.html`. Por eso bastan 10 variantes y no 128: los 12 temas los resuelve la variable.
+
+**Un solo set sirve para escritorio, mobile y dark.** No hacen falta componentes separados: mobile se resuelve redimensionando la instancia, y dark lo resuelve la variable, porque `Tema` sigue el modo del frame y los 12 modos dark ya tienen su valor.
+
+Cómo se dimensiona cada instancia — y no es igual en los tres, porque sus contenedores difieren:
+
+| Preview | Ancho | Cómo | Padding |
+|---|---|---|---|
+| DESK | 960 | `FIXED` (su `CONTENIDO` mide 1200 y **no tiene padding**, así que FILL daría 1200) | 30 |
+| MOBILE | 640 | `FILL` (su `CONTENIDO` mide 700 con padding 30 a cada lado) | 20 |
+| DARK | 640 | `FILL` (igual que mobile) | 20 |
+
+El padding va como override de instancia porque difiere entre dispositivos.
+
+**Falta la propiedad `Alineado` (Left/Center).** Está bloqueada — ver pendiente #13.
+
+**Contraste del CTA por tema:** los valores light salen de `cta-template.html`; los dark del `tag/fondo` dark sin alfa con el `texto` dark del tema encima. Dos excepciones: **Pro en dark** usa `#FFFFFF` en vez de su `texto` dark (`#191919` daba 2.12:1 sobre `#71440A`), y **Verde 100 en claro** usa `#003832` (5.93:1) porque no está definido en el código y el blanco daba 2.20:1.
+
+---
+
 ## 7 · Figma — mapa y trampas
 
 ### 7.1 · `Doc-DS-Mails` (`7Rtnl6O6XVdhKjm3Kf8cxo`)
 
 14 páginas. **`get_metadata` sin nodeId solo lista "🪐 Cover"** — hay que usar `use_figma` con `figma.root.children` para ver las 14.
 
-**La colección de variables `Temas`** (`VariableCollectionId:1270:2`) es la fuente más limpia para cambiar tokens: 18 variables × **24 modos** (12 light + 12 `<Tema> · Dark`). Cambiar un token son 4 llamadas, no un barrido de nodos.
+**La colección de variables `Temas`** (`VariableCollectionId:1270:2`) es la fuente más limpia para cambiar tokens: 20 variables × **24 modos** (12 light + 12 `<Tema> · Dark`). Cambiar un token son 4 llamadas, no un barrido de nodos.
 
-Nombres actuales: `fondo`, `texto`, `acento/1`, `acento/2`, `contenedor/1`, `contenedor/2`, `tag/fondo`, `tag/contenedor`, `tag/texto`, `legales`, `imagen/1`, `imagen/2`, `descuento/fondo`, `descuento/texto`, `creditos/fondo`, `creditos/texto`, `fondo-body/100`, `fondo-body/50`.
+Nombres actuales: `fondo`, `texto`, `acento/1`, `acento/2`, `contenedor/1`, `contenedor/2`, `tag/fondo`, `tag/contenedor`, `tag/texto`, `legales`, `imagen/1`, `imagen/2`, `descuento/fondo`, `descuento/texto`, `creditos/fondo`, `creditos/texto`, `fondo-body/100`, `fondo-body/50`, `cta/fondo`, `cta/texto`.
+
+**`cta/fondo` y `cta/texto`** (creadas el 2026-09-13) son las que hacen que el CTA de los previews cambie con el tema. Su valor **no es el mismo que el del badge**: coincide en 9 temas, pero Verde 100 va sin alfa (`#34C85A`), y Pro y ProBlack usan blanco y negro en vez del dorado. En los 12 modos dark el fondo es el `tag/fondo` dark sin alfa y el texto es el `texto` dark del tema — salvo Pro, que necesita `#FFFFFF` porque su `texto` dark (`#191919`) daba 2.12:1 sobre `#71440A`. La fuente de los valores light es `02-components/03_ctas/cta-template.html`.
 
 **Convención de ubicación:** cada componente que se crea vive **junto a su hoja de documentación**, dentro de una sección llamada `Ds` en esa misma página. El header, documentado en `5.1 · Header`, tiene sus component sets en la sección `Ds` de `05 · Molecules`.
 
@@ -268,6 +310,7 @@ Nombres actuales: `fondo`, `texto`, `acento/1`, `acento/2`, `contenedor/1`, `con
 | `600:151` | `05 · Molecules` | `5.1 · Header (Logo + Cobranding)` — la guía de tamaños y composición |
 | `1344:2` | `05 · Molecules` | Sección `Ds` — contenedor de los componentes de esta página |
 | `1339:3113` / `1339:6164` | `05 · Molecules` → `Ds` | Component sets `Header · Desktop` / `Header · Mobile` |
+| `1371:87` | `04 · Atoms` → `Ds` | Component set `CTA` (10 variantes) |
 | `1333:783` / `1333:798` / `1333:813` | `07 · Templates` | `PREVIEW DESK` / `PREVIEW_MOBILE` / `PREVIEW_DARK` |
 
 > **Mover entre páginas cambia los ids.** Los previews pasaron de `03 · Temas` a `07 · Templates` y sus ids cambiaron por completo (`1315:78/91/104` → `1333:783/798/813`). Mover por script con `appendChild` sí conserva el id — así se movieron los component sets, y por eso sus instancias no se rompieron. Si un id de esta tabla devuelve `null`, busca por nombre antes de darlo por perdido.
@@ -283,6 +326,8 @@ Nombres actuales: `fondo`, `texto`, `acento/1`, `acento/2`, `contenedor/1`, `con
 - **Busca por color de relleno, no por contenido de texto.** Las tarjetas por tema pintan *todo* su texto descriptivo con la tipografía de ese tema. `characters.includes(hex)` no encuentra casi nada; hay que escanear `fills[0].color` de cada TEXT. ~52-55 nodos por tarjeta.
 - **Audita con tolerancia amplia, muta con hex exacto.** Un barrido con tolerancia marcó `#2a2a2a` como si fuera `#2A2B2B`.
 - **Un hijo `BODY` puede tapar el frame que acabas de corregir.** En los previews mobile del Playbook, los frames `LIGHT`/`DARK` tienen un hijo `BODY` del mismo tamaño con su propio fill. Recolorear solo el padre se ve bien en el árbol de capas y no cambia nada en pantalla.
+- **Redimensionar una instancia con `resize()` deja un override que rompe el cambio de variante.** Pasó con el CTA: la instancia de mobile, redimensionada de 960 a 640, arrastraba un override de ancho en el texto; al pasar a `Small` el pill no podía abrazar y quedaba en 652px, más ancho que su contenedor. La cura es `instance.resetOverrides()` y después dejar que el ancho venga del contenedor (`layoutSizingHorizontal='FILL'`) o reafirmarlo explícitamente. Ojo: `resetOverrides()` también borra el padding y el nombre, hay que volver a ponerlos.
+- **Las medidas leídas justo después de mutar salen en caliente y mienten.** Tras un `setProperties` o un cambio de layout, `width` puede devolver el valor viejo dentro de la misma ejecución. Al leerlo en una llamada nueva aparece el valor real. Costó un rato creer que un wrapper se estiraba a 1200 cuando en frío estaba en 960. Si una medida no cuadra, vuelve a leerla en otra ejecución antes de "arreglarla".
 - **Tras `setExplicitVariableModeForCollection`, la primera captura puede salir con el render viejo.** Verifica con `variable.resolveForConsumer(node)` antes de concluir que el cambio falló.
 - **No todo lo amarillo o dorado es un badge.** En `07 · Templates`, `chip` y `credit-tag` sí; `col-icon` (10 nodos en Pro/ProBlack) y el `block` de `cupon-ticket` no. En `04 · Atoms`, las dos `Ellipse` `#F8D263` de las preview rows tampoco.
 - **Beige 100 y Beige 150 se diferencian en solo dos colores** — Fondo (`#FFF0DD` vs `#F9DFC6`) y Contenedor 1 (`#F2D3AE`@50% vs `#E5B67F`@50%) — más 4 imágenes. Como su tipografía ahora es idéntica, una confusión entre ambos es invisible a cualquier chequeo de tipografía.
@@ -311,11 +356,50 @@ Cabos sueltos marcados y no resueltos: `61927:18241` (fondo dark de la leyenda B
 | 9 | `CHANGELOG.md` no tiene entradas de nada de esto | Repo | Deliberado hasta ahora |
 | 10 | `CONTENTS` existe como marcador y ya contiene el CTA reglamentario, pero **aún no es una tabla contenedora** como sí lo es `HERO-SECTION`. Cuando se cree en el maestro, replicarla en `estructura_general.html` | `template_maestro_original.html` | En curso |
 | 11 | El `<a>` que envuelve el HERO conserva `role="horizontal"`, que era el rol del banner horizontal. Si dentro van a convivir header y ambos tipos de banner, ese atributo queda describiendo algo que ya no es | `template_maestro_original.html` | A definir al meter los banners |
+| 13 | **Al componente `CTA` le falta la propiedad `Alineado` (Left/Center)**: el arte de referencia (`FORMATO`, `1358:1017`) usa Helvetica y esa familia no existe en el entorno del MCP, lo que bloquea `textAlignHorizontal` y el re-medido del texto. Se desbloquea duplicando en esa hoja un CTA big con el texto alineado a la izquierda, para clonar de ahí | `Doc-DS-Mails` | **Bloqueado** |
+| 14 | Contraste del CTA: Púrpura 100 en claro da 3.29:1 (`#9F80E5` + `#4C2B8C`), por debajo de AA. El valor viene de `cta-template.html`, así que corregirlo implica tocar el código. Su `texto` de tema (`#0B1066`) daría 5.23:1 | `cta-template.html` + Figma | **Requiere decisión** |
 | 12 | En el header de ejemplo del maestro, el primer cobranding perdió su `class="cobranding-s"` (las otras tres sí la tienen). Confirmado como error; **no se replicó** a los 40 archivos, que la conservan | `template_maestro_original.html` | Sin corregir en el maestro |
+
 
 ---
 
 ## 9 · Bitácora
+
+### 2026-09-14 · El cobranding deja de deformarse
+
+Un logo aliado más ancho de `max-width: 180px` se aplastaba: el alto estaba clavado tres veces (`height` + `max-height` + `min-height` al mismo número), así que al topar el ancho el alto no podía ceder. Pasa a `height: auto` + `max-height`, y se le añade el atributo HTML `height="N"` como respaldo para Outlook de escritorio.
+
+Probado primero en el maestro y, confirmado por el usuario, replicado a **los 160 `<img>` de los 40 headers** y a **los 32 bloques `.cobranding-*` de `global-styles.html`** — esta segunda mitad es imprescindible: esas reglas llevan `!important` y sin tocarlas el arreglo inline se perdía en mobile.
+
+Los `logo-base*` se dejaron con alto fijo a propósito: son logos de marca, de proporción conocida.
+
+**El mismo defecto estaba en la firma del footer** (`02-components/06_footer/footer_general.html`, el `<img>` de `{{img-firma}}`): `height`/`min-height`/`max-height` clavados en 25px contra un `max-width: 200px`, así que las firmas anchas —Turbo Colombia, por ejemplo— se aplastaban. Corregido igual, aunque aquí bastó el inline: `.altofooter1` afecta al `<td>`, no a la imagen, así que no hay ninguna regla con `!important` que pisar. `footer_rts.html` ya estaba bien; `footer_sinamor.html` asigna `img-firma` pero nunca la pinta.
+
+**Y en el "Logo pastilla" de Deals**, 4 instancias con la misma forma (`height: 23px; max-height: 23px; min-height: 23px` contra `max-width: 150px`): `deal_columnas.html` y el maestro, dos en cada uno. Era el caso más expuesto —una pastilla es apaisada por definición y 150px es un tope estrecho—. **El `max-width: 150px` se dejó tal cual a pedido del usuario**: solo se liberó el alto.
+
+**Regla general que sale de esta tanda:** una imagen con `max-width` **nunca** debe llevar el alto clavado. El patrón correcto es `width: auto; height: auto` + los dos topes + el atributo `height="N"` para Outlook. Tras el barrido del 2026-09-14 **no queda ningún caso** en el repo con la forma vieja; si aparece uno nuevo, es un error de copia.
+
+Un alto clavado **sin** `max-width` sí es legítimo y no se tocó: no puede toparse con nada, por eso el logo de WhatsApp del footer y los `logo-base*` siguen igual.
+
+Documentado en `05-docs/ATOMIC-DESIGN.md` §5.1, `05-docs/USO-DE-CADA-PARTE.md` (Regla #3) y §6.1 de este archivo.
+
+### 2026-09-14 · El CTA pasa a ser componente
+
+Nace el component set `CTA` (`1371:87`) en la sección `Ds` de `04 · Atoms`: `Color` (Tema · neon · verde · blanco · negro) × `Tamaño` (Big · Small) = 10 variantes. Los tres CTA de los previews se reemplazaron por instancias.
+
+El componente es el contenedor `CALL TO ACTION` con su padding inferior, no solo el pill — ver §6.2. Reconstruido el mismo día tras detectar que con el pill de ancho fijo el ciclo Big → Small → Big no era reversible, y que el contenedor hug de escritorio colapsaba a 224.
+
+El valor `Tema` está vinculado a `cta/fondo` y `cta/texto`, así que sigue el modo del frame; los otros cuatro son overrides fijos. Eso evitó tener que crear un valor por tema: 10 variantes en vez de 128.
+
+Un solo set sirve para escritorio y mobile — la instancia se redimensiona (960 / 640) y el texto FILL la sigue.
+
+### 2026-09-13 · El CTA de los previews sigue al tema
+
+Nacen las variables `cta/fondo` y `cta/texto` en la colección `Temas`, pobladas en los 24 modos (48 valores), y los tres CTA de los previews (`PREVIEW DESK`, `PREVIEW_MOBILE`, `PREVIEW_DARK`) quedan vinculados a ellas. Cambiar el modo del frame ya cambia el color del botón. Verificado de punta a punta con 6 temas.
+
+Los valores light salen de `cta-template.html`; los dark del `tag/fondo` dark sin alfa, con el `texto` dark del tema encima.
+
+**El componente de CTA no se pudo construir**: el arte de referencia usa Helvetica y esa familia no existe en el entorno de Figma del MCP, lo que bloquea `textAlignHorizontal` y el re-medido del texto. Ver pendiente #13.
 
 ### 2026-09-13 · Arranca CONTENTS y se mueve el CTA reglamentario
 

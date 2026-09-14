@@ -235,7 +235,7 @@ Una molécula todavía no tiene contexto de página completa — eso la distingu
 
 ### 5.1 · Header (Logo + Cobranding)
 
-Header armado con logo base + divider + cobranding. Dos estructuras — **Centrado** y **Columnas** — cada una con 5 formatos (logo+cobranding S/M/L/XL, y logo solo). El alto es fijo por grupo de marca; el ancho se ajusta automático. Los tamaños **sí cambian** entre desktop y mobile (valor propio por grupo en `global-styles.html`, no un 90% plano).
+Header armado con logo base + divider + cobranding. Dos estructuras — **Centrado** y **Columnas** — cada una con 5 formatos (logo+cobranding S/M/L/XL, y logo solo). Los tamaños de la tabla son **topes, no medidas fijas**: el logo base sí lleva alto fijo, pero el cobranding se declara `width: auto; height: auto` con `max-width: 180px` y `max-height` por grupo, de modo que un logo aliado muy apaisado baja de alto en vez de deformarse (ver la Regla #3 en `USO-DE-CADA-PARTE.md`). Los tamaños **sí cambian** entre desktop y mobile (valor propio por grupo en `global-styles.html`, no un 90% plano).
 
 ```
 Centrado — PEQUEÑO                    Columnas — PEQUEÑO

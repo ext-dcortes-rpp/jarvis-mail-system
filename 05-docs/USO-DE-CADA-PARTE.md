@@ -94,6 +94,8 @@ Los 4 grupos de tamaño de header (`#HEADER1`-`#HEADER4`, ver `01-foundations/gl
 | HEADER3 | RappiTurbo Restaurantes | 47px / 44px | **53px / 51px** |
 | HEADER4 | RappiEntregador, Contenido aliado | 29px / 27px | **32px / 30px** |
 
+**Los tamaños de la tabla son topes, no medidas fijas.** El cobranding se declara `width: auto; height: auto` dentro de una caja de `max-width: 180px` × `max-height` del grupo, así que la imagen entra **conservando su proporción**: si es apaisada manda el ancho y el alto baja solo; si es vertical manda el alto. Antes los tres valores de alto (`height` + `max-height` + `min-height`) estaban clavados al mismo número, y un logo aliado más ancho de 180px se aplastaba — corregido el 2026-09-14 en los 40 archivos, en `global-styles.html` y en el maestro. Cada `<img>` conserva además el atributo HTML `height="N"`: es el respaldo para Outlook de escritorio, que ignora `max-width` y `max-height` y sin él dibujaría el logo a tamaño natural. **Si se agrega un cobranding nuevo, no vuelvas a poner `min-height`.**
+
 Estos valores ya están reflejados en los 40 archivos de header (inline, escritorio) y en `global-styles.html` (clases `.cobranding-xl` por `#HEADERn`, mobile) y en el Figma del sistema de diseño (`Doc-DS-Mails` → `05 · Molecules` → "5.1 · Header (Logo + Cobranding)"). Desde el 2026-09-11 el header también existe allí como component set — `Header · Desktop` y `Header · Mobile` en la página `03 · Temas`, con las propiedades Logo / Estructura / Fondo / Cobranding.
 
 ### Regla #4 · El divider sigue a la marca, no al tema
