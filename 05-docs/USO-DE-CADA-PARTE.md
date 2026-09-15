@@ -148,7 +148,7 @@ Piezas de `MODULO MOLECULAS` (MOLECULAS, se combinan libremente dentro de esa ta
 4. **`molecula_creditos_horizontal.html`** / **`molecula_creditos_vertical.html`** — Texto vivo de créditos ("$XXX" + "DE REINTEGRO"), usa las clases `bnr-*`.
 5. **`molecula_promo_horizontal.html`** / **`molecula_promo_vertical.html`** — Módulo de promo ("Ahora" + cifra).
 6. **`molecula_textoxl_horizontal.html`** / **`molecula_textoxl_vertical.html`** — Texto vivo XL adicional, mismo comportamiento de tamaño que la molécula de promo.
-7. **`molecula_textom_horizontal.html`** / **`molecula_textom_vertical.html`** — Texto vivo `.bnr-md`, tamaño fijo inline.
+7. **`molecula_texto_M_horizontal.html`** / **`molecula_texto_M_vertical.html`** — Texto vivo `.bnr-md`, tamaño fijo inline.
 8. **`molecula_img_automatica_horizontal.html`** / **`molecula_img_automatica_vertical.html`** — Imagen automática dentro del banner.
 9. **`molecula_cta_interno_horizontal.html`** (`cta_alineado: 'left'`) / **`molecula_cta_interno_vertical.html`** (`cta_alineado: 'center'`) — CTA embebido dentro del banner.
 10. **`molecula_texto_complementario_horizontal.html`** / **`molecula_texto_complementario_vertical.html`** — Texto de body (`<h4>`) que acompaña al texto destacado del banner, distinto por orientación. Reemplazan al viejo `modulo_texto_complementario.html` (sin sufijo, ya eliminado); contenido pendiente de insertar manualmente en cada uno. (`modulo_img_variable.html` y `modulo_texto_secundario.html` ya se eliminaron.)
@@ -352,30 +352,22 @@ En Módulo Logos, la celda de logos es más ancha que la de moléculas (60%/40%)
 
 ---
 
-## 9. Closing · la imagen de cierre
+## 9. Closing · eliminada
 
-📁 `02-components/05_closing/`
+La carpeta `02-components/05_closing/` y su `cierre.html` **se eliminaron el 2026-09-15**.
 
-### El único archivo: `cierre.html`
+La firma "Pídelo por Rappi" que iba suelta entre el último módulo y el footer ya no existe como bloque aparte: **ahora vive dentro del footer**, gobernada por la variable `firma` de `06_footer/footer_general.html`:
 
-Es una tabla simple con una imagen de cierre (típicamente la firma "Rappi" en versión imagen).
+| `firma` | Qué muestra |
+|---|---|
+| `general` | Pídelo por Rappi |
+| `turbo` | Pídelo por Rappi Turbo |
+| `pro` | La corona gris |
+| *(vacío)* | El bigote |
 
-### Regla #1 · NO va si el tema es Pro o ProBlack
-**Esta es la regla más importante del sistema.** Si `tema_general_mail_general` es Pro o ProBlack, ELIMINAS la tabla completa. No la dejes con `display: none`, no la dejes vacía: la borras del HTML.
+Las 10 variantes de país (Pide un Rappi / Pedí un Rappi / Pede um Rappi, sus equivalentes de Turbo y las dos co-branded) siguen existiendo: se eligen dentro del footer, no aquí. En Figma son las variantes `Mails` del componente remoto `Cierres_System_Neon`.
 
-> ⚠️ **Auditoría:** esta regla está documentada así en Figma (Moléculas 5.4) pero hoy **no está implementada** en `template_maestro_original.html` — la tabla de cierre se renderiza para los 12 temas sin excepción. Pendiente de confirmar con el equipo si se implementa o se actualiza la regla.
-
-### Regla #2 · NO va si la fuente dice "sin cierre"
-Si la columna "Pide img" de la fuente trae exactamente el valor `"sin cierre"`, se elimina la etiqueta `<img>` por completo (la tabla contenedora queda vacía).
-
-### Regla #3 · La URL de la imagen depende del texto "Pide img", no del tema
-La base de datos tiene **10 variantes** de firma, cada una asociada a un texto exacto de "Pide img" (ej. "Pide un Rappi", "Pedí un Rappi", "Pídelo por Rappi mx", "Pede um Rappi", y sus 4 equivalentes de RappiTurbo + 2 co-branded con Carulla/MiComisariato). Si "Pide img" coincide con uno de esos 10 textos, se usa la URL correspondiente; si no coincide con nada, se conserva la imagen que ya trae la plantilla base. El detalle completo (los 10 textos y sus URLs) está en `05-docs/ATOMIC-DESIGN.md`, Moléculas 5.4.
-
-### Regla #4 · El cierre va al final del body
-El cierre va después del último módulo/CTA y antes del footer. **No** va dentro de los módulos.
-
-### Regla #5 · No insertes módulos debajo del cierre
-Después de la tabla de cierre **no debe haber más CTAs ni módulos de contenido**. Si la fuente trae algo después del cierre, es probable que esté mal estructurada y deba reorganizarse.
+**Las 5 reglas que había en esta sección ya no aplican**, incluida la de omitir el cierre en Pro y ProBlack: Pro tiene ahora su propia firma (la corona) en vez de no tener ninguna.
 
 ---
 
@@ -443,8 +435,7 @@ PASO 3 → [zona libre del cuerpo]:
            - coupons (en pares)                      (0, 2, 4...)
            - benefits                                (0 a N)
            - content-modules                         (0 a N)
-PASO 4 → cierre.html                                (debería omitirse si el tema es Pro/ProBlack — ver nota de auditoría en la sección 9)
-PASO 5 → footer.html                                (siempre — General, Sin Amor o RTS según el mail)
+PASO 4 → footer_general.html                        (siempre, completo, FUERA de HERO y CONTENTS)
 ```
 
 ### Reglas de espaciado dentro del paso 3

@@ -1,14 +1,34 @@
-<!--CTA: según la fuente puedes insertar varios a lo largo del mail-->
+<!-- CTA (LLAMADO A LA ACCIÓN) -->
 
-                                    {% assign cta_alineado = 'center' %}
-									 {% assign cta_size = 'small' %}
-                                    {% assign text_cta = 'Súper completo en 10 min' %}
-                                    <!--dentro de las comillas se cambia el texto del cta  -->
-                                    {% assign deeplink_cta = 'AQUIELLINK#'  %}
-                                    {% assign style_Look = 'neon' %}
+<!-- Bloque de invocación del content block CTA-template. No contiene el botón:
+     solo fija las variables y llama a la plantilla, que vive en 03_ctas/cta-template.html.
 
-                                    <!-- variantes 'neon' 'blanconeon' 'negroneon' 'verde''blancogris' 'negrogris'
+     DÓNDE VA:
+     - El CTA reglamentario es el PRIMER elemento de la sección CONTENTS, dentro del
+       wrapper de contenidos. Es obligatorio y no se omite.
+     - Además se pueden insertar otros a lo largo de CONTENTS, según lo pida la fuente.
+     - Dentro del banner se usa la versión de molécula
+       (02_banners/banner_moleculas/molecula_cta_interno_horizontal|vertical.html),
+       que es este mismo bloque con cta_alineado = 'left' en el horizontal.
 
+     LAS 5 VARIABLES:
+     - cta_alineado   'center' | 'left'
+     - cta_size       'big' | 'small'
+     - text_cta       el texto del botón (cta-template lo trunca a 35 caracteres)
+     - deeplink_cta   el destino
+     - style_Look     el color; ver la lista de variantes abajo -->
 
- 'problack': predeterminado para terma Problack 'pro' predeterminado para terma Pro -->
-                                    {{content_blocks.${CTA-template}}}
+{% assign cta_alineado = 'center' %}
+{% assign cta_size = 'big' %}
+{% assign text_cta = 'Súper completo en 10 min' %}
+
+<!-- dentro de las comillas se cambia el texto del cta -->
+{% assign deeplink_cta = 'AQUIELLINK#' %}
+{% assign style_Look = 'beige100' %}
+
+<!-- variantes 'neon' 'blanco' 'negron' 'verde' y 'beige100' este va cambiando de acuerdo al tema
+
+     'problack': predeterminado para tema ProBlack
+     'pro':      predeterminado para tema Pro -->
+
+{{content_blocks.${CTA-template}}}

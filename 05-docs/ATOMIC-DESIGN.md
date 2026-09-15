@@ -100,7 +100,7 @@ El logo no es un átomo de un solo tamaño: cambia de tamaño según el módulo.
 | 21–34px (según marca) | Header — logo principal | `.logo-base1` … `.logo-base4` | Headers — 4 grupos de marca, ver `USO-DE-CADA-PARTE.md` |
 | 24–53px (según marca/tamaño) | Header — cobranding | `.cobranding-s` / `-m` / `-l` / `-xl` | Headers, cobranding activo |
 | 25px | Ícono genérico M | `role="molecula-iconoM"` | Content-modules |
-| 38px (max-height) | Cierre — firma "RappiFirma" | `05_closing/cierre.html` | Cierre del mail |
+| 25px (max-height) | Footer — firma "Pídelo por Rappi" | `06_footer/footer_general.html` | Dentro del footer, según la variable `firma` |
 | 50px | Ícono genérico L / logo aliado | `role="molecula-iconoL"` | Franja de Logos, Deals |
 | 60px | Ícono genérico XL | `role="molecula-iconoXL"` | Content-modules, Bullet |
 | 75px | Banner — imagen fija con logo | `.banner-logo1-1` | `banner_moleculas/modulo_img_altofijo_*.html` |
@@ -301,7 +301,7 @@ Viven en `02-components/02_banners/banner_moleculas/`. Piezas exclusivas del Big
 
 > **Regla · orden y colores:** en horizontal el orden es fijo (promo → créditos → texto XL → texto M → img automática → cta interno); en vertical es libre y el módulo se puede duplicar. Ninguna molécula hardcodea color — todas heredan variables de tema.
 >
-> ⚠ **Duplicado sin resolver:** `molecula_textom_horizontal.html` y `molecula_texto_M_horizontal.html` (y sus pares `_vertical`) son **byte-idénticos** — dos nombres para el mismo archivo. Pendiente decidir cuál nombre se conserva.
+> ✓ **Duplicado resuelto (2026-09-15):** existían `molecula_textom_*` y `molecula_texto_M_*` byte-idénticos. Se conservó **`molecula_texto_M_horizontal.html` / `_vertical.html`**, que es el nombre que usa la tarjeta del Figma (`atomo_texto_M`), y se eliminaron los `molecula_textom_*`.
 
 ### 5.3 · Moléculas de contenido
 
@@ -388,9 +388,23 @@ Debajo de esta sección **no se debe insertar** ningún módulo de contenido o C
 
 > La numeración de abajo (6.1–6.12) sigue las etiquetas internas de cada sección en Figma, que están limpias y consecutivas. Algunos nombres de capa (layer name, panel de outline de Figma) quedaron desincronizados por ediciones concurrentes — es puramente cosmético del panel de capas y no afecta el contenido; se ignoran acá.
 
-### 6.0 · HERO SECTION — el contenedor superior
+### 6.0 · Las tres secciones del mail
 
-Refactor iniciado el 2026-09-12. La parte superior del mail dejó de ser una secuencia suelta de bloques y pasó a ser un contenedor: la tabla `role="HERO-SECTION"` de 600px, con `background-image` propio, que agrupa en orden **header · banner · imagen full width**.
+Refactor iniciado el 2026-09-12 y **cerrado el 2026-09-15**. El mail dejó de ser una secuencia suelta de bloques y pasó a tener tres secciones:
+
+| # | Sección | Contenedor | Qué agrupa |
+|---|---|---|---|
+| 1 | **HERO** | `<table role="HERO-SECTION" width="600">` | header · banner · imagen full width |
+| 2 | **CONTENTS** | `<table role="CONTENTS-SECTION" width="600">` | CTA reglamentario · módulos de contenido |
+| 3 | **FOOTER** | — | fuera de las dos anteriores |
+
+Las dos primeras comparten estructura: un `<div style="display:contents;">` envolviendo una tabla de 600px cuya celda lleva el mismo `background-image`, para que la pieza se lea continua. **La diferencia de fondo es el link**: el HERO va dentro de un solo `<a>`; CONTENTS no, y ahí cada módulo lleva el suyo.
+
+Dentro de CONTENTS vive el **wrapper de contenidos** (`_contenidos_wrapper.html`), una tabla de 480px centrada cuyo `<td>` lleva `mobile_paading` — de ahí sale el margen lateral del cuerpo en mobile.
+
+**El FOOTER va fuera del `role="paddedcontainer"`**, no solo fuera de HERO y CONTENTS. Esa ubicación es obligatoria: dentro heredaría el ancho y el padding del cuerpo.
+
+#### El HERO en detalle
 
 ```
 <a>  ← un solo link para todo el HERO
@@ -412,7 +426,33 @@ Tres reglas que se desprenden de esto y que afectan a los componentes:
 
 El banner vertical creció de 480px a 600px y ganó `border-collapse: collapse;`. El horizontal se mantiene en 480px.
 
-El contenedor hermano es **CONTENTS**, el interior del mail. Arrancó el 2026-09-13: todavía no es una tabla propia, por ahora es el marcador `<!-- INICIO SECCIÓN CONTENTS -->` y su contenido. **Abre con el CTA reglamentario**, que dejó de ir pegado debajo del banner — el banner ahora vive dentro del HERO.
+#### CONTENTS en detalle
+
+Desde el 2026-09-15 es una tabla propia, `role="CONTENTS-SECTION"`, hermana del HERO:
+
+```
+<div style="display:contents;">
+  <table role="CONTENTS-SECTION" width="600">    ← mismo background-image que el HERO
+    <table width="480">                          ← _contenidos_wrapper.html
+      <td class="mobile_paading">
+        cta-llamado.html            ← obligatorio, siempre el primero
+        <div class="separador">
+        módulo
+        <div class="separador">
+        módulo …
+```
+
+**La regla de separadores**, con sus tres niveles (clases en `global-styles.html`):
+
+| Clase | Alto | Separa | ¿Obligatorio? |
+|---|---|---|---|
+| `separador` | 16px | dos **módulos** de contenido | **Sí**, siempre que un módulo vaya debajo de otro |
+| `separador-M` | 10px | dos **moléculas** dentro de un módulo | según el módulo |
+| `separador-S` | 4px | dos **elementos** dentro de una molécula | según la molécula |
+
+> No confundir `separador-S` (espaciador invisible) con `molecula_separador_s.html` (una línea decorativa, `role="molecula-separador"`).
+
+**El bloque de CIERRE desapareció.** La firma que iba suelta entre el contenido y el footer se eliminó del sistema el 2026-09-15: ahora vive dentro del footer, según la variable `firma`.
 
 ### 6.1 · Big Banner · Vertical
 
@@ -436,11 +476,13 @@ El contenedor hermano es **CONTENTS**, el interior del mail. Arrancó el 2026-09
 **Reglas:** MODULO MOLECULAS se puede duplicar y reordenar libremente; MODULO IMAGEN FIJA es opcional (se puede eliminar o mover); MODULO TAGS tiene posición libre. Moléculas insertables (ver [5.2](#52--moléculas-de-banner)): `promo`, `creditos`, `textoxl`, `texto_M`, `texto_complementario`, `texto_pastilla`, `img_automatica`, `cta_interno`.
 
 ```html
-<a role="vertical" href="AQUIELLINKDELBANNER" style="text-decoration:none; display:inline-block; width:100%;">
-<table id="BANNER_VERTICAL" width="480" style="width:480px; margin:0 auto;">
+<!-- Sin <a> propio: el link lo pone la HERO SECTION, que envuelve las tres piezas.
+     El <div class="mobile_paading"> da el padding lateral en mobile. -->
+<div class="mobile_paading" style="padding: 0px;" >
+<table id="BANNER_VERTICAL" width="600" style="width:600px; margin:0 auto; border-collapse: collapse;">
   <tr valign="middle">
     <td style="background-image:url({{bg_bannerimg_mail_general}}); border-radius:16px; overflow:hidden;">
-      <div style="background:{{bg_bannertono_mail_general}}; max-width:480px; overflow:hidden;">
+      <div style="background:{{bg_bannertono_mail_general}}; max-width:480px; margin: 0 auto; overflow:hidden;">
         <!-- MODULO MOLECULAS: reordenable/duplicable -->
         <!-- MODULO IMAGEN FIJA: opcional -->
         <!-- MODULO TAGS: posición libre -->
@@ -448,8 +490,10 @@ El contenedor hermano es **CONTENTS**, el interior del mail. Arrancó el 2026-09
     </td>
   </tr>
 </table>
-</a>
+</div>
 ```
+
+> La tabla mide **600px** desde el refactor del HERO (antes 480) y ganó `border-collapse: collapse`. El `<div>` interior sigue en 480 de ancho máximo: es el que centra el contenido.
 
 ### 6.2 · Big Banner · Horizontal
 
@@ -474,7 +518,8 @@ SIEMPRE 2 columnas fijas de 240px: MODULO MOLECULAS (izquierda) + MODULO IMAGEN 
 Moléculas disponibles (vive en `banner_moleculas/molecula_<nombre>_horizontal.html`): `promo`, `creditos`, `textoxl`, `texto_M`, `img_automatica`, `texto_complementario`, `texto_pastilla`, `cta_interno`.
 
 ```html
-<a role="horizontal" href="AQUIELLINKDELBANNER" style="text-decoration:none; display:block;">
+<!-- Sin <a> propio: el link lo pone la HERO SECTION, que envuelve las tres piezas. -->
+<div class="mobile_paading" style="padding: 0px;" >
 <table id="BANNER_HORIZONTAL" width="480" style="width:480px; margin:0 auto;">
   <tr valign="middle">
     <td style="background-image:url({{bg_bannerimg_mail_general}}); border-radius:16px; overflow:hidden;">
@@ -488,7 +533,7 @@ Moléculas disponibles (vive en `banner_moleculas/molecula_<nombre>_horizontal.h
     </td>
   </tr>
 </table>
-</a>
+</div>
 ```
 
 ### 6.3 · Módulo Título
@@ -989,7 +1034,7 @@ Lista única de inconsistencias encontradas en el código real durante esta revi
 9. **Footer RTS:** la razón social de EC copia la de Costa Rica ("© Rappi Pura Vida S.A.") — posible error de copy-paste en el archivo fuente.
 10. **Tabla de Cierre (5.4):** la regla "se omite en Pro/ProBlack" NO está implementada hoy en `template_maestro_original.html` — mismo hallazgo documentado en Foundations 1.4.
 11. **Tabla de Cierre (5.4):** el propio contenido se autodescribe como "el último organismo" pese a estar numerado en la página de Moléculas — posible reclasificación pendiente, no resuelta unilateralmente acá.
-12. **Moléculas de banner (5.2):** `molecula_textom_horizontal.html` y `molecula_texto_M_horizontal.html` (y sus pares `_vertical`) son archivos byte-idénticos — pendiente decidir cuál nombre se conserva y cuál se elimina.
+12. ~~**Moléculas de banner (5.2):** duplicado `molecula_textom_*` / `molecula_texto_M_*`~~ — **resuelto el 2026-09-15**: se conservó `molecula_texto_M_*` (el nombre del Figma) y se eliminaron los `molecula_textom_*`.
 13. **Etiquetas y badges (4.5):** el snippet de ícono+badge usa `role="MARKDOWN"` sobre un `<h4>` — inconsistente con `role="molecula-texto"`; verificar contra el `.html` real.
 14. **CTAs base (4.6):** `style_Look='blanco'` es un alias legacy idéntico a `blanconeon` — no usar en código nuevo.
 

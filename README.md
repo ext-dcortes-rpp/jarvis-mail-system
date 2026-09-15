@@ -21,21 +21,32 @@ Si abres una caja de LEGO encuentras tres cosas: las **piezas** (los bricks), la
 
 ## Cómo se arma un mail
 
-Un mail siempre se arma en este orden, pieza por pieza:
+Todo mail tiene **tres secciones**, siempre en este orden:
 
 ```
-header        (un solo header de los 10 disponibles, en su variante claro/oscuro y centrado/columnas)
-   ↓
-banner        (horizontal o vertical)
-   ↓
-[CTAs, deals, cupones, beneficios, módulos de contenido]   ← bricks combinables
-   ↓
-cierre        (imagen de cierre — omitido en los temas Pro/ProBlack)
-   ↓
-footer
+╔═ 1 · HERO ═══════════════════════════════════════════════════════╗
+║  header       un solo header de los 10, en su variante            ║
+║               claro/oscuro × centrado/columnas                    ║
+║  banner       horizontal o vertical, nunca los dos                ║
+║  imagen full  opcional, a sangre                                  ║
+║                                                                   ║
+║  Las tres piezas comparten un solo <a>: apuntan al mismo destino. ║
+╚═══════════════════════════════════════════════════════════════════╝
+╔═ 2 · CONTENTS ═══════════════════════════════════════════════════╗
+║  CTA reglamentario         obligatorio, siempre el primero        ║
+║  [ módulos de contenido ]  ← bricks combinables, con un           ║
+║                              <div class="separador"> entre cada   ║
+║                              par. Aquí cada módulo lleva su       ║
+║                              propio link si debe ser clickeable.  ║
+╚═══════════════════════════════════════════════════════════════════╝
+╔═ 3 · FOOTER ═════════════════════════════════════════════════════╗
+║  footer       siempre completo, fuera de las dos secciones        ║
+╚═══════════════════════════════════════════════════════════════════╝
 ```
 
-Los corchetes `[ ]` son la zona donde el creador del mail decide qué piezas pone y en qué orden. Todo lo demás es estructura fija.
+Los corchetes `[ ]` son la única zona donde el creador del mail decide qué piezas pone y en qué orden. Todo lo demás es estructura fija.
+
+El esqueleto vacío, con un comentario en cada hueco diciendo qué se inserta, está en `06-examples/estructura_general.html`. La versión con todo puesto, en `06-examples/template_maestro_original.html`.
 
 ## Estructura de carpetas
 
@@ -54,8 +65,7 @@ jarvis-mail-system/
 │   │   ├── deals/              Deal grande y small
 │   │   ├── coupons/            Módulo de cupones (con title + cupón)  ◀ NUEVO
 │   │   └── benefits/           Módulo de beneficios                    ◀ NUEVO
-│   ├── 05_closing/            Imagen de cierre
-│   └── 06_footer/             Footer general
+│   └── 06_footer/             Footer general (incluye la firma: general/turbo/pro/sin firma)
 │
 ├── 03-templates/              Los modelos armados
 │   ├── full-templates/        Combinaciones completas listas para usar

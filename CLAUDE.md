@@ -13,7 +13,7 @@ Si vas a tocar colores, temas, componentes o el Figma del sistema, lee esto ante
 | Carpeta | Qué hay |
 |---|---|
 | `01-foundations/` | `global-styles/head-meta-tags.html` — **la definición de los 12 temas en Liquid**. `global-styles.html` — el `<head>` y las clases responsive. `README.md` — tokens y paleta. |
-| `02-components/` | Átomos y moléculas por familia: `01_headers/` (10 marcas × 4 archivos), `02_banners/banner_moleculas/`, `03_ctas/`, `04_content-modules/`, `05_closing/`, `06_footer/`. |
+| `02-components/` | Átomos y moléculas por familia: `01_headers/` (10 marcas × 4 archivos), `02_banners/banner_moleculas/`, `03_ctas/`, `04_content-modules/`, `06_footer/`. |
 | `03-templates/` | Plantillas armadas. |
 | `04-assets/` | Imágenes y referencias. |
 | `05-docs/` | `ATOMIC-DESIGN.md` (la especificación), `USO-DE-CADA-PARTE.md` (reglas de uso), `GUIA-DE-TEMAS.md`, `COMO-ARMAR-UN-MAIL.md`, `INDICE-DE-COMPONENTES.md`, `CHANGELOG.md`. |
@@ -21,11 +21,21 @@ Si vas a tocar colores, temas, componentes o el Figma del sistema, lee esto ante
 
 **Dos archivos definen los temas y deben cambiarse siempre juntos:** `01-foundations/global-styles/head-meta-tags.html` y `06-examples/template_maestro_original.html`. El resto de componentes solo consume las variables.
 
-### 1.1 · Estructura del mail — HERO y CONTENTS
+### 1.1 · Estructura del mail — las tres secciones
 
-Refactor iniciado el 2026-09-12. El mail se organiza en dos contenedores: **HERO** (parte superior) y **CONTENTS** (interior).
+Refactor iniciado el 2026-09-12 y **cerrado el 2026-09-15**. El mail tiene tres secciones:
 
-**HERO** es la tabla `role="HERO-SECTION"` de 600px, con `background-image` propio, y agrupa en orden: **header · banner · imagen full width** (la imagen es opcional).
+| # | Sección | Contenedor | Contiene |
+|---|---|---|---|
+| 1 | **HERO** | `<table role="HERO-SECTION" width="600">` | header · banner · imagen full width |
+| 2 | **CONTENTS** | `<table role="CONTENTS-SECTION" width="600">` | CTA reglamentario · módulos |
+| 3 | **FOOTER** | — | fuera del `role="paddedcontainer"` |
+
+HERO y CONTENTS son estructuralmente gemelas: `<div style="display:contents;">` envolviendo una tabla de 600px cuya celda lleva `padding:14px 0px 0px 0px` y **el mismo `background-image`**, para que la pieza se lea continua. **La diferencia está en el link:** el HERO va dentro de un solo `<a>`; CONTENTS no, y ahí cada módulo lleva el suyo.
+
+Dentro de CONTENTS va el wrapper de contenidos (`_contenidos_wrapper.html`): tabla de 480px, `class="column column-0"`, con `mobile_paading` en su `<td>`.
+
+**HERO** agrupa en orden: **header · banner · imagen full width** (la imagen es opcional).
 
 ```html
 <a role="horizontal" href="AQUIELLINKDELBANNER" style="text-decoration: none; display: block; ">
@@ -51,7 +61,19 @@ Refactor iniciado el 2026-09-12. El mail se organiza en dos contenedores: **HERO
 
 **Medidas:** el banner vertical creció de 480px a 600px y ganó `border-collapse: collapse;`. El horizontal sigue en 480px. Los 40 headers comparten la misma tabla — `width:100%; max-width: 480px; margin:0 auto;` (32) o eso más `border-radius: 10px; overflow: hidden;` (8) — y su `div id="HEADERn"` lleva `padding: 0px 0px 15px 0px`.
 
-**CONTENTS arrancó el 2026-09-13**, pero todavía **no es una tabla propia**: por ahora es el marcador `<!-- INICIO SECCIÓN CONTENTS -->` y su contenido. **Abre con el CTA reglamentario**, que dejó de ir pegado debajo del banner. Cuando se cree la tabla contenedora en el maestro, replicarla en `estructura_general.html`. **No inventarle estructura antes de que exista allí.**
+**CONTENTS** abre siempre con el CTA reglamentario, que dejó de ir pegado debajo del banner. Dentro, los módulos se apilan separados por la regla de tres niveles:
+
+| Clase | Alto | Separa | ¿Obligatorio? |
+|---|---|---|---|
+| `separador` | 16px | dos **módulos** | **Sí**, siempre que un módulo vaya debajo de otro |
+| `separador-M` | 10px | dos **moléculas** dentro de un módulo | según el módulo |
+| `separador-S` | 4px | dos **elementos** dentro de una molécula | según la molécula |
+
+> ⚠️ **El maestro no demuestra la regla**: tiene 0 usos de `class="separador"` porque es un catálogo, no un mail armado — muestra todos los módulos seguidos sin espaciarlos. La regla vale igual; el sitio donde está bien ilustrada es `estructura_general.html`.
+
+> No confundir `separador-S` (espaciador invisible) con `molecula_separador_s.html` (línea decorativa, `role="molecula-separador"`).
+
+**El bloque de CIERRE ya no existe.** La firma que iba suelta entre el contenido y el footer se eliminó el 2026-09-15: ahora vive dentro del footer, según la variable `firma` (`general` · `turbo` · `pro` · vacío para el bigote).
 
 ---
 
@@ -65,6 +87,25 @@ Refactor iniciado el 2026-09-12. El mail se organiza en dos contenedores: **HERO
 4. El Figma **`PLAYBOOK_MAILS_2026`** — fileKey `RpZ1t207BNfDmlqi2DU1Ic`, página `59359:8658`.
 
 **La regla:** la superficie donde nace el cambio es la fuente de verdad y se propaga a las demás. Código y Figma no pueden divergir en silencio. Ha pasado varias veces y siempre cuesta caro descubrirlo tarde — ver [§8](#8--pendientes-y-decisiones-abiertas).
+
+### 2.1 · Maestro y componentes — en qué dirección se unifica
+
+`template_maestro_original.html` es la **base estructural**: de él salen las secciones, el orden de las piezas y el markup de referencia. Cuando el maestro cambia, el barrido lleva esos cambios a los componentes.
+
+**Pero el maestro no es infalible en el detalle.** A veces el componente tiene la mejor práctica — CSS válido, una variable correcta, un nombre que respeta la convención. En ese caso:
+
+> **Cuando el componente tiene la mejor práctica, se unifica hacia el maestro, no al revés.**
+
+Fijado el 2026-09-15, después de haber hecho lo contrario por omisión: en el primer barrido solo se corrigieron los nombres de link y el resto quedó anotado como "divergencia documentada". Eso deja diferencias vivas que no aportan nada y que el siguiente barrido puede revertir sin querer.
+
+**Cómo aplicarlo sin romper nada:** separa los cambios de higiene de los de comportamiento.
+
+| Tipo | Ejemplos | Qué hacer |
+|---|---|---|
+| **Higiene** — no altera el render | punto y coma faltante, declaración duplicada, espacio de más | Aplicar al maestro sin preguntar |
+| **Comportamiento** — cambia lo que se ve | una variable distinta, un tamaño, un color | Proponer al usuario antes de tocar el maestro |
+
+La lista de lo ya unificado y de lo que sigue divergiendo a propósito está en la entrada del 2026-09-15 de la [bitácora](#9--bitácora).
 
 **Manual en Notion:** `powerful-author-808.notion.site/J-A-R-V-I-S-Mail-System-…`. El conector da 401, así que **nada de lo que sigue está reflejado allí**.
 
@@ -162,6 +203,10 @@ El `<head>` declara `color-scheme: light only` a propósito: el auto-dark de App
 ---
 
 ## 5 · Dark mode
+
+> **Despriorizado desde el 2026-09-14.** Los temas dark **no se van a usar por ahora**: se conservan en el sistema como respaldo, pero no se priorizan en los ajustes. Al tocar variables, poblar los 12 modos dark con lo mínimo para que nada se rompa (copiar el light sirve) y seguir; no inviertas tiempo en derivar valores dark salvo que se pida.
+>
+> **Excepción: las tres variables del footer sí tienen valores dark reales**, derivados el mismo día porque `PREVIEW_DARK` los necesitaba para leerse. Ver [§6.3](#63--footer).
 
 > Esta es la sección que referencian los comentarios de `head-meta-tags.html` y `template_maestro_original.html` (línea 110).
 
@@ -288,6 +333,83 @@ El padding va como override de instancia porque difiere entre dispositivos.
 
 ---
 
+### 6.3 · Footer
+
+Dos component sets en la sección `Ds` de `06 · Organisms` (`1385:2`): **`Footer · Desktop`** (`1387:179`, 640→960px) y **`Footer · Mobile`** (`1389:361`, 640px). **8 variantes cada uno**: `Tipo` (General · Simple) × `Firma` (General · Turbo · Pro · Sin firma).
+
+**La estructura interna NO es la misma en los dos** — no asumas que un arreglo en uno vale para el otro:
+
+| | Escritorio | Mobile |
+|---|---|---|
+| Disposición | Dos columnas: `CELDA` firma + `CELDA` texto/botón | Una sola columna |
+| Bloque de legales | **Hermano** del `COLUMNAS` superior | **Dentro** del `CELDA` |
+| Quitar la parte superior (`Tipo=Simple`) | Se elimina 1 hijo | Se eliminan los 3 primeros hijos del `CELDA` |
+| Alto de las variantes General | Fijo, 314px | Variable (292–323px): el `CELDA` hace hug y cada firma mide distinto |
+
+La corona y el bigote de mobile se reescalaron ×0.897, la razón medida sobre el propio `Cierres_System_Neon` (53.8 / 60), que es el elemento cuyo lugar ocupan.
+
+- **`Tipo`** — General trae la franja superior (firma + botón de WhatsApp); Simple deja solo el bloque de legales. Es la única diferencia: Simple es el mismo componente sin esa `COLUMNAS`.
+- **`Firma`** — General y Turbo son **la misma instancia de `Cierres_System_Neon`**, un component set remoto de 270 variantes (`1378:1275`, key `e664bcad…`), cambiando su propiedad `Mails` entre `PIDELO NEON` y `PIDELO NEON TURBO`. **La instancia se conservó vinculada a propósito**: es lo que permite al usuario elegir el país (`PEDI UN RAPPI…` para Argentina, `PEDE UM RAPPI…` para Brasil, y las variantes Carulla / MiComisariato). Pro y Sin firma no usan ese componente: son vectores propios — la corona `#E2E2E2` y el bigote `#FE3F23` —, fijos, porque en el HTML son assets de imagen y no cambian con el tema.
+
+> Con `Tipo=Simple` la propiedad `Firma` no hace nada: no hay franja superior donde mostrarla. Es una matriz completa a propósito (Figma avisa de conflictos cuando falta una combinación), pero significa que un cambio en los legales hay que hacerlo en 8 variantes, no en 4.
+
+#### El footer NO usa los tokens del tema
+
+Esta es la particularidad que más cuesta si se redescubre. El footer tiene **su propia paleta**, gobernada por `font_style_look` en `02-components/06_footer/footer_general.html` (líneas 5–111), y sus valores **no coinciden** con `texto` / `acento/2` del tema.
+
+| Variable Figma | Espeja | Scope |
+|---|---|---|
+| `footer/texto` (`1384:2`) | `{{color_letra}}` | `TEXT_FILL` |
+| `footer/borde` (`1384:3`) | `{{color_borde_footer}}` | `STROKE_COLOR` |
+| `footer/wa` (`1384:4`) | `{{color_bordewa}}` = `{{color_textwa}}` | `TEXT_FILL` + `STROKE_COLOR` |
+
+| Modo | `footer/texto` | `footer/borde` | `footer/wa` |
+|---|---|---|---|
+| Beige 100 | `#633D11` | `#FE3F23` | `#633D11` |
+| Beige 150 | `#633D11` | `#FE3F23` | `#0DAE09` |
+| Rosa 100 | `#4F145E` | `#FE3F23` | `#0DAE09` |
+| Púrpura 100 | `#4C2B8C` | `#FE3F23` | `#0DAE09` |
+| Celeste 100 | `#0F3749` | `#FE3F23` | `#0DAE09` |
+| **Verde 100** | `#102E14` | **`#102E14`** | `#102E14` |
+| Gris 100 | `#000000` | `#FE3F23` | `#000000` |
+| Pro · Dark neon · Dark Turbo · Dark Neutro · ProBlack | `#9EA1A2` | `#9EA1A2` | `#9EA1A2` |
+
+Cuatro cosas que no se deducen mirando el diseño:
+
+1. **`footer/texto` ≠ `texto` del tema** en cuatro modos: Púrpura (`#4C2B8C` vs `#0B1066`), Verde (`#102E14` vs `#00453E`), Gris (`#000000` vs `#191919`) y Pro (`#9EA1A2` vs `#EEEEEE`).
+2. **Verde 100 es la excepción del borde**: `#102E14`, no el coral `#FE3F23` que usan los otros seis pasteles.
+3. **`footer/wa` no sigue la tipografía**: cuatro pasteles usan `#0DAE09`, el verde de WhatsApp. Es una sola variable porque en las 9 ramas del HTML `color_bordewa` y `color_textwa` valen siempre lo mismo.
+4. **El código no define Dark neon, Dark Turbo, Dark Neutro ni ProBlack** — caen al `else` y salen en gris `#7D8188`. Por decisión del 2026-09-14 en Figma **heredan los valores de Pro** (`#9EA1A2`), no ese gris. Figma y HTML difieren aquí a propósito; ver pendiente #16.
+
+#### Los valores dark (2026-09-14)
+
+Nacieron copiando el light, pero eso dejaba `PREVIEW_DARK` ilegible — `#633D11` sobre `#30281B` da **1.53:1** — así que se derivaron de verdad. **Es la única excepción a la despriorización de dark** ([§5](#5--dark-mode)).
+
+**La regla, en tres líneas:**
+
+1. **`footer/texto`** = el `texto` dark del tema. Dos excepciones donde ese valor no se lee sobre el fondo: **Pro · Dark** usa `#9EA1A2` y **ProBlack · Dark** usa `#191919`, porque en los premium la tipografía del tema está pensada para leerse sobre el contenedor, no sobre el fondo (ver [§5.3](#53--particularidades-que-no-son-errores)).
+2. **`footer/wa`** = lo mismo que `footer/texto`. **El verde de WhatsApp se abandona en dark a propósito**: en 3 de los 4 temas que lo usan no llegaba a 4.5:1. La identidad de marca la sigue cargando el círculo `#4CD822` del icono, que nunca cambia.
+3. **`footer/borde`** = se conserva el valor light si llega a 3:1; si no, coral `#FE3F23`; y donde el coral tampoco llega, el `texto` dark. En la práctica: coral en 10 modos, `#E3D9CB` en Beige 150 (único donde el coral se queda en 2.70:1) y `#9EA1A2` en Pro.
+
+| Modo dark | Fondo | `texto` = `wa` | Contraste | `borde` | Contraste |
+|---|---|---|---|---|---|
+| Beige 100 · Dark | `#30281B` | `#E3D9CB` | 10.42 | `#FE3F23` | 4.12 |
+| Beige 150 · Dark | `#633D11` | `#E3D9CB` | 6.82 | `#E3D9CB` | 6.82 |
+| Rosa 100 · Dark | `#4F145E` | `#FBE8FD` | 11.33 | `#FE3F23` | 3.73 |
+| Púrpura 100 · Dark | `#0B1066` | `#E8E2FB` | 13.05 | `#FE3F23` | 4.65 |
+| Celeste 100 · Dark | `#0F3749` | `#C8E9FE` | 9.95 | `#FE3F23` | 3.58 |
+| Verde 100 · Dark | `#00453E` | `#CDFAD6` | 9.50 | `#FE3F23` | 3.10 |
+| Gris 100 · Dark | `#1D1D1D` | `#F5F5F5` | 15.46 | `#FE3F23` | 4.78 |
+| Dark neon · Turbo · Neutro · Dark | `#FBFBFB` | `#1D1D1D` | 16.29 | `#FE3F23` | 3.41 |
+| Pro · Dark | `#121212` | `#9EA1A2` | 7.20 | `#9EA1A2` | 7.20 |
+| ProBlack · Dark | `#ECEFF3` | `#191919` | 15.24 | `#FE3F23` | 3.06 |
+
+Los 12 pasan AA para texto (≥4.5:1) y el mínimo de 3:1 para el borde. **No tienen respaldo en el HTML** — dark no está implementado ([§4.2](#42--dark-mode-no-está-implementado-en-el-html)) —, así que son especificación de diseño, no espejo del código como sí lo son los valores light.
+
+**El círculo verde `#4CD822` del icono de WhatsApp no se vinculó**: en el HTML es parte del asset `{{walogo}}`, no un color del sistema.
+
+---
+
 ## 7 · Figma — mapa y trampas
 
 ### 7.1 · `Doc-DS-Mails` (`7Rtnl6O6XVdhKjm3Kf8cxo`)
@@ -296,7 +418,9 @@ El padding va como override de instancia porque difiere entre dispositivos.
 
 **La colección de variables `Temas`** (`VariableCollectionId:1270:2`) es la fuente más limpia para cambiar tokens: 20 variables × **24 modos** (12 light + 12 `<Tema> · Dark`). Cambiar un token son 4 llamadas, no un barrido de nodos.
 
-Nombres actuales: `fondo`, `texto`, `acento/1`, `acento/2`, `contenedor/1`, `contenedor/2`, `tag/fondo`, `tag/contenedor`, `tag/texto`, `legales`, `imagen/1`, `imagen/2`, `descuento/fondo`, `descuento/texto`, `creditos/fondo`, `creditos/texto`, `fondo-body/100`, `fondo-body/50`, `cta/fondo`, `cta/texto`.
+Nombres actuales: `fondo`, `texto`, `acento/1`, `acento/2`, `contenedor/1`, `contenedor/2`, `tag/fondo`, `tag/contenedor`, `tag/texto`, `legales`, `imagen/1`, `imagen/2`, `descuento/fondo`, `descuento/texto`, `creditos/fondo`, `creditos/texto`, `fondo-body/100`, `fondo-body/50`, `cta/fondo`, `cta/texto`, `footer/texto`, `footer/borde`, `footer/wa`.
+
+**`footer/texto`, `footer/borde` y `footer/wa`** (creadas el 2026-09-14) son las **únicas del archivo con `codeSyntax`**. Se les puso a propósito: sus nombres no se parecen en nada a los del HTML (`color_letra`, `color_borde_footer`, `color_bordewa`) y esa correspondencia se perdería. También son las primeras con scope `STROKE_COLOR`. Ver [§6.3](#63--footer).
 
 **`cta/fondo` y `cta/texto`** (creadas el 2026-09-13) son las que hacen que el CTA de los previews cambie con el tema. Su valor **no es el mismo que el del badge**: coincide en 9 temas, pero Verde 100 va sin alfa (`#34C85A`), y Pro y ProBlack usan blanco y negro en vez del dorado. En los 12 modos dark el fondo es el `tag/fondo` dark sin alfa y el texto es el `texto` dark del tema — salvo Pro, que necesita `#FFFFFF` porque su `texto` dark (`#191919`) daba 2.12:1 sobre `#71440A`. La fuente de los valores light es `02-components/03_ctas/cta-template.html`.
 
@@ -311,6 +435,9 @@ Nombres actuales: `fondo`, `texto`, `acento/1`, `acento/2`, `contenedor/1`, `con
 | `1344:2` | `05 · Molecules` | Sección `Ds` — contenedor de los componentes de esta página |
 | `1339:3113` / `1339:6164` | `05 · Molecules` → `Ds` | Component sets `Header · Desktop` / `Header · Mobile` |
 | `1371:87` | `04 · Atoms` → `Ds` | Component set `CTA` (10 variantes) |
+| `1385:2` | `06 · Organisms` | Sección `Ds` — creada el 2026-09-14 |
+| `1387:179` / `1389:361` | `06 · Organisms` → `Ds` | Component sets `Footer · Desktop` / `Footer · Mobile` (8 variantes cada uno) |
+| `1380:2201` / `1380:3105` / `1380:3089` / `1380:3070` | `07 · Templates` | Arte de referencia del footer: general · sin firma · Pro · simple |
 | `1333:783` / `1333:798` / `1333:813` | `07 · Templates` | `PREVIEW DESK` / `PREVIEW_MOBILE` / `PREVIEW_DARK` |
 
 > **Mover entre páginas cambia los ids.** Los previews pasaron de `03 · Temas` a `07 · Templates` y sus ids cambiaron por completo (`1315:78/91/104` → `1333:783/798/813`). Mover por script con `appendChild` sí conserva el id — así se movieron los component sets, y por eso sus instancias no se rompieron. Si un id de esta tabla devuelve `null`, busca por nombre antes de darlo por perdido.
@@ -328,6 +455,8 @@ Nombres actuales: `fondo`, `texto`, `acento/1`, `acento/2`, `contenedor/1`, `con
 - **Un hijo `BODY` puede tapar el frame que acabas de corregir.** En los previews mobile del Playbook, los frames `LIGHT`/`DARK` tienen un hijo `BODY` del mismo tamaño con su propio fill. Recolorear solo el padre se ve bien en el árbol de capas y no cambia nada en pantalla.
 - **Redimensionar una instancia con `resize()` deja un override que rompe el cambio de variante.** Pasó con el CTA: la instancia de mobile, redimensionada de 960 a 640, arrastraba un override de ancho en el texto; al pasar a `Small` el pill no podía abrazar y quedaba en 652px, más ancho que su contenedor. La cura es `instance.resetOverrides()` y después dejar que el ancho venga del contenedor (`layoutSizingHorizontal='FILL'`) o reafirmarlo explícitamente. Ojo: `resetOverrides()` también borra el padding y el nombre, hay que volver a ponerlos.
 - **Las medidas leídas justo después de mutar salen en caliente y mienten.** Tras un `setProperties` o un cambio de layout, `width` puede devolver el valor viejo dentro de la misma ejecución. Al leerlo en una llamada nueva aparece el valor real. Costó un rato creer que un wrapper se estiraba a 1200 cuando en frío estaba en 960. Si una medida no cuadra, vuelve a leerla en otra ejecución antes de "arreglarla".
+- **`getNodeByIdAsync` a otra página es poco fiable para nodos profundos.** Clonar un vector que vivía dentro de un frame de `07 · Templates` funcionó al construir el footer de escritorio y devolvió `null` al construir el de mobile, con el mismo código. No lo pelees: clona desde algo que ya esté en la página de destino — la corona y el bigote se tomaron de las variantes de escritorio. Cuando falla, Figma revierte el script entero, así que no queda basura a medio crear.
+- **Helvetica bloquea el texto, no sus colores.** `loadFontAsync({family:'Helvetica'})` falla siempre ("does not exist"), y por eso no se pudo construir el `Alineado` del CTA. Pero **vincular `fills`/`strokes` de un TEXT en Helvetica funciona sin cargar la fuente**: la carga solo hace falta para `characters`, tamaños y re-medido. Al vincular los textos del footer, el error venía de la llamada preventiva a `loadFontAsync`, no de la asignación — quitarla resolvió.
 - **Tras `setExplicitVariableModeForCollection`, la primera captura puede salir con el render viejo.** Verifica con `variable.resolveForConsumer(node)` antes de concluir que el cambio falló.
 - **No todo lo amarillo o dorado es un badge.** En `07 · Templates`, `chip` y `credit-tag` sí; `col-icon` (10 nodos en Pro/ProBlack) y el `block` de `cupon-ticket` no. En `04 · Atoms`, las dos `Ellipse` `#F8D263` de las preview rows tampoco.
 - **Beige 100 y Beige 150 se diferencian en solo dos colores** — Fondo (`#FFF0DD` vs `#F9DFC6`) y Contenedor 1 (`#F2D3AE`@50% vs `#E5B67F`@50%) — más 4 imágenes. Como su tipografía ahora es idéntica, una confusión entre ambos es invisible a cualquier chequeo de tipografía.
@@ -349,21 +478,104 @@ Cabos sueltos marcados y no resueltos: `61927:18241` (fondo dark de la leyenda B
 | 2 | `tag/texto` desactualizado en las variables de Figma vs. el código: Beige100 `#2B2316`, Beige150 `#3D2C1A`, Rosa `#312334`, Púrpura `#2F2C3F`, Celeste `#123344`, Verde `#102E14`, Pro `#191919` — el código dice `#633D11`, `#633D11`, `#4F145E`, `#0B1066`, `#0F3749`, `#CDFAD6`, `#EEEEEE` | `Doc-DS-Mails` | **Requiere decisión** |
 | 3 | `contenedor/2` dark: la hoja `TEMAS_PRVIEW` dice `#D8D9D9` / `#FBFBFB` / `#040404` en invertidos y premium; la variable dice `#000000` @50% en los 12. Sospecha: rellenado en bloque en las tarjetas | `Doc-DS-Mails` | **Requiere decisión** |
 | 4 | Los 3 usos restantes de `bgcolor` con tokens rgba (maestro 1329/1437/1446 y los dos `molecula_tag_*`) | Repo | Pendiente |
-| 5 | En `molecula_creditos` horizontal del maestro, el monto usa las variables de **promo** (`banner_copy_modulo_prom_class`, `_promo_fontsize`, `_promo_lineheight`, `color_descuento_mail_general`). Debería usar las de créditos: esas clases se calculan por el largo del texto | `template_maestro_original.html` | Detectado, sin corregir |
 | 6 | Renombrado de variables de Figma a `fondo_*` / `texto_*` / `acento_*` que propone `sistema-temas-mails.md` §3. `variable.name = nuevo` conserva el ID, así que no rompe vinculaciones | `Doc-DS-Mails` | Propuesto, no hecho |
 | 7 | Contenido aliado: su logo está dibujado a 31px, no a los 50px del grupo 4. Es un wordmark de texto y escalarlo cambiaría el diseño | Figma + docs | **Requiere decisión** |
 | 8 | La línea de `padd_banner` dice "6 temas pastel"; son 7 | `GUIA-DE-TEMAS.md` | Pendiente |
 | 9 | `CHANGELOG.md` no tiene entradas de nada de esto | Repo | Deliberado hasta ahora |
-| 10 | `CONTENTS` existe como marcador y ya contiene el CTA reglamentario, pero **aún no es una tabla contenedora** como sí lo es `HERO-SECTION`. Cuando se cree en el maestro, replicarla en `estructura_general.html` | `template_maestro_original.html` | En curso |
 | 11 | El `<a>` que envuelve el HERO conserva `role="horizontal"`, que era el rol del banner horizontal. Si dentro van a convivir header y ambos tipos de banner, ese atributo queda describiendo algo que ya no es | `template_maestro_original.html` | A definir al meter los banners |
+| 12 | En el header de ejemplo del maestro, el primer cobranding perdió su `class="cobranding-s"` (las otras tres sí la tienen). Confirmado como error; **no se replicó** a los 40 archivos, que la conservan | `template_maestro_original.html` | Sin corregir en el maestro |
 | 13 | **Al componente `CTA` le falta la propiedad `Alineado` (Left/Center)**: el arte de referencia (`FORMATO`, `1358:1017`) usa Helvetica y esa familia no existe en el entorno del MCP, lo que bloquea `textAlignHorizontal` y el re-medido del texto. Se desbloquea duplicando en esa hoja un CTA big con el texto alineado a la izquierda, para clonar de ahí | `Doc-DS-Mails` | **Bloqueado** |
 | 14 | Contraste del CTA: Púrpura 100 en claro da 3.29:1 (`#9F80E5` + `#4C2B8C`), por debajo de AA. El valor viene de `cta-template.html`, así que corregirlo implica tocar el código. Su `texto` de tema (`#0B1066`) daría 5.23:1 | `cta-template.html` + Figma | **Requiere decisión** |
-| 12 | En el header de ejemplo del maestro, el primer cobranding perdió su `class="cobranding-s"` (las otras tres sí la tienen). Confirmado como error; **no se replicó** a los 40 archivos, que la conservan | `template_maestro_original.html` | Sin corregir en el maestro |
+| 16 | **Figma y HTML difieren a propósito en 4 temas.** El HTML no tiene rama para Dark neon, Dark Turbo, Dark Neutro ni ProBlack: caen al `else` y pintan el footer en gris `#7D8188`. En Figma se decidió (2026-09-14) que hereden los valores de Pro `#9EA1A2`. Para cerrarlo hay que **agregar las 4 ramas al `font_style_look`** del HTML | `02-components/06_footer/footer_general.html` + Figma | Divergencia consciente |
+| 17 | El footer de referencia de Pro (`1380:3089`) trae un **tercer párrafo legal** (renovación de la membresía) que el componente no modela: en el HTML depende de `show_legal_tyc`, un interruptor aparte de la firma. Habría que decidir si es otra propiedad del componente o queda fuera | Figma `1387:179` | **Requiere decisión** |
+| 18 | `footer_sinamor.html` asigna `img-firma` en sus 12 ramas de Liquid pero **nunca la pinta**: no hay ningún `{{img-firma}}` en el archivo. O sobra el bloque, o falta el `<img>` | `02-components/06_footer/footer_sinamor.html` | Detectado, sin resolver |
+| 19 | **El footer es el único componente con dark resuelto.** El CTA y los badges tienen valores dark, pero ningún preview dark los ejercita salvo el del footer. Si dark se retoma, revisar que el resto siga el mismo criterio de contraste medido | Figma | Abierto, sin prisa |
+| 20 | **El maestro separa las moléculas del banner con `margin-bottom: 7px`.** Outlook de escritorio ignora `margin` en `<table>`, así que ahí las moléculas se pegan. Los componentes llegaron a usar `padding-bottom` y el 2026-09-15 se revirtieron para no divergir del maestro. Si se confirma el problema en Outlook, hay que cambiar los 12 puntos del maestro **y** los 13 de los componentes a la vez | maestro + `02_banners/banner_moleculas/` | **Requiere decisión** |
+| 21 | El maestro ya no incluye el módulo de imagen de alto fijo en el banner horizontal: quedó el comentario `<!-- MODULO PARA IMG FIJA -->` vacío. El componente `modulo_img_altofijo_horizontal.html` sigue existiendo y documentado. Decidir si se repone en el maestro o se retira el componente | maestro + `02_banners/banner_moleculas/` | Detectado |
+
+**Cerrados** — se conservan porque explican por qué el sistema es como es:
+
+| # | Qué | Dónde | Estado |
+|---|---|---|---|
+| 5 | ~~En `molecula_creditos` horizontal del maestro, el monto usa las variables de **promo**~~ — **resuelto el 2026-09-15**: el maestro pasó a `creditos_class` / `_creditos_fontsize` / `_creditos_lineheight` / `color_creditos_mail_general`, igual que la versión vertical y que el componente | — | Cerrado |
+| 10 | ~~`CONTENTS` no es una tabla contenedora~~ — **resuelto el 2026-09-15**: ya existe como `role="CONTENTS-SECTION"` en el maestro y está replicada en `estructura_general.html` | — | Cerrado |
 
 
 ---
 
 ## 9 · Bitácora
+
+### 2026-09-15 · CONTENTS cierra el refactor, y barrido de componentes
+
+El maestro estrena `role="CONTENTS-SECTION"`, gemela del HERO. Con eso el mail queda en tres secciones y el refactor iniciado el 2026-09-12 se da por cerrado (pendiente #10).
+
+**Barrido completo del maestro contra los 104 componentes.** El cambio de fondo era `display: inline-block` → `display: contents` en los wrappers de módulo (4 archivos). Además: el wrapper de contenidos pasó a `margin:10px auto`, `column-0` y `mobile_paading` en su `<td>`; el contenedor de textos de Deals perdió su `background`; Beneficios ganó `max-width: 480px; margin: 0 auto` y el fondo se movió del `<table>` al `<div>`; y varios ajustes de una línea.
+
+**Tres decisiones del usuario en este barrido:**
+1. **`margin-bottom` gana sobre `padding-bottom`** en las moléculas de banner: manda el maestro. Se revirtieron 13 componentes. Queda anotado como pendiente #20 porque Outlook ignora `margin` en `<table>`.
+2. **`cierre.html` se elimina**, junto con la carpeta `05_closing/`. La firma vive ahora dentro del footer.
+3. **En los nombres de link gana el componente**: se corrigió el maestro a `LINKTITULO` y `LINKMODULLOGOS`, que respetan la convención de un nombre por módulo.
+
+También se resolvió el duplicado `molecula_textom_*` / `molecula_texto_M_*`: se conservó el segundo, que es el nombre del Figma.
+
+**Y se fijó el criterio de dirección:** cuando el componente tiene la mejor práctica, **se unifica hacia el maestro**. En la primera pasada solo se hizo con los nombres de link y el resto quedó documentado como divergencia — criterio inconsistente, corregido el mismo día. Subieron al maestro: los 4 `display: table` sin punto y coma, los 2 `border-radius` duplicados de créditos, y el pendiente **#5** (el monto de créditos del banner horizontal se dimensionaba con las variables de promo). Solo quedan divergiendo los casos donde no hay nada que unificar, y el `margin-bottom` del pendiente #20, que se unificó en sentido contrario por decisión explícita.
+
+`estructura_general.html` se reescribió entero como esqueleto puro: los contenedores que nunca se editan, y en cada hueco un comentario diciendo qué archivo va allí. Documentación actualizada en `README.md`, `01-foundations/README.md`, `02-components/README.md`, `ATOMIC-DESIGN.md` §6.0, `COMO-ARMAR-UN-MAIL.md`, `USO-DE-CADA-PARTE.md`, `INDICE-DE-COMPONENTES.md` y `GUIA-DE-TEMAS.md`.
+
+**Repaso de los banners (misma fecha).** Al podar el ejemplo de los banners quedaron dos residuos de comentario, corregidos: el bloque de promo del horizontal se había quedado **sin su etiqueta** `<!-- MOLECULA PROMOS -->`, y el vertical tenía `<!-- MOLECULA CREDITOS -->` **duplicado**. Además se actualizaron en `ATOMIC-DESIGN.md` §6.1 y §6.2 los dos snippets de banner, que todavía mostraban el `<a>` propio (eliminado en el refactor del HERO) y el vertical en 480px en vez de 600. Y en `01-foundations/README.md` la regla de padding seguía citando el `paddedcontainer` en `20px 15px 0px 15px`, cuando hoy va en `0px`.
+
+**Qué NO cambió con la poda:** los catálogos de moléculas de los READMEs siguen siendo correctos. Listan piezas *insertables*, no el contenido del ejemplo — que el maestro ya no muestre `texto_M` o `textoxl` en el banner horizontal no las retira del sistema.
+
+**Curiosidad que conviene recordar:** el maestro tiene **0 usos de `class="separador"`**, pese a que la regla dice que es obligatorio entre módulos. No es un error: el maestro es un catálogo que muestra todos los módulos seguidos, no un mail armado.
+
+#### Qué se unificó y qué sigue divergiendo
+
+Aplicando el criterio de [§2](#2--cómo-trabajamos), subieron al maestro el 2026-09-15:
+
+| Qué | Dónde estaba mal el maestro | Ahora |
+|---|---|---|
+| Nombres de link | `LINKDEAL` para el título de cupón, `LINKMODULOCOULUMNAS` para logos | `LINKTITULO`, `LINKMODULLOGOS` |
+| `display: table` sin `;` | 2 puntos (promo y créditos horizontal) | `display: table;` en los 4 usos |
+| `border-radius` duplicado | 2 puntos, en créditos horizontal y vertical | una sola declaración |
+| Variables de créditos (pendiente #5) | el monto del banner horizontal se dimensionaba con las variables de **promo** | `creditos_class` / `_creditos_fontsize` / `_creditos_lineheight` / `color_creditos_mail_general` |
+
+Las que **siguen divergiendo a propósito** — si un barrido futuro las detecta, están bien así:
+
+| Componente | El maestro dice | El componente dice | Por qué |
+|---|---|---|---|
+| `molecula_texto_M_horizontal`, `molecula_textoxl_horizontal` | no existen en el banner horizontal | sin `margin: 0 auto` | Ese margin es del centrado vertical; en horizontal no aplica. No hay nada que unificar |
+| `modulo_img_altofijo_horizontal` | el bloque quedó como comentario vacío | conserva el módulo | Ver pendiente #21 |
+| moléculas de banner | `margin-bottom: 7px` | `margin-bottom: 7px` | Ya unificadas **hacia el maestro** por decisión explícita, pese a que `padding` era mejor. Ver pendiente #20 |
+
+### 2026-09-14 · El footer dark se lee
+
+`PREVIEW_DARK` (`1333:813`) ya tenía colocada la instancia de `Footer · Mobile` (`1380:3367`, `Firma=Turbo`), pero salía ilegible: con los modos dark copiando el light, el texto daba **1.53:1** sobre el fondo. Se derivaron valores dark reales para las tres variables en los 12 modos, midiendo contraste en cada uno. Los 12 pasan AA de texto y el mínimo de 3:1 del borde — la tabla y la regla de tres líneas están en [§6.3](#63--footer).
+
+**Es la única excepción a la despriorización de dark**, y se hizo porque el preview lo pedía. Los valores light quedaron intactos: verificado que Beige sigue en `#633D11`, el borde de Verde 100 en `#102E14` y el WhatsApp de Celeste en `#0DAE09`.
+
+**La decisión que más se va a notar:** en dark se abandona el verde de WhatsApp del borde y el texto del botón. En 3 de los 4 temas que lo usan no llegaba a 4.5:1, y la marca la sigue cargando el círculo `#4CD822` del icono, que no cambia nunca.
+
+### 2026-09-14 · Footer mobile y dark despriorizado
+
+Nace `Footer · Mobile` (`1389:361`) con las mismas 8 variantes que escritorio, y el slot de `PREVIEW_MOBILE` pasa a ser instancia (`1390:58`), conservando su `maxWidth: 640`. Verificado en 4 temas (Beige 150, Púrpura 100, Verde 100 y ProBlack): 12 de 12.
+
+**Mobile no es escritorio reescalado**: una sola columna, los legales viven dentro del `CELDA` y el alto de las variantes General varía entre 292 y 323px porque cada firma mide distinto. Ver la tabla comparativa en [§6.3](#63--footer).
+
+**Decisión del día: los temas dark quedan despriorizados.** Se conservan como respaldo en el sistema, pero no se priorizan en los ajustes — anotado al principio de [§5](#5--dark-mode).
+
+**Trampa nueva:** `getNodeByIdAsync` de un nodo profundo en otra página devolvió `null` al construir mobile, cuando el mismo patrón había funcionado para escritorio. Se resolvió clonando la corona y el bigote desde las variantes de escritorio, que ya viven en la página de destino. Figma revirtió el script completo, así que no hubo que limpiar nada.
+
+### 2026-09-14 · El footer pasa a ser componente
+
+Nace `Footer · Desktop` (`1387:179`) en una sección `Ds` nueva de `06 · Organisms` (`1385:2`), con 8 variantes: `Tipo` (General · Simple) × `Firma` (General · Turbo · Pro · Sin firma). El slot del preview de escritorio se reemplazó por una instancia (`1388:61`), que conserva su `maxWidth: 960` y por eso sigue quedando centrada en los 1200 del `AREA_SEGURA`.
+
+**El hallazgo de la tanda:** el footer no consume los tokens del tema. Tiene su propia paleta en `footer_general.html`, gobernada por `font_style_look`, y difiere del tema en cuatro modos. Se decidió que **manda el código**, así que nacieron tres variables que lo espejan — `footer/texto`, `footer/borde` y `footer/wa` — pobladas en los 24 modos. Ver [§6.3](#63--footer) para la tabla y las cuatro rarezas que contiene.
+
+Dos simplificaciones que salieron del análisis: `color_bordewa` y `color_textwa` **siempre valen lo mismo** en las 9 ramas del HTML, así que una sola variable cubre borde y texto del botón; y la instancia de `Cierres_System_Neon` **se conservó vinculada** al component set remoto, que es lo que permite cambiar la firma por país.
+
+Verificado resolviendo los tres colores en 5 temas (Beige 100, Celeste 100, Verde 100, Pro y Gris 100) contra la tabla del HTML: 15 de 15.
+
+Quedó abierto que Figma y HTML difieren a propósito en 4 temas (pendiente #16), que el Pro de referencia trae un legal extra sin modelar (#17), y que falta la versión mobile (#19).
 
 ### 2026-09-14 · El cobranding deja de deformarse
 
@@ -407,7 +619,7 @@ El maestro suma el marcador `<!-- INICIO SECCIÓN CONTENTS -->` y el comentario 
 
 **Cambia una regla del sistema:** el CTA reglamentario ya no va pegado debajo del banner — ahora es el **primer elemento de CONTENTS**. Actualizado en `05-docs/USO-DE-CADA-PARTE.md` (nueva Regla #1 de la sección 4, con las otras tres renumeradas), `05-docs/COMO-ARMAR-UN-MAIL.md`, `05-docs/ATOMIC-DESIGN.md` §6.0 y `06-examples/estructura_general.html`.
 
-CONTENTS todavía **no es una tabla contenedora** como `HERO-SECTION`: es el marcador y su contenido.
+CONTENTS todavía **no es una tabla contenedora** como `HERO-SECTION`: es el marcador y su contenido. *(Resuelto el 2026-09-15 — ver la entrada de ese día.)*
 
 ### 2026-09-13 · HERO completo: banner e imagen full width
 

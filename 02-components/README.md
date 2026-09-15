@@ -86,7 +86,7 @@ Cada archivo contiene únicamente el `<tr>` del header (con su comentario identi
 | `molecula_promo_horizontal.html` / `molecula_promo_vertical.html` | Módulo de promo ("Ahora" + cifra), tamaños inline + tema (`bg_descuento_mail_general`, `color_descuento_mail_general`) |
 | `molecula_creditos_horizontal.html` / `molecula_creditos_vertical.html` | Texto vivo de créditos ("$XXX" + "DE REINTEGRO"), usa `bnr-*` + tema (`bg_creditos_mail_general`, `color_creditos_mail_general`) |
 | `molecula_textoxl_horizontal.html` / `molecula_textoxl_vertical.html` | Texto vivo XL adicional (`banner_copy_modulo_textoxl`), mismo comportamiento de tamaño que `molecula_promo_*` |
-| `molecula_textom_horizontal.html` / `molecula_textom_vertical.html` | Texto vivo `.bnr-md` (`banner_copy_modulo_textom`), tamaño fijo inline (no depende del largo) |
+| `molecula_texto_M_horizontal.html` / `molecula_texto_M_vertical.html` | Texto vivo `.bnr-md` (`banner_copy_modulo_textom`), tamaño fijo inline (no depende del largo) |
 | `molecula_img_automatica_horizontal.html` / `molecula_img_automatica_vertical.html` | Imagen automática (`banner_img_modulo_auto_ancho`) — pieza distinta a `modulo_img_automatica_horizontal.html` |
 | `molecula_cta_interno_horizontal.html` (`cta_alineado: 'left'`) / `molecula_cta_interno_vertical.html` (`cta_alineado: 'center'`) | CTA embebido dentro del banner |
 | `molecula_texto_complementario_horizontal.html` / `molecula_texto_complementario_vertical.html` | Texto de body (`<h4>`) que acompaña al texto destacado del banner — contenido pendiente de insertar manualmente en cada uno, es distinto por orientación |
@@ -186,13 +186,9 @@ El archivo activo es **`deal_columnas.html`**: deals de a pares en una grilla de
 - La card tiene fondo `#202020` con un background-image decorativo encima.
 - Contiene tres componentes que se pueden omitir individualmente: imagen del beneficio, ícono, subtítulo, y texto descriptivo.
 
-### `05_closing/` — La imagen de cierre
+### `05_closing/` — eliminada
 
-| Archivo | Descripción |
-|---------|-------------|
-| `cierre.html` | Tabla de imagen de cierre. Se OMITE si el tema es Pro o ProBlack, o si la fuente dice "sin cierre". |
-
-Las URLs de las imágenes de cierre dependen de la marca del mail. Se eligen desde la base de datos de assets.
+La carpeta y su `cierre.html` se eliminaron el 2026-09-15. La firma "Pídelo por Rappi" que iba suelta entre el contenido y el footer **ahora vive dentro del footer**, gobernada por la variable `firma` (`general` · `turbo` · `pro` · vacío para el bigote). El maestro dejó de incluir el bloque suelto, así que el componente quedó sin uso.
 
 ### `06_footer/` — El pie del mail
 

@@ -54,7 +54,7 @@ Reglas extraídas directamente del HTML maestro. Romperlas rompe Braze, rompe el
 | **Estructura de tablas y divs** | El esqueleto del mail (filas, columnas, módulos) se mantiene siempre en tablas (`<table>/<tr>/<td>`) — es lo que garantiza el render en Outlook y clientes de mail viejos. Los `<div>` se usan solo en casos puntuales: separadores, tags, contenedores redondeados, decoraciones. Nunca reemplazan la estructura de tablas. |
 | **Cero inserción autónoma** | Ya no es una prohibición total: si necesitás un módulo nuevo, partí siempre de la estructura de los módulos existentes — ya están probados y funcionan en la mayoría de dispositivos y clientes de mail. No se inventa desde cero; se adapta lo que ya existe. |
 | **No optimizar el código** | Mantener espacios en blanco, tabulaciones, comentarios y condicionales de Outlook exactamente como están. No "embellecer" el código. |
-| **Padding ya definido — no se inventa** | La tabla general (`role="paddedcontainer"`, padding `20px 15px 0px 15px`) ya alinea todos los módulos entre sí. Cada módulo además tiene su propio padding según tenga o no fondo (`body_container_background_padding`, ver 2.6). No se agregan márgenes/padding ad-hoc por fuera de estos dos sistemas. |
+| **Padding ya definido — no se inventa** | El ancho y el margen lateral los da el **wrapper de contenidos** (480px, con `mobile_paading` en su `<td>`); el `role="paddedcontainer"` general va en `padding: 0px`. Cada módulo además tiene su propio padding interno según tenga o no fondo (`body_container_background_padding`, ver 2.6). No se agregan márgenes/padding ad-hoc por fuera de estos dos sistemas: para separar piezas están los separadores. |
 | **Separadores obligatorios** | Entre dos `role="module"` consecutivos, `<div class="separador"></div>` (16px) — obligatorio. Dentro de un módulo, `<div class="separador-M"></div>` (10px) separa moléculas/componentes y `<div class="separador-S"></div>` (4px) da aire mínimo entre átomos. |
 | **Imágenes desde la TAXONOMÍA** | Las URL de imágenes siempre vienen del Google Sheet TAXONOMÍA ASSETS. No inventar URLs. |
 | **Cierre en Pro/ProBlack** | Si `tema_general_mail_general = 'pro'` o `'problack'`, el cierre (firma RappiFirma) no debería mostrarse — no ocultar con `display:none`, borrar la tabla del HTML. ⚠ Auditoría de código: `template_maestro_original.html` hoy NO implementa esta exclusión — el CIERRE se renderiza igual para los 12 temas, sin condicional. Pendiente de confirmar si la regla sigue vigente o si hay que actualizar el HTML maestro. |
@@ -228,13 +228,17 @@ Las clases `.txts` y `.txtl` ya no existen en el sistema — se quitaron de `glo
 
 ### 2.4 · Separadores y spacing
 
-Divs vacíos con altura fija. Se insertan entre y dentro de módulos para crear ritmo visual. Esto es distinto del padding del sistema: la tabla general (`role="paddedcontainer"`, padding `20px 15px 0px 15px`) ya alinea todos los módulos, y cada módulo tiene su propio padding según tenga o no fondo (`body_container_background_padding`, ver 2.6) — no se agregan márgenes/padding nuevos por fuera de esos dos sistemas para lograr espaciado; para eso están los separadores.
+Divs vacíos con altura fija. **Son el único mecanismo válido para separar piezas**: no se agregan márgenes ni paddings nuevos por fuera del sistema para lograr espaciado. Lo que ya existe y no se toca es el ancho del wrapper de contenidos (480px con `mobile_paading`) y el padding interno de cada módulo según tenga o no fondo (`body_container_background_padding`, ver 2.6). El `role="paddedcontainer"` general va hoy en `padding: 0px`.
 
-| Clase | Tamaño | Cuándo se usa | Módulos donde se usa |
+**Tres niveles, tres clases** — la jerarquía es módulo → molécula → elemento:
+
+| Clase | Tamaño | Separa | ¿Obligatorio? |
 |---|---|---|---|
-| `.separador` | 16px | Entre dos `role="module"` consecutivos del mismo tipo. Obligatorio. También se usa como separador de nivel superior entre banner y CTA, entre CTA y el wrapper de contenido (doble, 32px), y antes del cierre. | Cierre (05_closing), banner→CTA, CTA→contenido |
-| `.separador-M` | 10px | Entre dos `role="componente"` dentro del mismo módulo. | 1 Columna |
-| `.separador-S` | 4px | Spacing muy fino para casos especiales. | 3 Columnas, Beneficios, Bullet (+ variantes S/M/L), Bullet numerado, Cupones, Título — 7 módulos |
+| `.separador` | 16px | dos **MÓDULOS** de contenido | **Sí.** Siempre que insertes un módulo debajo de otro, sin excepción |
+| `.separador-M` | 10px | dos **MOLÉCULAS** dentro de un módulo | Según el módulo (p. ej. 1 Columna) |
+| `.separador-S` | 4px | dos **ELEMENTOS** dentro de una molécula | Según la molécula (3 Columnas, Beneficios, Bullet y sus variantes, Bullet numerado, Cupones, Título) |
+
+Si quitas una pieza, quita también su separador: si no, queda un hueco doble.
 
 Catálogo de referencia (snippet HTML de los 3, con comentario identificador por tamaño) ◀ NUEVO: `02-components/04_content-modules/content_moleculas/molecula_separadores.html` y `02-components/02_banners/banner_moleculas/molecula_separadores.html` — mismo contenido, uno por contexto. No confundir con `content_moleculas/molecula_separador_s.html`, que es una línea decorativa (`role="molecula-separador"`), no un espaciador.
 

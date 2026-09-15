@@ -1,46 +1,77 @@
 <!doctype html>
 <html>
 
-<!--en este espacio se llama: global-styles.html con todo el head y css   -->
+<!-- ============================================================================
+     ESTRUCTURA GENERAL DEL MAIL — esqueleto
+
+     Este archivo es el ANDAMIO, no un mail armado. Contiene:
+       · los contenedores que siempre existen y nunca se editan
+       · un comentario en cada hueco diciendo QUÉ componente se inserta allí
+
+     Todo lo que vive como archivo aparte en 02-components/ se ha quitado y
+     reemplazado por su comentario. Para armar un mail real: copia este
+     esqueleto y pega dentro de cada hueco el archivo que corresponda.
+
+     El mail tiene TRES SECCIONES, en este orden:
+       1 · HERO      header + banner + imagen full width      (dentro de un solo <a>)
+       2 · CONTENTS  el CTA reglamentario + los módulos de contenido
+       3 · FOOTER    fuera de las dos anteriores
+
+     Referencia viva: 06-examples/template_maestro_original.html
+     ============================================================================ -->
+
+<!-- en este espacio se llama: global-styles.html con todo el head y css -->
 
 <body>
 
-<!-- INICIO SECCION BANNER -->
-
-<center class="wrapper" data-link-color="#fe3f23" data-body-style="font-size:14px; font-family:arial,helvetica,sans-serif; background-color:{{bg_solid_mail_general}};" >
+<center class="wrapper" data-link-color="#fe3f23" data-body-style="font-size:14px; font-family:arial,helvetica,sans-serif; background-color:{{bg_solid_mail_general}};">
   <div class="webkit">
     <table cellpadding="0" cellspacing="0" border="0" width="100%" class="wrapper" bgcolor="{{bg_solid_mail_general}}">
       <tr>
-        <td valign="top" bgcolor="{{bg_solid_mail_general}}" width="100%" style="background-image: url({{bg_img_mail_general}}); background-size: {{bg_img_size_mail_general}}; background-position: center top; background-repeat: repeat-x;"><table width="100%" role="content-container" class="outer" align="center" cellpadding="0" cellspacing="0" border="0">
+
+        <!-- fondo general del mail: color sólido + imagen de tema -->
+        <td valign="top" bgcolor="{{bg_solid_mail_general}}" width="100%" style="background-image: url({{bg_img_mail_general}}); background-size: {{bg_img_size_mail_general}}; background-position: center top; background-repeat: repeat-x;">
+          <table width="100%" role="content-container" class="outer" align="center" cellpadding="0" cellspacing="0" border="0">
             <tr>
-              <td class="fondomobile" width="100%" style="background-image: url({{bg_imgevento_mail_general}}); background-size: 100% auto; background-position: center top; background-repeat: no-repeat"><table width="100%" cellpadding="0" cellspacing="0" border="0">
+
+              <!-- capa opcional de imagen de evento, por encima del fondo de tema -->
+              <td class="fondomobile" width="100%" style="background-image: url({{bg_imgevento_mail_general}}); background-size: 100% auto; background-position: center top; background-repeat: no-repeat">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
-                    <td><!-- IMPORTANTE: en el html final siempre debe estar el siguiente comentario  --> 
+                    <td>
+
+                      <!-- IMPORTANTE: en el html final siempre debe estar el siguiente comentario -->
                       <!--[if mso]>
-    <center>
-    <table><tr><td width="600">
-  <![endif]-->
-                      
+                      <center>
+                      <table><tr><td width="600">
+                      <![endif]-->
+
                       <table width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%; max-width:600px; " align="center" bgcolor="">
                         <tr>
-                          <td style="padding:0px 0px 0px 0px; text-align:left;" bgcolor="" width="100%" align="left"><!-- CONTENEDOR GENERAL -->
-                            
-                            <table role="paddedcontainer" border="0" cellpadding ="0" cellspacing="0" align="center" width="100%" data-type="columns" style="padding:0px 0px 0px 0px;" bgcolor="">
+
+                          <!-- CONTENEDOR GENERAL -->
+                          <td style="padding:0px 0px 0px 0px; text-align:left;" bgcolor="" width="100%" align="left">
+
+                            <table role="paddedcontainer" border="0" cellpadding="0" cellspacing="0" align="center" width="100%" data-type="columns" style="padding:0px 0px 0px 0px;" bgcolor="">
                               <tbody>
                                 <tr>
-                                  <td height="100%" valign="top"><!--en este espacio se llama: global-styles.html con todo el head y css   --> 
+                                  <td height="100%" valign="top">
 
-                                    <!-- ================= HERO SECTION =================
-                                         Contenedor de la parte superior del mail. Contiene,
-                                         en este orden: header · banner · imagen full width.
 
-                                         El <a> envuelve TODO el HERO: ninguno de sus
-                                         componentes lleva link propio. El <div> interno usa
-                                         display:contents para no romper el layout de tablas.
+                                    <!-- ═══════════════════════════════════════════════
+                                         1 · HERO SECTION
+                                         ═══════════════════════════════════════════════
+                                         La parte superior del mail. Contiene, en este orden:
+                                         header · banner · imagen full width.
 
-                                         Los banners van dentro de un <div class="mobile_paading">
-                                         que les da el padding lateral en mobile. La imagen full
-                                         width NO lo lleva: debe ocupar los 600px completos. -->
+                                         · El <a> envuelve TODO el HERO: ninguno de sus
+                                           componentes lleva link propio (dos <a> anidados
+                                           no son válidos).
+                                         · El <div> usa display:contents para no romper el
+                                           layout de tablas.
+                                         · Los banners van dentro de un <div class="mobile_paading">,
+                                           que les da el padding lateral en mobile. La imagen
+                                           full width NO lo lleva: ocupa los 600px completos. -->
 
                                     <a role="horizontal" originalsrc="AQUIELLINKDELBANNER" data-auth="NotApplicable" rel="noopener noreferrer" target="_blank" href="AQUIELLINKDELBANNER" data-linkindex="0" style="text-decoration: none; display: block; ">
                                     <div style="display:contents;">
@@ -48,33 +79,33 @@
                                       <table role="HERO-SECTION" width="600" style="width:600px; border-spacing:0; margin:0px;  border-collapse: collapse; word-break: break-all; " cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-1">
                                         <tbody>
                                           <tr>
-                                            <!-- el background-image es reemplazable; es el fondo del bloque superior -->
+
+                                            <!-- el background-image es reemplazable: es el fondo del bloque superior -->
                                             <td style="padding:14px 0px 0px 0px;margin:0px;border-spacing:0; vertical-align: middle; background-image: url(https://lh3.googleusercontent.com/d/1neHPofSevbcNLyO2pymbZk6QHZSrJO5-); background-size: 100% auto; background-position: center top;overflow: hidden;">
 
-                                              <!-- 1 · CONTENEDOR HEADER
-                                                   Dentro va la celda del header que se requiera: VARIANTE HEADER
-                                                   (uno de los 40 archivos de 02-components/01_headers/) -->
+                                              <!-- 1.1 · CONTENEDOR HEADER
+                                                   Esta tabla se conserva siempre; dentro va UNA
+                                                   celda de header. -->
                                               <table width="600" style="width:600px; border-spacing:0; margin:14px 0px 0px 0px; " cellpadding="0" cellspacing="0" align="center" border="0" bgcolor="" class="column column-1">
                                                 <tbody>
 
-                                                  <!-- AQUI VA EL HEADER -->
+                                                  <!-- ▸ AQUÍ VA EL HEADER
+                                                       Uno solo de los 40 archivos de 02-components/01_headers/
+                                                       Ruta: 01_headers/<marca>/<centrado|columnas>-<claro|oscuro>.html
+                                                       La marca fija el tamaño; no se elige. -->
 
                                                 </tbody>
                                               </table>
 
-                                              <!-- 2 · BANNER
-                                                   Se usa UNO de los dos, no ambos:
+                                              <!-- ▸ AQUÍ VA EL BANNER
+                                                   UNO de los dos, nunca ambos:
                                                    · 02-components/02_banners/big-banner-horizontal.html  (tabla de 480px)
                                                    · 02-components/02_banners/big-banner-vertical.html    (tabla de 600px)
                                                    Cada archivo ya trae su propio <div class="mobile_paading">. -->
 
-                                              <!-- AQUI VA EL BANNER (horizontal o vertical) -->
-
-                                              <!-- 3 · IMAGEN FULL WIDTH
+                                              <!-- ▸ AQUÍ VA LA IMAGEN FULL WIDTH
                                                    02-components/02_banners/imagen-full-width.html
                                                    Opcional. Sin mobile_paading: ocupa los 600px completos. -->
-
-                                              <!-- AQUI VA LA IMAGEN FULL WIDTH -->
 
                                             </td>
                                           </tr>
@@ -83,67 +114,150 @@
 
                                     </div>
                                     </a>
-
-                                    <!-- ================= FIN HERO SECTION ================= -->
-
-                                    <!-- ================= INICIO SECCIÓN CONTENTS =================
-                                         Contenedor del interior del mail. Todavía NO existe como
-                                         tabla propia en template_maestro_original.html: por ahora
-                                         es el marcador y su contenido. Cuando se cree la tabla
-                                         allí, replicarla aquí. -->
-
-                                    <!-- CTA REGLAMENTARIO — abre la sección CONTENTS.
-                                         Ya NO va pegado debajo del banner: el banner vive dentro
-                                         del HERO y el CTA es el primer elemento de CONTENTS.
-                                         02-components/03_ctas/cta-llamado.html define las 4
-                                         variables y luego invoca el content block del botón.
-                                         Se puede eliminar si la fuente no lo pide. -->
-
-                                    <!-- AQUI VA EL CTA REGLAMENTARIO -->
-
-                                    <!-- siempre entre un módulo y otro agregar un separador -->
+                                    <!-- ═══════ FIN HERO SECTION ═══════ -->
 
 
-                                    
-                                        <!-- WRAPPER DE CONTENIDOS:
+                                    <!-- ═══════════════════════════════════════════════
+                                         2 · CONTENTS SECTION
+                                         ═══════════════════════════════════════════════
+                                         El interior del mail. A diferencia del HERO, NO va
+                                         envuelta en un <a>: aquí cada módulo decide si es
+                                         clickeable y lleva su propio <a href="LINKMODULO">. -->
 
--dentro se inserta cada contenido, entre un contenido y otro se debe insertar un div  <div class="separador"></div>
+                                    <div style="display:contents;">
 
--aca pueden ir los contenidos:
--TITLE
--CTA 
--DEALS 
--LOGOS							  
--CUPONES							  
--BENEFICIOS
--CONTENEDORES DE 1 COLUMNA
--DOS COLUMNAS
--TRES COLUMNAS
+                                      <table role="CONTENTS-SECTION" width="600" style="width:600px; border-spacing:0; margin:0px;  border-collapse: collapse; word-break: break-all; " cellpadding="0" cellspacing="0" align="left" border="0" bgcolor="" class="column column-1">
+                                        <tbody>
+                                          <tr>
 
--->
-									  
-                                  
-                                 <!-- CIERRES --> 
-									
-									</td>
+                                            <!-- mismo fondo que el HERO, para que la pieza se lea continua -->
+                                            <td style="padding:14px 0px 0px 0px;margin:0px;border-spacing:0; vertical-align: middle; background-image: url(https://lh3.googleusercontent.com/d/1neHPofSevbcNLyO2pymbZk6QHZSrJO5-); background-size: 100% auto; background-position: center top; overflow: hidden;">
+
+                                              <!-- 2.1 · WRAPPER DE CONTENIDOS
+                                                   02-components/04_content-modules/_contenidos_wrapper.html
+                                                   Tabla de 480px centrada. Su <td> lleva mobile_paading:
+                                                   de ahí sale el margen lateral en mobile. No se edita:
+                                                   solo se le insertan cosas dentro. -->
+                                              <table width="480" style="width:480px; border-spacing:0; margin:10px auto; word-break: break-all; margin: 0 auto; " cellpadding="0" cellspacing="0" align="center" border="0" bgcolor="" class="column column-0">
+                                                <tbody>
+                                                  <tr>
+                                                    <td class="mobile_paading" style="padding:0px;margin:0px;border-spacing:0;">
+
+                                                      <!-- ▸ AQUÍ VA EL CTA REGLAMENTARIO
+                                                           02-components/03_ctas/cta-llamado.html
+                                                           Obligatorio y SIEMPRE el primer elemento de CONTENTS.
+                                                           Ya no va pegado debajo del banner: el banner vive
+                                                           dentro del HERO. -->
+
+                                                      <!-- ▸ AQUÍ VAN LOS MÓDULOS DE CONTENIDO
+                                                           Se apilan uno debajo de otro, en el orden que pida
+                                                           la fuente, SIEMPRE con un separador de por medio.
+
+                                                           Módulos disponibles (02-components/04_content-modules/):
+                                                             · title/modulo-titulo.html
+                                                             · bullet/modulo_bullet.html
+                                                             · 1columna/modulo-1columna.html
+                                                             · 2columnas/modulo-2-columnas.html
+                                                             · 3columnas/modulo-3-columnas.html
+                                                             · benefits/modulo-beneficios.html
+                                                             · deals/deal_columnas.html
+                                                             · coupons/cupones-modulo.html
+                                                             · logos/modulo-logos.html
+                                                           Y CTAs adicionales con 03_ctas/cta-llamado.html.
+
+                                                           ───────────────────────────────────────────────
+                                                           REGLA DE SEPARADORES — los tres niveles
+                                                           ───────────────────────────────────────────────
+                                                           <div class="separador"></div>    16px
+                                                               Entre dos MÓDULOS de contenido.
+                                                               OBLIGATORIO: siempre que insertes un módulo
+                                                               debajo de otro.
+
+                                                           <div class="separador-M"></div>  10px
+                                                               Entre dos MOLÉCULAS dentro de un módulo.
+
+                                                           <div class="separador-S"></div>   4px
+                                                               Entre dos ELEMENTOS dentro de una molécula.
+
+                                                           Los tres son divs vacíos que solo aportan altura;
+                                                           las clases están en global-styles.html. Si quitas
+                                                           una pieza, quita también su separador.
+
+                                                           No confundir con molecula_separador_s.html, que es
+                                                           una línea decorativa (role="molecula-separador"),
+                                                           no un espaciador.
+                                                           ───────────────────────────────────────────────
+
+                                                           Ejemplo del patrón:
+
+                                                             [ módulo título ]
+                                                             <div class="separador"></div>
+                                                             [ módulo deals ]
+                                                             <div class="separador"></div>
+                                                             [ módulo cupones ]
+                                                      -->
+
+                                                    </td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+
+                                    </div>
+                                    <!-- ═══════ FIN CONTENTS SECTION ═══════ -->
+
+
+                                  </td>
                                 </tr>
                               </tbody>
                             </table>
-                            
-                            <!-- FOOTER --></td>
+
+                            <!-- ═══════════════════════════════════════════════
+                                 3 · FOOTER
+                                 ═══════════════════════════════════════════════
+                                 Va FUERA del role="paddedcontainer" y fuera de HERO
+                                 y CONTENTS, pero dentro de la tabla de 600px. Esa
+                                 ubicación es obligatoria, no es casual.
+
+                                 Se conserva siempre completo: si la fuente no dice
+                                 nada, se deja tal cual está en la base.
+
+                                 Las variables de abajo lo gobiernan:
+                                   font_style_look   color del footer, por tema
+                                   firma             general | turbo | pro | (vacío = sin firma)
+                                   show_legal_*      qué bloques legales se muestran -->
+
+                            {% assign cond = '' %}
+                            {% assign font_style_look = 'beige100' %}
+                            {% assign show_legal_tyc = true %}
+                            {% assign firma = 'general' %}
+                            {% assign show_legal_turbo = true %}
+                            {% assign show_legal_liquor = true %}
+
+                            {{content_blocks.${FOOTER_q1_2024_legales}}}
+
+                          </td>
                         </tr>
                       </table>
-                      
+
                       <!--[if mso]>
-                                  </td>
-                                </tr>
-                              </table>
-                            </center>
-                            <![endif]--></td>
+                      </td>
+                      </tr>
+                      </table>
+                      </center>
+                      <![endif]-->
+
+                    </td>
                   </tr>
-                </table></td>
+                </table>
+              </td>
             </tr>
-          </table></td>
+          </table>
+        </td>
       </tr>
     </table>
   </div>

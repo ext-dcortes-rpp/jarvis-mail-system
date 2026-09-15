@@ -137,7 +137,7 @@ Usado por los 8 módulos de `04_content-modules/` que envuelven contenido en un 
 - `bg_header_mail_general` (fondo del header) y `bg_img_mail_general` / `bg_img_size_mail_general` (fondo del wrapper general) hoy se asignan en grupos de temas distintos — pastel tiene uno, oscuros/premium tienen el otro. Falta unificar ambos para que los 12 temas definan ambas variables.
 - `bg_rgb_mail_general` se agregó en los 12 temas pero todavía no se consume en ningún componente del HTML — queda listo para el día que algún módulo necesite transparencia sobre `bg_solid_mail_general`.
 - El repositorio ya no tiene un archivo de "esqueleto" propio (`opening.html`/`closing.html`) que abra/cierre el `<body>` y el wrapper general — quien ensambla el mail debe aplicar `bg_solid_mail_general` (y las demás variables de fondo) directamente donde corresponda.
-- El resto de los componentes (`02_banners/`, `04_content-modules/`, `04_content-modules/coupons/`, `05_closing/`) también tienen comentarios internos con lógica condicional propia por tema; migrarlos a leer directamente las variables de esta guía es un trabajo pendiente, componente por componente.
+- El resto de los componentes (`02_banners/`, `04_content-modules/`, `04_content-modules/coupons/`) también tienen comentarios internos con lógica condicional propia por tema; migrarlos a leer directamente las variables de esta guía es un trabajo pendiente, componente por componente.
 - `06-examples/template_maestro_original.html` sí ya consume estas variables (`{{bg_solid_mail_general}}`, etc.) en el wrapper general — es la referencia de a dónde debe llegar el resto del sistema.
 
 ---

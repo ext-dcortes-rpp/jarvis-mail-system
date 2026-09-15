@@ -33,11 +33,11 @@ Más el archivo `_header-wrapper.html` (la envolvente común a los 40 anteriores
 
 `banner-editorial.html` y `_banner-section-close.html` se eliminaron del sistema. Las piezas internas del banner viven en `02-components/02_banners/banner_moleculas/` (23 archivos actualmente):
 - **MODULOS** fijos (se conservan tal cual en `big-banner-*.html`, no son MOLECULAS): `modulo_tags_horizontal/vertical`, `modulo_img_altofijo_horizontal/vertical`, `modulo_img_automatica_horizontal` (distinta de `molecula_img_automatica_*`).
-- **MOLECULAS** de `MODULO MOLECULAS`, nombre `molecula_*` para ambos banners: `molecula_creditos`, `molecula_promo`, `molecula_textoxl`, `molecula_textom`, `molecula_img_automatica`, `molecula_cta_interno`, `molecula_texto_complementario`, cada uno en `_horizontal`/`_vertical`. (Renombradas de `atomo_*` — el Figma del sistema de diseño también movió esta sección de la página Atoms a la página Molecules.)
+- **MOLECULAS** de `MODULO MOLECULAS`, nombre `molecula_*` para ambos banners: `molecula_creditos`, `molecula_promo`, `molecula_textoxl`, `molecula_texto_M`, `molecula_img_automatica`, `molecula_cta_interno`, `molecula_texto_complementario`, cada uno en `_horizontal`/`_vertical`. (Renombradas de `atomo_*` — el Figma del sistema de diseño también movió esta sección de la página Atoms a la página Molecules.)
 - `molecula_texto_complementario_horizontal.html` / `_vertical.html` reemplazan al viejo `modulo_texto_complementario.html` (sin sufijo, ya eliminado) — contenido pendiente de insertar manualmente en cada uno.
 - `molecula_separadores.html` ◀ NUEVO — catálogo de referencia (no combinable) con los 3 spacers `.separador`/`.separador-M`/`.separador-S`. Tiene un par idéntico en `content_moleculas/`.
 
-⚠️ **Posible duplicado sin resolver:** además de `molecula_textom_horizontal.html` / `molecula_textom_vertical.html` (los documentados arriba), también existen `molecula_texto_M_horizontal.html` / `molecula_texto_M_vertical.html` con contenido idéntico. El Figma del sistema documenta la tarjeta como "atomo_texto_M" (ahora molécula), lo que sugiere que `_textom` es el sobrante de una renombrada a medias — pendiente que el equipo lo confirme y borre el archivo que no corresponda.
+✓ **Duplicado resuelto (2026-09-15):** existían `molecula_textom_*` y `molecula_texto_M_*` byte-idénticos. Se conservó **`molecula_texto_M_*`**, el nombre que usa la tarjeta del Figma (`atomo_texto_M`), y se eliminaron los `molecula_textom_*`.
 
 (`modulo_img_variable` y `modulo_texto_secundario` se eliminaron por no ser necesarios.)
 
@@ -84,7 +84,7 @@ De a pares en una grilla de 2 celdas (50/50); si la cantidad es impar, se elimin
 
 | Componente | Archivo | Líneas en HTML original |
 |------------|---------|------------------------|
-| Imagen de cierre | `02-components/05_closing/cierre.html` | 2590-2600 |
+| ~~Imagen de cierre~~ | *eliminada el 2026-09-15 — la firma vive dentro del footer* | — |
 
 ## Footer · 1 brick, 4 archivos (1 orquestador + 3 variantes)
 
@@ -117,7 +117,7 @@ De a pares en una grilla de 2 celdas (50/50); si la cantidad es impar, se elimin
 - 1 cierre
 - 1 footer (3 variantes: general, sin amor, rts)
 
-**Total de archivos en `02-components/`: 105** (41 en `01_headers/` + 25 en `02_banners/` (incluye `banner_moleculas/`) + 2 en `03_ctas/` + 32 en `04_content-modules/` (incluye `content_moleculas/`, grillas de logos, backups de deals) + 1 en `05_closing/` + 4 en `06_footer/`)
+**Total de archivos en `02-components/`: 104** (41 en `01_headers/` + 24 en `02_banners/` (incluye `banner_moleculas/`) + 3 en `03_ctas/` + 32 en `04_content-modules/` (incluye `content_moleculas/`, grillas de logos, backups de deals) + 4 en `06_footer/`). El 2026-09-15 se eliminaron tres archivos: `05_closing/cierre.html` y los dos duplicados `molecula_textom_*`.
 
 **Total de archivos de foundations: 2**
 
